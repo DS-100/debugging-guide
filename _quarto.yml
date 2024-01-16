@@ -1,0 +1,39 @@
+
+project:
+    type: book
+    output-dir: docs
+
+book:
+    favicon: data100_logo.png
+    title: "Data 100 Debugging Guide"
+    image: data100_logo.png
+    author: ["Yash Dave", "Lillian Weng"]
+    repo-url: https://github.com/DS-100/course-notes
+    search: 
+      location: sidebar
+      type: textbox
+    chapters:
+        - index.md
+        # - general_jupyter.qmd
+        # - jupyter_shortcuts.qmd
+        # - autograder_gradescope.qmd
+        # - pandas_errors.qmd
+    
+    sidebar:
+        logo: "data100_logo.png"
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 5
+    callout-icon: false
+  pdf: default
+        
+
+#   navbar:
+#     search: false
+#     right:
+#       - icon: github
+#         href: https://github.com/
+#         aria-label: GitHub
+#       - icon: arrows-fullscreen

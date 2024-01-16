@@ -1,0 +1,14 @@
+/.quarto/
+
+# Notebook Checkpoints
+.ipynb_checkpoints/
+
+# macOS files
+.DS_Store
+__MACOSX/
+
+# Site build
+_site/*
+
+# Python byte-compiled cache
+__pycache__/
