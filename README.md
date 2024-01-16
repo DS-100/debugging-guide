@@ -1,4 +1,4 @@
-# course-notes
+# Debugging Guide
 
 # Guide to Quarto Installation & Use
 ## Quarto Set-Up
