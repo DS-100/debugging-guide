@@ -8,7 +8,7 @@ book:
     title: "Data 100 Debugging Guide"
     image: data100_logo.png
     author: ["Yash Dave", "Lillian Weng"]
-    repo-url: https://github.com/DS-100/course-notes
+    repo-url: https://github.com/DS-100/debugging-guide
     search: 
       location: sidebar
       type: textbox
@@ -18,6 +18,7 @@ book:
         # - jupyter_shortcuts.qmd
         # - autograder_gradescope.qmd
         # - pandas_errors.qmd
+        # - projA2_errors.qmd
     
     sidebar:
         logo: "data100_logo.png"
