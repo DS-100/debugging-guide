@@ -14,7 +14,7 @@ jupyter: python3
 ---
 
 ::: {.callout-note collapse="false"}
-**Note**: if you're using a Macbook, please replace `ctrl` with `cmd`
+**Note**: if you're using a MacBook, please replace `ctrl` with `cmd`
 :::
 
 ## Shortcuts for Cells
@@ -36,12 +36,21 @@ For individual cells,
 
 To run all cells in a notebook: 
 
-1. In the menu bar on the left, click `Run`. From here, you have several selections:
-    1.1 `Rn All Above Selected Cell`
-    1.2 `Run Selected Cell and All Below` 
-    1.3 `Run All`
+- In the menu bar on the left, click `Run`. From here, you have several options. The ones we use most commonly are:
 
-[TODO] add a gif/video ?
+    - `Run All Above Selected Cell`: this runs every cell above the selected cell 
+    - `Run Selected Cell and All Below`: this runs the selected cell and all cells below
+    - `Run All`: this runs every cell in the notebook from top-to-bottom
+ 
+<center><img src = "run_all.gif" width = "500"></img></a></center>
 
+## Restarting Kernel
+In the menu bar on the left, click `Kernel`. From here, you have several options. The ones we use most commly are: 
+
+- `Restart Kernel...`
+- `Restart Kernel and Run up to Selected Cell`
+- `Restart Kernel and Run All Cells` 
+
+<center><img src = "kernel.gif" width = "500"></img></a></center>
 
 

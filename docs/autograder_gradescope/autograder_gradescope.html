@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Yash Dave">
-<meta name="author" content="Lillian Weng">
 
-<title>Data 100 Debugging Guide</title>
+<title>Data 100 Debugging Guide - 3&nbsp; Autograder and Gradescope Troubleshooting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,24 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./jupyter_shortcuts/jupyter_shortcuts.html" rel="next">
-<link href="./data100_logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../pandas/pandas.html" rel="next">
+<link href="../datahub/datahub.html" rel="prev">
+<link href="../data100_logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -82,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">About</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../autograder_gradescope/autograder_gradescope.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Autograder and Gradescope Troubleshooting</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -96,11 +95,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./data100_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../data100_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Data 100 Debugging Guide</a> 
+      <a href="../">Data 100 Debugging Guide</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/DS-100/debugging-guide" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -115,37 +114,37 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./jupyter_shortcuts/jupyter_shortcuts.html" class="sidebar-item-text sidebar-link">
+  <a href="../jupyter_shortcuts/jupyter_shortcuts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Jupyter Shortcuts</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datahub/datahub.html" class="sidebar-item-text sidebar-link">
+  <a href="../datahub/datahub.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datahub Troubleshooting</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./autograder_gradescope/autograder_gradescope.html" class="sidebar-item-text sidebar-link">
+  <a href="../autograder_gradescope/autograder_gradescope.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Autograder and Gradescope Troubleshooting</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pandas/pandas.html" class="sidebar-item-text sidebar-link">
+  <a href="../pandas/pandas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Pandas Troubleshooting</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./projA2/projA2.html" class="sidebar-item-text sidebar-link">
+  <a href="../projA2/projA2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Project A2 Common Questions</span></span></a>
   </div>
 </li>
@@ -159,7 +158,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
+  <li><a href="#autograder" id="toc-autograder" class="nav-link active" data-scroll-target="#autograder"><span class="header-section-number">3.1</span> Autograder</a>
+  <ul>
+  <li><a href="#why-do-i-get-an-error-saying-grader-is-not-defined" id="toc-why-do-i-get-an-error-saying-grader-is-not-defined" class="nav-link" data-scroll-target="#why-do-i-get-an-error-saying-grader-is-not-defined"><span class="header-section-number">3.1.1</span> Why do I get an error saying “<code>grader is not defined</code>”?</a></li>
+  <li><a href="#im-positive-i-have-the-right-answer-but-the-test-fails.-is-there-a-mistake-in-the-test" id="toc-im-positive-i-have-the-right-answer-but-the-test-fails.-is-there-a-mistake-in-the-test" class="nav-link" data-scroll-target="#im-positive-i-have-the-right-answer-but-the-test-fails.-is-there-a-mistake-in-the-test"><span class="header-section-number">3.1.2</span> I’m positive I have the right answer, but the test fails. Is there a mistake in the test?</a></li>
+  <li><a href="#why-does-grader.check_all-fail-if-all-previous-tests-passed" id="toc-why-does-grader.check_all-fail-if-all-previous-tests-passed" class="nav-link" data-scroll-target="#why-does-grader.check_all-fail-if-all-previous-tests-passed"><span class="header-section-number">3.1.3</span> Why does <code>grader.check_all()</code> fail if all previous tests passed?</a></li>
+  <li><a href="#why-does-a-notebook-test-fail-now-when-it-passed-before-and-i-didnt-change-my-code" id="toc-why-does-a-notebook-test-fail-now-when-it-passed-before-and-i-didnt-change-my-code" class="nav-link" data-scroll-target="#why-does-a-notebook-test-fail-now-when-it-passed-before-and-i-didnt-change-my-code"><span class="header-section-number">3.1.4</span> Why does a notebook test fail now when it passed before, and I didn’t change my code?</a></li>
+  <li><a href="#i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back" id="toc-i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back" class="nav-link" data-scroll-target="#i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back"><span class="header-section-number">3.1.5</span> I accidentally deleted something in a cell that was provided to me – how do I get it back?</a></li>
+  </ul></li>
+  <li><a href="#gradescope" id="toc-gradescope" class="nav-link" data-scroll-target="#gradescope"><span class="header-section-number">3.2</span> Gradescope</a>
+  <ul>
+  <li><a href="#why-did-a-gradescope-test-fail-when-all-the-jupyter-notebooks-tests-passed" id="toc-why-did-a-gradescope-test-fail-when-all-the-jupyter-notebooks-tests-passed" class="nav-link" data-scroll-target="#why-did-a-gradescope-test-fail-when-all-the-jupyter-notebooks-tests-passed"><span class="header-section-number">3.2.1</span> Why did a Gradescope test fail when all the Jupyter notebook’s tests passed?</a></li>
+  <li><a href="#my-autograder-keeps-runningtimed-out" id="toc-my-autograder-keeps-runningtimed-out" class="nav-link" data-scroll-target="#my-autograder-keeps-runningtimed-out"><span class="header-section-number">3.2.2</span> My autograder keeps running/timed out</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -168,20 +179,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data 100 Debugging Guide</h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Autograder and Gradescope Troubleshooting</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-             <p>Yash Dave </p>
-             <p>Lillian Weng </p>
-          </div>
-  </div>
     
   
     
@@ -192,13 +196,68 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="about" class="level1 unnumbered">
-<h1 class="unnumbered">About</h1>
-<p>This text offers pointers for keyboard shortcuts or common mistakes that accompany the coursework in the Spring 2024 Edition of the UC Berkeley course Data 100: Principles and Techniques of Data Science.</p>
-<p>Inspiration for this guide was taken from the UC San Diego course DSC 10: Principles of Data Science and their <a href="https://dsc10.com/debugging/">debugging guide</a>.</p>
-<p>If you spot any typos or would like to suggest any changes, please email us at <strong>data100.instructors@berkeley.edu</strong></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Citation</strong>: many of these common questions were taken and modified from the UC San Diego course DSC 10: Principles of Data Science and their <a href="https://dsc10.com/debugging/">debugging guide</a>.</p>
+</div>
+</div>
+</div>
+<section id="autograder" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="autograder"><span class="header-section-number">3.1</span> Autograder</h2>
+<section id="why-do-i-get-an-error-saying-grader-is-not-defined" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="why-do-i-get-an-error-saying-grader-is-not-defined"><span class="header-section-number">3.1.1</span> Why do I get an error saying “<code>grader is not defined</code>”?</h3>
+<p>If it has been a while since you’ve worked on an assignment, the kernel will shut itself down to preserve memory. When this happens, all of your variables are forgotten, including the grader. That’s OK. The easiest way to fix this is by restarting your kernel and rerunning all the cells. To do this, in the top left menu, click <code>Kernel</code> -&gt; <code>Restart and Run All Cells</code>.</p>
+</section>
+<section id="im-positive-i-have-the-right-answer-but-the-test-fails.-is-there-a-mistake-in-the-test" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="im-positive-i-have-the-right-answer-but-the-test-fails.-is-there-a-mistake-in-the-test"><span class="header-section-number">3.1.2</span> I’m positive I have the right answer, but the test fails. Is there a mistake in the test?</h3>
+<p>While you might see the correct answer displayed as the result of the cell, chances are you solution isn’t being stored in the answer variable. Make sure you are assigning the result to the answer variable and that there are no typos in the variable name. Finally, restart your kernel and run all the cells in-order: <code>Kernel</code> -&gt; <code>Restart and Run All Cells</code>.</p>
+</section>
+<section id="why-does-grader.check_all-fail-if-all-previous-tests-passed" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="why-does-grader.check_all-fail-if-all-previous-tests-passed"><span class="header-section-number">3.1.3</span> Why does <code>grader.check_all()</code> fail if all previous tests passed?</h3>
+<p>This can happen if you “overwrite” a variable that is used in a question. For instance, if Question 1 asks you to store your answer in a variable named <code>stat</code> and, later on in the notebook, you change the value of <code>stat</code>, the test after Question 1 will pass, but the test at the end of the notebook will fail. It is good programming practice to give your variables informative names and to avoid repeating the same variable name for more than one purpose.</p>
+</section>
+<section id="why-does-a-notebook-test-fail-now-when-it-passed-before-and-i-didnt-change-my-code" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="why-does-a-notebook-test-fail-now-when-it-passed-before-and-i-didnt-change-my-code"><span class="header-section-number">3.1.4</span> Why does a notebook test fail now when it passed before, and I didn’t change my code?</h3>
+<p>You probably ran your notebook out of order. Re-run all previous cells in order, which is how your code will be graded.</p>
+</section>
+<section id="i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back" class="level3" data-number="3.1.5">
+<h3 data-number="3.1.5" class="anchored" data-anchor-id="i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back"><span class="header-section-number">3.1.5</span> I accidentally deleted something in a cell that was provided to me – how do I get it back?</h3>
+<p>Suppose you’re working on Lab 5. One solution is go directly to DataHub and rename your lab05 folder to something else, like lab05-old. Then, click the Lab 5 link on the course website again, and it’ll bring you to a brand-new version of Lab 5. You can then copy your work from your old Lab 5 to this new one, which should have the original version of the assignment.</p>
+</section>
+</section>
+<section id="gradescope" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="gradescope"><span class="header-section-number">3.2</span> Gradescope</h2>
+<p>When submitting to Gradescope, there are often unexpected errors that make students loose more points than expected. Thus, it is imperative that you stay on the submission page until the autograder finishes running, and the results are displayed.</p>
+<section id="why-did-a-gradescope-test-fail-when-all-the-jupyter-notebooks-tests-passed" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="why-did-a-gradescope-test-fail-when-all-the-jupyter-notebooks-tests-passed"><span class="header-section-number">3.2.1</span> Why did a Gradescope test fail when all the Jupyter notebook’s tests passed?</h3>
+<p>This can happen if you’re running your notebook’s cells out-of-order. The autograder runs your notebook from top-to-bottom. If you’re defining a variable at the bottom of your notebook and using it at the top, the Gradescope autograder will fail because it doesn’t recognize the variable when it encounters it.</p>
+<p>This is why we recommend going into the top left menu and clicking <code>Kernel`` -&gt;</code>Restart<code>-&gt;</code>Run All``. The autograder “forgets” all of the variables and runs the notebook from top-to-bottom like the Gradescope autograder does. This will highlight any issues.</p>
+<p>Find the first cell that raises an error. Make sure that all of the variables used in that cell have been defined above that cell, and not below.</p>
+</section>
+<section id="my-autograder-keeps-runningtimed-out" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="my-autograder-keeps-runningtimed-out"><span class="header-section-number">3.2.2</span> My autograder keeps running/timed out</h3>
+<p>If your Gradescope submission page has been stuck running on this page for a while</p>
+<center>
+<img src="gradescope_loading.png" width="500">
+</center>
+<p>or if it timed out</p>
+<center>
+<img src="gradescope_timeout.png" width="500">
+</center>
+<p>this means that the Gradescope autograder failed to execute in the expected amount of time. This could be a problem on Gradescope’s end, so we recommend resubmitting and letting the autograder rereun. If it still fails, please make a private Ed post.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -591,10 +650,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../datahub/datahub.html" class="pagination-link  aria-label=" &lt;span="" troubleshooting&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datahub Troubleshooting</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./jupyter_shortcuts/jupyter_shortcuts.html" class="pagination-link" aria-label="<span class='chapter-number'>1</span>&nbsp; <span class='chapter-title'>Jupyter Shortcuts</span>">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Jupyter Shortcuts</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../pandas/pandas.html" class="pagination-link" aria-label="<span class='chapter-number'>4</span>&nbsp; <span class='chapter-title'>Pandas Troubleshooting</span>">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Pandas Troubleshooting</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

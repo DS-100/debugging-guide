@@ -1,0 +1,30 @@
+---
+title: Pandas Troubleshooting
+format:
+  html:
+    toc: true
+    toc-depth: 5
+    toc-location: right
+    code-fold: false
+    theme:
+      - cosmo
+      - cerulean
+    callout-icon: false
+jupyter: python3
+---
+
+`object of type 'int' has no len()`
+`KeyError`` (column doesn’t exist in table) (example) 
+`Name `__` is not defined`` (example, other example)
+`TypeError: cannot convert __ to a float`` (example) 
+Ignore warning messages (or just suppress all warnings in a notebook) (example)
+
+
+
+### My code is taking a really long time to run
+It is normal for a cell to take a few seconds -- sometimes a few minutes -- to run. If the code is taking too long, however, you have several options: 
+
+1. Try restarting the kernel. Sometimes, Datahub glitches or lags, causing the code to run slower than expected. Restarting the kernel should fix this problem, but if the cell is still taking a while to run, it is likely a problem with your code.
+2. Scrutinize your code. Am I using too many for loops? Is there a repeated operation that I can substitute with a `pandas` function? 
+
+

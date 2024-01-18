@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Pandas Troubleshooting</title>
+<title>Data 100 Debugging Guide - 1&nbsp; Jupyter Shortcuts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,31 +23,153 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="pandas_errors_files/libs/clipboard/clipboard.min.js"></script>
-<script src="pandas_errors_files/libs/quarto-html/quarto.js"></script>
-<script src="pandas_errors_files/libs/quarto-html/popper.min.js"></script>
-<script src="pandas_errors_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="pandas_errors_files/libs/quarto-html/anchor.min.js"></script>
-<link href="pandas_errors_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="pandas_errors_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="pandas_errors_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="pandas_errors_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="pandas_errors_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../datahub/datahub.html" rel="next">
+<link href="../index.html" rel="prev">
+<link href="../data100_logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
 
 </head>
 
-<body>
+<body class="nav-sidebar floating">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../jupyter_shortcuts/jupyter_shortcuts.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Jupyter Shortcuts</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../data100_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Data 100 Debugging Guide</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/DS-100/debugging-guide" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../jupyter_shortcuts/jupyter_shortcuts.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Jupyter Shortcuts</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../datahub/datahub.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datahub Troubleshooting</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../autograder_gradescope/autograder_gradescope.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Autograder and Gradescope Troubleshooting</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pandas/pandas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Pandas Troubleshooting</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projA2/projA2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Project A2 Common Questions</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#shortcuts-for-cells" id="toc-shortcuts-for-cells" class="nav-link active" data-scroll-target="#shortcuts-for-cells"><span class="header-section-number">1.1</span> Shortcuts for Cells</a></li>
+  <li><a href="#running-cells" id="toc-running-cells" class="nav-link" data-scroll-target="#running-cells"><span class="header-section-number">1.2</span> Running Cells</a></li>
+  <li><a href="#restarting-kernel" id="toc-restarting-kernel" class="nav-link" data-scroll-target="#restarting-kernel"><span class="header-section-number">1.3</span> Restarting Kernel</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Pandas Troubleshooting</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Jupyter Shortcuts</span></h1>
 </div>
 
 
@@ -64,10 +186,69 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><code>object of type 'int' has no len()</code> <code>KeyError`` (column doesn’t exist in table) (example)</code>Name <code>__</code> is not defined<code>(example, other example) `TypeError: cannot convert __ to a float</code> (example) Ignore warning messages (or just suppress all warnings in a notebook) (example)</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p><strong>Note</strong>: if you’re using a MacBook, please replace <code>ctrl</code> with <code>cmd</code></p>
+</div>
+</div>
+</div>
+<section id="shortcuts-for-cells" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="shortcuts-for-cells"><span class="header-section-number">1.1</span> Shortcuts for Cells</h2>
+<p>For the following commands, make sure you’re in command mode. You can enter this mode by pressing <code>esc</code>.</p>
+<ul>
+<li><code>a</code>: create a cell above</li>
+<li><code>b</code>: create a cell below</li>
+<li><code>dd</code>: delete current cell</li>
+<li><code>m</code>: convert a cell to markdown (text cell)</li>
+<li><code>y</code>: convert a cell to code</li>
+</ul>
+</section>
+<section id="running-cells" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="running-cells"><span class="header-section-number">1.2</span> Running Cells</h2>
+<p>For individual cells,</p>
+<ul>
+<li><code>ctrl</code> + <code>return</code>: run the current cell</li>
+<li><code>shift</code> + <code>return</code>: run the current cell and move to the next cell</li>
+</ul>
+<p>To run all cells in a notebook:</p>
+<ul>
+<li><p>In the menu bar on the left, click <code>Run</code>. From here, you have several options. The ones we use most commonly are:</p>
+<ul>
+<li><code>Run All Above Selected Cell</code>: this runs every cell above the selected cell</li>
+<li><code>Run Selected Cell and All Below</code>: this runs the selected cell and all cells below</li>
+<li><code>Run All</code>: this runs every cell in the notebook from top-to-bottom</li>
+</ul></li>
+</ul>
+<center>
+<img src="run_all.gif" width="500">
+</center>
+</section>
+<section id="restarting-kernel" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="restarting-kernel"><span class="header-section-number">1.3</span> Restarting Kernel</h2>
+<p>In the menu bar on the left, click <code>Kernel</code>. From here, you have several options. The ones we use most commly are:</p>
+<ul>
+<li><code>Restart Kernel...</code></li>
+<li><code>Restart Kernel and Run up to Selected Cell</code></li>
+<li><code>Restart Kernel and Run All Cells</code></li>
+</ul>
+<center>
+<img src="kernel.gif" width="500">
+</center>
 
-</main>
-<!-- /main column -->
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -455,6 +636,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link  aria-label=" about"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">About</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../datahub/datahub.html" class="pagination-link" aria-label="<span class='chapter-number'>2</span>&nbsp; <span class='chapter-title'>Datahub Troubleshooting</span>">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datahub Troubleshooting</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

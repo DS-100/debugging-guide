@@ -8,5 +8,105 @@
     "crumbs": [
       "About"
     ]
+  },
+  {
+    "objectID": "jupyter_shortcuts/jupyter_shortcuts.html",
+    "href": "jupyter_shortcuts/jupyter_shortcuts.html",
+    "title": "1  Jupyter Shortcuts",
+    "section": "",
+    "text": "1.1 Shortcuts for Cells\nFor the following commands, make sure you’re in command mode. You can enter this mode by pressing esc.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter Shortcuts</span>"
+    ]
+  },
+  {
+    "objectID": "jupyter_shortcuts/jupyter_shortcuts.html#shortcuts-for-cells",
+    "href": "jupyter_shortcuts/jupyter_shortcuts.html#shortcuts-for-cells",
+    "title": "1  Jupyter Shortcuts",
+    "section": "",
+    "text": "a: create a cell above\nb: create a cell below\ndd: delete current cell\nm: convert a cell to markdown (text cell)\ny: convert a cell to code",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter Shortcuts</span>"
+    ]
+  },
+  {
+    "objectID": "jupyter_shortcuts/jupyter_shortcuts.html#running-cells",
+    "href": "jupyter_shortcuts/jupyter_shortcuts.html#running-cells",
+    "title": "1  Jupyter Shortcuts",
+    "section": "1.2 Running Cells",
+    "text": "1.2 Running Cells\nFor individual cells,\n\nctrl + return: run the current cell\nshift + return: run the current cell and move to the next cell\n\nTo run all cells in a notebook:\n\nIn the menu bar on the left, click Run. From here, you have several options. The ones we use most commonly are:\n\nRun All Above Selected Cell: this runs every cell above the selected cell\nRun Selected Cell and All Below: this runs the selected cell and all cells below\nRun All: this runs every cell in the notebook from top-to-bottom",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter Shortcuts</span>"
+    ]
+  },
+  {
+    "objectID": "jupyter_shortcuts/jupyter_shortcuts.html#restarting-kernel",
+    "href": "jupyter_shortcuts/jupyter_shortcuts.html#restarting-kernel",
+    "title": "1  Jupyter Shortcuts",
+    "section": "1.3 Restarting Kernel",
+    "text": "1.3 Restarting Kernel\nIn the menu bar on the left, click Kernel. From here, you have several options. The ones we use most commly are:\n\nRestart Kernel...\nRestart Kernel and Run up to Selected Cell\nRestart Kernel and Run All Cells",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter Shortcuts</span>"
+    ]
+  },
+  {
+    "objectID": "datahub/datahub.html",
+    "href": "datahub/datahub.html",
+    "title": "2  Datahub Troubleshooting",
+    "section": "",
+    "text": "2.0.1 I can’t edit a cell\nWe set some cells to read-only mode prevent accidental modification. To make the cell writeable,\n\nClick the cell\nClick setting on the top right corner\nUnder “Common Tools”, you can toggle between “Editable” (can edit the cell) and “Read-Only” (cannot edit the cell)\n\n\n\n\n\n\n2.0.2 I can’t export my assignment as a PDF due to a LatexFailed error\nOccasionally when running the grader.export(run_tests=True) cell at the end of the notebook, you run into an error where the PDF failed to generate:\n\n\n\nConverting a Jupyter notebook to a PDF involves formatting some of the markdown text in LaTeX. However, this process will fail if your free response answers have (unresolved) LaTeX characters like \\n, $, or $$. If you’re short on time, your best bet is to take screenshots of your free response answers, paste them into a Google Doc, and submit that as a PDF to Gradescope. If you have more time and would like the Datahub-generated PDF, please remove any special LaTeX characters from your free response answers.\n\n\n2.0.3 My text cell looks like code\nIf you double click on a text (markdown) cell, it’ll appear in it’s raw format. To fix this, simply run the cell. If this doesn’t fix the problem, check out the commonly asked question below.\n\n\n2.0.4 My text cell changed to a code cell / my code cell changed to a text cell\nSometimes, a text (markdown) cell was changed to a code cell, or a code cell can’t be run because it’s been changed to a text (markdown) or raw cell. To fix this, toggle the desired cell type in the top bar.\n\n\n\n\n\n2.0.5 Why does running a particular cell cause my kernel to die?\nIf one particular cell seems to cause your kernel to die, this is likely because the computer is trying to use more memory than it has available. For instance: your code is trying to create a gigantic array. To prevent from crashing the entire server, the kernel will “die”. This is an indication that there is a mistake in your code that you need to fix.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Datahub Troubleshooting</span>"
+    ]
+  },
+  {
+    "objectID": "autograder_gradescope/autograder_gradescope.html",
+    "href": "autograder_gradescope/autograder_gradescope.html",
+    "title": "3  Autograder and Gradescope Troubleshooting",
+    "section": "",
+    "text": "3.1 Autograder",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Autograder and Gradescope Troubleshooting</span>"
+    ]
+  },
+  {
+    "objectID": "autograder_gradescope/autograder_gradescope.html#autograder",
+    "href": "autograder_gradescope/autograder_gradescope.html#autograder",
+    "title": "3  Autograder and Gradescope Troubleshooting",
+    "section": "",
+    "text": "3.1.1 Why do I get an error saying “grader is not defined”?\nIf it has been a while since you’ve worked on an assignment, the kernel will shut itself down to preserve memory. When this happens, all of your variables are forgotten, including the grader. That’s OK. The easiest way to fix this is by restarting your kernel and rerunning all the cells. To do this, in the top left menu, click Kernel -&gt; Restart and Run All Cells.\n\n\n3.1.2 I’m positive I have the right answer, but the test fails. Is there a mistake in the test?\nWhile you might see the correct answer displayed as the result of the cell, chances are you solution isn’t being stored in the answer variable. Make sure you are assigning the result to the answer variable and that there are no typos in the variable name. Finally, restart your kernel and run all the cells in-order: Kernel -&gt; Restart and Run All Cells.\n\n\n3.1.3 Why does grader.check_all() fail if all previous tests passed?\nThis can happen if you “overwrite” a variable that is used in a question. For instance, if Question 1 asks you to store your answer in a variable named stat and, later on in the notebook, you change the value of stat, the test after Question 1 will pass, but the test at the end of the notebook will fail. It is good programming practice to give your variables informative names and to avoid repeating the same variable name for more than one purpose.\n\n\n3.1.4 Why does a notebook test fail now when it passed before, and I didn’t change my code?\nYou probably ran your notebook out of order. Re-run all previous cells in order, which is how your code will be graded.\n\n\n3.1.5 I accidentally deleted something in a cell that was provided to me – how do I get it back?\nSuppose you’re working on Lab 5. One solution is go directly to DataHub and rename your lab05 folder to something else, like lab05-old. Then, click the Lab 5 link on the course website again, and it’ll bring you to a brand-new version of Lab 5. You can then copy your work from your old Lab 5 to this new one, which should have the original version of the assignment.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Autograder and Gradescope Troubleshooting</span>"
+    ]
+  },
+  {
+    "objectID": "autograder_gradescope/autograder_gradescope.html#gradescope",
+    "href": "autograder_gradescope/autograder_gradescope.html#gradescope",
+    "title": "3  Autograder and Gradescope Troubleshooting",
+    "section": "3.2 Gradescope",
+    "text": "3.2 Gradescope\nWhen submitting to Gradescope, there are often unexpected errors that make students loose more points than expected. Thus, it is imperative that you stay on the submission page until the autograder finishes running, and the results are displayed.\n\n3.2.1 Why did a Gradescope test fail when all the Jupyter notebook’s tests passed?\nThis can happen if you’re running your notebook’s cells out-of-order. The autograder runs your notebook from top-to-bottom. If you’re defining a variable at the bottom of your notebook and using it at the top, the Gradescope autograder will fail because it doesn’t recognize the variable when it encounters it.\nThis is why we recommend going into the top left menu and clicking Kernel`` -&gt;Restart-&gt;Run All``. The autograder “forgets” all of the variables and runs the notebook from top-to-bottom like the Gradescope autograder does. This will highlight any issues.\nFind the first cell that raises an error. Make sure that all of the variables used in that cell have been defined above that cell, and not below.\n\n\n3.2.2 My autograder keeps running/timed out\nIf your Gradescope submission page has been stuck running on this page for a while\n\n\n\nor if it timed out\n\n\n\nthis means that the Gradescope autograder failed to execute in the expected amount of time. This could be a problem on Gradescope’s end, so we recommend resubmitting and letting the autograder rereun. If it still fails, please make a private Ed post.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Autograder and Gradescope Troubleshooting</span>"
+    ]
+  },
+  {
+    "objectID": "pandas/pandas.html",
+    "href": "pandas/pandas.html",
+    "title": "4  Pandas Troubleshooting",
+    "section": "",
+    "text": "object of type 'int' has no len() KeyError`` (column doesn’t exist in table) (example)Name __ is not defined(example, other example) `TypeError: cannot convert __ to a float (example) Ignore warning messages (or just suppress all warnings in a notebook) (example)\n\n4.0.1 My code is taking a really long time to run\nIt is normal for a cell to take a few seconds – sometimes a few minutes – to run. If the code is taking too long, however, you have several options:\n\nTry restarting the kernel. Sometimes, Datahub glitches or lags, causing the code to run slower than expected. Restarting the kernel should fix this problem, but if the cell is still taking a while to run, it is likely a problem with your code.\nScrutinize your code. Am I using too many for loops? Is there a repeated operation that I can substitute with a pandas function?",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas Troubleshooting</span>"
+    ]
+  },
+  {
+    "objectID": "projA2/projA2.html",
+    "href": "projA2/projA2.html",
+    "title": "5  Project A2 Common Questions",
+    "section": "",
+    "text": "5.1 Question 4.something",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Project A2 Common Questions</span>"
+    ]
   }
 ]
