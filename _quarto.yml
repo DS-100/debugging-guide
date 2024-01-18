@@ -14,11 +14,11 @@ book:
       type: textbox
     chapters:
         - index.md
-        # - general_jupyter.qmd
         # - jupyter_shortcuts.qmd
+        # - datahub.qmd
         # - autograder_gradescope.qmd
-        # - pandas_errors.qmd
-        # - projA2_errors.qmd
+        # - pandas.qmd
+        # - projA2.qmd
     
     sidebar:
         logo: "data100_logo.png"
