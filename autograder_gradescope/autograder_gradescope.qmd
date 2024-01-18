@@ -1,5 +1,5 @@
 ---
-title: Autograder and Gradescope Troubleshooting
+title: Autograder and Gradescope 
 format:
   html:
     toc: true

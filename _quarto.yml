@@ -27,7 +27,9 @@ format:
     theme: cosmo
     toc: true
     toc-depth: 5
+    toc-expand: 3
     callout-icon: false
+    number-sections: false
   pdf: default
         
 #   navbar:

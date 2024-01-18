@@ -1,5 +1,5 @@
 ---
-title: Pandas Troubleshooting
+title: Pandas
 format:
   html:
     toc: true
