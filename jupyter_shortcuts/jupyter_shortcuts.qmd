@@ -1,0 +1,47 @@
+---
+title: Jupyter Shortcuts
+format:
+  html:
+    toc: true
+    toc-depth: 5
+    toc-location: right
+    code-fold: false
+    theme:
+      - cosmo
+      - cerulean
+    callout-icon: false
+jupyter: python3
+---
+
+::: {.callout-note collapse="false"}
+**Note**: if you're using a Macbook, please replace `ctrl` with `cmd`
+:::
+
+## Shortcuts for Cells
+
+For the following commands, make sure you're in command mode. You can enter this mode by pressing `esc`.
+
+- `a`: create a cell above
+- `b`: create a cell below
+- `dd`: delete current cell
+- `m`: convert a cell to markdown (text cell)
+- `y`: convert a cell to code 
+
+## Running Cells
+
+For individual cells, 
+
+- `ctrl` + `return`: run the current cell
+- `shift` + `return`: run the current cell and move to the next cell
+
+To run all cells in a notebook: 
+
+1. In the menu bar on the left, click `Run`. From here, you have several selections:
+    1.1 `Rn All Above Selected Cell`
+    1.2 `Run Selected Cell and All Below` 
+    1.3 `Run All`
+
+[TODO] add a gif/video ?
+
+
+

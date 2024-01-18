@@ -1,0 +1,32 @@
+---
+title: Autograder and Gradescope Troubleshooting
+format:
+  html:
+    toc: true
+    toc-depth: 5
+    toc-location: right
+    code-fold: false
+    theme:
+      - cosmo
+      - cerulean
+    callout-icon: false
+jupyter: python3
+---
+
+## Autograder
+
+Why does running a particular cell cause my kernel to die?
+How do I quickly run all the cells in a notebook?
+Why does grader.check_all() fail, if all previous tests passed?
+Why does a notebook test fail now, when it passed before and I didn’t change my code?
+Why did a Gradescope test fail, when all the notebook’s tests passed?
+Why do I get an error saying grader is not defined?
+I’m positive I have the right answer, but the test fails. Is there a mistake in the test?
+I accidentally deleted something in a cell that was provided to me – how do I get it back?
+I accidentally added something to the grader.check cell in a notebook and I can’t delete it – how do I fix it?
+
+## Gradescope
+
+My tests are passing on Jupyter but not on Gradescope 
+Autograder timed out/keeps running (example)
+

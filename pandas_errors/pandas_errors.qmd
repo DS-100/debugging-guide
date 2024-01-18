@@ -1,0 +1,22 @@
+---
+title: Pandas Troubleshooting
+format:
+  html:
+    toc: true
+    toc-depth: 5
+    toc-location: right
+    code-fold: false
+    theme:
+      - cosmo
+      - cerulean
+    callout-icon: false
+jupyter: python3
+---
+
+`object of type 'int' has no len()`
+`KeyError`` (column doesn’t exist in table) (example) 
+`Name `__` is not defined`` (example, other example)
+`TypeError: cannot convert __ to a float`` (example) 
+Ignore warning messages (or just suppress all warnings in a notebook) (example)
+
+
