@@ -14,9 +14,9 @@ book:
       type: textbox
     chapters:
         - index.md
-        # - jupyter_shortcuts/jupyter_shortcuts.qmd
-        # - datahub/datahub.qmd
-        # - autograder_gradescope/autograder_gradescope.qmd
+        - jupyter_shortcuts/jupyter_shortcuts.qmd
+        - datahub/datahub.qmd
+        - autograder_gradescope/autograder_gradescope.qmd
         # - pandas/pandas.qmd
         # - projA2/projA2.qmd
     

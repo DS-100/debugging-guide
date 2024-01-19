@@ -23,14 +23,12 @@ jupyter:
     name: python3
 ---
 
-::: {.callout-note collapse="true"}
-**Citation**: many of these common questions were taken and modified from the UC San Diego course DSC 10: Principles of Data Science and their [debugging guide](https://dsc10.com/debugging/).
-
-:::
+<details>
+    <summary>Citation</summary>
+    Many of these common questions were taken and modified from the UC San Diego course DSC 10: Principles of Data Science and their [debugging guide](https://dsc10.com/debugging/).
+</details>
 
 ## Autograder
-
-While 
 
 ### Why do I get an error saying "`grader is not defined`"?
 If it has been a while since you’ve worked on an assignment, the kernel will shut itself down to preserve memory. When this happens, all of your variables are forgotten, including the grader. That’s OK. The easiest way to fix this is by restarting your kernel and rerunning all the cells. To do this, in the top left menu, click `Kernel` -> `Restart and Run All Cells`.
