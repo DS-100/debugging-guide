@@ -35,7 +35,7 @@ We set some cells to read-only mode prevent accidental modification. To make the
 ### I can’t export my assignment as a PDF due to a `LatexFailed` error 
 Occasionally when running the `grader.export(run_tests=True)` cell at the end of the notebook, you run into an error where the PDF failed to generate: 
 
-<center><img src = "LatexError.png" width = "700"></img></a></center>
+<center><img src = "LatexError.png" width = "500"></img></a></center>
 
 Converting a Jupyter notebook to a PDF involves formatting some of the markdown text in [LaTeX](https://www.latex-project.org/). However, this process will fail if your free response answers have (unresolved) LaTeX characters like `\n`, `$`, or `$$`. If you're short on time, your best bet is to take screenshots of your free response answers and submit them to Gradescope. If you have more time and would like the Datahub-generated PDF, please remove any special LaTeX characters from your free response answers.
 

@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Yash Dave">
-<meta name="author" content="Lillian Weng">
 
-<title>Data 100 Debugging Guide</title>
+<title>Datahub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,132 +23,47 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./data100_logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
+<script src="datahub_files/libs/clipboard/clipboard.min.js"></script>
+<script src="datahub_files/libs/quarto-html/quarto.js"></script>
+<script src="datahub_files/libs/quarto-html/popper.min.js"></script>
+<script src="datahub_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="datahub_files/libs/quarto-html/anchor.min.js"></script>
+<link href="datahub_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="datahub_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="datahub_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="datahub_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="datahub_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
 
-<body class="nav-sidebar floating">
+<body>
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">About</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./data100_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Data 100 Debugging Guide</a> 
-        <div class="sidebar-tools-main">
-    <a href="https://github.com/DS-100/debugging-guide" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-</div>
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">About</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
+  <li><a href="#i-cant-edit-a-cell" id="toc-i-cant-edit-a-cell" class="nav-link active" data-scroll-target="#i-cant-edit-a-cell">I can’t edit a cell</a></li>
+  <li><a href="#i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error" id="toc-i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error" class="nav-link" data-scroll-target="#i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error">I can’t export my assignment as a PDF due to a <code>LatexFailed</code> error</a></li>
+  <li><a href="#my-text-cell-looks-like-code" id="toc-my-text-cell-looks-like-code" class="nav-link" data-scroll-target="#my-text-cell-looks-like-code">My text cell looks like code</a></li>
+  <li><a href="#my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell" id="toc-my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell" class="nav-link" data-scroll-target="#my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell">My text cell changed to a code cell / my code cell changed to a text cell</a></li>
+  <li><a href="#why-does-running-a-particular-cell-cause-my-kernel-to-die" id="toc-why-does-running-a-particular-cell-cause-my-kernel-to-die" class="nav-link" data-scroll-target="#why-does-running-a-particular-cell-cause-my-kernel-to-die">Why does running a particular cell cause my kernel to die?</a></li>
   </ul>
 </nav>
-    </div>
-<!-- main -->
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data 100 Debugging Guide</h1>
+<h1 class="title">Datahub</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-             <p>Yash Dave </p>
-             <p>Lillian Weng </p>
-          </div>
-  </div>
     
   
     
@@ -161,16 +74,44 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="about" class="level1 unnumbered">
-<h1 class="unnumbered">About</h1>
-<p>This text offers pointers for keyboard shortcuts or common mistakes that accompany the coursework in the Spring 2024 Edition of the UC Berkeley course Data 100: Principles and Techniques of Data Science.</p>
-<p>Inspiration for this guide was taken from the UC San Diego course DSC 10: Principles of Data Science and their <a href="https://dsc10.com/debugging/">debugging guide</a>.</p>
-<p>If you spot any typos or would like to suggest any changes, please email us at <strong>data100.instructors@berkeley.edu</strong></p>
-
-
+<section id="i-cant-edit-a-cell" class="level3">
+<h3 class="anchored" data-anchor-id="i-cant-edit-a-cell">I can’t edit a cell</h3>
+<p>We set some cells to read-only mode prevent accidental modification. To make the cell writeable,</p>
+<ol type="1">
+<li>Click the cell</li>
+<li>Click setting on the top right corner</li>
+<li>Under “Common Tools”, you can toggle between “Editable” (can edit the cell) and “Read-Only” (cannot edit the cell)</li>
+</ol>
+<center>
+<img src="toggle_edit.gif" width="500">
+</center>
+</section>
+<section id="i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error" class="level3">
+<h3 class="anchored" data-anchor-id="i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error">I can’t export my assignment as a PDF due to a <code>LatexFailed</code> error</h3>
+<p>Occasionally when running the <code>grader.export(run_tests=True)</code> cell at the end of the notebook, you run into an error where the PDF failed to generate:</p>
+<center>
+<img src="LatexError.png" width="500">
+</center>
+<p>Converting a Jupyter notebook to a PDF involves formatting some of the markdown text in <a href="https://www.latex-project.org/">LaTeX</a>. However, this process will fail if your free response answers have (unresolved) LaTeX characters like <code>\n</code>, <code>$</code>, or <code>$$</code>. If you’re short on time, your best bet is to take screenshots of your free response answers and submit them to Gradescope. If you have more time and would like the Datahub-generated PDF, please remove any special LaTeX characters from your free response answers.</p>
+</section>
+<section id="my-text-cell-looks-like-code" class="level3">
+<h3 class="anchored" data-anchor-id="my-text-cell-looks-like-code">My text cell looks like code</h3>
+<p>If you double-click on a text (markdown) cell, it’ll appear in its raw format. To fix this, simply run the cell. If this doesn’t fix the problem, check out the commonly asked question below.</p>
+</section>
+<section id="my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell" class="level3">
+<h3 class="anchored" data-anchor-id="my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell">My text cell changed to a code cell / my code cell changed to a text cell</h3>
+<p>Sometimes, a text (markdown) cell was changed to a code cell, or a code cell can’t be run because it’s been changed to a text (markdown) or raw cell. To fix this, toggle the desired cell type in the top bar.</p>
+<center>
+<img src="toggle_cell_type.gif" width="700">
+</center>
+</section>
+<section id="why-does-running-a-particular-cell-cause-my-kernel-to-die" class="level3">
+<h3 class="anchored" data-anchor-id="why-does-running-a-particular-cell-cause-my-kernel-to-die">Why does running a particular cell cause my kernel to die?</h3>
+<p>If one particular cell seems to cause your kernel to die, this is likely because the computer is trying to use more memory than it has available. For instance: your code is trying to create a gigantic array. To prevent the entire server from crashing, the kernel will “die”. This is an indication that there is a mistake in your code that you need to fix.</p>
 </section>
 
-</main> <!-- /main -->
+</main>
+<!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
