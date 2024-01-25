@@ -138,10 +138,11 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#i-cant-edit-a-cell" id="toc-i-cant-edit-a-cell" class="nav-link active" data-scroll-target="#i-cant-edit-a-cell">I can’t edit a cell</a></li>
-  <li><a href="#i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error" id="toc-i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error" class="nav-link" data-scroll-target="#i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error">I can’t export my assignment as a PDF due to a <code>LatexFailed</code> error</a></li>
   <li><a href="#my-text-cell-looks-like-code" id="toc-my-text-cell-looks-like-code" class="nav-link" data-scroll-target="#my-text-cell-looks-like-code">My text cell looks like code</a></li>
   <li><a href="#my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell" id="toc-my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell" class="nav-link" data-scroll-target="#my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell">My text cell changed to a code cell / my code cell changed to a text cell</a></li>
   <li><a href="#why-does-running-a-particular-cell-cause-my-kernel-to-die" id="toc-why-does-running-a-particular-cell-cause-my-kernel-to-die" class="nav-link" data-scroll-target="#why-does-running-a-particular-cell-cause-my-kernel-to-die">Why does running a particular cell cause my kernel to die?</a></li>
+  <li><a href="#click-here-to-download-zip-file-is-not-working" id="toc-click-here-to-download-zip-file-is-not-working" class="nav-link" data-scroll-target="#click-here-to-download-zip-file-is-not-working">“Click <u>here</u> to download zip file” is not working</a></li>
+  <li><a href="#i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error" id="toc-i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error" class="nav-link" data-scroll-target="#i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error">I can’t export my assignment as a PDF due to a <code>LatexFailed</code> error</a></li>
   </ul>
 </nav>
     </div>
@@ -177,14 +178,6 @@ ul.task-list li input[type="checkbox"] {
 <img src="toggle_edit.gif" width="500">
 </center>
 </section>
-<section id="i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error" class="level3">
-<h3 class="anchored" data-anchor-id="i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error">I can’t export my assignment as a PDF due to a <code>LatexFailed</code> error</h3>
-<p>Occasionally when running the <code>grader.export(run_tests=True)</code> cell at the end of the notebook, you run into an error where the PDF failed to generate:</p>
-<center>
-<img src="LatexError.png" width="500">
-</center>
-<p>Converting a Jupyter notebook to a PDF involves formatting some of the markdown text in <a href="https://www.latex-project.org/">LaTeX</a>. However, this process will fail if your free response answers have (unresolved) LaTeX characters like <code>\n</code>, <code>$</code>, or <code>$$</code>. If you’re short on time, your best bet is to take screenshots of your free response answers and submit them to Gradescope. If you have more time and would like the Datahub-generated PDF, please remove any special LaTeX characters from your free response answers.</p>
-</section>
 <section id="my-text-cell-looks-like-code" class="level3">
 <h3 class="anchored" data-anchor-id="my-text-cell-looks-like-code">My text cell looks like code</h3>
 <p>If you double-click on a text (markdown) cell, it’ll appear in its raw format. To fix this, simply run the cell. If this doesn’t fix the problem, check out the commonly asked question below.</p>
@@ -199,6 +192,25 @@ ul.task-list li input[type="checkbox"] {
 <section id="why-does-running-a-particular-cell-cause-my-kernel-to-die" class="level3">
 <h3 class="anchored" data-anchor-id="why-does-running-a-particular-cell-cause-my-kernel-to-die">Why does running a particular cell cause my kernel to die?</h3>
 <p>If one particular cell seems to cause your kernel to die, this is likely because the computer is trying to use more memory than it has available. For instance: your code is trying to create a gigantic array. To prevent the entire server from crashing, the kernel will “die”. This is an indication that there is a mistake in your code that you need to fix.</p>
+</section>
+<section id="click-here-to-download-zip-file-is-not-working" class="level3">
+<h3 class="anchored" data-anchor-id="click-here-to-download-zip-file-is-not-working">“Click <u>here</u> to download zip file” is not working</h3>
+<p>When this happens, you can download the zip file through the menu on the left.</p>
+<center>
+<img src="zip_left_menu.png" width="400">
+</center>
+<p>Right click on the generated zip file and click “Download”.</p>
+<center>
+<img src="zip_download.png" width="500">
+</center>
+</section>
+<section id="i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error" class="level3">
+<h3 class="anchored" data-anchor-id="i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error">I can’t export my assignment as a PDF due to a <code>LatexFailed</code> error</h3>
+<p>Occasionally when running the <code>grader.export(run_tests=True)</code> cell at the end of the notebook, you run into an error where the PDF failed to generate:</p>
+<center>
+<img src="LatexError.png" width="500">
+</center>
+<p>Converting a Jupyter notebook to a PDF involves formatting some of the markdown text in <a href="https://www.latex-project.org/">LaTeX</a>. However, this process will fail if your free response answers have (unresolved) LaTeX characters like <code>\n</code>, <code>$</code>, or <code>$$</code>. If you’re short on time, your best bet is to take screenshots of your free response answers and submit them to Gradescope. If you have more time and would like the Datahub-generated PDF, please remove any special LaTeX characters from your free response answers.</p>
 
 
 </section>

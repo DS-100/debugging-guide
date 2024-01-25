@@ -30,6 +30,19 @@ jupyter:
 
 ## Autograder
 
+### Understanding autograder error messages 
+When you pass a test, you'll see a nice, concise message and a cute emoji!
+
+<center><img src = "passing_autograder.png" width = "200"></img></a></center>
+
+When you don't, however, the message can be a little confusing. 
+
+<center><img src = "autograder_error.png" width = "450"></img></a></center>
+
+The best course of action is to find the test case that failed and use that as a starting point to debug your code. 
+
+<center><img src = "autograder_error_annot.png" width = "450"></img></a></center>
+
 ### Why do I get an error saying "`grader is not defined`"?
 If it has been a while since you’ve worked on an assignment, the kernel will shut itself down to preserve memory. When this happens, all of your variables are forgotten, including the grader. That’s OK. The easiest way to fix this is by restarting your kernel and rerunning all the cells. To do this, in the top left menu, click `Kernel` -> `Restart and Run All Cells`.
 
