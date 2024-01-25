@@ -138,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#autograder" id="toc-autograder" class="nav-link active" data-scroll-target="#autograder">Autograder</a>
   <ul>
-  <li><a href="#how-do-i-read-an-autograder-error-message" id="toc-how-do-i-read-an-autograder-error-message" class="nav-link" data-scroll-target="#how-do-i-read-an-autograder-error-message">How do I read an autograder error message?</a></li>
+  <li><a href="#understanding-autograder-error-messages" id="toc-understanding-autograder-error-messages" class="nav-link" data-scroll-target="#understanding-autograder-error-messages">Understanding autograder error messages</a></li>
   <li><a href="#why-do-i-get-an-error-saying-grader-is-not-defined" id="toc-why-do-i-get-an-error-saying-grader-is-not-defined" class="nav-link" data-scroll-target="#why-do-i-get-an-error-saying-grader-is-not-defined">Why do I get an error saying “<code>grader is not defined</code>”?</a></li>
   <li><a href="#im-positive-i-have-the-right-answer-but-the-test-fails.-is-there-a-mistake-in-the-test" id="toc-im-positive-i-have-the-right-answer-but-the-test-fails.-is-there-a-mistake-in-the-test" class="nav-link" data-scroll-target="#im-positive-i-have-the-right-answer-but-the-test-fails.-is-there-a-mistake-in-the-test">I’m positive I have the right answer, but the test fails. Is there a mistake in the test?</a></li>
   <li><a href="#why-does-grader.check_all-fail-if-all-previous-tests-passed" id="toc-why-does-grader.check_all-fail-if-all-previous-tests-passed" class="nav-link" data-scroll-target="#why-does-grader.check_all-fail-if-all-previous-tests-passed">Why does <code>grader.check_all()</code> fail if all previous tests passed?</a></li>
@@ -181,11 +181,19 @@ Many of these common questions were taken and modified from the UC San Diego cou
 </details>
 <section id="autograder" class="level2">
 <h2 class="anchored" data-anchor-id="autograder">Autograder</h2>
-<section id="how-do-i-read-an-autograder-error-message" class="level3">
-<h3 class="anchored" data-anchor-id="how-do-i-read-an-autograder-error-message">How do I read an autograder error message?</h3>
+<section id="understanding-autograder-error-messages" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-autograder-error-messages">Understanding autograder error messages</h3>
 <p>When you pass a test, you’ll see a nice, concise message and a cute emoji!</p>
 <center>
 <img src="passing_autograder.png" width="200">
+</center>
+<p>When you don’t, however, the message can be a little confusing.</p>
+<center>
+<img src="autograder_error.png" width="450">
+</center>
+<p>The best course of action is to find the test case that failed and use that as a starting point to debug your code.</p>
+<center>
+<img src="autograder_error_annot.png" width="450">
 </center>
 </section>
 <section id="why-do-i-get-an-error-saying-grader-is-not-defined" class="level3">
