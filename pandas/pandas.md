@@ -60,7 +60,7 @@ Related to the above (but distinct), you may run into this error when performing
 2. Setting the `numeric_only` argument to `True` in the `.agg` call, thereby applying the aggregation function only to numeric columns. For example, `elections.groupby('Year').agg('mean', numeric_only=True)`.
 
 ## `TypeError: 'NoneType' object is not subscriptable` / `AttributeError: 'NoneType' object has no attribute 'shape'`
-This usually occurs as you assign a `None` value to a variable, and then try to either index into or access some attribute of that variable. Assigning `None` usually happens accidentally, sometimes due to code like `some_array = some_array.append(element)` or other functions that mutate the variable directly and return `None`. In contrast, note that `np.append` is not an in-place operation and so the syntax is similar to the above example.
+This usually occurs as you assign a `None` value to a variable, and then try to either index into or access some attribute of that variable. For Python functions like `append` and `extend`, you do not need to do any variable assignment as they mutate the variable directly and return `None`. Assigning `None` tends to happen as a result of code like `some_array = some_array.append(element)`.  In contrast, with an operation like `np.append`, such assignment is necessary and the syntax is `some_array = np.append(some_array, element)`.
 
 ## `TypeError: 'int'`/`'float' object is not subscriptable`
 This occurs when you try and index into an integer or other numeric `Python` data type. It can be confusing to debug amidst a muddle of code, but using the error message you can identify which variable is causing this error. Using `type(var_name)` to check the data type of the variable in question can be a good starting point. 
@@ -72,7 +72,7 @@ This occurs when you try and index into an integer or other numeric `Python` dat
 This error is similar to the last `TypeError` in the previous section. However, it is slightly different in that scalar variables come up in the context of `NumPy` data types which have slightly different attributes. For a concrete example, if you defined `numpy_arr = np.array([1])` and then indexed into it twice (`numpy_arr[0][0]`), you would get the above error. Unlike a Python integer whose type is `int`, `type(numpy_arr[0])` returns `numpy.int64`. Additionally, you can check the data type by accessing the `.dtype` attribute of `NumPy` scalar variable.
 
 ## `IndexError: index _ is out of bounds for axis _ with size _`
-This error usually happens when you try to index a value that's greater than the size of the array/list/`DataFrame`/`Series`. For example 
+This error usually happens when you try to index a value that's greater than the size of the array/list/`DataFrame`/`Series`. For example, 
 
     some_list = [2, 4, 6, 8]
 
