@@ -4,28 +4,40 @@
     "href": "index.html",
     "title": "Data 100 Debugging Guide",
     "section": "",
-    "text": "About\nThis text offers pointers for keyboard shortcuts or common mistakes that accompany the coursework in the Spring 2024 Edition of the UC Berkeley course Data 100: Principles and Techniques of Data Science.\nInspiration for this guide was taken from the UC San Diego course DSC 10: Principles of Data Science and their debugging guide.\nIf you spot any typos or would like to suggest any changes, please email us at data100.instructors@berkeley.edu"
+    "text": "About\nThis text offers pointers for keyboard shortcuts or common mistakes that accompany the coursework in the Spring 2024 Edition of the UC Berkeley course Data 100: Principles and Techniques of Data Science.\nInspiration for this guide was taken from the UC San Diego course DSC 10: Principles of Data Science and their debugging guide.\nIf you spot any typos or would like to suggest any changes, please email us at data100.instructors@berkeley.edu",
+    "crumbs": [
+      "About"
+    ]
   },
   {
     "objectID": "jupyter_shortcuts/jupyter_shortcuts.html#shortcuts-for-cells",
     "href": "jupyter_shortcuts/jupyter_shortcuts.html#shortcuts-for-cells",
     "title": "Jupyter Shortcuts",
-    "section": "Shortcuts for Cells",
-    "text": "Shortcuts for Cells\nFor the following commands, make sure you’re in command mode. You can enter this mode by pressing esc.\n\na: create a cell above\nb: create a cell below\ndd: delete current cell\nm: convert a cell to markdown (text cell)\ny: convert a cell to code"
+    "section": "",
+    "text": "a: create a cell above\nb: create a cell below\ndd: delete current cell\nm: convert a cell to markdown (text cell)\ny: convert a cell to code",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter Shortcuts</span>"
+    ]
   },
   {
     "objectID": "jupyter_shortcuts/jupyter_shortcuts.html#running-cells",
     "href": "jupyter_shortcuts/jupyter_shortcuts.html#running-cells",
     "title": "Jupyter Shortcuts",
     "section": "Running Cells",
-    "text": "Running Cells\nFor individual cells,\n\nctrl + return: run the current cell\nshift + return: run the current cell and move to the next cell\n\nTo run all cells in a notebook:\n\nIn the menu bar on the left, click Run. From here, you have several options. The ones we use most commonly are:\n\nRun All Above Selected Cell: this runs every cell above the selected cell\nRun Selected Cell and All Below: this runs the selected cell and all cells below\nRun All: this runs every cell in the notebook from top-to-bottom"
+    "text": "Running Cells\nFor individual cells,\n\nctrl + return: run the current cell\nshift + return: run the current cell and move to the next cell\n\nTo run all cells in a notebook:\n\nIn the menu bar on the left, click Run. From here, you have several options. The ones we use most commonly are:\n\nRun All Above Selected Cell: this runs every cell above the selected cell\nRun Selected Cell and All Below: this runs the selected cell and all cells below\nRun All: this runs every cell in the notebook from top-to-bottom",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter Shortcuts</span>"
+    ]
   },
   {
     "objectID": "jupyter_shortcuts/jupyter_shortcuts.html#restarting-kernel",
     "href": "jupyter_shortcuts/jupyter_shortcuts.html#restarting-kernel",
     "title": "Jupyter Shortcuts",
     "section": "Restarting Kernel",
-    "text": "Restarting Kernel\nIn the menu bar on the left, click Kernel. From here, you have several options. The ones we use most commonly are:\n\nRestart Kernel...\nRestart Kernel and Run up to Selected Cell\nRestart Kernel and Run All Cells"
+    "text": "Restarting Kernel\nIn the menu bar on the left, click Kernel. From here, you have several options. The ones we use most commonly are:\n\nRestart Kernel...\nRestart Kernel and Run up to Selected Cell\nRestart Kernel and Run All Cells",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter Shortcuts</span>"
+    ]
   },
   {
     "objectID": "datahub/datahub.html#i-cant-edit-a-cell",
@@ -73,14 +85,40 @@
     "objectID": "autograder_gradescope/autograder_gradescope.html#autograder",
     "href": "autograder_gradescope/autograder_gradescope.html#autograder",
     "title": "Autograder and Gradescope",
-    "section": "Autograder",
-    "text": "Autograder\n\nUnderstanding autograder error messages\nWhen you pass a test, you’ll see a nice, concise message and a cute emoji!\n\n\n\nWhen you don’t, however, the message can be a little confusing.\n\n\n\nThe best course of action is to find the test case that failed and use that as a starting point to debug your code.\n\n\n\n\n\nWhy do I get an error saying “grader is not defined”?\nIf it has been a while since you’ve worked on an assignment, the kernel will shut itself down to preserve memory. When this happens, all of your variables are forgotten, including the grader. That’s OK. The easiest way to fix this is by restarting your kernel and rerunning all the cells. To do this, in the top left menu, click Kernel -&gt; Restart and Run All Cells.\n\n\nI’m positive I have the right answer, but the test fails. Is there a mistake in the test?\nWhile you might see the correct answer displayed as the result of the cell, chances are your solution isn’t being stored in the answer variable. Make sure you are assigning the result to the answer variable and that there are no typos in the variable name. Finally, restart your kernel and run all the cells in order: Kernel -&gt; Restart and Run All Cells.\n\n\nWhy does grader.check_all() fail if all previous tests passed?\nThis can happen if you “overwrite” a variable that is used in a question. For instance, if Question 1 asks you to store your answer in a variable named stat and, later on in the notebook, you change the value of stat, the test after Question 1 will pass, but the test at the end of the notebook will fail. It is good programming practice to give your variables informative names and to avoid repeating the same variable name for more than one purpose.\n\n\nWhy does a notebook test fail now when it passed before, and I didn’t change my code?\nYou probably ran your notebook out of order. Re-run all previous cells in order, which is how your code will be graded.\n\n\nI accidentally deleted something in a cell that was provided to me – how do I get it back?\nSuppose you’re working on Lab 5. One solution is to go directly to DataHub and rename your lab05 folder to something else, like lab05-old. Then, click the Lab 5 link on the course website again, and it’ll bring you to a brand-new version of Lab 5. You can then copy your work from your old Lab 5 to this new one, which should have the original version of the assignment.\nAlternatively, you can access this public repo and navigate to a blank copy of the assignment you were working on. In the case of Lab 5 for example, the notebook would be located at lab/lab05/lab05.ipynb. You can then check and copy over the contents of the deleted cell into a new cell in your existing notebook."
+    "section": "",
+    "text": "Understanding autograder error messages\nWhen you pass a test, you’ll see a nice, concise message and a cute emoji!\n\n\n\nWhen you don’t, however, the message can be a little confusing.\n\n\n\nThe best course of action is to find the test case that failed and use that as a starting point to debug your code.\n\n\n\n\n\nWhy do I get an error saying “grader is not defined”?\nIf it has been a while since you’ve worked on an assignment, the kernel will shut itself down to preserve memory. When this happens, all of your variables are forgotten, including the grader. That’s OK. The easiest way to fix this is by restarting your kernel and rerunning all the cells. To do this, in the top left menu, click Kernel -&gt; Restart and Run All Cells.\n\n\nI’m positive I have the right answer, but the test fails. Is there a mistake in the test?\nWhile you might see the correct answer displayed as the result of the cell, chances are your solution isn’t being stored in the answer variable. Make sure you are assigning the result to the answer variable and that there are no typos in the variable name. Finally, restart your kernel and run all the cells in order: Kernel -&gt; Restart and Run All Cells.\n\n\nWhy does grader.check_all() fail if all previous tests passed?\nThis can happen if you “overwrite” a variable that is used in a question. For instance, if Question 1 asks you to store your answer in a variable named stat and, later on in the notebook, you change the value of stat, the test after Question 1 will pass, but the test at the end of the notebook will fail. It is good programming practice to give your variables informative names and to avoid repeating the same variable name for more than one purpose.\n\n\nWhy does a notebook test fail now when it passed before, and I didn’t change my code?\nYou probably ran your notebook out of order. Re-run all previous cells in order, which is how your code will be graded.\n\n\nI accidentally deleted something in a cell that was provided to me – how do I get it back?\nSuppose you’re working on Lab 5. One solution is to go directly to DataHub and rename your lab05 folder to something else, like lab05-old. Then, click the Lab 5 link on the course website again, and it’ll bring you to a brand-new version of Lab 5. You can then copy your work from your old Lab 5 to this new one, which should have the original version of the assignment.\nAlternatively, you can access this public repo and navigate to a blank copy of the assignment you were working on. In the case of Lab 5 for example, the notebook would be located at lab/lab05/lab05.ipynb. You can then check and copy over the contents of the deleted cell into a new cell in your existing notebook.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Autograder and Gradescope</span>"
+    ]
   },
   {
     "objectID": "autograder_gradescope/autograder_gradescope.html#gradescope",
     "href": "autograder_gradescope/autograder_gradescope.html#gradescope",
     "title": "Autograder and Gradescope",
     "section": "Gradescope",
-    "text": "Gradescope\nWhen submitting to Gradescope, there are often unexpected errors that make students lose more points than expected. Thus, it is imperative that you stay on the submission page until the autograder finishes running, and the results are displayed.\n\nWhy did a Gradescope test fail when all the Jupyter notebook’s tests passed?\nThis can happen if you’re running your notebook’s cells out of order. The autograder runs your notebook from top-to-bottom. If you’re defining a variable at the bottom of your notebook and using it at the top, the Gradescope autograder will fail because it doesn’t recognize the variable when it encounters it.\nThis is why we recommend going into the top left menu and clicking Kernel`` -&gt;Restart-&gt;Run All``. The autograder “forgets” all of the variables and runs the notebook from top-to-bottom like the Gradescope autograder does. This will highlight any issues.\nFind the first cell that raises an error. Make sure that all of the variables used in that cell have been defined above that cell, and not below.\n\n\nMy autograder keeps running/timed out\nIf your Gradescope submission page has been stuck running on this page for a while:\n\n\n\nor if it times out:\n\n\n\nit means that the Gradescope autograder failed to execute in the expected amount of time. This could be due to an inefficiency in your code or a problem on Gradescope’s end, so we recommend resubmitting and letting the autograder rerun. It is your responsibility to ensure that the autograder runs properly, and, if it still fails, to follow up by making a private Ed post."
+    "text": "Gradescope\nWhen submitting to Gradescope, there are often unexpected errors that make students lose more points than expected. Thus, it is imperative that you stay on the submission page until the autograder finishes running, and the results are displayed.\n\nWhy did a Gradescope test fail when all the Jupyter notebook’s tests passed?\nThis can happen if you’re running your notebook’s cells out of order. The autograder runs your notebook from top-to-bottom. If you’re defining a variable at the bottom of your notebook and using it at the top, the Gradescope autograder will fail because it doesn’t recognize the variable when it encounters it.\nThis is why we recommend going into the top left menu and clicking Kernel`` -&gt;Restart-&gt;Run All``. The autograder “forgets” all of the variables and runs the notebook from top-to-bottom like the Gradescope autograder does. This will highlight any issues.\nFind the first cell that raises an error. Make sure that all of the variables used in that cell have been defined above that cell, and not below.\n\n\nMy autograder keeps running/timed out\nIf your Gradescope submission page has been stuck running on this page for a while:\n\n\n\nor if it times out:\n\n\n\nit means that the Gradescope autograder failed to execute in the expected amount of time. This could be due to an inefficiency in your code or a problem on Gradescope’s end, so we recommend resubmitting and letting the autograder rerun. It is your responsibility to ensure that the autograder runs properly, and, if it still fails, to follow up by making a private Ed post.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Autograder and Gradescope</span>"
+    ]
+  },
+  {
+    "objectID": "jupyter_shortcuts/jupyter_shortcuts.html",
+    "href": "jupyter_shortcuts/jupyter_shortcuts.html",
+    "title": "Jupyter Shortcuts",
+    "section": "",
+    "text": "Shortcuts for Cells\nFor the following commands, make sure you’re in command mode. You can enter this mode by pressing esc.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter Shortcuts</span>"
+    ]
+  },
+  {
+    "objectID": "autograder_gradescope/autograder_gradescope.html",
+    "href": "autograder_gradescope/autograder_gradescope.html",
+    "title": "Autograder and Gradescope",
+    "section": "",
+    "text": "Autograder",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Autograder and Gradescope</span>"
+    ]
   }
 ]

@@ -49,7 +49,7 @@ If it has been a while since you’ve worked on an assignment, the kernel will s
 ### I’m positive I have the right answer, but the test fails. Is there a mistake in the test?
 While you might see the correct answer displayed as the result of the cell, chances are your solution isn’t being stored in the answer variable. Make sure you are assigning the result to the answer variable and that there are no typos in the variable name. Finally, restart your kernel and run all the cells in order: `Kernel` -> `Restart and Run All Cells`.
 
-### Why does `grader.check_all()` fail if all previous tests passed?
+### Why does `grader.export(run_tests=True)` fail if all previous tests passed?
 This can happen if you “overwrite” a variable that is used in a question. For instance, if Question 1 asks you to store your answer in a variable named `stat` and, later on in the notebook, you change the value of `stat`, the test after Question 1 will pass, but the test at the end of the notebook will fail. It is good programming practice to give your variables informative names and to avoid repeating the same variable name for more than one purpose.
 
 ### Why does a notebook test fail now when it passed before, and I didn’t change my code?
@@ -70,6 +70,11 @@ This can happen if you’re running your notebook’s cells out of order. The au
 This is why we recommend going into the top left menu and clicking `Kernel`` -> `Restart` -> `Run All``. The autograder “forgets” all of the variables and runs the notebook from top-to-bottom like the Gradescope autograder does. This will highlight any issues. 
 
 Find the first cell that raises an error. Make sure that all of the variables used in that cell have been defined above that cell, and not below.
+
+### Why do I get a `NameError: name ___ is not defined` when I run `grader.export(run_tests=True)`?
+This happens when you try to access a variable that has not been defined yet. Since the autograder runs all the cells in-order, if you happened to define a variable in a cell further down and accessed it before that cell, the autograder will likely throw this error. Another reason this could occur is because the notebook was not saved before the autograder tests are run. When in doubt, it is good practice to restart your kernel, run all the cells again, and save the notebook before running the cell that causes this error.
+
+
 
 ### My autograder keeps running/timed out
 

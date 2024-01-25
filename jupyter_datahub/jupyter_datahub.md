@@ -1,5 +1,5 @@
 ---
-title: Datahub
+title: Jupyter / Datahub
 format:
   html:
     toc: true

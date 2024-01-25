@@ -15,7 +15,7 @@ book:
     chapters:
         - index.md
         - jupyter_shortcuts/jupyter_shortcuts.md
-        - datahub/datahub.md
+        - jupyter_datahub/jupyter_datahub.md
         - autograder_gradescope/autograder_gradescope.md
         # - pandas/pandas.qmd
         # - projA2/projA2.qmd
