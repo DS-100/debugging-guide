@@ -24,7 +24,7 @@ jupyter:
 ---
 
 ::: {.callout-note collapse="false"}
-**Note**: if you're using a MacBook, please replace `ctrl` with `cmd`.
+If you're using a MacBook, replace `ctrl` with `cmd`.
 :::
 
 ## Shortcuts for Cells
@@ -53,6 +53,9 @@ To run all cells in a notebook:
     - `Run All`: this runs every cell in the notebook from top-to-bottom
  
 <center><img src = "run_all.gif" width = "500"></img></a></center>
+
+## Saving your notebook
+Jupyter autosaves your work, but there can be a delay. As such, it's a good idea to save your work as often as you remember and especially before submitting assignments. To do so, press `ctrl` + `s`. 
 
 ## Restarting Kernel
 In the menu bar on the left, click `Kernel`. From here, you have several options. The ones we use most commonly are: 

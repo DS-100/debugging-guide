@@ -23,6 +23,25 @@ jupyter:
     name: python3
 ---
 
+## My kernel died, restarted, or is very slow
+Jupyterhub connects you to an external container to run your code. That connection could be slow/severed because: 
+
+1. you haven't made any changes to the notebook for a while
+2. a cell took too much time to run
+3. a cell took up too many resources to compute
+
+When you see a message like this: 
+
+<center><img src = "kernel_die.png" width = "500"></img></a></center>
+
+1. Either press the "Ok" button or reload the page
+2. [Restart your kernel](https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html#restarting-kernel) 
+3. [Rerun your cells](https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html#running-cells)
+
+Note that you may loose some recent work if your kernel restarted when you were in the middle of editing a cell. As such, we recommend [saving your work](https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html/saving-your-notebook) as often as possible.
+
+If this does not fix the issue, it could be a problem with your code, usually the last cell that executed before your kernel crashed. Double check your logic, and feel free to make a private post on Ed if you're stuck!
+
 ## I can’t edit a cell
 We set some cells to read-only mode prevent accidental modification. To make the cell writeable,
 
@@ -35,7 +54,7 @@ We set some cells to read-only mode prevent accidental modification. To make the
 ## My text cell looks like code
 If you double-click on a text (markdown) cell, it'll appear in its raw format. To fix this, simply run the cell. If this doesn't fix the problem, check out the commonly asked question below.
 
-## My text cell changed to a code cell / my code cell changed to a text cell
+## My text cell changed to a code cell / My code cell changed to a text cell
 Sometimes, a text (markdown) cell was changed to a code cell, or a code cell can't be run because it's been changed to a text (markdown) or raw cell. To fix this, toggle the desired cell type in the top bar.
 
 <center><img src = "toggle_cell_type.gif" width = "700"></img></a></center>

@@ -17,8 +17,8 @@ book:
         - jupyter_shortcuts/jupyter_shortcuts.md
         - jupyter_datahub/jupyter_datahub.md
         - autograder_gradescope/autograder_gradescope.md
-        # - pandas/pandas.qmd
-        # - projA2/projA2.qmd
+        - pandas/pandas.md
+        # - projA2/projA2.md
     
     sidebar:
         logo: "data100_logo.png"

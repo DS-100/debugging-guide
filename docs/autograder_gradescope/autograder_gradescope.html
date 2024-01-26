@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.545">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../datahub/datahub.html" rel="prev">
+<link href="../pandas/pandas.html" rel="next">
+<link href="../jupyter_datahub/jupyter_datahub.html" rel="prev">
 <link href="../data100_logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,12 +48,7 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -61,7 +57,6 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -77,12 +72,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../autograder_gradescope/autograder_gradescope.html"><span class="chapter-title">Autograder and Gradescope</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../autograder_gradescope/autograder_gradescope.html"><span class="chapter-title">Autograder and Gradescope</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -92,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
       <img src="../data100_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
@@ -100,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Data 100 Debugging Guide</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/DS-100/debugging-guide" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/DS-100/debugging-guide" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
     </div>
       </div>
@@ -124,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datahub/datahub.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datahub</span></a>
+  <a href="../jupyter_datahub/jupyter_datahub.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Jupyter / Datahub</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -132,10 +127,15 @@ ul.task-list li input[type="checkbox"] {
   <a href="../autograder_gradescope/autograder_gradescope.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Autograder and Gradescope</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pandas/pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pandas</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
@@ -147,13 +147,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#understanding-autograder-error-messages" id="toc-understanding-autograder-error-messages" class="nav-link" data-scroll-target="#understanding-autograder-error-messages">Understanding autograder error messages</a></li>
   <li><a href="#why-do-i-get-an-error-saying-grader-is-not-defined" id="toc-why-do-i-get-an-error-saying-grader-is-not-defined" class="nav-link" data-scroll-target="#why-do-i-get-an-error-saying-grader-is-not-defined">Why do I get an error saying “<code>grader is not defined</code>”?</a></li>
   <li><a href="#im-positive-i-have-the-right-answer-but-the-test-fails.-is-there-a-mistake-in-the-test" id="toc-im-positive-i-have-the-right-answer-but-the-test-fails.-is-there-a-mistake-in-the-test" class="nav-link" data-scroll-target="#im-positive-i-have-the-right-answer-but-the-test-fails.-is-there-a-mistake-in-the-test">I’m positive I have the right answer, but the test fails. Is there a mistake in the test?</a></li>
-  <li><a href="#why-does-grader.check_all-fail-if-all-previous-tests-passed" id="toc-why-does-grader.check_all-fail-if-all-previous-tests-passed" class="nav-link" data-scroll-target="#why-does-grader.check_all-fail-if-all-previous-tests-passed">Why does <code>grader.check_all()</code> fail if all previous tests passed?</a></li>
+  <li><a href="#why-does-grader.exportrun_teststrue-fail-if-all-previous-tests-passed" id="toc-why-does-grader.exportrun_teststrue-fail-if-all-previous-tests-passed" class="nav-link" data-scroll-target="#why-does-grader.exportrun_teststrue-fail-if-all-previous-tests-passed">Why does <code>grader.export(run_tests=True)</code> fail if all previous tests passed?</a></li>
   <li><a href="#why-does-a-notebook-test-fail-now-when-it-passed-before-and-i-didnt-change-my-code" id="toc-why-does-a-notebook-test-fail-now-when-it-passed-before-and-i-didnt-change-my-code" class="nav-link" data-scroll-target="#why-does-a-notebook-test-fail-now-when-it-passed-before-and-i-didnt-change-my-code">Why does a notebook test fail now when it passed before, and I didn’t change my code?</a></li>
   <li><a href="#i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back" id="toc-i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back" class="nav-link" data-scroll-target="#i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back">I accidentally deleted something in a cell that was provided to me – how do I get it back?</a></li>
   </ul></li>
   <li><a href="#gradescope" id="toc-gradescope" class="nav-link" data-scroll-target="#gradescope">Gradescope</a>
   <ul>
   <li><a href="#why-did-a-gradescope-test-fail-when-all-the-jupyter-notebooks-tests-passed" id="toc-why-did-a-gradescope-test-fail-when-all-the-jupyter-notebooks-tests-passed" class="nav-link" data-scroll-target="#why-did-a-gradescope-test-fail-when-all-the-jupyter-notebooks-tests-passed">Why did a Gradescope test fail when all the Jupyter notebook’s tests passed?</a></li>
+  <li><a href="#why-do-i-get-a-nameerror-name-___-is-not-defined-when-i-run-a-grader-check" id="toc-why-do-i-get-a-nameerror-name-___-is-not-defined-when-i-run-a-grader-check" class="nav-link" data-scroll-target="#why-do-i-get-a-nameerror-name-___-is-not-defined-when-i-run-a-grader-check">Why do I get a <code>NameError: name ___ is not defined</code> when I run a grader check?</a></li>
   <li><a href="#my-autograder-keeps-runningtimed-out" id="toc-my-autograder-keeps-runningtimed-out" class="nav-link" data-scroll-target="#my-autograder-keeps-runningtimed-out">My autograder keeps running/timed out</a></li>
   </ul></li>
   </ul>
@@ -177,9 +178,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
-
 </header>
-
 
 <details>
 <summary>
@@ -197,28 +196,29 @@ Many of these common questions were taken and modified from the UC San Diego cou
 </center>
 <p>When you don’t, however, the message can be a little confusing.</p>
 <center>
-<img src="autograder_error.png" width="450">
+<img src="autograder_error.png" width="600">
 </center>
+<p><br></p>
 <p>The best course of action is to find the test case that failed and use that as a starting point to debug your code.</p>
 <center>
-<img src="autograder_error_annot.png" width="450">
+<img src="autograder_error_annot.png" width="700">
 </center>
 </section>
 <section id="why-do-i-get-an-error-saying-grader-is-not-defined" class="level3">
 <h3 class="anchored" data-anchor-id="why-do-i-get-an-error-saying-grader-is-not-defined">Why do I get an error saying “<code>grader is not defined</code>”?</h3>
-<p>If it has been a while since you’ve worked on an assignment, the kernel will shut itself down to preserve memory. When this happens, all of your variables are forgotten, including the grader. That’s OK. The easiest way to fix this is by restarting your kernel and rerunning all the cells. To do this, in the top left menu, click <code>Kernel</code> -&gt; <code>Restart and Run All Cells</code>.</p>
+<p>If it has been a while since you’ve worked on an assignment, the kernel will shut itself down to preserve memory. When this happens, all of your variables are forgotten, including the grader. That’s OK. The easiest way to fix this is by <a href="https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html#restarting-kernel">restarting your kernel and rerunning all the cells</a>. To do this, in the top left menu, click <code>Kernel</code> -&gt; <code>Restart and Run All Cells</code>.</p>
 </section>
 <section id="im-positive-i-have-the-right-answer-but-the-test-fails.-is-there-a-mistake-in-the-test" class="level3">
 <h3 class="anchored" data-anchor-id="im-positive-i-have-the-right-answer-but-the-test-fails.-is-there-a-mistake-in-the-test">I’m positive I have the right answer, but the test fails. Is there a mistake in the test?</h3>
-<p>While you might see the correct answer displayed as the result of the cell, chances are your solution isn’t being stored in the answer variable. Make sure you are assigning the result to the answer variable and that there are no typos in the variable name. Finally, restart your kernel and run all the cells in order: <code>Kernel</code> -&gt; <code>Restart and Run All Cells</code>.</p>
+<p>While you might see the correct answer displayed as the result of the cell, chances are your solution isn’t being stored in the answer variable. Make sure you are assigning the result to the answer variable and that there are no typos in the variable name. Finally, <a href="https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html#restarting-kernel">restart your kernel and run all the cells in order</a>: <code>Kernel</code> -&gt; <code>Restart and Run All Cells</code>.</p>
 </section>
-<section id="why-does-grader.check_all-fail-if-all-previous-tests-passed" class="level3">
-<h3 class="anchored" data-anchor-id="why-does-grader.check_all-fail-if-all-previous-tests-passed">Why does <code>grader.check_all()</code> fail if all previous tests passed?</h3>
-<p>This can happen if you “overwrite” a variable that is used in a question. For instance, if Question 1 asks you to store your answer in a variable named <code>stat</code> and, later on in the notebook, you change the value of <code>stat</code>, the test after Question 1 will pass, but the test at the end of the notebook will fail. It is good programming practice to give your variables informative names and to avoid repeating the same variable name for more than one purpose.</p>
+<section id="why-does-grader.exportrun_teststrue-fail-if-all-previous-tests-passed" class="level3">
+<h3 class="anchored" data-anchor-id="why-does-grader.exportrun_teststrue-fail-if-all-previous-tests-passed">Why does <code>grader.export(run_tests=True)</code> fail if all previous tests passed?</h3>
+<p>This can happen if you “overwrite” a variable that is used in a question. For instance, say Question 1 asks you to store your answer in a variable named <code>stat</code> and, later on in the notebook, you change the value of <code>stat</code>; the test right after Question 1 will pass, but the test at the end of the notebook will fail. It is good programming practice to give your variables informative names and to avoid repeating the same variable name for more than one purpose.</p>
 </section>
 <section id="why-does-a-notebook-test-fail-now-when-it-passed-before-and-i-didnt-change-my-code" class="level3">
 <h3 class="anchored" data-anchor-id="why-does-a-notebook-test-fail-now-when-it-passed-before-and-i-didnt-change-my-code">Why does a notebook test fail now when it passed before, and I didn’t change my code?</h3>
-<p>You probably ran your notebook out of order. Re-run all previous cells in order, which is how your code will be graded.</p>
+<p>You probably ran your notebook out of order. <a href="https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html#running-cells">Re-run all previous cells</a> in order, which is how your code will be graded.</p>
 </section>
 <section id="i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back" class="level3">
 <h3 class="anchored" data-anchor-id="i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back">I accidentally deleted something in a cell that was provided to me – how do I get it back?</h3>
@@ -228,24 +228,28 @@ Many of these common questions were taken and modified from the UC San Diego cou
 </section>
 <section id="gradescope" class="level2">
 <h2 class="anchored" data-anchor-id="gradescope">Gradescope</h2>
-<p>When submitting to Gradescope, there are often unexpected errors that make students lose more points than expected. Thus, it is imperative that you stay on the submission page until the autograder finishes running, and the results are displayed.</p>
+<p>When submitting to Gradescope, there are often unexpected errors that make students lose more points than expected. Thus, it is imperative that you <strong>stay on the submission page until the autograder finishes running</strong>, and the results are displayed.</p>
 <section id="why-did-a-gradescope-test-fail-when-all-the-jupyter-notebooks-tests-passed" class="level3">
 <h3 class="anchored" data-anchor-id="why-did-a-gradescope-test-fail-when-all-the-jupyter-notebooks-tests-passed">Why did a Gradescope test fail when all the Jupyter notebook’s tests passed?</h3>
 <p>This can happen if you’re running your notebook’s cells out of order. The autograder runs your notebook from top-to-bottom. If you’re defining a variable at the bottom of your notebook and using it at the top, the Gradescope autograder will fail because it doesn’t recognize the variable when it encounters it.</p>
-<p>This is why we recommend going into the top left menu and clicking <code>Kernel`` -&gt;</code>Restart<code>-&gt;</code>Run All``. The autograder “forgets” all of the variables and runs the notebook from top-to-bottom like the Gradescope autograder does. This will highlight any issues.</p>
+<p>This is why we recommend going into the top left menu and clicking <code>Kernel</code> -&gt; <code>Restart</code> -&gt; <code>Run All</code>. The autograder “forgets” all of the variables and runs the notebook from top-to-bottom like the Gradescope autograder does. This will highlight any issues.</p>
 <p>Find the first cell that raises an error. Make sure that all of the variables used in that cell have been defined above that cell, and not below.</p>
+</section>
+<section id="why-do-i-get-a-nameerror-name-___-is-not-defined-when-i-run-a-grader-check" class="level3">
+<h3 class="anchored" data-anchor-id="why-do-i-get-a-nameerror-name-___-is-not-defined-when-i-run-a-grader-check">Why do I get a <code>NameError: name ___ is not defined</code> when I run a grader check?</h3>
+<p>This happens when you try to access a variable that has not been defined yet. Since the autograder runs all the cells in-order, if you happened to define a variable in a cell further down and accessed it before that cell, the autograder will likely throw this error. Another reason this could occur is because the notebook was not saved before the autograder tests are run. When in doubt, it is good practice to restart your kernel, run all the cells again, and save the notebook before running the cell that causes this error.</p>
 </section>
 <section id="my-autograder-keeps-runningtimed-out" class="level3">
 <h3 class="anchored" data-anchor-id="my-autograder-keeps-runningtimed-out">My autograder keeps running/timed out</h3>
 <p>If your Gradescope submission page has been stuck running on this page for a while:</p>
 <center>
-<img src="gradescope_loading.png" width="400">
+<img src="gradescope_loading.png" width="350">
 </center>
 <p>or if it times out:</p>
 <center>
-<img src="gradescope_timeout.png" width="500">
+<img src="gradescope_timeout.png" width="650">
 </center>
-<p>it means that the Gradescope autograder failed to execute in the expected amount of time. This could be due to an inefficiency in your code or a problem on Gradescope’s end, so we recommend resubmitting and letting the autograder rerun. It is your responsibility to ensure that the autograder runs properly, and, if it still fails, to follow up by making a private Ed post.</p>
+<p>it means that the Gradescope autograder failed to execute in the expected amount of time. This could be due to an inefficiency in your code or a problem on Gradescope’s end, so we recommend resubmitting and letting the autograder rerun. <strong>It is your responsibility to ensure that the autograder runs properly</strong>, and, if it still fails, to follow up by making a private Ed post.</p>
 
 
 </section>
@@ -331,9 +335,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -343,17 +348,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -366,125 +362,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -528,7 +405,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -554,32 +430,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -641,15 +491,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../datahub/datahub.html" class="pagination-link  aria-label=" &lt;span="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Datahub</span></span>
+      <a href="../jupyter_datahub/jupyter_datahub.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Jupyter / Datahub</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../pandas/pandas.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">Pandas</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
-
 
 
 
