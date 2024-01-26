@@ -67,7 +67,7 @@ When submitting to Gradescope, there are often unexpected errors that make stude
 ### Why did a Gradescope test fail when all the Jupyter notebook’s tests passed?
 This can happen if you’re running your notebook’s cells out of order. The autograder runs your notebook from top-to-bottom. If you’re defining a variable at the bottom of your notebook and using it at the top, the Gradescope autograder will fail because it doesn’t recognize the variable when it encounters it.
 
-This is why we recommend going into the top left menu and clicking `Kernel`` -> `Restart` -> `Run All``. The autograder “forgets” all of the variables and runs the notebook from top-to-bottom like the Gradescope autograder does. This will highlight any issues. 
+This is why we recommend going into the top left menu and clicking `Kernel` -> `Restart` -> `Run All`. The autograder “forgets” all of the variables and runs the notebook from top-to-bottom like the Gradescope autograder does. This will highlight any issues. 
 
 Find the first cell that raises an error. Make sure that all of the variables used in that cell have been defined above that cell, and not below.
 
