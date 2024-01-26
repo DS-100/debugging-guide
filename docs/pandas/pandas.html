@@ -222,7 +222,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="typeerrors">TypeErrors</h2>
 <section id="typeerror-___-object-is-not-callable" class="level3">
 <h3 class="anchored" data-anchor-id="typeerror-___-object-is-not-callable"><code>TypeError: '___' object is not callable</code></h3>
-<p>This often happens when you use a default keyword (like <code>str</code>, <code>list</code>, <code>range</code> <code>sum</code>, or <code>max</code>) as a variable name, for instance:</p>
+<p>This often happens when you use a default keyword (like <code>str</code>, <code>list</code>, <code>range</code>, <code>sum</code>, or <code>max</code>) as a variable name, for instance:</p>
 <pre><code>sum = 1 + 2 + 3</code></pre>
 <p>These errors can be tricky because they don’t error on their own but cause problems when we try to use the name <code>sum</code> (for example) later on in the notebook.</p>
 <p>To fix the issue, identify any such lines of code, change your variable names to be something more informative, and <a href="https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html#restarting-kernel">restart your notebook</a>.</p>

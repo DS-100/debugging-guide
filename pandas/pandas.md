@@ -38,7 +38,7 @@ This error usually happens when we have a `DataFame` called `df`, and we're tryi
 ## TypeErrors
 
 ### `TypeError: '___' object is not callable`
-This often happens when you use a default keyword (like `str`, `list`, `range` `sum`, or `max`) as a variable name, for instance: 
+This often happens when you use a default keyword (like `str`, `list`, `range`, `sum`, or `max`) as a variable name, for instance: 
 
     sum = 1 + 2 + 3
 
