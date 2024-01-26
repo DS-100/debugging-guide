@@ -35,10 +35,10 @@ When you see a message like this:
 <center><img src = "kernel_die.png" width = "500"></img></a></center>
 
 1. Either press the "Ok" button or reload the page
-2. [Restart your kernel](https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html#restarting-kernel) 
-3. [Rerun your cells](https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html#running-cells)
+2. [Restart your kernel](https://ds100.org/debugging-guide/jupyter101/jupyter101.html#restarting-kernel) 
+3. [Rerun your cells](https://ds100.org/debugging-guide/jupyter101/jupyter101.html#running-cells)
 
-Note that you may loose some recent work if your kernel restarted when you were in the middle of editing a cell. As such, we recommend [saving your work](https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html/saving-your-notebook) as often as possible.
+Note that you may loose some recent work if your kernel restarted when you were in the middle of editing a cell. As such, we recommend [saving your work](https://ds100.org/debugging-guide/jupyter101/jupyter101.html/saving-your-notebook) as often as possible.
 
 If this does not fix the issue, it could be a problem with your code, usually the last cell that executed before your kernel crashed. Double check your logic, and feel free to make a private post on Ed if you're stuck!
 

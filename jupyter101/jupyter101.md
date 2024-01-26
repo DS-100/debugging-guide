@@ -1,5 +1,5 @@
 ---
-title: Jupyter Shortcuts
+title: Jupyter 101
 format:
   html:
     toc: true

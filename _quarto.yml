@@ -14,7 +14,7 @@ book:
       type: textbox
     chapters:
         - index.md
-        - jupyter_shortcuts/jupyter_shortcuts.md
+        - jupyter101/jupyter101.md
         - jupyter_datahub/jupyter_datahub.md
         - autograder_gradescope/autograder_gradescope.md
         - pandas/pandas.md

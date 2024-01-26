@@ -7,30 +7,30 @@
     "text": "About\nThis text offers pointers for keyboard shortcuts or common mistakes that accompany the coursework in the Spring 2024 Edition of the UC Berkeley course Data 100: Principles and Techniques of Data Science.\nInspiration for this guide was taken from the UC San Diego course DSC 10: Principles of Data Science and their debugging guide.\nIf you spot any typos or would like to suggest any changes, please email us at data100.instructors@berkeley.edu"
   },
   {
-    "objectID": "jupyter_shortcuts/jupyter_shortcuts.html#shortcuts-for-cells",
-    "href": "jupyter_shortcuts/jupyter_shortcuts.html#shortcuts-for-cells",
-    "title": "Jupyter Shortcuts",
+    "objectID": "jupyter101/jupyter101.html#shortcuts-for-cells",
+    "href": "jupyter101/jupyter101.html#shortcuts-for-cells",
+    "title": "Jupyter 101",
     "section": "Shortcuts for Cells",
     "text": "Shortcuts for Cells\nFor the following commands, make sure you’re in command mode. You can enter this mode by pressing esc.\n\na: create a cell above\nb: create a cell below\ndd: delete current cell\nm: convert a cell to markdown (text cell)\ny: convert a cell to code"
   },
   {
-    "objectID": "jupyter_shortcuts/jupyter_shortcuts.html#running-cells",
-    "href": "jupyter_shortcuts/jupyter_shortcuts.html#running-cells",
-    "title": "Jupyter Shortcuts",
+    "objectID": "jupyter101/jupyter101.html#running-cells",
+    "href": "jupyter101/jupyter101.html#running-cells",
+    "title": "Jupyter 101",
     "section": "Running Cells",
     "text": "Running Cells\nFor individual cells,\n\nctrl + return: run the current cell\nshift + return: run the current cell and move to the next cell\n\nTo run all cells in a notebook:\n\nIn the menu bar on the left, click Run. From here, you have several options. The ones we use most commonly are:\n\nRun All Above Selected Cell: this runs every cell above the selected cell\nRun Selected Cell and All Below: this runs the selected cell and all cells below\nRun All: this runs every cell in the notebook from top-to-bottom"
   },
   {
-    "objectID": "jupyter_shortcuts/jupyter_shortcuts.html#saving-your-notebook",
-    "href": "jupyter_shortcuts/jupyter_shortcuts.html#saving-your-notebook",
-    "title": "Jupyter Shortcuts",
+    "objectID": "jupyter101/jupyter101.html#saving-your-notebook",
+    "href": "jupyter101/jupyter101.html#saving-your-notebook",
+    "title": "Jupyter 101",
     "section": "Saving your notebook",
     "text": "Saving your notebook\nJupyter autosaves your work, but there can be a delay. As such, it’s a good idea to save your work as often as you remember and especially before submitting assignments. To do so, press ctrl + s."
   },
   {
-    "objectID": "jupyter_shortcuts/jupyter_shortcuts.html#restarting-kernel",
-    "href": "jupyter_shortcuts/jupyter_shortcuts.html#restarting-kernel",
-    "title": "Jupyter Shortcuts",
+    "objectID": "jupyter101/jupyter101.html#restarting-kernel",
+    "href": "jupyter101/jupyter101.html#restarting-kernel",
+    "title": "Jupyter 101",
     "section": "Restarting Kernel",
     "text": "Restarting Kernel\nIn the menu bar on the left, click Kernel. From here, you have several options. The ones we use most commonly are:\n\nRestart Kernel...\nRestart Kernel and Run up to Selected Cell\nRestart Kernel and Run All Cells"
   },
