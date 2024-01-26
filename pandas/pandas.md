@@ -24,7 +24,7 @@ This note is (mostly) structured around the error messages that show up at the b
 ## My code is taking a really long time to run
 It is normal for a cell to take a few seconds -- sometimes a few minutes -- to run. If it's is taking too long, however, you have several options: 
 
-1. Try restarting the kernel. Sometimes, Datahub glitches or lags, causing the code to run slower than expected. [Restarting the kernel](https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html#restarting-kernel) should fix this problem, but if the cell is still taking a while to run, it is likely a problem with your code.
+1. Try restarting the kernel. Sometimes, Datahub glitches or lags, causing the code to run slower than expected. [Restarting the kernel](https://ds100.org/debugging-guide/jupyter101/jupyter101.html#restarting-kernel) should fix this problem, but if the cell is still taking a while to run, it is likely a problem with your code.
 2. Scrutinize your code. Am I using too many for loops? Is there a repeated operation that I can substitute with a `pandas` function? 
 
 ## Why is it generally better avoid using loops or list comprehensions when possible?
@@ -44,7 +44,7 @@ This often happens when you use a default keyword (like `str`, `list`, `range`, 
 
 These errors can be tricky because they don’t error on their own but cause problems when we try to use the name `sum` (for example) later on in the notebook.
 
-To fix the issue, identify any such lines of code, change your variable names to be something more informative, and [restart your notebook](https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html#restarting-kernel).
+To fix the issue, identify any such lines of code, change your variable names to be something more informative, and [restart your notebook](https://ds100.org/debugging-guide/jupyter101/jupyter101.html#restarting-kernel).
 
 Python keywords like `str` and `list` appear in green text, so be on the lookout if any of your variable names appear in green!
 
