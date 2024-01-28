@@ -56,11 +56,6 @@ This can happen if you “overwrite” a variable that is used in a question. Fo
 ### Why does a notebook test fail now when it passed before, and I didn’t change my code?
 You probably ran your notebook out of order. [Re-run all previous cells](https://ds100.org/debugging-guide/jupyter101/jupyter101.html#running-cells) in order, which is how your code will be graded.
 
-### I accidentally deleted something in a cell that was provided to me – how do I get it back?
-Suppose you’re working on Lab 5. One solution is to go directly to DataHub and rename your lab05 folder to something else, like lab05-old. Then, click the Lab 5 link on the course website again, and it’ll bring you to a brand-new version of Lab 5. You can then copy your work from your old Lab 5 to this new one, which should have the original version of the assignment.
-
-Alternatively, you can access this [public repo](https://github.com/DS-100/sp24-student) and navigate to a blank copy of the assignment you were working on. In the case of Lab 5 for example, the notebook would be located at `lab/lab05/lab05.ipynb`. You can then check and copy over the contents of the deleted cell into a new cell in your existing notebook. 
-
 ## Gradescope
 
 When submitting to Gradescope, there are often unexpected errors that make students lose more points than expected. Thus, it is imperative that you **stay on the submission page until the autograder finishes running**, and the results are displayed. 

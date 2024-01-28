@@ -146,7 +146,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#i-cant-edit-a-cell" id="toc-i-cant-edit-a-cell" class="nav-link" data-scroll-target="#i-cant-edit-a-cell">I can’t edit a cell</a></li>
   <li><a href="#my-text-cell-looks-like-code" id="toc-my-text-cell-looks-like-code" class="nav-link" data-scroll-target="#my-text-cell-looks-like-code">My text cell looks like code</a></li>
   <li><a href="#my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell" id="toc-my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell" class="nav-link" data-scroll-target="#my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell">My text cell changed to a code cell / My code cell changed to a text cell</a></li>
-  <li><a href="#why-does-running-a-particular-cell-cause-my-kernel-to-die" id="toc-why-does-running-a-particular-cell-cause-my-kernel-to-die" class="nav-link" data-scroll-target="#why-does-running-a-particular-cell-cause-my-kernel-to-die">Why does running a particular cell cause my kernel to die?</a></li>
+  <li><a href="#why-does-running-a-particular-cell-cause-my-kernel-to-die" id="toc-why-does-running-a-particular-cell-cause-my-kernel-to-die" class="nav-link" data-scroll-target="#why-does-running-a-particular-cell-cause-my-kernel-to-die">Why does running a particular cell cause my kernel to die?</a>
+  <ul>
+  <li><a href="#i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back" id="toc-i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back" class="nav-link" data-scroll-target="#i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back">I accidentally deleted something in a cell that was provided to me – how do I get it back?</a></li>
+  </ul></li>
   <li><a href="#click-here-to-download-zip-file-is-not-working" id="toc-click-here-to-download-zip-file-is-not-working" class="nav-link" data-scroll-target="#click-here-to-download-zip-file-is-not-working">“Click <u>here</u> to download zip file” is not working</a></li>
   <li><a href="#i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error" id="toc-i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error" class="nav-link" data-scroll-target="#i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error">I can’t export my assignment as a PDF due to a <code>LatexFailed</code> error</a></li>
   </ul>
@@ -218,6 +221,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="why-does-running-a-particular-cell-cause-my-kernel-to-die" class="level2">
 <h2 class="anchored" data-anchor-id="why-does-running-a-particular-cell-cause-my-kernel-to-die">Why does running a particular cell cause my kernel to die?</h2>
 <p>If one particular cell seems to cause your kernel to die, this is likely because the computer is trying to use more memory than it has available. For instance: your code is trying to create a gigantic array. To prevent the entire server from crashing, the kernel will “die”. This is an indication that there is a mistake in your code that you need to fix.</p>
+<section id="i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back" class="level3">
+<h3 class="anchored" data-anchor-id="i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back">I accidentally deleted something in a cell that was provided to me – how do I get it back?</h3>
+<p>Suppose you’re working on Lab 5. One solution is to go directly to DataHub and rename your lab05 folder to something else, like lab05-old. Then, click the Lab 5 link on the course website again, and it’ll bring you to a brand-new version of Lab 5. You can then copy your work from your old Lab 5 to this new one, which should have the original version of the assignment.</p>
+<p>Alternatively, you can access this <a href="https://github.com/DS-100/sp24-student">public repo</a> and navigate to a blank copy of the assignment you were working on. In the case of Lab 5 for example, the notebook would be located at <code>lab/lab05/lab05.ipynb</code>. You can then check and copy over the contents of the deleted cell into a new cell in your existing notebook.</p>
+</section>
 </section>
 <section id="click-here-to-download-zip-file-is-not-working" class="level2">
 <h2 class="anchored" data-anchor-id="click-here-to-download-zip-file-is-not-working">“Click <u>here</u> to download zip file” is not working</h2>

@@ -27,7 +27,7 @@ format:
     theme: cosmo
     toc: true
     toc-depth: 5
-    toc-expand: 3
+    toc-expand: 3 # depth to expand index
     callout-icon: false
     number-sections: false
   pdf: default
