@@ -65,3 +65,8 @@ In the menu bar on the left, click `Kernel`. From here, you have several options
 - `Restart Kernel and Run All Cells` 
 
 <center><img src = "kernel.gif" width = "500"></img></a></center>
+
+## Automatically Closing Brackets
+Many IDEs like VSCode have a functionality that automatically closes brackets. For example, pressing `(`, `{`, or `[` would automatically add the second bracket at the other end `)`, `}`, and `]`, respectively. Datahub does not have this functionality turned on by default, but you can do so by going into `Settings` -> `Auto Close Brackets`. If you see a check mark to the left of `Auto Close Brackets`, then it's enabled. 
+
+<center><img src = "autoclose_brackets.gif" width = "500"></img></a></center>

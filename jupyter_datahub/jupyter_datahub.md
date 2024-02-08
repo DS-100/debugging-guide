@@ -62,7 +62,7 @@ Sometimes, a text (markdown) cell was changed to a code cell, or a code cell can
 ## Why does running a particular cell cause my kernel to die?
 If one particular cell seems to cause your kernel to die, this is likely because the computer is trying to use more memory than it has available. For instance: your code is trying to create a gigantic array. To prevent the entire server from crashing, the kernel will “die”. This is an indication that there is a mistake in your code that you need to fix.
 
-### I accidentally deleted something in a cell that was provided to me – how do I get it back?
+## I accidentally deleted something in a cell that was provided to me – how do I get it back?
 Suppose you’re working on Lab 5. One solution is to go directly to DataHub and rename your lab05 folder to something else, like lab05-old. Then, click the Lab 5 link on the course website again, and it’ll bring you to a brand-new version of Lab 5. You can then copy your work from your old Lab 5 to this new one, which should have the original version of the assignment.
 
 Alternatively, you can access this [public repo](https://github.com/DS-100/sp24-student) and navigate to a blank copy of the assignment you were working on. In the case of Lab 5 for example, the notebook would be located at `lab/lab05/lab05.ipynb`. You can then check and copy over the contents of the deleted cell into a new cell in your existing notebook. 
@@ -83,3 +83,5 @@ Occasionally when running the `grader.export(run_tests=True)` cell at the end of
 
 Converting a Jupyter notebook to a PDF involves formatting some of the markdown text in [LaTeX](https://www.latex-project.org/). However, this process will fail if your free response answers have (unresolved) LaTeX characters like `\n`, `$`, or `$$`. If you're short on time, your best bet is to take screenshots of your free response answers and submit them to Gradescope. If you have more time and would like the Datahub-generated PDF, please remove any special LaTeX characters from your free response answers.
 
+## I can't open Jupyter: `HTTP ERROR 431`
+If this happens, try [clearing your browser cache](https://support.google.com/accounts/answer/32050?hl=en&co=GENIE.Platform%3DDesktop) or opening Datahub in an incognito window.
