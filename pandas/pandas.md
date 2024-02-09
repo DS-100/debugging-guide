@@ -38,13 +38,13 @@ This error usually happens when we have a `DataFame` called `df`, and we're tryi
 ## TypeErrors
 
 ### `TypeError: '___' object is not callable`
-This often happens when you use a default keyword (like `str`, `list`, `range`, `sum`, or `max`) as a variable name, for instance: 
+This often happens when you use a default keyword (like `str`, `list`, `range`, `bool`, `sum`, or `max`) as a variable name, for instance: 
 
     sum = 1 + 2 + 3
 
 These errors can be tricky because they don’t error on their own but cause problems when we try to use the name `sum` (for example) later on in the notebook.
 
-To fix the issue, identify any such lines of code, change your variable names to be something more informative, and [restart your notebook](https://ds100.org/debugging-guide/jupyter101/jupyter101.html#restarting-kernel).
+To fix the issue, identify any such lines of code (Ctrl+F on "`sum =`" for example), change your variable names to be something more informative, and [restart your notebook](https://ds100.org/debugging-guide/jupyter101/jupyter101.html#restarting-kernel).
 
 Python keywords like `str` and `list` appear in green text, so be on the lookout if any of your variable names appear in green!
 
@@ -100,7 +100,9 @@ This error usually happens when you try to index a value that's greater than the
 ## ValueErrors
 
 ### `ValueError: Truth value of a Series is ambiguous`
-This error occurs when you apply Python logical operators (`or`, `and`, `not`), which only operate on a single boolean values, to `NumPy` arrays or `Series` objects, which can contain multiple values. The fix is to use bitwise operators `|`, `&`, `~` , respectively, to allow for element-wise comparisons between values in arrays or `Series`. 
+This error could occur when you apply Python logical operators (`or`, `and`, `not`), which only operate on a single boolean values, to `NumPy` arrays or `Series` objects, which can contain multiple values. The fix is to use bitwise operators `|`, `&`, `~` , respectively, to allow for element-wise comparisons between values in arrays or `Series`. 
+
+Alternatively, these errors could emerge due to overwriting Python keywords like `bool` and `sum` that may be used in the autograder tests, similar to what's described [here](https://ds100.org/debugging-guide/pandas/pandas.html#typeerror-___-object-is-not-callable). You should follow a similar procedure of identifying the line of code erroring, checking if you've overwritten any Python keywords using Ctrl+F, and renaming those variables to something more informative before restarting your kernel and running the erroring tests again.
 
 ### `ValueError: Can only compare identically-labeled Series objects`
 As the message would suggest, this error occurs when comparing two `Series` objects that have different lengths. You can double check the lengths of the `Series` using `len(series_name)` or `series_name.size`.

@@ -4,84 +4,120 @@
     "href": "index.html",
     "title": "Data 100 Debugging Guide",
     "section": "",
-    "text": "About\nThis text offers pointers for keyboard shortcuts or common mistakes that accompany the coursework in the Spring 2024 Edition of the UC Berkeley course Data 100: Principles and Techniques of Data Science.\nInspiration for this guide was taken from the UC San Diego course DSC 10: Principles of Data Science and their debugging guide.\nIf you spot any typos or would like to suggest any changes, please fill out the Data 100 Content Feedback Form (Spring 2024). Note that this link will only work if you have an @berkeley.edu email address. If you’re not a student at Berkeley and would like to provide feedback, please email us at data100.instructors@berkeley.edu"
+    "text": "About\nThis text offers pointers for keyboard shortcuts or common mistakes that accompany the coursework in the Spring 2024 Edition of the UC Berkeley course Data 100: Principles and Techniques of Data Science.\nInspiration for this guide was taken from the UC San Diego course DSC 10: Principles of Data Science and their debugging guide.\nIf you spot any typos or would like to suggest any changes, please fill out the Data 100 Content Feedback Form (Spring 2024). Note that this link will only work if you have an @berkeley.edu email address. If you’re not a student at Berkeley and would like to provide feedback, please email us at data100.instructors@berkeley.edu",
+    "crumbs": [
+      "About"
+    ]
   },
   {
     "objectID": "jupyter101/jupyter101.html#shortcuts-for-cells",
     "href": "jupyter101/jupyter101.html#shortcuts-for-cells",
     "title": "Jupyter 101",
-    "section": "Shortcuts for Cells",
-    "text": "Shortcuts for Cells\nFor the following commands, make sure you’re in command mode. You can enter this mode by pressing esc.\n\na: create a cell above\nb: create a cell below\ndd: delete current cell\nm: convert a cell to markdown (text cell)\ny: convert a cell to code"
+    "section": "",
+    "text": "a: create a cell above\nb: create a cell below\ndd: delete current cell\nm: convert a cell to markdown (text cell)\ny: convert a cell to code",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter 101</span>"
+    ]
   },
   {
     "objectID": "jupyter101/jupyter101.html#running-cells",
     "href": "jupyter101/jupyter101.html#running-cells",
     "title": "Jupyter 101",
     "section": "Running Cells",
-    "text": "Running Cells\nFor individual cells,\n\nctrl + return: run the current cell\nshift + return: run the current cell and move to the next cell\n\nTo run all cells in a notebook:\n\nIn the menu bar on the left, click Run. From here, you have several options. The ones we use most commonly are:\n\nRun All Above Selected Cell: this runs every cell above the selected cell\nRun Selected Cell and All Below: this runs the selected cell and all cells below\nRun All: this runs every cell in the notebook from top-to-bottom"
+    "text": "Running Cells\nFor individual cells,\n\nctrl + return: run the current cell\nshift + return: run the current cell and move to the next cell\n\nTo run all cells in a notebook:\n\nIn the menu bar on the left, click Run. From here, you have several options. The ones we use most commonly are:\n\nRun All Above Selected Cell: this runs every cell above the selected cell\nRun Selected Cell and All Below: this runs the selected cell and all cells below\nRun All: this runs every cell in the notebook from top-to-bottom",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter 101</span>"
+    ]
   },
   {
     "objectID": "jupyter101/jupyter101.html#saving-your-notebook",
     "href": "jupyter101/jupyter101.html#saving-your-notebook",
     "title": "Jupyter 101",
     "section": "Saving your notebook",
-    "text": "Saving your notebook\nJupyter autosaves your work, but there can be a delay. As such, it’s a good idea to save your work as often as you remember and especially before submitting assignments. To do so, press ctrl + s."
+    "text": "Saving your notebook\nJupyter autosaves your work, but there can be a delay. As such, it’s a good idea to save your work as often as you remember and especially before submitting assignments. To do so, press ctrl + s.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter 101</span>"
+    ]
   },
   {
     "objectID": "jupyter101/jupyter101.html#restarting-kernel",
     "href": "jupyter101/jupyter101.html#restarting-kernel",
     "title": "Jupyter 101",
     "section": "Restarting Kernel",
-    "text": "Restarting Kernel\nIn the menu bar on the left, click Kernel. From here, you have several options. The ones we use most commonly are:\n\nRestart Kernel...\nRestart Kernel and Run up to Selected Cell\nRestart Kernel and Run All Cells"
+    "text": "Restarting Kernel\nIn the menu bar on the left, click Kernel. From here, you have several options. The ones we use most commonly are:\n\nRestart Kernel...\nRestart Kernel and Run up to Selected Cell\nRestart Kernel and Run All Cells",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter 101</span>"
+    ]
   },
   {
     "objectID": "jupyter_datahub/jupyter_datahub.html#my-kernel-died-restarted-or-is-very-slow",
     "href": "jupyter_datahub/jupyter_datahub.html#my-kernel-died-restarted-or-is-very-slow",
     "title": "Jupyter / Datahub",
-    "section": "My kernel died, restarted, or is very slow",
-    "text": "My kernel died, restarted, or is very slow\nJupyterhub connects you to an external container to run your code. That connection could be slow/severed because:\n\nyou haven’t made any changes to the notebook for a while\na cell took too much time to run\na cell took up too many resources to compute\n\nWhen you see a message like this:\n\n\n\n\nEither press the “Ok” button or reload the page\nRestart your kernel\nRerun your cells\n\nNote that you may loose some recent work if your kernel restarted when you were in the middle of editing a cell. As such, we recommend saving your work as often as possible.\nIf this does not fix the issue, it could be a problem with your code, usually the last cell that executed before your kernel crashed. Double check your logic, and feel free to make a private post on Ed if you’re stuck!"
+    "section": "",
+    "text": "you haven’t made any changes to the notebook for a while\na cell took too much time to run\na cell took up too many resources to compute\n\n\n\n\n\n\nEither press the “Ok” button or reload the page\nRestart your kernel\nRerun your cells",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Jupyter / Datahub</span>"
+    ]
   },
   {
     "objectID": "jupyter_datahub/jupyter_datahub.html#i-cant-edit-a-cell",
     "href": "jupyter_datahub/jupyter_datahub.html#i-cant-edit-a-cell",
     "title": "Jupyter / Datahub",
     "section": "I can’t edit a cell",
-    "text": "I can’t edit a cell\nWe set some cells to read-only mode prevent accidental modification. To make the cell writeable,\n\nClick the cell\nClick setting on the top right corner\nUnder “Common Tools”, you can toggle between “Editable” (can edit the cell) and “Read-Only” (cannot edit the cell)"
+    "text": "I can’t edit a cell\nWe set some cells to read-only mode prevent accidental modification. To make the cell writeable,\n\nClick the cell\nClick setting on the top right corner\nUnder “Common Tools”, you can toggle between “Editable” (can edit the cell) and “Read-Only” (cannot edit the cell)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Jupyter / Datahub</span>"
+    ]
   },
   {
     "objectID": "jupyter_datahub/jupyter_datahub.html#my-text-cell-looks-like-code",
     "href": "jupyter_datahub/jupyter_datahub.html#my-text-cell-looks-like-code",
     "title": "Jupyter / Datahub",
     "section": "My text cell looks like code",
-    "text": "My text cell looks like code\nIf you double-click on a text (markdown) cell, it’ll appear in its raw format. To fix this, simply run the cell. If this doesn’t fix the problem, check out the commonly asked question below."
+    "text": "My text cell looks like code\nIf you double-click on a text (markdown) cell, it’ll appear in its raw format. To fix this, simply run the cell. If this doesn’t fix the problem, check out the commonly asked question below.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Jupyter / Datahub</span>"
+    ]
   },
   {
     "objectID": "jupyter_datahub/jupyter_datahub.html#my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell",
     "href": "jupyter_datahub/jupyter_datahub.html#my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell",
     "title": "Jupyter / Datahub",
     "section": "My text cell changed to a code cell / My code cell changed to a text cell",
-    "text": "My text cell changed to a code cell / My code cell changed to a text cell\nSometimes, a text (markdown) cell was changed to a code cell, or a code cell can’t be run because it’s been changed to a text (markdown) or raw cell. To fix this, toggle the desired cell type in the top bar."
+    "text": "My text cell changed to a code cell / My code cell changed to a text cell\nSometimes, a text (markdown) cell was changed to a code cell, or a code cell can’t be run because it’s been changed to a text (markdown) or raw cell. To fix this, toggle the desired cell type in the top bar.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Jupyter / Datahub</span>"
+    ]
   },
   {
     "objectID": "jupyter_datahub/jupyter_datahub.html#why-does-running-a-particular-cell-cause-my-kernel-to-die",
     "href": "jupyter_datahub/jupyter_datahub.html#why-does-running-a-particular-cell-cause-my-kernel-to-die",
     "title": "Jupyter / Datahub",
     "section": "Why does running a particular cell cause my kernel to die?",
-    "text": "Why does running a particular cell cause my kernel to die?\nIf one particular cell seems to cause your kernel to die, this is likely because the computer is trying to use more memory than it has available. For instance: your code is trying to create a gigantic array. To prevent the entire server from crashing, the kernel will “die”. This is an indication that there is a mistake in your code that you need to fix.\n\nI accidentally deleted something in a cell that was provided to me – how do I get it back?\nSuppose you’re working on Lab 5. One solution is to go directly to DataHub and rename your lab05 folder to something else, like lab05-old. Then, click the Lab 5 link on the course website again, and it’ll bring you to a brand-new version of Lab 5. You can then copy your work from your old Lab 5 to this new one, which should have the original version of the assignment.\nAlternatively, you can access this public repo and navigate to a blank copy of the assignment you were working on. In the case of Lab 5 for example, the notebook would be located at lab/lab05/lab05.ipynb. You can then check and copy over the contents of the deleted cell into a new cell in your existing notebook."
+    "text": "Why does running a particular cell cause my kernel to die?\nIf one particular cell seems to cause your kernel to die, this is likely because the computer is trying to use more memory than it has available. For instance: your code is trying to create a gigantic array. To prevent the entire server from crashing, the kernel will “die”. This is an indication that there is a mistake in your code that you need to fix.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Jupyter / Datahub</span>"
+    ]
   },
   {
     "objectID": "jupyter_datahub/jupyter_datahub.html#click-here-to-download-zip-file-is-not-working",
     "href": "jupyter_datahub/jupyter_datahub.html#click-here-to-download-zip-file-is-not-working",
     "title": "Jupyter / Datahub",
     "section": "“Click here to download zip file” is not working",
-    "text": "“Click here to download zip file” is not working\nWhen this happens, you can download the zip file through the menu on the left.\n\n\n\nRight click on the generated zip file and click “Download”."
+    "text": "“Click here to download zip file” is not working\nWhen this happens, you can download the zip file through the menu on the left.\n\n\n\nRight click on the generated zip file and click “Download”.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Jupyter / Datahub</span>"
+    ]
   },
   {
     "objectID": "jupyter_datahub/jupyter_datahub.html#i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error",
     "href": "jupyter_datahub/jupyter_datahub.html#i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error",
     "title": "Jupyter / Datahub",
     "section": "I can’t export my assignment as a PDF due to a LatexFailed error",
-    "text": "I can’t export my assignment as a PDF due to a LatexFailed error\nOccasionally when running the grader.export(run_tests=True) cell at the end of the notebook, you run into an error where the PDF failed to generate:\n\n\n\nConverting a Jupyter notebook to a PDF involves formatting some of the markdown text in LaTeX. However, this process will fail if your free response answers have (unresolved) LaTeX characters like \\n, $, or $$. If you’re short on time, your best bet is to take screenshots of your free response answers and submit them to Gradescope. If you have more time and would like the Datahub-generated PDF, please remove any special LaTeX characters from your free response answers."
+    "text": "I can’t export my assignment as a PDF due to a LatexFailed error\nOccasionally when running the grader.export(run_tests=True) cell at the end of the notebook, you run into an error where the PDF failed to generate:\n\n\n\nConverting a Jupyter notebook to a PDF involves formatting some of the markdown text in LaTeX. However, this process will fail if your free response answers have (unresolved) LaTeX characters like \\n, $, or $$. If you’re short on time, your best bet is to take screenshots of your free response answers and submit them to Gradescope. If you have more time and would like the Datahub-generated PDF, please remove any special LaTeX characters from your free response answers.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Jupyter / Datahub</span>"
+    ]
   },
   {
     "objectID": "autograder_gradescope/autograder_gradescope.html#autograder",
@@ -109,41 +145,119 @@
     "href": "pandas/pandas.html#my-code-is-taking-a-really-long-time-to-run",
     "title": "Pandas",
     "section": "My code is taking a really long time to run",
-    "text": "My code is taking a really long time to run\nIt is normal for a cell to take a few seconds – sometimes a few minutes – to run. If it’s is taking too long, however, you have several options:\n\nTry restarting the kernel. Sometimes, Datahub glitches or lags, causing the code to run slower than expected. Restarting the kernel should fix this problem, but if the cell is still taking a while to run, it is likely a problem with your code.\nScrutinize your code. Am I using too many for loops? Is there a repeated operation that I can substitute with a pandas function?"
+    "text": "My code is taking a really long time to run\nIt is normal for a cell to take a few seconds – sometimes a few minutes – to run. If it’s is taking too long, however, you have several options:\n\nTry restarting the kernel. Sometimes, Datahub glitches or lags, causing the code to run slower than expected. Restarting the kernel should fix this problem, but if the cell is still taking a while to run, it is likely a problem with your code.\nScrutinize your code. Am I using too many for loops? Is there a repeated operation that I can substitute with a pandas function?",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
+    ]
   },
   {
     "objectID": "pandas/pandas.html#why-is-it-generally-better-avoid-using-loops-or-list-comprehensions-when-possible",
     "href": "pandas/pandas.html#why-is-it-generally-better-avoid-using-loops-or-list-comprehensions-when-possible",
     "title": "Pandas",
     "section": "Why is it generally better avoid using loops or list comprehensions when possible?",
-    "text": "Why is it generally better avoid using loops or list comprehensions when possible?\nIn one word: performance. NumPy and pandas functions are optimized to handle large amounts of data in an efficient manner. Even for simple operations, like the elementwise addition of two arrays, NumPy arrays are much faster and scale better (feel free to experiment with this yourself using %%time). This is why we encourage you to vectorize your code (ie. using NumPy arrays, Series, or DataFrames instead of Python lists) and use in-built NumPy/pandas functions wherever possible."
+    "text": "Why is it generally better avoid using loops or list comprehensions when possible?\nIn one word: performance. NumPy and pandas functions are optimized to handle large amounts of data in an efficient manner. Even for simple operations, like the elementwise addition of two arrays, NumPy arrays are much faster and scale better (feel free to experiment with this yourself using %%time). This is why we encourage you to vectorize your code (ie. using NumPy arrays, Series, or DataFrames instead of Python lists) and use in-built NumPy/pandas functions wherever possible.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
+    ]
   },
   {
     "objectID": "pandas/pandas.html#keyerrors",
     "href": "pandas/pandas.html#keyerrors",
     "title": "Pandas",
     "section": "KeyErrors",
-    "text": "KeyErrors\n\nKeyError: 'column_name'\nThis error usually happens when we have a DataFame called df, and we’re trying to do an operation on a column 'column_name' that does not exist. If you encounter this error, double check that you’re operating on the right column. It might be a good idea to display df and see what it looks like. You could also call df.columns to list all the columns in df."
+    "text": "KeyErrors\n\nKeyError: 'column_name'\nThis error usually happens when we have a DataFame called df, and we’re trying to do an operation on a column 'column_name' that does not exist. If you encounter this error, double check that you’re operating on the right column. It might be a good idea to display df and see what it looks like. You could also call df.columns to list all the columns in df.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
+    ]
   },
   {
     "objectID": "pandas/pandas.html#typeerrors",
     "href": "pandas/pandas.html#typeerrors",
     "title": "Pandas",
     "section": "TypeErrors",
-    "text": "TypeErrors\n\nTypeError: '___' object is not callable\nThis often happens when you use a default keyword (like str, list, range, sum, or max) as a variable name, for instance:\nsum = 1 + 2 + 3\nThese errors can be tricky because they don’t error on their own but cause problems when we try to use the name sum (for example) later on in the notebook.\nTo fix the issue, identify any such lines of code, change your variable names to be something more informative, and restart your notebook.\nPython keywords like str and list appear in green text, so be on the lookout if any of your variable names appear in green!\n\n\nTypeError: could not convert string to a float\nThis error often occurs when we try to do math operations (ie. sum, average, min, max) on a DataFrame column or Series that contains strings instead of numbers (note that we can do math operations with booleans; Python treats True as 1 and False as 0).\nDouble check that the column you’re interested in is a numerical type (int, float, or double). If it looks like a number, but you’re still getting this error, you can use .astype(...) (documentation) to change the datatype of a DataFrame or Series.\n\n\nTypeError: Could not convert &lt;string&gt; to numeric\nRelated to the above (but distinct), you may run into this error when performing a numeric aggregation function (like mean or sum functions that take integer arguments) after doing a groupby operation on a DataFrame with non-numeric columns.\nWorking with the elections dataset for example,\nelections.groupby('Year').agg('mean')\nwould error because pandas cannot compute the mean of the names of presidents. There are two ways to get around this:\n\nSelect only the numeric columns you are interested in before applying the aggregation function. In the above case, both elections.groupby('Year')['Popular Vote'] or elections['Popular vote'].groupby('Year') would work.\nSetting the numeric_only argument to True in the .agg call, thereby applying the aggregation function only to numeric columns. For example, elections.groupby('Year').agg('mean', numeric_only=True).\n\n\n\nTypeError: 'NoneType' object is not subscriptable / AttributeError: 'NoneType' object has no attribute 'shape'\nThis usually occurs as you assign a None value to a variable, then try to either index into or access some attribute of that variable. For Python functions like append and extend, you do not need to do any variable assignment because they mutate the variable directly and return None. Assigning None tends to happen as a result of code like:\nsome_list = some_list.append(element)\nIn contrast, an operation like np.append does not mutate the variable in place and, instead, returns a copy. In these cases, (re)assignment is necessary:\nsome_array = np.append(some_array, element)\n\n\nTypeError: 'int'/'float' object is not subscriptable\nThis occurs when you try and index into an integer or other numeric Python data type. It can be confusing to debug amidst a muddle of code, but you can use the error message to identify which variable is causing this error. Using type(var_name) to check the data type of the variable in question can be a good starting point."
+    "text": "TypeErrors\n\nTypeError: '___' object is not callable\nThis often happens when you use a default keyword (like str, list, range, bool, sum, or max) as a variable name, for instance:\nsum = 1 + 2 + 3\nThese errors can be tricky because they don’t error on their own but cause problems when we try to use the name sum (for example) later on in the notebook.\nTo fix the issue, identify any such lines of code (Ctrl+F on “sum =” for example), change your variable names to be something more informative, and restart your notebook.\nPython keywords like str and list appear in green text, so be on the lookout if any of your variable names appear in green!\n\n\nTypeError: could not convert string to a float\nThis error often occurs when we try to do math operations (ie. sum, average, min, max) on a DataFrame column or Series that contains strings instead of numbers (note that we can do math operations with booleans; Python treats True as 1 and False as 0).\nDouble check that the column you’re interested in is a numerical type (int, float, or double). If it looks like a number, but you’re still getting this error, you can use .astype(...) (documentation) to change the datatype of a DataFrame or Series.\n\n\nTypeError: Could not convert &lt;string&gt; to numeric\nRelated to the above (but distinct), you may run into this error when performing a numeric aggregation function (like mean or sum functions that take integer arguments) after doing a groupby operation on a DataFrame with non-numeric columns.\nWorking with the elections dataset for example,\nelections.groupby('Year').agg('mean')\nwould error because pandas cannot compute the mean of the names of presidents. There are two ways to get around this:\n\nSelect only the numeric columns you are interested in before applying the aggregation function. In the above case, both elections.groupby('Year')['Popular Vote'] or elections['Popular vote'].groupby('Year') would work.\nSetting the numeric_only argument to True in the .agg call, thereby applying the aggregation function only to numeric columns. For example, elections.groupby('Year').agg('mean', numeric_only=True).\n\n\n\nTypeError: 'NoneType' object is not subscriptable / AttributeError: 'NoneType' object has no attribute 'shape'\nThis usually occurs as you assign a None value to a variable, then try to either index into or access some attribute of that variable. For Python functions like append and extend, you do not need to do any variable assignment because they mutate the variable directly and return None. Assigning None tends to happen as a result of code like:\nsome_list = some_list.append(element)\nIn contrast, an operation like np.append does not mutate the variable in place and, instead, returns a copy. In these cases, (re)assignment is necessary:\nsome_array = np.append(some_array, element)\n\n\nTypeError: 'int'/'float' object is not subscriptable\nThis occurs when you try and index into an integer or other numeric Python data type. It can be confusing to debug amidst a muddle of code, but you can use the error message to identify which variable is causing this error. Using type(var_name) to check the data type of the variable in question can be a good starting point.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
+    ]
   },
   {
     "objectID": "pandas/pandas.html#indexerrors",
     "href": "pandas/pandas.html#indexerrors",
     "title": "Pandas",
     "section": "IndexErrors",
-    "text": "IndexErrors\n\nIndexError: invalid index to scalar variable.\nThis error is similar to the last TypeError in the previous section. However, it is slightly different in that scalar variables come up in the context of NumPy data types which have slightly different attributes.\nFor a concrete example, if you defined\nnumpy_arr = np.array([1])\nand indexed into it twice (numpy_arr[0][0]), you would get the above error. Unlike a Python integer whose type is int, type(numpy_arr[0]) returns the NumPy version of an integer, numpy.int64. Additionally, you can check the data type by accessing the .dtype attribute of NumPy array (numpy_arr.dtype) or scalar variable (numpy_arr[0].dtype).\n\n\nIndexError: index _ is out of bounds for axis _ with size _\nThis error usually happens when you try to index a value that’s greater than the size of the array/list/DataFrame/Series. For example,\nsome_list = [2, 4, 6, 8]\nsome_list has a length of 4. Trying some_list[6] will error because index 6 is greater than the length of the array. Note that some_list[4] will also cause an IndexError because Python and pandas uses zero indexing, which means that the first element has index 0, the second element has index 1, etc.; some_list[4] would grab the fifth element, which is impossible when the list only has 4 elements."
+    "text": "IndexErrors\n\nIndexError: invalid index to scalar variable.\nThis error is similar to the last TypeError in the previous section. However, it is slightly different in that scalar variables come up in the context of NumPy data types which have slightly different attributes.\nFor a concrete example, if you defined\nnumpy_arr = np.array([1])\nand indexed into it twice (numpy_arr[0][0]), you would get the above error. Unlike a Python integer whose type is int, type(numpy_arr[0]) returns the NumPy version of an integer, numpy.int64. Additionally, you can check the data type by accessing the .dtype attribute of NumPy array (numpy_arr.dtype) or scalar variable (numpy_arr[0].dtype).\n\n\nIndexError: index _ is out of bounds for axis _ with size _\nThis error usually happens when you try to index a value that’s greater than the size of the array/list/DataFrame/Series. For example,\nsome_list = [2, 4, 6, 8]\nsome_list has a length of 4. Trying some_list[6] will error because index 6 is greater than the length of the array. Note that some_list[4] will also cause an IndexError because Python and pandas uses zero indexing, which means that the first element has index 0, the second element has index 1, etc.; some_list[4] would grab the fifth element, which is impossible when the list only has 4 elements.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
+    ]
   },
   {
     "objectID": "pandas/pandas.html#valueerrors",
     "href": "pandas/pandas.html#valueerrors",
     "title": "Pandas",
     "section": "ValueErrors",
-    "text": "ValueErrors\n\nValueError: Truth value of a Series is ambiguous\nThis error occurs when you apply Python logical operators (or, and, not), which only operate on a single boolean values, to NumPy arrays or Series objects, which can contain multiple values. The fix is to use bitwise operators |, &, ~ , respectively, to allow for element-wise comparisons between values in arrays or Series.\n\n\nValueError: Can only compare identically-labeled Series objects\nAs the message would suggest, this error occurs when comparing two Series objects that have different lengths. You can double check the lengths of the Series using len(series_name) or series_name.size.\n\n\nValueError: -1 is not in range / KeyError: -1\nThis error occurs when you try and index into a Series or DataFrame as you would a Python list. Unlike a list where passing an index of -1 gives the last element, pandas interprets df[-1] as an attempt to find the row corresponding to index -1 (that is, df.loc[-1]). If your intention is to pick out the last row in df, consider using integer-position based indexing by doing df.iloc[-1]. In general, to avoid ambiguity in these cases, it is also good practice to write out both the row and column indices you want with df.iloc[-1, :]."
+    "text": "ValueErrors\n\nValueError: Truth value of a Series is ambiguous\nThis error could occur when you apply Python logical operators (or, and, not), which only operate on a single boolean values, to NumPy arrays or Series objects, which can contain multiple values. The fix is to use bitwise operators |, &, ~ , respectively, to allow for element-wise comparisons between values in arrays or Series.\nAlternatively, these errors could emerge due to overwriting Python keywords like bool and sum that may be used in the autograder tests, similar to what’s described here. You should follow a similar procedure of identifying the line of code erroring, checking if you’ve overwritten any Python keywords using Ctrl+F, and renaming those variables to something more informative before restarting your kernel and running the erroring tests again.\n\n\nValueError: Can only compare identically-labeled Series objects\nAs the message would suggest, this error occurs when comparing two Series objects that have different lengths. You can double check the lengths of the Series using len(series_name) or series_name.size.\n\n\nValueError: -1 is not in range / KeyError: -1\nThis error occurs when you try and index into a Series or DataFrame as you would a Python list. Unlike a list where passing an index of -1 gives the last element, pandas interprets df[-1] as an attempt to find the row corresponding to index -1 (that is, df.loc[-1]). If your intention is to pick out the last row in df, consider using integer-position based indexing by doing df.iloc[-1]. In general, to avoid ambiguity in these cases, it is also good practice to write out both the row and column indices you want with df.iloc[-1, :].",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
+    ]
+  },
+  {
+    "objectID": "jupyter101/jupyter101.html",
+    "href": "jupyter101/jupyter101.html",
+    "title": "Jupyter 101",
+    "section": "",
+    "text": "Shortcuts for Cells\nFor the following commands, make sure you’re in command mode. You can enter this mode by pressing esc.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter 101</span>"
+    ]
+  },
+  {
+    "objectID": "jupyter101/jupyter101.html#automatically-closing-brackets",
+    "href": "jupyter101/jupyter101.html#automatically-closing-brackets",
+    "title": "Jupyter 101",
+    "section": "Automatically Closing Brackets",
+    "text": "Automatically Closing Brackets\nMany IDEs like VSCode have a functionality that automatically closes brackets. For example, pressing (, {, or [ would automatically add the second bracket at the other end ), }, and ], respectively. Datahub does not have this functionality turned on by default, but you can do so by going into Settings -&gt; Auto Close Brackets. If you see a check mark to the left of Auto Close Brackets, then it’s enabled.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter 101</span>"
+    ]
+  },
+  {
+    "objectID": "jupyter_datahub/jupyter_datahub.html",
+    "href": "jupyter_datahub/jupyter_datahub.html",
+    "title": "Jupyter / Datahub",
+    "section": "",
+    "text": "My kernel died, restarted, or is very slow\nJupyterhub connects you to an external container to run your code. That connection could be slow/severed because:\nWhen you see a message like this:\nNote that you may loose some recent work if your kernel restarted when you were in the middle of editing a cell. As such, we recommend saving your work as often as possible.\nIf this does not fix the issue, it could be a problem with your code, usually the last cell that executed before your kernel crashed. Double check your logic, and feel free to make a private post on Ed if you’re stuck!",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Jupyter / Datahub</span>"
+    ]
+  },
+  {
+    "objectID": "jupyter_datahub/jupyter_datahub.html#i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back",
+    "href": "jupyter_datahub/jupyter_datahub.html#i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back",
+    "title": "Jupyter / Datahub",
+    "section": "I accidentally deleted something in a cell that was provided to me – how do I get it back?",
+    "text": "I accidentally deleted something in a cell that was provided to me – how do I get it back?\nSuppose you’re working on Lab 5. One solution is to go directly to DataHub and rename your lab05 folder to something else, like lab05-old. Then, click the Lab 5 link on the course website again, and it’ll bring you to a brand-new version of Lab 5. You can then copy your work from your old Lab 5 to this new one, which should have the original version of the assignment.\nAlternatively, you can access this public repo and navigate to a blank copy of the assignment you were working on. In the case of Lab 5 for example, the notebook would be located at lab/lab05/lab05.ipynb. You can then check and copy over the contents of the deleted cell into a new cell in your existing notebook.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Jupyter / Datahub</span>"
+    ]
+  },
+  {
+    "objectID": "jupyter_datahub/jupyter_datahub.html#i-cant-open-jupyter-http-error-431",
+    "href": "jupyter_datahub/jupyter_datahub.html#i-cant-open-jupyter-http-error-431",
+    "title": "Jupyter / Datahub",
+    "section": "I can’t open Jupyter: HTTP ERROR 431",
+    "text": "I can’t open Jupyter: HTTP ERROR 431\nIf this happens, try clearing your browser cache or opening Datahub in an incognito window.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Jupyter / Datahub</span>"
+    ]
+  },
+  {
+    "objectID": "pandas/pandas.html",
+    "href": "pandas/pandas.html",
+    "title": "Pandas",
+    "section": "",
+    "text": "Understanding pandas errors\npandas errors can look red, scary, and very long. Fortunately, we don’t need to understand the entire thing! The most important parts of an error message are at the top, which tells you which line of code is causing the issue, and at the bottom, which tells you exactly what the error message is.\nThis note is (mostly) structured around the error messages that show up at the bottom.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
+    ]
   }
 ]
