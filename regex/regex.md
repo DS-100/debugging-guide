@@ -89,6 +89,7 @@ This error means that your RegEx pattern does not match anything in the given `S
 ### When do I need to escape characters?
 
 The special characters in RegEx are: `. ^ $ * + ? ] [ \ | ( ) { } }`
+
 If you want to match exactly those characters in a RegEx expression, you need to "escape" them by preceding them with a backslash `\`. However, the rules around this can change in the context of character classes. 
 
 For example, the pattern  `r"[.]"` matches  `'.'`, the literal period. In this context, it is not treated as a special character. The hyphen, while not included in the list of special characters, also changes its behavior depending on its position in a character class. It can be used to specify a range of characters (e.g. `r"[0-9]"`) based on their Unicode values, or match a literal `'-'` if it does not have two adjacent characters (e.g. `r"[-09]"` matches `-`, `0`, `9`). To be on the safer side, you could escape `-` like in `r"[0\-9]"` to achieve the same result.
@@ -106,7 +107,8 @@ The `^` character can be tricky to wrap your head around given how its function 
 
 The exam reference sheets give a few `re` functions, but how can you determine which one to use? 
 
-<center><img src = "images/ref_sheet_re_methods.png" width = "800"></img></a></center>
+<center><img src = "images/ref_sheet_re_methods.png" width = "700"></img></a></center> <br>
+
 
 - `re.match` and `re.search` only return one instance of a match between string and pattern (or None if there's no match) 
 - `re.match` only considers characters at the beginning of a string

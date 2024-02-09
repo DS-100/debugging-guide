@@ -303,7 +303,8 @@ result.group(3) # 2024, the third captured group</code></pre>
 </section>
 <section id="when-do-i-need-to-escape-characters" class="level3">
 <h3 class="anchored" data-anchor-id="when-do-i-need-to-escape-characters">When do I need to escape characters?</h3>
-<p>The special characters in RegEx are: <code>. ^ $ * + ? ] [ \ | ( ) { } }</code> If you want to match exactly those characters in a RegEx expression, you need to “escape” them by preceding them with a backslash <code>\</code>. However, the rules around this can change in the context of character classes.</p>
+<p>The special characters in RegEx are: <code>. ^ $ * + ? ] [ \ | ( ) { } }</code></p>
+<p>If you want to match exactly those characters in a RegEx expression, you need to “escape” them by preceding them with a backslash <code>\</code>. However, the rules around this can change in the context of character classes.</p>
 <p>For example, the pattern <code>r"[.]"</code> matches <code>'.'</code>, the literal period. In this context, it is not treated as a special character. The hyphen, while not included in the list of special characters, also changes its behavior depending on its position in a character class. It can be used to specify a range of characters (e.g.&nbsp;<code>r"[0-9]"</code>) based on their Unicode values, or match a literal <code>'-'</code> if it does not have two adjacent characters (e.g.&nbsp;<code>r"[-09]"</code> matches <code>-</code>, <code>0</code>, <code>9</code>). To be on the safer side, you could escape <code>-</code> like in <code>r"[0\-9]"</code> to achieve the same result.</p>
 <p>Finally, it’s generally good practice to escape both single and double quotes for greater readability. Technically, patterns like <code>r"'(.\*)'"</code> and <code>r'"(.\*)"'</code> do work as you’d expect, but you can already see how confusing it is to decipher what’s going on. Escaping the quotes inside the pattern does not affect what matches you get, but makes it easier to figure out what the intended match was.</p>
 </section>
@@ -315,8 +316,9 @@ result.group(3) # 2024, the third captured group</code></pre>
 <h3 class="anchored" data-anchor-id="whats-the-difference-between-all-the-re-functions">What’s the difference between all the <code>re</code> functions?</h3>
 <p>The exam reference sheets give a few <code>re</code> functions, but how can you determine which one to use?</p>
 <center>
-<img src="images/ref_sheet_re_methods.png" width="800">
+<img src="images/ref_sheet_re_methods.png" width="700">
 </center>
+<p><br></p>
 <ul>
 <li><code>re.match</code> and <code>re.search</code> only return one instance of a match between string and pattern (or None if there’s no match)</li>
 <li><code>re.match</code> only considers characters at the beginning of a string</li>
