@@ -57,12 +57,14 @@ That's great! This pattern will match the entirety of `DD/MM/YYY`, but what if w
 * In our test strings, the portion matching the RegEx expression is highlighted in blue per usual. Additionally, each capturing group is highlighted in it's own color: green, orange, and purple. 
 * These colored highlights correspond to their match/group under "Match Information". "Match #" (light blue) shows the entire portion that matches the expression while "Group #" shows the match per group. 
 
+#### How do I access captured groups?
 To access each group, we use the following syntax: 
 
 ```
 target_string = "Today's date is 01/April/2024."
 result = re.search(r"(\d+)\/(\w+)\/(\d+)", target_string)
 
+result # re.Match object
 result.groups() # ('01', 'April', '2024')
 result.group(0) # 01/April/2024
 result.group(1) # 01
