@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RegEx</title>
+<title>Data 100 Debugging Guide - RegEx</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,16 +23,50 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="regex_files/libs/clipboard/clipboard.min.js"></script>
-<script src="regex_files/libs/quarto-html/quarto.js"></script>
-<script src="regex_files/libs/quarto-html/popper.min.js"></script>
-<script src="regex_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="regex_files/libs/quarto-html/anchor.min.js"></script>
-<link href="regex_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="regex_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="regex_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="regex_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="regex_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../pandas/pandas.html" rel="prev">
+<link href="../data100_logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -66,15 +100,88 @@ window.Quarto = {
 
 </head>
 
-<body>
+<body class="nav-sidebar floating">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  <nav id="TOC" role="doc-toc" class="toc-active">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regex/regex.html"><span class="chapter-title">RegEx</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../data100_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Data 100 Debugging Guide</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/DS-100/debugging-guide" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../jupyter101/jupyter101.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Jupyter 101</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../jupyter_datahub/jupyter_datahub.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Jupyter / Datahub</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../autograder_gradescope/autograder_gradescope.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autograder and Gradescope</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pandas/pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pandas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regex/regex.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">RegEx</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#how-to-interpret-regex101" id="toc-how-to-interpret-regex101" class="nav-link active" data-scroll-target="#how-to-interpret-regex101">How to Interpret RegEx101</a>
+  <li><a href="#how-to-interpret-regex101" id="toc-how-to-interpret-regex101" class="nav-link active" data-scroll-target="#how-to-interpret-regex101">How to Interpret regex101</a>
   <ul>
   <li><a href="#example-1-basic" id="toc-example-1-basic" class="nav-link" data-scroll-target="#example-1-basic">Example 1: Basic</a></li>
   <li><a href="#example-2-greedy" id="toc-example-2-greedy" class="nav-link" data-scroll-target="#example-2-greedy">Example 2: Greedy</a></li>
@@ -85,21 +192,22 @@ window.Quarto = {
   </ul></li>
   <li><a href="#regex-misconceptions-general-errors" id="toc-regex-misconceptions-general-errors" class="nav-link" data-scroll-target="#regex-misconceptions-general-errors">RegEx Misconceptions &amp; General Errors</a>
   <ul>
-  <li><a href="#im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check." id="toc-im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check." class="nav-link" data-scroll-target="#im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check.">I’m certain my RegEx pattern in .str.replace is correct, but I’m not passing the grader check.</a></li>
+  <li><a href="#im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check." id="toc-im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check." class="nav-link" data-scroll-target="#im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check.">I’m certain my RegEx pattern in <code>.str.replace</code> is correct, but I’m not passing the grader check.</a></li>
   <li><a href="#value-error-pattern-contains-no-capture-groups" id="toc-value-error-pattern-contains-no-capture-groups" class="nav-link" data-scroll-target="#value-error-pattern-contains-no-capture-groups"><code>Value Error: pattern contains no capture groups</code></a></li>
-  <li><a href="#when-do-i-need-to-escape-special-characters" id="toc-when-do-i-need-to-escape-special-characters" class="nav-link" data-scroll-target="#when-do-i-need-to-escape-special-characters">When do I need to escape special characters?</a></li>
-  <li><a href="#three-uses-of" id="toc-three-uses-of" class="nav-link" data-scroll-target="#three-uses-of">Three uses of ‘^’</a></li>
+  <li><a href="#when-do-i-need-to-escape-characters" id="toc-when-do-i-need-to-escape-characters" class="nav-link" data-scroll-target="#when-do-i-need-to-escape-characters">When do I need to escape characters?</a></li>
+  <li><a href="#the-three-uses-of" id="toc-the-three-uses-of" class="nav-link" data-scroll-target="#the-three-uses-of">The three uses of <code>^</code></a></li>
   <li><a href="#whats-the-difference-between-all-the-re-functions" id="toc-whats-the-difference-between-all-the-re-functions" class="nav-link" data-scroll-target="#whats-the-difference-between-all-the-re-functions">What’s the difference between all the <code>re</code> functions?</a></li>
   <li><a href="#whats-the-difference-between-re-functions-and-pd.series.str-functions" id="toc-whats-the-difference-between-re-functions-and-pd.series.str-functions" class="nav-link" data-scroll-target="#whats-the-difference-between-re-functions-and-pd.series.str-functions">What’s the difference between <code>re</code> functions and <code>pd.Series.str</code> functions?</a></li>
   </ul></li>
   </ul>
 </nav>
-</div>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">RegEx</h1>
+<h1 class="title"><span class="chapter-title">RegEx</span></h1>
 </div>
 
 
@@ -116,91 +224,92 @@ window.Quarto = {
 </header>
 
 
-<p>RegEx syntax can be incredibly confusing, so we highly encourage to use sources like the Data 100 Exam reference sheet, which you can find in the “Exam Resources” section in our <a href="https://ds100.org/sp24/resources/">Resources page</a> or websites like <a href="https://regex101.com/">regex101.com</a> to help build your understanding.</p>
+<p>RegEx syntax can be incredibly confusing, so we highly encourage using sources like the Data 100 Exam reference sheet, which you can find in the “Exam Resources” section on our <a href="https://ds100.org/sp24/resources/">Resources page</a> or websites like <a href="https://regex101.com/">regex101.com</a> to help build your understanding.</p>
 <section id="how-to-interpret-regex101" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-interpret-regex101">How to Interpret RegEx101</h2>
-<p>c is a great tool that helps you visually interact with RegEx patterns. Let’s take a look at its components with a simple example:</p>
+<h2 class="anchored" data-anchor-id="how-to-interpret-regex101">How to Interpret regex101</h2>
+<p><a href="https://regex101.com/">Regex101</a> is a great tool that helps you visually interact with RegEx patterns. Let’s take a look at its components with a simple example.</p>
 <section id="example-1-basic" class="level3">
 <h3 class="anchored" data-anchor-id="example-1-basic">Example 1: Basic</h3>
 <center>
-<img src="images/basic.png" width="800">
+<img src="images/updated_basic.png" width="700">
 </center>
 <p><br></p>
-<ol type="1">
-<li><strong>Regular Expression</strong>: This is where the RegEx expression goes. For this example, our pattern is <code>Data 100</code>. In <code>python</code>, we denote it as a string <code>r"Data 100"</code> with the prefix <code>r</code> to indicate that this is a indeed RegEx expression, not a normal <code>python</code> string. Using regex101, however, we don’t need <code>r"..."</code>, just the pattern itself.</li>
+<ol start="0" type="1">
+<li><strong>Flavor</strong>: Regular expressions work slightly differently depending on the programming language you use. In Data 100, we only use the <code>Python</code> flavor. By default, regex101 opens on the PCRE2 flavor, so make sure to change to <code>Python</code> before experimenting.</li>
+<li><strong>Regular Expression</strong>: This is where the RegEx expression goes. For this example, our pattern is <code>Data 100</code>. In <code>Python</code>, we denote it as a string <code>r"Data 100"</code> with the prefix <code>r</code> to indicate that this is a RegEx expression, not a normal <code>Python</code> string. In regex101, because we changed to the <code>Python</code> flavor, we don’t need to type out the <code>r"</code> at the start or the <code>"</code> at the end as that’s already set up for us.</li>
 <li><strong>Explanation</strong>: This portion of the website explains each component of the pattern above. Since it does not contain any special characters, <code>Data 100</code> will match any portion of a string containing <code>Data 100</code>.</li>
 <li><strong>Test String</strong>: This is where you can try out different inputs and see if they match the RegEx pattern. Of the 4 example sentences, we see that only the first sentence contains characters that match the pattern, highlighted in blue. (Note that while sentence 3 does contain <code>data 100</code>, RegEx is sensitive to capitalization. <code>d</code> and <code>D</code> are different characters)</li>
-<li><strong>Match Information</strong>: Each match between the RegEx expression and test strings are shown here.</li>
+<li><strong>Match Information</strong>: Each match between the RegEx expression and test strings is shown here.</li>
 </ol>
 </section>
 <section id="example-2-greedy" class="level3">
 <h3 class="anchored" data-anchor-id="example-2-greedy">Example 2: Greedy</h3>
-<p>For this example, let’s replace the <code>100</code> in our original expression with <code>\d*</code> so that our pattern is <code>Data \d*</code></p>
+<p>For this example, let’s replace the <code>100</code> in our original expression with <code>\d+</code> so that our pattern is <code>Data \d+</code></p>
 <center>
-<img src="images/greedy.png" width="800">
+<img src="images/updated_greedy.png" width="700">
 </center>
 <p><br></p>
-<p><code>\d</code> and <code>*</code> are both special operators, and the explanation on the top right (boxed in red) tells us what they do:</p>
+<p><code>\d</code> and <code>+</code> are both special operators, and the explanation on the top right (boxed in red) tells us what they do:</p>
 <ul>
-<li><code>\d</code> matches digits, or any number between 0 and 9. It’s equlivalent to <code>[0-9]</code>.</li>
-<li><code>*</code> matches the previous token <span class="math inline">\(\geq 0\)</span> times. It is a <em>greedy operation</em>, meaning it will match as many characters as possible.</li>
+<li><code>\d</code> matches digits, or any number between 0 and 9. It’s equivalent to <code>[0-9]</code>.</li>
+<li><code>+</code> matches the previous token <span class="math inline">\(\geq 1\)</span> times. It is a <em>greedy operation</em>, meaning it will match as many characters as possible.</li>
 </ul>
-<p>Altogether, the expression <code>\d*</code> will match any digit zero or more times. Look at each match under “Match Information”. Can you see why they align with <code>Data \d*</code>?</p>
+<p>Altogether, the expression <code>\d+</code> will match any digit one or more times. Look at each match under “Match Information”. Can you see why they align with <code>Data \d+</code>?</p>
 </section>
 <section id="example-3-capturing-groups" class="level3">
 <h3 class="anchored" data-anchor-id="example-3-capturing-groups">Example 3: Capturing Groups</h3>
-<p>Let’s say we’re given a body of text with dates formatted as <code>DD/MM/YYY</code> (ie. 04/Jan/2014), and we’re interested in extracting the dates. An expression like <code>r"\d+\/\w+\/\d+"</code> would match any string with the <code>DD/MM/YYY</code> format:</p>
+<p>Let’s say we’re given a body of text with dates formatted as <code>DD/Month/YYYY</code> (ie. 04/Jan/2014), and we’re interested in extracting the dates. An expression like <code>r"\d+\/\w+\/\d+"</code> would match any string with the <code>DD/Month/YYYY</code> format:</p>
 <ul>
 <li>the first <code>\d+</code> matches <code>DD</code> patterns (ie. <code>04</code>)</li>
 <li><code>\/</code> matches the <code>/</code> separator. Since <code>/</code> is a special operator in RegEx, we need to escape it with <code>\</code> to get the literal character.</li>
-<li><code>\w+</code> in the middle matches <code>MM</code> patterns (ie. <code>Jan</code>)</li>
-<li>lastly, <code>\d+</code> matches <code>YYY</code> patterns (ie. <code>2014</code>)</li>
+<li><code>\w+</code> in the middle matches <code>Month</code> patterns we’re interested in (ie. <code>Jan</code>, <code>January</code>)</li>
+<li>lastly, <code>\d+</code> matches <code>YYYY</code> patterns (ie. <code>2014</code>)</li>
 </ul>
-<p>That’s great! This pattern will match the entirety of <code>DD/MM/YYY</code>, but what if we want to access <code>DD</code> individually? What about <code>YYYY</code>? This is where <strong>capturing groups</strong> come in handy. Capturing groups are RegEx expressions surrounded by parenthesis <code>()</code> that are used to remember the text they match so that it can be referenced later. Putting capturing groups around <code>\d+</code> and <code>\w+</code> to get <code>r"(\d+)\/(\w+)\/(\d+)"</code>gives us the following:</p>
+<p>That’s great! This pattern will match the entirety of <code>DD/Month/YYYY</code>, but what if we want to access <code>DD</code> individually? What about <code>YYYY</code>? This is where <strong>capturing groups</strong> comes in handy. Capturing groups are RegEx expressions surrounded by parenthesis <code>()</code> that are used to remember the text they match so that it can be referenced later. Putting capturing groups around <code>\d+</code> and <code>\w+</code> to get <code>r"(\d+)\/(\w+)\/(\d+)"</code>gives us the following:</p>
 <center>
-<img src="images/capturing_groups.png" width="800">
+<img src="images/updated_capturing_groups.png" width="700">
 </center>
 <ul>
 <li>The “Explanation” section now shows an explanation for each of the 3 capturing groups.</li>
-<li>In our test strings, the portion matching the RegEx expression is highlighted in blue per usual. Additionally, each capturing group is highlighted in it’s own color: green, orange, and purple.</li>
+<li>In our test strings, the portion matching the RegEx expression is highlighted in blue per usual. Additionally, each capturing group is highlighted with a particular color: green, orange, and purple.</li>
 <li>These colored highlights correspond to their match/group under “Match Information”. “Match #” (light blue) shows the entire portion that matches the expression while “Group #” shows the match per group.</li>
 </ul>
 <section id="how-do-i-access-captured-groups" class="level4">
 <h4 class="anchored" data-anchor-id="how-do-i-access-captured-groups">How do I access captured groups?</h4>
 <p>To access each group, we use the following syntax:</p>
-<pre><code>target_string = "Today's date is 01/April/2024."
+<pre><code>target_string = "Today's date is 01/March/2024."
 result = re.search(r"(\d+)\/(\w+)\/(\d+)", target_string)
 
 result # re.Match object
-result.groups() # ('01', 'April', '2024')
-result.group(0) # 01/April/2024
-result.group(1) # 01
-result.group(2) # April
-result.group(3) # 2024</code></pre>
+result.groups() # ('01', 'March', '2024')
+result.group(0) # 01/March/2024, the full match
+result.group(1) # 01, the first captured group
+result.group(2) # March, the second captured group
+result.group(3) # 2024, the third captured group</code></pre>
 </section>
 </section>
 </section>
 <section id="regex-misconceptions-general-errors" class="level2">
 <h2 class="anchored" data-anchor-id="regex-misconceptions-general-errors">RegEx Misconceptions &amp; General Errors</h2>
 <section id="im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check." class="level3">
-<h3 class="anchored" data-anchor-id="im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check.">I’m certain my RegEx pattern in .str.replace is correct, but I’m not passing the grader check.</h3>
+<h3 class="anchored" data-anchor-id="im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check.">I’m certain my RegEx pattern in <code>.str.replace</code> is correct, but I’m not passing the grader check.</h3>
 <p>Here’s the skeleton from the exam reference sheet:</p>
 <p><code>s.str.replace(pat, repl, regex=False)</code></p>
-<p>Notice how the <code>regex=</code> argument is automatically set to <code>False</code>, causing <code>pandas</code> to treat <code>pat</code> like a normal <code>python</code> string. Make sure to set <code>regex=True</code>.</p>
+<p>Notice how the <code>regex=</code> argument has a default value of <code>False</code>, causing <code>pandas</code> to treat <code>pat</code> like a normal <code>Python</code> string. Make sure to set <code>regex=True</code> if you’re using RegEx!</p>
 </section>
 <section id="value-error-pattern-contains-no-capture-groups" class="level3">
 <h3 class="anchored" data-anchor-id="value-error-pattern-contains-no-capture-groups"><code>Value Error: pattern contains no capture groups</code></h3>
-<p>These errors usually occur when using <code>s.str.extract</code> or <code>s.str.extractall</code>. Read more about in course notes: https://ds100.org/course-notes/regex/regex.html#extraction-with-pandas. This error means that your RegEx pattern does not match anything in the given <code>Series</code> of strings. To debug this, try putting your pattern into <code>s.str.extract</code> and <code>s.str.extractall</code> and use example strings from the Series as test cases.</p>
+<p>These errors usually occur when using <code>s.str.extract</code> or <code>s.str.extractall</code>. Read more about it in RegEx <a href="https://ds100.org/course-notes/regex/regex.html#extraction-with-pandas">course notes</a>. This error means that your RegEx pattern does not match anything in the given <code>Series</code> of strings. To debug this, try putting your pattern into <code>s.str.extract</code> and <code>s.str.extractall</code> and use example strings from the Series as test cases.</p>
 </section>
-<section id="when-do-i-need-to-escape-special-characters" class="level3">
-<h3 class="anchored" data-anchor-id="when-do-i-need-to-escape-special-characters">When do I need to escape special characters?</h3>
-<p>The special characters in RegEx are: \texttt{. ^ $ * + ? ] [ &nbsp;| ( ) { } } If you want to match exactly those characters in a RegEx expression, you need to “escape” them by preceding them with a backslash . However, the rules around this can change in the context of character classes.</p>
-<p>For example, the pattern r”[.]” matches “.”, the literal period. In this context, it is not treated as a special character. The hyphen, while not included in the list of special characters, also changes its behavior depending on its position in a character class. It can be used to specify a range of characters (e.g.&nbsp;r”[a-z0-9]“) based on their unicode values, or match a literal ‘-’ if it does not have two adjacent characters (e.g.&nbsp;r”[-09]” matches ‘-’, ‘0’, ‘9’).</p>
-<p>Finally, it’s generally good practice to escape both single and double quotes for greater readability. Technically, patterns like r”‘(.*)’” and r‘“(.*)”’ do work, but you can already see how confusing it is to decipher what’s going on.</p>
+<section id="when-do-i-need-to-escape-characters" class="level3">
+<h3 class="anchored" data-anchor-id="when-do-i-need-to-escape-characters">When do I need to escape characters?</h3>
+<p>The special characters in RegEx are: <code>. ^ $ * + ? ] [ \ | ( ) { } }</code> If you want to match exactly those characters in a RegEx expression, you need to “escape” them by preceding them with a backslash <code>\</code>. However, the rules around this can change in the context of character classes.</p>
+<p>For example, the pattern <code>r"[.]"</code> matches <code>'.'</code>, the literal period. In this context, it is not treated as a special character. The hyphen, while not included in the list of special characters, also changes its behavior depending on its position in a character class. It can be used to specify a range of characters (e.g.&nbsp;<code>r"[0-9]"</code>) based on their Unicode values, or match a literal <code>'-'</code> if it does not have two adjacent characters (e.g.&nbsp;<code>r"[-09]"</code> matches <code>-</code>, <code>0</code>, <code>9</code>). To be on the safer side, you could escape <code>-</code> like in <code>r"[0\-9]"</code> to achieve the same result.</p>
+<p>Finally, it’s generally good practice to escape both single and double quotes for greater readability. Technically, patterns like <code>r"'(.\*)'"</code> and <code>r'"(.\*)"'</code> do work as you’d expect, but you can already see how confusing it is to decipher what’s going on. Escaping the quotes inside the pattern does not affect what matches you get, but makes it easier to figure out what the intended match was.</p>
 </section>
-<section id="three-uses-of" class="level3">
-<h3 class="anchored" data-anchor-id="three-uses-of">Three uses of ‘^’</h3>
-<p>The ‘^’ character can be a tricky to wrap your head around given how it’s function changes depending on the context: If used at the start of a pattern, like in r“^”, it means that a lowercase letter must begin the string in order for a match to occur. If included at the start of a character class, like in r“[^abc]”, it negates all the characters in that class and will match with any other character – in the above example, any character that is not ‘a’, ‘b’, ‘c’. Finally, if escaped as in r”^” it is treated as a literal and will match any instance of ‘^’.</p>
+<section id="the-three-uses-of" class="level3">
+<h3 class="anchored" data-anchor-id="the-three-uses-of">The three uses of <code>^</code></h3>
+<p>The <code>^</code> character can be tricky to wrap your head around given how its function changes depending on the context: 1. If used at the start of a pattern, like in <code>r"^\w"</code>, it means that a lowercase letter must begin the string in order for a match to occur. 2. If included at the start of a character class, like in <code>r"[^abc]"</code>, it negates all the characters in that class and will match with any other character – in the above example, any character that is not <code>a</code>, <code>b</code>, <code>c</code>. 3. Finally, if escaped as in <code>r"\^"</code> it is treated as a literal and will match any instance of <code>^</code>.</p>
 </section>
 <section id="whats-the-difference-between-all-the-re-functions" class="level3">
 <h3 class="anchored" data-anchor-id="whats-the-difference-between-all-the-re-functions">What’s the difference between all the <code>re</code> functions?</h3>
@@ -209,33 +318,44 @@ result.group(3) # 2024</code></pre>
 <img src="images/ref_sheet_re_methods.png" width="800">
 </center>
 <ul>
-<li>re.match and re.search only return one instance of a match between string and pattern (or None if there’s no match)</li>
-<li>re.match only considers characters at the beginning of a string</li>
-<li>re.search considers characters anywhere in the string</li>
+<li><code>re.match</code> and <code>re.search</code> only return one instance of a match between string and pattern (or None if there’s no match)</li>
+<li><code>re.match</code> only considers characters at the beginning of a string</li>
+<li><code>re.search</code> considers characters anywhere in the string</li>
 </ul>
 <p>Example:</p>
-<pre><code>pattern = r”Data 100” 
-example1 = “Data 100 is the best!” 
-example2 = “I love Data 100!” 
-re.match(pattern, example1).group(0) # matches “Data 100” 
-re.match(pattern, example2) # does not match “Data 100” because it’s not at the beginning of a string; returns None
-re.search(pattern, example1).group(0) # matches “Data 100” 
-re.search(pattern, example2).group(0) # also matches “Data 100” </code></pre>
-<p>If, instead, you’re interested in finding all matches between the given string and pattern, re.findall will find them all, returning the matches in a list</p>
-<pre><code>re.findall(r'\d+', 'Data 100, Data 8, Data 101') # returns a list of strings: ['100', '8', '101']
-re.findall(r'\d+', 'Data science is great')  # no matches found, returns empty list: []
-re.sub will find them all and replace it with a string of your choosing
-re.sub(r'\d+', ‘panda’, 'Data 100, Data 8, Data 101') # returns 'Data panda, Data panda, Data panda'
-re.sub(r'\d+', ‘panda’, 'Data science is great')  # no matches found, returns the original string “Data science is great” </code></pre>
+<pre><code>pattern = r"Data 100" 
+example1 = "Data 100 is the best!" 
+example2 = "I love Data 100!" 
+re.match(pattern, example1).group(0) 
+# matches "Data 100" 
+
+re.match(pattern, example2) 
+# does not match "Data 100" because it's not at the beginning of a string; returns None
+
+re.search(pattern, example1).group(0) # matches "Data 100" 
+re.search(pattern, example2).group(0) # matches "Data 100" </code></pre>
+<p>If, instead, you’re interested in finding all matches between the given string and pattern, <code>re.findall</code> will find them all, returning the matches in a list.</p>
+<pre><code>re.findall(r'\d+', 'Data 100, Data 8, Data 101') 
+# returns a list of strings: ['100', '8', '101']
+
+re.findall(r'\d+', 'Data science is great')  
+# no matches found, returns empty list: []</code></pre>
+<p><code>re.sub</code> will find them all and replace it with a string of your choice.</p>
+<pre><code>re.sub(r'\d+', 'panda', 'Data 100, Data 8, Data 101') 
+# returns 'Data panda, Data panda, Data panda'
+
+re.sub(r'\d+', 'panda', 'Data science is great')  
+# no matches found, returns the original string "Data science is great" </code></pre>
 </section>
 <section id="whats-the-difference-between-re-functions-and-pd.series.str-functions" class="level3">
 <h3 class="anchored" data-anchor-id="whats-the-difference-between-re-functions-and-pd.series.str-functions">What’s the difference between <code>re</code> functions and <code>pd.Series.str</code> functions?</h3>
 <p>Generally, all the <code>pd.Series.str</code> functions are used when you want to apply a Python or RegEx string function to a <em>Series of strings</em>. In contrast, <code>re</code> functions are applied to string objects. The reference sheet gives a great overview of the different use cases of each of the <code>pd.Series.str</code> functions.</p>
+
+
 </section>
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -623,6 +743,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../pandas/pandas.html" class="pagination-link  aria-label=" &lt;span="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Pandas</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

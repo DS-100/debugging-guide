@@ -184,14 +184,19 @@ Inspiration for this guide was taken from the UC San Diego course DSC
 10: Principles of Data Science and their
 \href{https://dsc10.com/debugging/}{debugging guide}.
 
-If you spot any typos or would like to suggest any changes, please email
-us at \textbf{data100.instructors@berkeley.edu}
+If you spot any typos or would like to suggest any changes, please fill
+out the
+\href{https://docs.google.com/forms/d/e/1FAIpQLSe0fBEJwt6aEfZxU3fh3llNk8rSWHj6Umq0km3wPqmFu0MlGA/viewform?usp=sf_link}{Data
+100 Content Feedback Form (Spring 2024)}. Note that this link will only
+work if you have an @berkeley.edu email address. If you're not a student
+at Berkeley and would like to provide feedback, please email us at
+\textbf{data100.instructors@berkeley.edu}
 
 \bookmarksetup{startatroot}
 
-\chapter{Jupyter Shortcuts}\label{jupyter-shortcuts}
+\chapter{Jupyter 101}\label{jupyter-101}
 
-\begin{tcolorbox}[enhanced jigsaw, colback=white, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, toprule=.15mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, coltitle=black, breakable, opacitybacktitle=0.6, bottomrule=.15mm, opacityback=0, bottomtitle=1mm, rightrule=.15mm, arc=.35mm, leftrule=.75mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, breakable, colbacktitle=quarto-callout-note-color!10!white, opacitybacktitle=0.6, opacityback=0, left=2mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, arc=.35mm, leftrule=.75mm, rightrule=.15mm, colback=white, toprule=.15mm]
 
 If you're using a MacBook, replace \texttt{ctrl} with \texttt{cmd}.
 
@@ -272,6 +277,18 @@ several options. The ones we use most commonly are:
   \texttt{Restart\ Kernel\ and\ Run\ All\ Cells}
 \end{itemize}
 
+\section{Automatically Closing
+Brackets}\label{automatically-closing-brackets}
+
+Many IDEs like VSCode have a functionality that automatically closes
+brackets. For example, pressing \texttt{(}, \texttt{\{}, or \texttt{{[}}
+would automatically add the second bracket at the other end \texttt{)},
+\texttt{\}}, and \texttt{{]}}, respectively. Datahub does not have this
+functionality turned on by default, but you can do so by going into
+\texttt{Settings} -\textgreater{} \texttt{Auto\ Close\ Brackets}. If you
+see a check mark to the left of \texttt{Auto\ Close\ Brackets}, then
+it's enabled.
+
 \bookmarksetup{startatroot}
 
 \chapter{Jupyter / Datahub}\label{jupyter-datahub}
@@ -301,16 +318,16 @@ When you see a message like this:
 \item
   Either press the ``Ok'' button or reload the page
 \item
-  \href{https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html\#restarting-kernel}{Restart
+  \href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#restarting-kernel}{Restart
   your kernel}
 \item
-  \href{https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html\#running-cells}{Rerun
+  \href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#running-cells}{Rerun
   your cells}
 \end{enumerate}
 
 Note that you may loose some recent work if your kernel restarted when
 you were in the middle of editing a cell. As such, we recommend
-\href{https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html/saving-your-notebook}{saving
+\href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#saving-your-notebook}{saving
 your work} as often as possible.
 
 If this does not fix the issue, it could be a problem with your code,
@@ -359,6 +376,24 @@ For instance: your code is trying to create a gigantic array. To prevent
 the entire server from crashing, the kernel will ``die''. This is an
 indication that there is a mistake in your code that you need to fix.
 
+\section{I accidentally deleted something in a cell that was provided to
+me -- how do I get it
+back?}\label{i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back}
+
+Suppose you're working on Lab 5. One solution is to go directly to
+DataHub and rename your lab05 folder to something else, like lab05-old.
+Then, click the Lab 5 link on the course website again, and it'll bring
+you to a brand-new version of Lab 5. You can then copy your work from
+your old Lab 5 to this new one, which should have the original version
+of the assignment.
+
+Alternatively, you can access this
+\href{https://github.com/DS-100/sp24-student}{public repo} and navigate
+to a blank copy of the assignment you were working on. In the case of
+Lab 5 for example, the notebook would be located at
+\texttt{lab/lab05/lab05.ipynb}. You can then check and copy over the
+contents of the deleted cell into a new cell in your existing notebook.
+
 \section{``Click here to download zip file'' is not
 working}\label{click-here-to-download-zip-file-is-not-working}
 
@@ -384,6 +419,13 @@ screenshots of your free response answers and submit them to Gradescope.
 If you have more time and would like the Datahub-generated PDF, please
 remove any special LaTeX characters from your free response answers.
 
+\section{\texorpdfstring{I can't open Jupyter:
+\texttt{HTTP\ ERROR\ 431}}{I can't open Jupyter: HTTP ERROR 431}}\label{i-cant-open-jupyter-http-error-431}
+
+If this happens, try
+\href{https://support.google.com/accounts/answer/32050?hl=en&co=GENIE.Platform\%3DDesktop}{clearing
+your browser cache} or opening Datahub in an incognito window.
+
 \bookmarksetup{startatroot}
 
 \chapter{Autograder and Gradescope}\label{autograder-and-gradescope}
@@ -399,13 +441,51 @@ Diego course DSC 10: Principles of Data Science and their
 \subsection{Understanding autograder error
 messages}\label{understanding-autograder-error-messages}
 
-When you pass a test, you'll see a nice, concise message and a cute
-emoji!
+When you pass a test, you'll see a nice message and a cute emoji!
 
 When you don't, however, the message can be a little confusing.
 
 The best course of action is to find the test case that failed and use
 that as a starting point to debug your code.
+
+In the example above, we see that the test case in green,
+\texttt{max\_swing\ in\ set(bus{[}\textquotesingle{}name\textquotesingle{}{]})},
+is not passing. The actual output (in blue) is often hard to parse, so
+the best course of action is to:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Make a new (temporary) cell after the \texttt{grader.check(...)} cell.
+  Please do not make a new cell in between the given code cell and the
+  \texttt{grader.check(...)} cell, as it could mess with the results.
+\item
+  Copy and paste the failing test case into your temporary cell and run
+  it.
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    If it's giving you an error like in the example above, look at the
+    last line of the error and use the Debugging Guide's search
+    functionality in the top left menu to find the corresponding guide.
+  \item
+    If it's not giving you an error, it'll likely give you an output
+    like \texttt{False}. This means that your code does not cause an
+    error (yay!), but it returns an incorrect output. In these casses,
+    inspect each individual element of the test case. The example above
+    checks if \texttt{max\_swing} is in
+    \texttt{set(bus{[}\textquotesingle{}name\textquotesingle{}{]})}, so
+    it might be a good idea to display both variables and do a visual
+    check.
+  \item
+    If you're still having issues, post on Ed!
+  \end{enumerate}
+\item
+  After your \texttt{grader.check(...)} passes, feel free to delete the
+  temporary cell.
+\end{enumerate}
 
 \subsection{\texorpdfstring{Why do I get an error saying
 ``\texttt{grader\ is\ not\ defined}''?}{Why do I get an error saying ``grader is not defined''?}}\label{why-do-i-get-an-error-saying-grader-is-not-defined}
@@ -414,7 +494,7 @@ If it has been a while since you've worked on an assignment, the kernel
 will shut itself down to preserve memory. When this happens, all of your
 variables are forgotten, including the grader. That's OK. The easiest
 way to fix this is by
-\href{https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html\#restarting-kernel}{restarting
+\href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#restarting-kernel}{restarting
 your kernel and rerunning all the cells}. To do this, in the top left
 menu, click \texttt{Kernel} -\textgreater{}
 \texttt{Restart\ and\ Run\ All\ Cells}.
@@ -427,13 +507,13 @@ While you might see the correct answer displayed as the result of the
 cell, chances are your solution isn't being stored in the answer
 variable. Make sure you are assigning the result to the answer variable
 and that there are no typos in the variable name. Finally,
-\href{https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html\#restarting-kernel}{restart
+\href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#restarting-kernel}{restart
 your kernel and run all the cells in order}: \texttt{Kernel}
 -\textgreater{} \texttt{Restart\ and\ Run\ All\ Cells}.
 
-\subsection{\texorpdfstring{Why does
-\texttt{grader.export(run\_tests=True)} fail if all previous tests
-passed?}{Why does grader.export(run\_tests=True) fail if all previous tests passed?}}\label{why-does-grader.exportrun_teststrue-fail-if-all-previous-tests-passed}
+\subsection{\texorpdfstring{Why does the last \texttt{grader.export}
+cell fail if all previous tests
+passed?}{Why does the last grader.export cell fail if all previous tests passed?}}\label{why-does-the-last-grader.export-cell-fail-if-all-previous-tests-passed}
 
 This can happen if you ``overwrite'' a variable that is used in a
 question. For instance, say Question 1 asks you to store your answer in
@@ -448,26 +528,8 @@ I didn't change my
 code?}\label{why-does-a-notebook-test-fail-now-when-it-passed-before-and-i-didnt-change-my-code}
 
 You probably ran your notebook out of order.
-\href{https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html\#running-cells}{Re-run
+\href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#running-cells}{Re-run
 all previous cells} in order, which is how your code will be graded.
-
-\subsection{I accidentally deleted something in a cell that was provided
-to me -- how do I get it
-back?}\label{i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back}
-
-Suppose you're working on Lab 5. One solution is to go directly to
-DataHub and rename your lab05 folder to something else, like lab05-old.
-Then, click the Lab 5 link on the course website again, and it'll bring
-you to a brand-new version of Lab 5. You can then copy your work from
-your old Lab 5 to this new one, which should have the original version
-of the assignment.
-
-Alternatively, you can access this
-\href{https://github.com/DS-100/sp24-student}{public repo} and navigate
-to a blank copy of the assignment you were working on. In the case of
-Lab 5 for example, the notebook would be located at
-\texttt{lab/lab05/lab05.ipynb}. You can then check and copy over the
-contents of the deleted cell into a new cell in your existing notebook.
 
 \section{Gradescope}\label{gradescope}
 
@@ -528,8 +590,8 @@ follow up by making a private Ed post.
 
 \chapter{Pandas}\label{pandas}
 
-\section{\texorpdfstring{Understanding
-\texttt{pandas}}{Understanding pandas}}\label{understanding-pandas}
+\section{\texorpdfstring{Understanding \texttt{pandas}
+errors}{Understanding pandas errors}}\label{understanding-pandas-errors}
 
 \texttt{pandas} errors can look red, scary, and very long. Fortunately,
 we don't need to understand the entire thing! The most important parts
@@ -553,7 +615,7 @@ options:
 \item
   Try restarting the kernel. Sometimes, Datahub glitches or lags,
   causing the code to run slower than expected.
-  \href{https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html\#restarting-kernel}{Restarting
+  \href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#restarting-kernel}{Restarting
   the kernel} should fix this problem, but if the cell is still taking a
   while to run, it is likely a problem with your code.
 \item
@@ -593,8 +655,8 @@ all the columns in \texttt{df}.
 \subsection{\texorpdfstring{\texttt{TypeError:\ \textquotesingle{}\_\_\_\textquotesingle{}\ object\ is\ not\ callable}}{TypeError: \textquotesingle\_\_\_\textquotesingle{} object is not callable}}\label{typeerror-___-object-is-not-callable}
 
 This often happens when you use a default keyword (like \texttt{str},
-\texttt{list}, \texttt{range}, \texttt{sum}, or \texttt{max}) as a
-variable name, for instance:
+\texttt{list}, \texttt{range}, \texttt{bool}, \texttt{sum}, or
+\texttt{max}) as a variable name, for instance:
 
 \begin{verbatim}
 sum = 1 + 2 + 3
@@ -604,9 +666,10 @@ These errors can be tricky because they don't error on their own but
 cause problems when we try to use the name \texttt{sum} (for example)
 later on in the notebook.
 
-To fix the issue, identify any such lines of code, change your variable
-names to be something more informative, and
-\href{https://ds100.org/debugging-guide/jupyter_shortcuts/jupyter_shortcuts.html\#restarting-kernel}{restart
+To fix the issue, identify any such lines of code (Ctrl+F on
+``\texttt{sum\ =}'' for example), change your variable names to be
+something more informative, and
+\href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#restarting-kernel}{restart
 your notebook}.
 
 Python keywords like \texttt{str} and \texttt{list} appear in green
@@ -738,13 +801,22 @@ impossible when the list only has 4 elements.
 
 \subsection{\texorpdfstring{\texttt{ValueError:\ Truth\ value\ of\ a\ Series\ is\ ambiguous}}{ValueError: Truth value of a Series is ambiguous}}\label{valueerror-truth-value-of-a-series-is-ambiguous}
 
-This error occurs when you apply Python logical operators (\texttt{or},
-\texttt{and}, \texttt{not}), which only operate on a single boolean
-values, to \texttt{NumPy} arrays or \texttt{Series} objects, which can
-contain multiple values. The fix is to use bitwise operators
-\texttt{\textbar{}}, \texttt{\&}, \texttt{\textasciitilde{}} ,
+This error could occur when you apply Python logical operators
+(\texttt{or}, \texttt{and}, \texttt{not}), which only operate on a
+single boolean values, to \texttt{NumPy} arrays or \texttt{Series}
+objects, which can contain multiple values. The fix is to use bitwise
+operators \texttt{\textbar{}}, \texttt{\&}, \texttt{\textasciitilde{}} ,
 respectively, to allow for element-wise comparisons between values in
 arrays or \texttt{Series}.
+
+Alternatively, these errors could emerge due to overwriting Python
+keywords like \texttt{bool} and \texttt{sum} that may be used in the
+autograder tests, similar to what's described
+\href{https://ds100.org/debugging-guide/pandas/pandas.html\#typeerror-___-object-is-not-callable}{here}.
+You should follow a similar procedure of identifying the line of code
+erroring, checking if you've overwritten any Python keywords using
+Ctrl+F, and renaming those variables to something more informative
+before restarting your kernel and running the erroring tests again.
 
 \subsection{\texorpdfstring{\texttt{ValueError:\ Can\ only\ compare\ identically-labeled\ Series\ objects}}{ValueError: Can only compare identically-labeled Series objects}}\label{valueerror-can-only-compare-identically-labeled-series-objects}
 
@@ -767,6 +839,295 @@ integer-position based indexing by doing \texttt{df.iloc{[}-1{]}}. In
 general, to avoid ambiguity in these cases, it is also good practice to
 write out both the row and column indices you want with
 \texttt{df.iloc{[}-1,\ :{]}}.
+
+\bookmarksetup{startatroot}
+
+\chapter{RegEx}\label{regex}
+
+RegEx syntax can be incredibly confusing, so we highly encourage using
+sources like the Data 100 Exam reference sheet, which you can find in
+the ``Exam Resources'' section on our
+\href{https://ds100.org/sp24/resources/}{Resources page} or websites
+like \href{https://regex101.com/}{regex101.com} to help build your
+understanding.
+
+\section{How to Interpret regex101}\label{how-to-interpret-regex101}
+
+\href{https://regex101.com/}{Regex101} is a great tool that helps you
+visually interact with RegEx patterns. Let's take a look at its
+components with a simple example.
+
+\subsection{Example 1: Basic}\label{example-1-basic}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{-1}
+\tightlist
+\item
+  \textbf{Flavor}: Regular expressions work slightly differently
+  depending on the programming language you use. In Data 100, we only
+  use the \texttt{Python} flavor. By default, regex101 opens on the
+  PCRE2 flavor, so make sure to change to \texttt{Python} before
+  experimenting.
+\item
+  \textbf{Regular Expression}: This is where the RegEx expression goes.
+  For this example, our pattern is \texttt{Data\ 100}. In
+  \texttt{Python}, we denote it as a string \texttt{r"Data\ 100"} with
+  the prefix \texttt{r} to indicate that this is a RegEx expression, not
+  a normal \texttt{Python} string. In regex101, because we changed to
+  the \texttt{Python} flavor, we don't need to type out the \texttt{r"}
+  at the start or the \texttt{"} at the end as that's already set up for
+  us.
+\item
+  \textbf{Explanation}: This portion of the website explains each
+  component of the pattern above. Since it does not contain any special
+  characters, \texttt{Data\ 100} will match any portion of a string
+  containing \texttt{Data\ 100}.
+\item
+  \textbf{Test String}: This is where you can try out different inputs
+  and see if they match the RegEx pattern. Of the 4 example sentences,
+  we see that only the first sentence contains characters that match the
+  pattern, highlighted in blue. (Note that while sentence 3 does contain
+  \texttt{data\ 100}, RegEx is sensitive to capitalization. \texttt{d}
+  and \texttt{D} are different characters)
+\item
+  \textbf{Match Information}: Each match between the RegEx expression
+  and test strings is shown here.
+\end{enumerate}
+
+\subsection{Example 2: Greedy}\label{example-2-greedy}
+
+For this example, let's replace the \texttt{100} in our original
+expression with \texttt{\textbackslash{}d+} so that our pattern is
+\texttt{Data\ \textbackslash{}d+}
+
+\texttt{\textbackslash{}d} and \texttt{+} are both special operators,
+and the explanation on the top right (boxed in red) tells us what they
+do:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{\textbackslash{}d} matches digits, or any number between 0 and
+  9. It's equivalent to \texttt{{[}0-9{]}}.
+\item
+  \texttt{+} matches the previous token \(\geq 1\) times. It is a
+  \emph{greedy operation}, meaning it will match as many characters as
+  possible.
+\end{itemize}
+
+Altogether, the expression \texttt{\textbackslash{}d+} will match any
+digit one or more times. Look at each match under ``Match Information''.
+Can you see why they align with \texttt{Data\ \textbackslash{}d+}?
+
+\subsection{Example 3: Capturing
+Groups}\label{example-3-capturing-groups}
+
+Let's say we're given a body of text with dates formatted as
+\texttt{DD/Month/YYYY} (ie. 04/Jan/2014), and we're interested in
+extracting the dates. An expression like
+\texttt{r"\textbackslash{}d+\textbackslash{}/\textbackslash{}w+\textbackslash{}/\textbackslash{}d+"}
+would match any string with the \texttt{DD/Month/YYYY} format:
+
+\begin{itemize}
+\tightlist
+\item
+  the first \texttt{\textbackslash{}d+} matches \texttt{DD} patterns
+  (ie. \texttt{04})
+\item
+  \texttt{\textbackslash{}/} matches the \texttt{/} separator. Since
+  \texttt{/} is a special operator in RegEx, we need to escape it with
+  \texttt{\textbackslash{}} to get the literal character.
+\item
+  \texttt{\textbackslash{}w+} in the middle matches \texttt{Month}
+  patterns we're interested in (ie. \texttt{Jan}, \texttt{January})
+\item
+  lastly, \texttt{\textbackslash{}d+} matches \texttt{YYYY} patterns
+  (ie. \texttt{2014})
+\end{itemize}
+
+That's great! This pattern will match the entirety of
+\texttt{DD/Month/YYYY}, but what if we want to access \texttt{DD}
+individually? What about \texttt{YYYY}? This is where \textbf{capturing
+groups} comes in handy. Capturing groups are RegEx expressions
+surrounded by parenthesis \texttt{()} that are used to remember the text
+they match so that it can be referenced later. Putting capturing groups
+around \texttt{\textbackslash{}d+} and \texttt{\textbackslash{}w+} to
+get
+\texttt{r"(\textbackslash{}d+)\textbackslash{}/(\textbackslash{}w+)\textbackslash{}/(\textbackslash{}d+)"}gives
+us the following:
+
+\begin{itemize}
+\tightlist
+\item
+  The ``Explanation'' section now shows an explanation for each of the 3
+  capturing groups.
+\item
+  In our test strings, the portion matching the RegEx expression is
+  highlighted in blue per usual. Additionally, each capturing group is
+  highlighted with a particular color: green, orange, and purple.
+\item
+  These colored highlights correspond to their match/group under ``Match
+  Information''. ``Match \#'' (light blue) shows the entire portion that
+  matches the expression while ``Group \#'' shows the match per group.
+\end{itemize}
+
+\subsubsection{How do I access captured
+groups?}\label{how-do-i-access-captured-groups}
+
+To access each group, we use the following syntax:
+
+\begin{verbatim}
+target_string = "Today's date is 01/March/2024."
+result = re.search(r"(\d+)\/(\w+)\/(\d+)", target_string)
+
+result # re.Match object
+result.groups() # ('01', 'March', '2024')
+result.group(0) # 01/March/2024, the full match
+result.group(1) # 01, the first captured group
+result.group(2) # March, the second captured group
+result.group(3) # 2024, the third captured group
+\end{verbatim}
+
+\section{RegEx Misconceptions \& General
+Errors}\label{regex-misconceptions-general-errors}
+
+\subsection{\texorpdfstring{I'm certain my RegEx pattern in
+\texttt{.str.replace} is correct, but I'm not passing the grader
+check.}{I'm certain my RegEx pattern in .str.replace is correct, but I'm not passing the grader check.}}\label{im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check.}
+
+Here's the skeleton from the exam reference sheet:
+
+\texttt{s.str.replace(pat,\ repl,\ regex=False)}
+
+Notice how the \texttt{regex=} argument has a default value of
+\texttt{False}, causing \texttt{pandas} to treat \texttt{pat} like a
+normal \texttt{Python} string. Make sure to set \texttt{regex=True} if
+you're using RegEx!
+
+\subsection{\texorpdfstring{\texttt{Value\ Error:\ pattern\ contains\ no\ capture\ groups}}{Value Error: pattern contains no capture groups}}\label{value-error-pattern-contains-no-capture-groups}
+
+These errors usually occur when using \texttt{s.str.extract} or
+\texttt{s.str.extractall}. Read more about it in RegEx
+\href{https://ds100.org/course-notes/regex/regex.html\#extraction-with-pandas}{course
+notes}. This error means that your RegEx pattern does not match anything
+in the given \texttt{Series} of strings. To debug this, try putting your
+pattern into \texttt{s.str.extract} and \texttt{s.str.extractall} and
+use example strings from the Series as test cases.
+
+\subsection{When do I need to escape
+characters?}\label{when-do-i-need-to-escape-characters}
+
+The special characters in RegEx are:
+\texttt{.\ \^{}\ \$\ *\ +\ ?\ {]}\ {[}\ \textbackslash{}\ \textbar{}\ (\ )\ \{\ \}\ \}}
+If you want to match exactly those characters in a RegEx expression, you
+need to ``escape'' them by preceding them with a backslash
+\texttt{\textbackslash{}}. However, the rules around this can change in
+the context of character classes.
+
+For example, the pattern \texttt{r"{[}.{]}"} matches
+\texttt{\textquotesingle{}.\textquotesingle{}}, the literal period. In
+this context, it is not treated as a special character. The hyphen,
+while not included in the list of special characters, also changes its
+behavior depending on its position in a character class. It can be used
+to specify a range of characters (e.g.~\texttt{r"{[}0-9{]}"}) based on
+their Unicode values, or match a literal
+\texttt{\textquotesingle{}-\textquotesingle{}} if it does not have two
+adjacent characters (e.g.~\texttt{r"{[}-09{]}"} matches \texttt{-},
+\texttt{0}, \texttt{9}). To be on the safer side, you could escape
+\texttt{-} like in \texttt{r"{[}0\textbackslash{}-9{]}"} to achieve the
+same result.
+
+Finally, it's generally good practice to escape both single and double
+quotes for greater readability. Technically, patterns like
+\texttt{r"\textquotesingle{}(.\textbackslash{}*)\textquotesingle{}"} and
+\texttt{r\textquotesingle{}"(.\textbackslash{}*)"\textquotesingle{}} do
+work as you'd expect, but you can already see how confusing it is to
+decipher what's going on. Escaping the quotes inside the pattern does
+not affect what matches you get, but makes it easier to figure out what
+the intended match was.
+
+\subsection{\texorpdfstring{The three uses of
+\texttt{\^{}}}{The three uses of \^{}}}\label{the-three-uses-of}
+
+The \texttt{\^{}} character can be tricky to wrap your head around given
+how its function changes depending on the context: 1. If used at the
+start of a pattern, like in \texttt{r"\^{}\textbackslash{}w"}, it means
+that a lowercase letter must begin the string in order for a match to
+occur. 2. If included at the start of a character class, like in
+\texttt{r"{[}\^{}abc{]}"}, it negates all the characters in that class
+and will match with any other character -- in the above example, any
+character that is not \texttt{a}, \texttt{b}, \texttt{c}. 3. Finally, if
+escaped as in \texttt{r"\textbackslash{}\^{}"} it is treated as a
+literal and will match any instance of \texttt{\^{}}.
+
+\subsection{\texorpdfstring{What's the difference between all the
+\texttt{re}
+functions?}{What's the difference between all the re functions?}}\label{whats-the-difference-between-all-the-re-functions}
+
+The exam reference sheets give a few \texttt{re} functions, but how can
+you determine which one to use?
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{re.match} and \texttt{re.search} only return one instance of a
+  match between string and pattern (or None if there's no match)
+\item
+  \texttt{re.match} only considers characters at the beginning of a
+  string
+\item
+  \texttt{re.search} considers characters anywhere in the string
+\end{itemize}
+
+Example:
+
+\begin{verbatim}
+pattern = r"Data 100" 
+example1 = "Data 100 is the best!" 
+example2 = "I love Data 100!" 
+re.match(pattern, example1).group(0) 
+# matches "Data 100" 
+
+re.match(pattern, example2) 
+# does not match "Data 100" because it's not at the beginning of a string; returns None
+
+re.search(pattern, example1).group(0) # matches "Data 100" 
+re.search(pattern, example2).group(0) # matches "Data 100" 
+\end{verbatim}
+
+If, instead, you're interested in finding all matches between the given
+string and pattern, \texttt{re.findall} will find them all, returning
+the matches in a list.
+
+\begin{verbatim}
+re.findall(r'\d+', 'Data 100, Data 8, Data 101') 
+# returns a list of strings: ['100', '8', '101']
+
+re.findall(r'\d+', 'Data science is great')  
+# no matches found, returns empty list: []
+\end{verbatim}
+
+\texttt{re.sub} will find them all and replace it with a string of your
+choice.
+
+\begin{verbatim}
+re.sub(r'\d+', 'panda', 'Data 100, Data 8, Data 101') 
+# returns 'Data panda, Data panda, Data panda'
+
+re.sub(r'\d+', 'panda', 'Data science is great')  
+# no matches found, returns the original string "Data science is great" 
+\end{verbatim}
+
+\subsection{\texorpdfstring{What's the difference between \texttt{re}
+functions and \texttt{pd.Series.str}
+functions?}{What's the difference between re functions and pd.Series.str functions?}}\label{whats-the-difference-between-re-functions-and-pd.series.str-functions}
+
+Generally, all the \texttt{pd.Series.str} functions are used when you
+want to apply a Python or RegEx string function to a \emph{Series of
+strings}. In contrast, \texttt{re} functions are applied to string
+objects. The reference sheet gives a great overview of the different use
+cases of each of the \texttt{pd.Series.str} functions.
 
 
 

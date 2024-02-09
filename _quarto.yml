@@ -18,7 +18,7 @@ book:
         - jupyter_datahub/jupyter_datahub.md
         - autograder_gradescope/autograder_gradescope.md
         - pandas/pandas.md
-        # - regex/regex.md
+        - regex/regex.md
         # - projA2/projA2.md
     
     sidebar:
