@@ -287,27 +287,13 @@ result.group(3) # '2024', the third captured group</code></pre>
 <h3 class="anchored" data-anchor-id="whats-the-difference-between-all-the-re-functions">What’s the difference between all the <code>re</code> functions?</h3>
 <p>The exam reference sheets give a few <code>re</code> functions, but how can you determine which one to use?</p>
 <center>
-<img src="images/ref_sheet_re_methods.png" width="700">
+<img src="images/ref_sheet_re_methods.png" width="800">
 </center>
 <p><br></p>
-<ul>
-<li><code>re.match</code> and <code>re.search</code> only return one instance of a match between string and pattern (or None if there’s no match)</li>
-<li><code>re.match</code> only considers characters at the beginning of a string</li>
-<li><code>re.search</code> considers characters anywhere in the string</li>
-</ul>
-<p>Example:</p>
-<pre><code>pattern = r"Data 100" 
-example1 = "Data 100 is the best!" 
-example2 = "I love Data 100!" 
-re.match(pattern, example1).group(0) 
-# matches "Data 100" 
-
-re.match(pattern, example2) 
-# does not match "Data 100" because it's not at the beginning of a string; returns None
-
-re.search(pattern, example1).group(0) # matches "Data 100" 
-re.search(pattern, example2).group(0) # matches "Data 100" </code></pre>
-<p>If, instead, you’re interested in finding all matches between the given string and pattern, <code>re.findall</code> will find them all, returning the matches in a list.</p>
+<p><code>re.match</code> and <code>re.search</code> only return <em>one</em> instance of a match between string and pattern (or None if there’s no match) - <code>re.match</code> only considers characters at the beginning of a string - <code>re.search</code> considers characters anywhere in the string - For example: ``` pattern = r”Data 100” example1 = “Data 100 is the best!” example2 = “I love Data 100!”</p>
+<p>re.match(pattern, example1).group(0) # matches “Data 100” re.match(pattern, example2) # does not match “Data 100” because it’s not at the beginning of a string; returns None</p>
+<p>re.search(pattern, example1).group(0) # matches “Data 100” re.search(pattern, example2).group(0) # matches “Data 100” ```</p>
+<p>If, instead, you’re interested in finding <em>all</em> matches between the given string and pattern, <code>re.findall</code> will find them all, returning the matches in a list.</p>
 <pre><code>re.findall(r'\d+', 'Data 100, Data 8, Data 101') 
 # returns a list of strings: ['100', '8', '101']
 

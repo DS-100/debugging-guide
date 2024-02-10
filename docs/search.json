@@ -1,155 +1,9 @@
 [
   {
-    "objectID": "regex/regex.html",
-    "href": "regex/regex.html",
-    "title": "RegEx",
-    "section": "",
-    "text": "How to Interpret regex101\nRegex101 is a great tool that helps you visually interact with RegEx patterns. Let’s take a look at its components with a simple example.",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>RegEx</span>"
-    ]
-  },
-  {
-    "objectID": "regex/regex.html#how-to-interpret-regex101",
-    "href": "regex/regex.html#how-to-interpret-regex101",
-    "title": "RegEx",
-    "section": "",
-    "text": "Example 1: Basic\n\n\n\n\n\nFlavor: Regular expressions work slightly differently depending on the programming language you use. In Data 100, we only use the Python flavor. By default, regex101 opens on the PCRE2 flavor, so make sure to change to Python before experimenting.\nRegular Expression: This is where the RegEx expression goes. For this example, our pattern is Data 100. In Python, we denote it as a string r\"Data 100\" with the prefix r to indicate that this is a RegEx expression, not a normal Python string. In regex101, because we changed to the Python flavor, we don’t need to type out the r\" at the start or the \" at the end as that’s already set up for us.\nExplanation: This portion of the website explains each component of the pattern above. Since it does not contain any special characters, Data 100 will match any portion of a string containing Data 100.\nTest String: This is where you can try out different inputs and see if they match the RegEx pattern. Of the 4 example sentences, we see that only the first sentence contains characters that match the pattern, highlighted in blue. (Note that while sentence 3 does contain data 100, RegEx is sensitive to capitalization. d and D are different characters)\nMatch Information: Each match between the RegEx expression and test strings is shown here.\n\n\n\nExample 2: Greedy\nFor this example, let’s replace the 100 in our original expression with \\d+ so that our pattern is Data \\d+\n\n\n\n\n\\d and + are both special operators, and the explanation on the top right (boxed in red) tells us what they do:\n\n\\d matches digits, or any number between 0 and 9. It’s equivalent to [0-9].\n+ matches the previous token \\(\\geq 1\\) times. It is a greedy operation, meaning it will match as many characters as possible.\n\nAltogether, the expression \\d+ will match any digit one or more times. Look at each match under “Match Information”. Can you see why they align with Data \\d+?\n\n\nExample 3: Capturing Groups\nLet’s say we’re given a body of text with dates formatted as DD/Month/YYYY (ie. 04/Jan/2014), and we’re interested in extracting the dates. An expression like r\"\\d+\\/\\w+\\/\\d+\" would match any string with the DD/Month/YYYY format:\n\nthe first \\d+ matches DD patterns (ie. 04)\n\\/ matches the / separator. Since / is a special operator in RegEx, we need to escape it with \\ to get the literal character.\n\\w+ in the middle matches Month patterns we’re interested in (ie. Jan, January)\nlastly, \\d+ matches YYYY patterns (ie. 2014)\n\nThat’s great! This pattern will match the entirety of DD/Month/YYYY, but what if we want to access DD individually? What about YYYY? This is where capturing groups comes in handy. Capturing groups are RegEx expressions surrounded by parenthesis () that are used to remember the text they match so that it can be referenced later. Putting capturing groups around \\d+ and \\w+ to get r\"(\\d+)\\/(\\w+)\\/(\\d+)\"gives us the following:\n\n\n\n\nThe “Explanation” section now shows an explanation for each of the 3 capturing groups.\nIn our test strings, the portion matching the RegEx expression is highlighted in blue per usual. Additionally, each capturing group is highlighted with a particular color: green, orange, and purple.\nThese colored highlights correspond to their match/group under “Match Information”. “Match #” (light blue) shows the entire portion that matches the expression while “Group #” shows the match per group.\n\n\nHow do I access captured groups?\nTo access each group, we use the following syntax:\ntarget_string = \"Today's date is 01/March/2024.\"\nresult = re.search(r\"(\\d+)\\/(\\w+)\\/(\\d+)\", target_string)\n\nresult # re.Match object\nresult.groups() # ('01', 'March', '2024')\nresult.group(0) # 01/March/2024, the full match\nresult.group(1) # 01, the first captured group\nresult.group(2) # March, the second captured group\nresult.group(3) # 2024, the third captured group",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>RegEx</span>"
-    ]
-  },
-  {
-    "objectID": "regex/regex.html#regex-misconceptions-general-errors",
-    "href": "regex/regex.html#regex-misconceptions-general-errors",
-    "title": "RegEx",
-    "section": "RegEx Misconceptions & General Errors",
-    "text": "RegEx Misconceptions & General Errors\n\nI’m certain my RegEx pattern in .str.replace is correct, but I’m not passing the grader check.\nHere’s the skeleton from the exam reference sheet:\ns.str.replace(pat, repl, regex=False)\nNotice how the regex= argument has a default value of False, causing pandas to treat pat like a normal Python string. Make sure to set regex=True if you’re using RegEx!\n\n\nValue Error: pattern contains no capture groups\nThese errors usually occur when using s.str.extract or s.str.extractall. Read more about it in RegEx course notes. This error means that your RegEx pattern does not match anything in the given Series of strings. To debug this, try putting your pattern into s.str.extract and s.str.extractall and use example strings from the Series as test cases.\n\n\nWhen do I need to escape characters?\nThe special characters in RegEx are: . ^ $ * + ? ] [ \\ | ( ) { } }\nIf you want to match exactly those characters in a RegEx expression, you need to “escape” them by preceding them with a backslash \\. However, the rules around this can change in the context of character classes.\nFor example, the pattern r\"[.]\" matches '.', the literal period. In this context, it is not treated as a special character. The hyphen, while not included in the list of special characters, also changes its behavior depending on its position in a character class. It can be used to specify a range of characters (e.g. r\"[0-9]\") based on their Unicode values, or match a literal '-' if it does not have two adjacent characters (e.g. r\"[-09]\" matches -, 0, 9). To be on the safer side, you could escape - like in r\"[0\\-9]\" to achieve the same result.\nFinally, it’s generally good practice to escape both single and double quotes for greater readability. Technically, patterns like r\"'(.\\*)'\" and r'\"(.\\*)\"' do work as you’d expect, but you can already see how confusing it is to decipher what’s going on. Escaping the quotes inside the pattern does not affect what matches you get, but makes it easier to figure out what the intended match was.\n\n\nThe three uses of ^\nThe ^ character can be tricky to wrap your head around given how its function changes depending on the context: 1. If used at the start of a pattern, like in r\"^\\w\", it means that a lowercase letter must begin the string in order for a match to occur. 2. If included at the start of a character class, like in r\"[^abc]\", it negates all the characters in that class and will match with any other character – in the above example, any character that is not a, b, c. 3. Finally, if escaped as in r\"\\^\" it is treated as a literal and will match any instance of ^.\n\n\nWhat’s the difference between all the re functions?\nThe exam reference sheets give a few re functions, but how can you determine which one to use?\n\n\n\n\n\nre.match and re.search only return one instance of a match between string and pattern (or None if there’s no match)\nre.match only considers characters at the beginning of a string\nre.search considers characters anywhere in the string\n\nExample:\npattern = r\"Data 100\" \nexample1 = \"Data 100 is the best!\" \nexample2 = \"I love Data 100!\" \nre.match(pattern, example1).group(0) \n# matches \"Data 100\" \n\nre.match(pattern, example2) \n# does not match \"Data 100\" because it's not at the beginning of a string; returns None\n\nre.search(pattern, example1).group(0) # matches \"Data 100\" \nre.search(pattern, example2).group(0) # matches \"Data 100\" \nIf, instead, you’re interested in finding all matches between the given string and pattern, re.findall will find them all, returning the matches in a list.\nre.findall(r'\\d+', 'Data 100, Data 8, Data 101') \n# returns a list of strings: ['100', '8', '101']\n\nre.findall(r'\\d+', 'Data science is great')  \n# no matches found, returns empty list: []\nre.sub will find them all and replace it with a string of your choice.\nre.sub(r'\\d+', 'panda', 'Data 100, Data 8, Data 101') \n# returns 'Data panda, Data panda, Data panda'\n\nre.sub(r'\\d+', 'panda', 'Data science is great')  \n# no matches found, returns the original string \"Data science is great\" \n\n\nWhat’s the difference between re functions and pd.Series.str functions?\nGenerally, all the pd.Series.str functions are used when you want to apply a Python or RegEx string function to a Series of strings. In contrast, re functions are applied to string objects. The reference sheet gives a great overview of the different use cases of each of the pd.Series.str functions.",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>RegEx</span>"
-    ]
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Data 100 Debugging Guide",
     "section": "",
-<<<<<<< HEAD
-    "text": "About\nThis text offers pointers for keyboard shortcuts or common mistakes that accompany the coursework in the Spring 2024 Edition of the UC Berkeley course Data 100: Principles and Techniques of Data Science.\nInspiration for this guide was taken from the UC San Diego course DSC 10: Principles of Data Science and their debugging guide.\nIf you spot any typos or would like to suggest any changes, please fill out the Data 100 Content Feedback Form (Spring 2024). Note that this link will only work if you have an @berkeley.edu email address. If you’re not a student at Berkeley and would like to provide feedback, please email us at data100.instructors@berkeley.edu",
-    "crumbs": [
-      "About"
-    ]
-  },
-  {
-    "objectID": "pandas/pandas.html",
-    "href": "pandas/pandas.html",
-    "title": "Pandas",
-    "section": "",
-    "text": "Understanding pandas errors\npandas errors can look red, scary, and very long. Fortunately, we don’t need to understand the entire thing! The most important parts of an error message are at the top, which tells you which line of code is causing the issue, and at the bottom, which tells you exactly what the error message is.\nThis note is (mostly) structured around the error messages that show up at the bottom.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
-    ]
-  },
-  {
-    "objectID": "pandas/pandas.html#my-code-is-taking-a-really-long-time-to-run",
-    "href": "pandas/pandas.html#my-code-is-taking-a-really-long-time-to-run",
-    "title": "Pandas",
-    "section": "My code is taking a really long time to run",
-    "text": "My code is taking a really long time to run\nIt is normal for a cell to take a few seconds – sometimes a few minutes – to run. If it’s is taking too long, however, you have several options:\n\nTry restarting the kernel. Sometimes, Datahub glitches or lags, causing the code to run slower than expected. Restarting the kernel should fix this problem, but if the cell is still taking a while to run, it is likely a problem with your code.\nScrutinize your code. Am I using too many for loops? Is there a repeated operation that I can substitute with a pandas function?",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
-    ]
-  },
-  {
-    "objectID": "pandas/pandas.html#why-is-it-generally-better-avoid-using-loops-or-list-comprehensions-when-possible",
-    "href": "pandas/pandas.html#why-is-it-generally-better-avoid-using-loops-or-list-comprehensions-when-possible",
-    "title": "Pandas",
-    "section": "Why is it generally better avoid using loops or list comprehensions when possible?",
-    "text": "Why is it generally better avoid using loops or list comprehensions when possible?\nIn one word: performance. NumPy and pandas functions are optimized to handle large amounts of data in an efficient manner. Even for simple operations, like the elementwise addition of two arrays, NumPy arrays are much faster and scale better (feel free to experiment with this yourself using %%time). This is why we encourage you to vectorize your code (ie. using NumPy arrays, Series, or DataFrames instead of Python lists) and use in-built NumPy/pandas functions wherever possible.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
-    ]
-  },
-  {
-    "objectID": "pandas/pandas.html#keyerrors",
-    "href": "pandas/pandas.html#keyerrors",
-    "title": "Pandas",
-    "section": "KeyErrors",
-    "text": "KeyErrors\n\nKeyError: 'column_name'\nThis error usually happens when we have a DataFame called df, and we’re trying to do an operation on a column 'column_name' that does not exist. If you encounter this error, double check that you’re operating on the right column. It might be a good idea to display df and see what it looks like. You could also call df.columns to list all the columns in df.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
-    ]
-  },
-  {
-    "objectID": "pandas/pandas.html#typeerrors",
-    "href": "pandas/pandas.html#typeerrors",
-    "title": "Pandas",
-    "section": "TypeErrors",
-    "text": "TypeErrors\n\nTypeError: '___' object is not callable\nThis often happens when you use a default keyword (like str, list, range, bool, sum, or max) as a variable name, for instance:\nsum = 1 + 2 + 3\nThese errors can be tricky because they don’t error on their own but cause problems when we try to use the name sum (for example) later on in the notebook.\nTo fix the issue, identify any such lines of code (Ctrl+F on “sum =” for example), change your variable names to be something more informative, and restart your notebook.\nPython keywords like str and list appear in green text, so be on the lookout if any of your variable names appear in green!\n\n\nTypeError: could not convert string to a float\nThis error often occurs when we try to do math operations (ie. sum, average, min, max) on a DataFrame column or Series that contains strings instead of numbers (note that we can do math operations with booleans; Python treats True as 1 and False as 0).\nDouble check that the column you’re interested in is a numerical type (int, float, or double). If it looks like a number, but you’re still getting this error, you can use .astype(...) (documentation) to change the datatype of a DataFrame or Series.\n\n\nTypeError: Could not convert &lt;string&gt; to numeric\nRelated to the above (but distinct), you may run into this error when performing a numeric aggregation function (like mean or sum functions that take integer arguments) after doing a groupby operation on a DataFrame with non-numeric columns.\nWorking with the elections dataset for example,\nelections.groupby('Year').agg('mean')\nwould error because pandas cannot compute the mean of the names of presidents. There are two ways to get around this:\n\nSelect only the numeric columns you are interested in before applying the aggregation function. In the above case, both elections.groupby('Year')['Popular Vote'] or elections['Popular vote'].groupby('Year') would work.\nSetting the numeric_only argument to True in the .agg call, thereby applying the aggregation function only to numeric columns. For example, elections.groupby('Year').agg('mean', numeric_only=True).\n\n\n\nTypeError: 'NoneType' object is not subscriptable / AttributeError: 'NoneType' object has no attribute 'shape'\nThis usually occurs as you assign a None value to a variable, then try to either index into or access some attribute of that variable. For Python functions like append and extend, you do not need to do any variable assignment because they mutate the variable directly and return None. Assigning None tends to happen as a result of code like:\nsome_list = some_list.append(element)\nIn contrast, an operation like np.append does not mutate the variable in place and, instead, returns a copy. In these cases, (re)assignment is necessary:\nsome_array = np.append(some_array, element)\n\n\nTypeError: 'int'/'float' object is not subscriptable\nThis occurs when you try and index into an integer or other numeric Python data type. It can be confusing to debug amidst a muddle of code, but you can use the error message to identify which variable is causing this error. Using type(var_name) to check the data type of the variable in question can be a good starting point.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
-    ]
-  },
-  {
-    "objectID": "pandas/pandas.html#indexerrors",
-    "href": "pandas/pandas.html#indexerrors",
-    "title": "Pandas",
-    "section": "IndexErrors",
-    "text": "IndexErrors\n\nIndexError: invalid index to scalar variable.\nThis error is similar to the last TypeError in the previous section. However, it is slightly different in that scalar variables come up in the context of NumPy data types which have slightly different attributes.\nFor a concrete example, if you defined\nnumpy_arr = np.array([1])\nand indexed into it twice (numpy_arr[0][0]), you would get the above error. Unlike a Python integer whose type is int, type(numpy_arr[0]) returns the NumPy version of an integer, numpy.int64. Additionally, you can check the data type by accessing the .dtype attribute of NumPy array (numpy_arr.dtype) or scalar variable (numpy_arr[0].dtype).\n\n\nIndexError: index _ is out of bounds for axis _ with size _\nThis error usually happens when you try to index a value that’s greater than the size of the array/list/DataFrame/Series. For example,\nsome_list = [2, 4, 6, 8]\nsome_list has a length of 4. Trying some_list[6] will error because index 6 is greater than the length of the array. Note that some_list[4] will also cause an IndexError because Python and pandas uses zero indexing, which means that the first element has index 0, the second element has index 1, etc.; some_list[4] would grab the fifth element, which is impossible when the list only has 4 elements.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
-    ]
-  },
-  {
-    "objectID": "pandas/pandas.html#valueerrors",
-    "href": "pandas/pandas.html#valueerrors",
-    "title": "Pandas",
-    "section": "ValueErrors",
-    "text": "ValueErrors\n\nValueError: Truth value of a Series is ambiguous\nThis error could occur when you apply Python logical operators (or, and, not), which only operate on a single boolean values, to NumPy arrays or Series objects, which can contain multiple values. The fix is to use bitwise operators |, &, ~ , respectively, to allow for element-wise comparisons between values in arrays or Series.\nAlternatively, these errors could emerge due to overwriting Python keywords like bool and sum that may be used in the autograder tests, similar to what’s described here. You should follow a similar procedure of identifying the line of code erroring, checking if you’ve overwritten any Python keywords using Ctrl+F, and renaming those variables to something more informative before restarting your kernel and running the erroring tests again.\n\n\nValueError: Can only compare identically-labeled Series objects\nAs the message would suggest, this error occurs when comparing two Series objects that have different lengths. You can double check the lengths of the Series using len(series_name) or series_name.size.\n\n\nValueError: -1 is not in range / KeyError: -1\nThis error occurs when you try and index into a Series or DataFrame as you would a Python list. Unlike a list where passing an index of -1 gives the last element, pandas interprets df[-1] as an attempt to find the row corresponding to index -1 (that is, df.loc[-1]). If your intention is to pick out the last row in df, consider using integer-position based indexing by doing df.iloc[-1]. In general, to avoid ambiguity in these cases, it is also good practice to write out both the row and column indices you want with df.iloc[-1, :].",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
-    ]
-  },
-  {
-    "objectID": "autograder_gradescope/autograder_gradescope.html",
-    "href": "autograder_gradescope/autograder_gradescope.html",
-    "title": "Autograder and Gradescope",
-    "section": "",
-    "text": "Autograder",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Autograder and Gradescope</span>"
-    ]
-  },
-  {
-    "objectID": "autograder_gradescope/autograder_gradescope.html#autograder",
-    "href": "autograder_gradescope/autograder_gradescope.html#autograder",
-    "title": "Autograder and Gradescope",
-    "section": "",
-    "text": "Understanding autograder error messages\nWhen you pass a test, you’ll see a nice message and a cute emoji!\n\n\n\nWhen you don’t, however, the message can be a little confusing.\n\n\n\n\nThe best course of action is to find the test case that failed and use that as a starting point to debug your code.\n\n\n\nIn the example above, we see that the test case in green, max_swing in set(bus['name']), is not passing. The actual output (in blue) is often hard to parse, so the best course of action is to:\n\nMake a new (temporary) cell after the grader.check(...) cell. Please do not make a new cell in between the given code cell and the grader.check(...) cell, as it could mess with the results.\nCopy and paste the failing test case into your temporary cell and run it.\n\nIf it’s giving you an error like in the example above, look at the last line of the error and use the Debugging Guide’s search functionality in the top left menu to find the corresponding guide.\nIf it’s not giving you an error, it’ll likely give you an output like False. This means that your code does not cause an error (yay!), but it returns an incorrect output. In these casses, inspect each individual element of the test case. The example above checks if max_swing is in set(bus['name']), so it might be a good idea to display both variables and do a visual check.\nIf you’re still having issues, post on Ed!\n\nAfter your grader.check(...) passes, feel free to delete the temporary cell.\n\n\n\nWhy do I get an error saying “grader is not defined”?\nIf it has been a while since you’ve worked on an assignment, the kernel will shut itself down to preserve memory. When this happens, all of your variables are forgotten, including the grader. That’s OK. The easiest way to fix this is by restarting your kernel and rerunning all the cells. To do this, in the top left menu, click Kernel -&gt; Restart and Run All Cells.\n\n\nI’m positive I have the right answer, but the test fails. Is there a mistake in the test?\nWhile you might see the correct answer displayed as the result of the cell, chances are your solution isn’t being stored in the answer variable. Make sure you are assigning the result to the answer variable and that there are no typos in the variable name. Finally, restart your kernel and run all the cells in order: Kernel -&gt; Restart and Run All Cells.\n\n\nWhy does the last grader.export cell fail if all previous tests passed?\nThis can happen if you “overwrite” a variable that is used in a question. For instance, say Question 1 asks you to store your answer in a variable named stat and, later on in the notebook, you change the value of stat; the test right after Question 1 will pass, but the test at the end of the notebook will fail. It is good programming practice to give your variables informative names and to avoid repeating the same variable name for more than one purpose.\n\n\nWhy does a notebook test fail now when it passed before, and I didn’t change my code?\nYou probably ran your notebook out of order. Re-run all previous cells in order, which is how your code will be graded.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Autograder and Gradescope</span>"
-    ]
-  },
-  {
-    "objectID": "autograder_gradescope/autograder_gradescope.html#gradescope",
-    "href": "autograder_gradescope/autograder_gradescope.html#gradescope",
-    "title": "Autograder and Gradescope",
-    "section": "Gradescope",
-    "text": "Gradescope\nWhen submitting to Gradescope, there are often unexpected errors that make students lose more points than expected. Thus, it is imperative that you stay on the submission page until the autograder finishes running, and the results are displayed.\n\nWhy did a Gradescope test fail when all the Jupyter notebook’s tests passed?\nThis can happen if you’re running your notebook’s cells out of order. The autograder runs your notebook from top-to-bottom. If you’re defining a variable at the bottom of your notebook and using it at the top, the Gradescope autograder will fail because it doesn’t recognize the variable when it encounters it.\nThis is why we recommend going into the top left menu and clicking Kernel -&gt; Restart -&gt; Run All. The autograder “forgets” all of the variables and runs the notebook from top-to-bottom like the Gradescope autograder does. This will highlight any issues.\nFind the first cell that raises an error. Make sure that all of the variables used in that cell have been defined above that cell, and not below.\n\n\nWhy do I get a NameError: name ___ is not defined when I run a grader check?\nThis happens when you try to access a variable that has not been defined yet. Since the autograder runs all the cells in-order, if you happened to define a variable in a cell further down and accessed it before that cell, the autograder will likely throw this error. Another reason this could occur is because the notebook was not saved before the autograder tests are run. When in doubt, it is good practice to restart your kernel, run all the cells again, and save the notebook before running the cell that causes this error.\n\n\nMy autograder keeps running/timed out\nIf your Gradescope submission page has been stuck running on this page for a while:\n\n\n\nor if it times out:\n\n\n\nit means that the Gradescope autograder failed to execute in the expected amount of time. This could be due to an inefficiency in your code or a problem on Gradescope’s end, so we recommend resubmitting and letting the autograder rerun. It is your responsibility to ensure that the autograder runs properly, and, if it still fails, to follow up by making a private Ed post.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Autograder and Gradescope</span>"
-    ]
-  },
-  {
-    "objectID": "jupyter_datahub/jupyter_datahub.html",
-    "href": "jupyter_datahub/jupyter_datahub.html",
-    "title": "Jupyter / Datahub",
-    "section": "",
-    "text": "My kernel died, restarted, or is very slow\nJupyterhub connects you to an external container to run your code. That connection could be slow/severed because:\nWhen you see a message like this:\nNote that you may loose some recent work if your kernel restarted when you were in the middle of editing a cell. As such, we recommend saving your work as often as possible.\nIf this does not fix the issue, it could be a problem with your code, usually the last cell that executed before your kernel crashed. Double check your logic, and feel free to make a private post on Ed if you’re stuck!",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Jupyter / Datahub</span>"
-    ]
-=======
     "text": "About\nThis text offers pointers for keyboard shortcuts or common mistakes that accompany the coursework in the Spring 2024 Edition of the UC Berkeley course Data 100: Principles and Techniques of Data Science.\nInspiration for this guide was taken from the UC San Diego course DSC 10: Principles of Data Science and their debugging guide.\nIf you spot any typos or would like to suggest any changes, please fill out the Data 100 Content Feedback Form (Spring 2024). Note that this link will only work if you have an @berkeley.edu email address. If you’re not a student at Berkeley and would like to provide feedback, please email us at data100.instructors@berkeley.edu"
   },
   {
@@ -186,7 +40,6 @@
     "title": "Jupyter 101",
     "section": "Automatically Closing Brackets",
     "text": "Automatically Closing Brackets\nMany IDEs like VSCode have a functionality that automatically closes brackets. For example, pressing (, {, or [ would automatically add the second bracket at the other end ), }, and ], respectively. Datahub does not have this functionality turned on by default, but you can do so by going into Settings -&gt; Auto Close Brackets. If you see a check mark to the left of Auto Close Brackets, then it’s enabled."
->>>>>>> d641f38998081056e3af0ca951430f0b1bd96fe7
   },
   {
     "objectID": "jupyter_datahub/jupyter_datahub.html#my-kernel-died-restarted-or-is-very-slow",
@@ -249,72 +102,6 @@
     "href": "jupyter_datahub/jupyter_datahub.html#i-cant-open-jupyter-http-error-431",
     "title": "Jupyter / Datahub",
     "section": "I can’t open Jupyter: HTTP ERROR 431",
-<<<<<<< HEAD
-    "text": "I can’t open Jupyter: HTTP ERROR 431\nIf this happens, try clearing your browser cache or opening Datahub in an incognito window.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Jupyter / Datahub</span>"
-    ]
-  },
-  {
-    "objectID": "jupyter101/jupyter101.html",
-    "href": "jupyter101/jupyter101.html",
-    "title": "Jupyter 101",
-    "section": "",
-    "text": "Shortcuts for Cells\nFor the following commands, make sure you’re in command mode. You can enter this mode by pressing esc.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter 101</span>"
-    ]
-  },
-  {
-    "objectID": "jupyter101/jupyter101.html#shortcuts-for-cells",
-    "href": "jupyter101/jupyter101.html#shortcuts-for-cells",
-    "title": "Jupyter 101",
-    "section": "",
-    "text": "a: create a cell above\nb: create a cell below\ndd: delete current cell\nm: convert a cell to markdown (text cell)\ny: convert a cell to code",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter 101</span>"
-    ]
-  },
-  {
-    "objectID": "jupyter101/jupyter101.html#running-cells",
-    "href": "jupyter101/jupyter101.html#running-cells",
-    "title": "Jupyter 101",
-    "section": "Running Cells",
-    "text": "Running Cells\nFor individual cells,\n\nctrl + return: run the current cell\nshift + return: run the current cell and move to the next cell\n\nTo run all cells in a notebook:\n\nIn the menu bar on the left, click Run. From here, you have several options. The ones we use most commonly are:\n\nRun All Above Selected Cell: this runs every cell above the selected cell\nRun Selected Cell and All Below: this runs the selected cell and all cells below\nRun All: this runs every cell in the notebook from top-to-bottom",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter 101</span>"
-    ]
-  },
-  {
-    "objectID": "jupyter101/jupyter101.html#saving-your-notebook",
-    "href": "jupyter101/jupyter101.html#saving-your-notebook",
-    "title": "Jupyter 101",
-    "section": "Saving your notebook",
-    "text": "Saving your notebook\nJupyter autosaves your work, but there can be a delay. As such, it’s a good idea to save your work as often as you remember and especially before submitting assignments. To do so, press ctrl + s.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter 101</span>"
-    ]
-  },
-  {
-    "objectID": "jupyter101/jupyter101.html#restarting-kernel",
-    "href": "jupyter101/jupyter101.html#restarting-kernel",
-    "title": "Jupyter 101",
-    "section": "Restarting Kernel",
-    "text": "Restarting Kernel\nIn the menu bar on the left, click Kernel. From here, you have several options. The ones we use most commonly are:\n\nRestart Kernel...\nRestart Kernel and Run up to Selected Cell\nRestart Kernel and Run All Cells",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter 101</span>"
-    ]
-  },
-  {
-    "objectID": "jupyter101/jupyter101.html#automatically-closing-brackets",
-    "href": "jupyter101/jupyter101.html#automatically-closing-brackets",
-    "title": "Jupyter 101",
-    "section": "Automatically Closing Brackets",
-    "text": "Automatically Closing Brackets\nMany IDEs like VSCode have a functionality that automatically closes brackets. For example, pressing (, {, or [ would automatically add the second bracket at the other end ), }, and ], respectively. Datahub does not have this functionality turned on by default, but you can do so by going into Settings -&gt; Auto Close Brackets. If you see a check mark to the left of Auto Close Brackets, then it’s enabled.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Jupyter 101</span>"
-    ]
-=======
     "text": "I can’t open Jupyter: HTTP ERROR 431\nIf this happens, try clearing your browser cache or opening Datahub in an incognito window."
   },
   {
@@ -392,7 +179,6 @@
     "href": "regex/regex.html#regex-misconceptions-general-errors",
     "title": "RegEx",
     "section": "RegEx Misconceptions & General Errors",
-    "text": "RegEx Misconceptions & General Errors\n\nI’m certain my RegEx pattern in .str.replace is correct, but I’m not passing the grader check.\nHere’s the skeleton from the exam reference sheet:\ns.str.replace(pat, repl, regex=False)\nNotice how the regex= argument has a default value of False, causing pandas to treat pat like a normal Python string. Make sure to set regex=True if you’re using RegEx!\n\n\nValue Error: pattern contains no capture groups\nThese errors usually occur when using s.str.extract or s.str.extractall. Read more about it in the RegEx course notes. This error means that your RegEx pattern does not match anything in the given Series of strings. To debug this, try putting your pattern into regex101.com and use example strings from the Series as test cases.\n\n\nWhen do I need to escape characters?\nThe special characters in RegEx are: . ^ $ * + ? ] [ \\ | ( ) { } } If you want to match exactly those characters in a RegEx expression, you need to “escape” them by preceding them with a backslash \\. However, the rules around this can change in the context of character classes.\nFor example, the pattern r\"[.]\" matches '.', the literal period. In this context, it is not treated as a special character. The hyphen, while not included in the list of special characters, also changes its behavior depending on its position in a character class. It can be used to specify a range of characters (e.g. r\"[0-9]\") based on their Unicode values, or match a literal '-' if it does not have two adjacent characters (e.g. r\"[-09]\" matches -, 0, 9). To be on the safer side, you could escape - like in r\"[0\\-9]\" to achieve the same result.\nFinally, it’s generally good practice to escape both single and double quotes for greater readability. Technically, patterns like r\"'(.\\*)'\" and r'\"(.\\*)\"' do work as you’d expect, but you can already see how confusing it is to decipher what’s going on. Escaping the quotes inside the pattern does not affect what matches you get, but makes it easier to figure out what the intended match was.\n\n\nThe three uses of ^\nThe ^ character can be tricky to wrap your head around given how its function changes depending on the context:\n\nIf used at the start of a pattern, like in r\"^\\w\", it means that a lowercase letter must begin the string in order for a match to occur.\nIf included at the start of a character class, like in r\"[^abc]\", it negates all the characters in that class and will match with any other character – in the above example, any character that is not a, b, c.\nFinally, if escaped as in r\"\\^\" it is treated as a literal and will match any instance of ^.\n\n\n\nWhat’s the difference between all the re functions?\nThe exam reference sheets give a few re functions, but how can you determine which one to use?\n\n\n\n\nre.match and re.search only return one instance of a match between string and pattern (or None if there’s no match) - re.match only considers characters at the beginning of a string - re.search considers characters anywhere in the string - For example: ``` pattern = r”Data 100” example1 = “Data 100 is the best!” example2 = “I love Data 100!”\nre.match(pattern, example1).group(0) # matches “Data 100” re.match(pattern, example2) # does not match “Data 100” because it’s not at the beginning of a string; returns None\nre.search(pattern, example1).group(0) # matches “Data 100” re.search(pattern, example2).group(0) # matches “Data 100” ```\nIf, instead, you’re interested in finding all matches between the given string and pattern, re.findall will find them all, returning the matches in a list.\nre.findall(r'\\d+', 'Data 100, Data 8, Data 101') \n# returns a list of strings: ['100', '8', '101']\n\nre.findall(r'\\d+', 'Data science is great')  \n# no matches found, returns empty list: []\nre.sub will find them all and replace it with a string of your choice.\nre.sub(r'\\d+', 'panda', 'Data 100, Data 8, Data 101') \n# returns 'Data panda, Data panda, Data panda'\n\nre.sub(r'\\d+', 'panda', 'Data science is great')  \n# no matches found, returns the original string \"Data science is great\" \n\n\nWhat’s the difference between re functions and pd.Series.str functions?\nGenerally, all the pd.Series.str functions are used when you want to apply a Python or RegEx string function to a Series of strings. In contrast, re functions are applied to string objects. The reference sheet gives a great overview of the different use cases of each of the pd.Series.str functions."
->>>>>>> d641f38998081056e3af0ca951430f0b1bd96fe7
+    "text": "RegEx Misconceptions & General Errors\n\nI’m certain my RegEx pattern in .str.replace is correct, but I’m not passing the grader check.\nHere’s the skeleton from the exam reference sheet:\ns.str.replace(pat, repl, regex=False)\nNotice how the regex= argument has a default value of False, causing pandas to treat pat like a normal Python string. Make sure to set regex=True if you’re using RegEx!\n\n\nValue Error: pattern contains no capture groups\nThese errors usually occur when using s.str.extract or s.str.extractall. Read more about it in the RegEx course notes. This error means that your RegEx pattern does not match anything in the given Series of strings. To debug this, try putting your pattern into regex101.com and use example strings from the Series as test cases.\n\n\nWhen do I need to escape characters?\nThe special characters in RegEx are: . ^ $ * + ? ] [ \\ | ( ) { } }\nIf you want to match exactly those characters in a RegEx expression, you need to “escape” them by preceding them with a backslash \\. However, the rules around this can change in the context of character classes.\nFor example, the pattern r\"[.]\" matches '.', the literal period. In this context, it is not treated as a special character. The hyphen, while not included in the list of special characters, also changes its behavior depending on its position in a character class. It can be used to specify a range of characters (e.g. r\"[0-9]\") based on their Unicode values, or match a literal '-' if it does not have two adjacent characters (e.g. r\"[-09]\" matches -, 0, 9). To be on the safer side, you could escape - like in r\"[0\\-9]\" to achieve the same result.\nFinally, it’s generally good practice to escape both single and double quotes for greater readability. Technically, patterns like r\"'(.\\*)'\" and r'\"(.\\*)\"' do work as you’d expect, but you can already see how confusing it is to decipher what’s going on. Escaping the quotes inside the pattern does not affect what matches you get, but makes it easier to figure out what the intended match was.\n\n\nThe three uses of ^\nThe ^ character can be tricky to wrap your head around given how its function changes depending on the context:\n\nIf used at the start of a pattern, like in r\"^\\w\", it means that a lowercase letter must begin the string in order for a match to occur.\nIf included at the start of a character class, like in r\"[^abc]\", it negates all the characters in that class and will match with any other character – in the above example, any character that is not a, b, c.\nFinally, if escaped as in r\"\\^\" it is treated as a literal and will match any instance of ^.\n\n\n\nWhat’s the difference between all the re functions?\nThe exam reference sheets give a few re functions, but how can you determine which one to use?\n\n\n\n\nre.match and re.search only return one instance of a match between string and pattern (or None if there’s no match) - re.match only considers characters at the beginning of a string - re.search considers characters anywhere in the string - For example: ``` pattern = r”Data 100” example1 = “Data 100 is the best!” example2 = “I love Data 100!”\nre.match(pattern, example1).group(0) # matches “Data 100” re.match(pattern, example2) # does not match “Data 100” because it’s not at the beginning of a string; returns None\nre.search(pattern, example1).group(0) # matches “Data 100” re.search(pattern, example2).group(0) # matches “Data 100” ```\nIf, instead, you’re interested in finding all matches between the given string and pattern, re.findall will find them all, returning the matches in a list.\nre.findall(r'\\d+', 'Data 100, Data 8, Data 101') \n# returns a list of strings: ['100', '8', '101']\n\nre.findall(r'\\d+', 'Data science is great')  \n# no matches found, returns empty list: []\nre.sub will find them all and replace it with a string of your choice.\nre.sub(r'\\d+', 'panda', 'Data 100, Data 8, Data 101') \n# returns 'Data panda, Data panda, Data panda'\n\nre.sub(r'\\d+', 'panda', 'Data science is great')  \n# no matches found, returns the original string \"Data science is great\" \n\n\nWhat’s the difference between re functions and pd.Series.str functions?\nGenerally, all the pd.Series.str functions are used when you want to apply a Python or RegEx string function to a Series of strings. In contrast, re functions are applied to string objects. The reference sheet gives a great overview of the different use cases of each of the pd.Series.str functions."
   }
 ]
