@@ -8,6 +8,10 @@ Begin by [installing Quarto](https://quarto.org/docs/get-started/).
 
 Texts can be authored in Quarto using VSCode, JupyterLab, or classic Jupyter Notebook. We suggest using [VSCode](https://quarto.org/docs/get-started/hello/vscode.html)
 
+## Repo Setup
+After you've installed quarto, go into your terminal on your *local* device and type 
+`git clone https://github.com/DS-100/debugging-guide.git`
+
 ## Repo Organization
 This website uses Quarto to render pages. The main index can be found in `_quarto.yml`, and subpages are organized under the `chapters` section. Each subpage has it's own folder and `.md` (markdown) file. Note that unlike the [Course Notes repo](https://github.com/DS-100/course-notes), the debugging guide rarely runs any code, so we rely on `.md` files rather than `.qmd`, saving us the trouble of converting from `.qmd` to `.ipynb` for editing, then back to `.qmd` to render the website. Instead we can make edits directly to the `.md` file. 
 
