@@ -83,6 +83,10 @@ Here's the skeleton from the exam reference sheet:
 
 Notice how the `regex=` argument has a default value of `False`, causing `pandas` to treat `pat` like a normal `Python` string. Make sure to set `regex=True` if you're using RegEx!
 
+### My RegEx pattern matches the test cases on regex101, but is not working in `pandas` with `.str.findall` / `.str.extractall` / `.str.extract`.  
+
+The most likely reason for this is forgetting to include the `r` before the string with your regular expression. Without including the `r` in `.str.findall(**r**".*")`, `pandas` will not interpret your pattern as a regex expression.
+
 ### `Value Error: pattern contains no capture groups`
 These errors usually occur when using `s.str.extract` or `s.str.extractall`. Read more about it in the [RegEx course notes](https://ds100.org/course-notes/regex/regex.html#extraction-with-pandas).
 This error means that your RegEx pattern does not match anything in the given `Series` of strings. To debug this, try putting your pattern into [regex101.com](https://regex101.com/) and use example strings from the Series as test cases. 

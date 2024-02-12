@@ -196,7 +196,7 @@ at Berkeley and would like to provide feedback, please email us at
 
 \chapter{Jupyter 101}\label{jupyter-101}
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, coltitle=black, colframe=quarto-callout-note-color-frame, leftrule=.75mm, titlerule=0mm, left=2mm, colback=white, bottomrule=.15mm, opacitybacktitle=0.6, breakable, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, toptitle=1mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, left=2mm, titlerule=0mm, colframe=quarto-callout-note-color-frame, opacityback=0, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, breakable, bottomtitle=1mm, rightrule=.15mm, bottomrule=.15mm, toprule=.15mm, colback=white]
 
 If you're using a MacBook, replace \texttt{ctrl} with \texttt{cmd}.
 
@@ -845,9 +845,9 @@ write out both the row and column indices you want with
 \chapter{RegEx}\label{regex}
 
 RegEx syntax can be incredibly confusing, so we highly encourage using
-sources like the Data 100 Exam reference sheet, which you can find in
+sources like the Data 100 Exam reference sheet (you can find this under
 the ``Exam Resources'' section on our
-\href{https://ds100.org/sp24/resources/}{Resources page} or websites
+\href{https://ds100.org/sp24/resources/}{Resources page}) or websites
 like \href{https://regex101.com/}{regex101.com} to help build your
 understanding.
 
@@ -876,8 +876,8 @@ components with a simple example.
   the prefix \texttt{r} to indicate that this is a RegEx expression, not
   a normal \texttt{Python} string. In regex101, because we changed to
   the \texttt{Python} flavor, we don't need to type out the \texttt{r"}
-  at the start or the \texttt{"} at the end as that's already set up for
-  us.
+  at the start or the \texttt{"} at the end, as that's already set up
+  for us.
 \item
   \textbf{Explanation}: This portion of the website explains each
   component of the pattern above. Since it does not contain any special
@@ -982,11 +982,11 @@ target_string = "Today's date is 01/March/2024."
 result = re.search(r"(\d+)\/(\w+)\/(\d+)", target_string)
 
 result # re.Match object
-result.groups() # ('01', 'March', '2024')
-result.group(0) # 01/March/2024, the full match
-result.group(1) # 01, the first captured group
-result.group(2) # March, the second captured group
-result.group(3) # 2024, the third captured group
+result.groups() # all captured groups: ('01', 'March', '2024')
+result.group(0) # '01/March/2024', the full match
+result.group(1) # '01', the first captured group
+result.group(2) # 'March', the second captured group
+result.group(3) # '2024', the third captured group
 \end{verbatim}
 
 \section{RegEx Misconceptions \& General
@@ -1005,14 +1005,24 @@ Notice how the \texttt{regex=} argument has a default value of
 normal \texttt{Python} string. Make sure to set \texttt{regex=True} if
 you're using RegEx!
 
+\subsection{\texorpdfstring{My RegEx pattern matches the test cases on
+regex101, but is not working in \texttt{pandas} with
+\texttt{.str.findall} / \texttt{.str.extractall} /
+\texttt{.str.extract}.}{My RegEx pattern matches the test cases on regex101, but is not working in pandas with .str.findall / .str.extractall / .str.extract.}}\label{my-regex-pattern-matches-the-test-cases-on-regex101-but-is-not-working-in-pandas-with-.str.findall-.str.extractall-.str.extract.}
+
+The most likely reason for this is forgetting to include the \texttt{r}
+before the string with your regular expression. Without including the
+\texttt{r} in \texttt{.str.findall(**r**".*")}, \texttt{pandas} will not
+interpret your pattern as a regex expression.
+
 \subsection{\texorpdfstring{\texttt{Value\ Error:\ pattern\ contains\ no\ capture\ groups}}{Value Error: pattern contains no capture groups}}\label{value-error-pattern-contains-no-capture-groups}
 
 These errors usually occur when using \texttt{s.str.extract} or
-\texttt{s.str.extractall}. Read more about it in RegEx
-\href{https://ds100.org/course-notes/regex/regex.html\#extraction-with-pandas}{course
-notes}. This error means that your RegEx pattern does not match anything
-in the given \texttt{Series} of strings. To debug this, try putting your
-pattern into \texttt{s.str.extract} and \texttt{s.str.extractall} and
+\texttt{s.str.extractall}. Read more about it in the
+\href{https://ds100.org/course-notes/regex/regex.html\#extraction-with-pandas}{RegEx
+course notes}. This error means that your RegEx pattern does not match
+anything in the given \texttt{Series} of strings. To debug this, try
+putting your pattern into \href{https://regex101.com/}{regex101.com} and
 use example strings from the Series as test cases.
 
 \subsection{When do I need to escape
@@ -1052,15 +1062,24 @@ the intended match was.
 \texttt{\^{}}}{The three uses of \^{}}}\label{the-three-uses-of}
 
 The \texttt{\^{}} character can be tricky to wrap your head around given
-how its function changes depending on the context: 1. If used at the
-start of a pattern, like in \texttt{r"\^{}\textbackslash{}w"}, it means
-that a lowercase letter must begin the string in order for a match to
-occur. 2. If included at the start of a character class, like in
-\texttt{r"{[}\^{}abc{]}"}, it negates all the characters in that class
-and will match with any other character -- in the above example, any
-character that is not \texttt{a}, \texttt{b}, \texttt{c}. 3. Finally, if
-escaped as in \texttt{r"\textbackslash{}\^{}"} it is treated as a
-literal and will match any instance of \texttt{\^{}}.
+how its function changes depending on the context:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  If used at the start of a pattern, like in
+  \texttt{r"\^{}\textbackslash{}w"}, it means that a lowercase letter
+  must begin the string in order for a match to occur.
+\item
+  If included at the start of a character class, like in
+  \texttt{r"{[}\^{}abc{]}"}, it negates all the characters in that class
+  and will match with any other character -- in the above example, any
+  character that is not \texttt{a}, \texttt{b}, \texttt{c}.
+\item
+  Finally, if escaped as in \texttt{r"\textbackslash{}\^{}"} it is
+  treated as a literal and will match any instance of \texttt{\^{}}.
+\end{enumerate}
 
 \subsection{\texorpdfstring{What's the difference between all the
 \texttt{re}
@@ -1069,37 +1088,23 @@ functions?}{What's the difference between all the re functions?}}\label{whats-th
 The exam reference sheets give a few \texttt{re} functions, but how can
 you determine which one to use?
 
-\begin{itemize}
-\tightlist
-\item
-  \texttt{re.match} and \texttt{re.search} only return one instance of a
-  match between string and pattern (or None if there's no match)
-\item
-  \texttt{re.match} only considers characters at the beginning of a
-  string
-\item
-  \texttt{re.search} considers characters anywhere in the string
-\end{itemize}
+\texttt{re.match} and \texttt{re.search} only return \emph{one} instance
+of a match between string and pattern (or None if there's no match) -
+\texttt{re.match} only considers characters at the beginning of a string
+- \texttt{re.search} considers characters anywhere in the string - For
+example: ``` pattern = r''Data 100'' example1 = ``Data 100 is the
+best!'' example2 = ``I love Data 100!''
 
-Example:
+re.match(pattern, example1).group(0) \# matches ``Data 100''
+re.match(pattern, example2) \# does not match ``Data 100'' because it's
+not at the beginning of a string; returns None
 
-\begin{verbatim}
-pattern = r"Data 100" 
-example1 = "Data 100 is the best!" 
-example2 = "I love Data 100!" 
-re.match(pattern, example1).group(0) 
-# matches "Data 100" 
+re.search(pattern, example1).group(0) \# matches ``Data 100''
+re.search(pattern, example2).group(0) \# matches ``Data 100'' ```
 
-re.match(pattern, example2) 
-# does not match "Data 100" because it's not at the beginning of a string; returns None
-
-re.search(pattern, example1).group(0) # matches "Data 100" 
-re.search(pattern, example2).group(0) # matches "Data 100" 
-\end{verbatim}
-
-If, instead, you're interested in finding all matches between the given
-string and pattern, \texttt{re.findall} will find them all, returning
-the matches in a list.
+If, instead, you're interested in finding \emph{all} matches between the
+given string and pattern, \texttt{re.findall} will find them all,
+returning the matches in a list.
 
 \begin{verbatim}
 re.findall(r'\d+', 'Data 100, Data 8, Data 101') 
@@ -1109,8 +1114,8 @@ re.findall(r'\d+', 'Data science is great')
 # no matches found, returns empty list: []
 \end{verbatim}
 
-\texttt{re.sub} will find them all and replace it with a string of your
-choice.
+\texttt{re.sub} will find them all \emph{and replace it} with a string
+of your choice.
 
 \begin{verbatim}
 re.sub(r'\d+', 'panda', 'Data 100, Data 8, Data 101') 
