@@ -196,7 +196,7 @@ at Berkeley and would like to provide feedback, please email us at
 
 \chapter{Jupyter 101}\label{jupyter-101}
 
-\begin{tcolorbox}[enhanced jigsaw, coltitle=black, left=2mm, titlerule=0mm, colframe=quarto-callout-note-color-frame, opacityback=0, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, breakable, bottomtitle=1mm, rightrule=.15mm, bottomrule=.15mm, toprule=.15mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, toptitle=1mm, opacityback=0, left=2mm, leftrule=.75mm, toprule=.15mm, colframe=quarto-callout-note-color-frame, colback=white, breakable, arc=.35mm, coltitle=black, titlerule=0mm, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, bottomtitle=1mm, rightrule=.15mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
 
 If you're using a MacBook, replace \texttt{ctrl} with \texttt{cmd}.
 
@@ -1012,8 +1012,9 @@ regex101, but is not working in \texttt{pandas} with
 
 The most likely reason for this is forgetting to include the \texttt{r}
 before the string with your regular expression. Without including the
-\texttt{r} in \texttt{.str.findall(**r**".*")}, \texttt{pandas} will not
-interpret your pattern as a regex expression.
+\texttt{r} in \texttt{.str.findall(r".*")}, \texttt{pandas} will not
+interpret your pattern as a regex expression and will only match it
+literally.
 
 \subsection{\texorpdfstring{\texttt{Value\ Error:\ pattern\ contains\ no\ capture\ groups}}{Value Error: pattern contains no capture groups}}\label{value-error-pattern-contains-no-capture-groups}
 

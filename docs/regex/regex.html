@@ -301,7 +301,7 @@ result.group(3) # '2024', the third captured group</code></pre>
 </section>
 <section id="my-regex-pattern-matches-the-test-cases-on-regex101-but-is-not-working-in-pandas-with-.str.findall-.str.extractall-.str.extract." class="level3">
 <h3 class="anchored" data-anchor-id="my-regex-pattern-matches-the-test-cases-on-regex101-but-is-not-working-in-pandas-with-.str.findall-.str.extractall-.str.extract.">My RegEx pattern matches the test cases on regex101, but is not working in <code>pandas</code> with <code>.str.findall</code> / <code>.str.extractall</code> / <code>.str.extract</code>.</h3>
-<p>The most likely reason for this is forgetting to include the <code>r</code> before the string with your regular expression. Without including the <code>r</code> in <code>.str.findall(**r**".*")</code>, <code>pandas</code> will not interpret your pattern as a regex expression.</p>
+<p>The most likely reason for this is forgetting to include the <code>r</code> before the string with your regular expression. Without including the <code>r</code> in <code>.str.findall(r".*")</code>, <code>pandas</code> will not interpret your pattern as a regex expression and will only match it literally.</p>
 </section>
 <section id="value-error-pattern-contains-no-capture-groups" class="level3">
 <h3 class="anchored" data-anchor-id="value-error-pattern-contains-no-capture-groups"><code>Value Error: pattern contains no capture groups</code></h3>

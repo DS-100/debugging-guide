@@ -85,7 +85,7 @@ Notice how the `regex=` argument has a default value of `False`, causing `pandas
 
 ### My RegEx pattern matches the test cases on regex101, but is not working in `pandas` with `.str.findall` / `.str.extractall` / `.str.extract`.  
 
-The most likely reason for this is forgetting to include the `r` before the string with your regular expression. Without including the `r` in `.str.findall(**r**".*")`, `pandas` will not interpret your pattern as a regex expression.
+The most likely reason for this is forgetting to include the `r` before the string with your regular expression. Without including the `r` in `.str.findall(r".*")`, `pandas` will not interpret your pattern as a regex expression and will only match it literally.
 
 ### `Value Error: pattern contains no capture groups`
 These errors usually occur when using `s.str.extract` or `s.str.extractall`. Read more about it in the [RegEx course notes](https://ds100.org/course-notes/regex/regex.html#extraction-with-pandas).
