@@ -34,6 +34,35 @@ ul.task-list li input[type="checkbox"] {
 <link href="visualizations_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="visualizations_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -47,6 +76,8 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#my-legends-labels-dont-match-up-my-legend-isnt-displaying-properly" id="toc-my-legends-labels-dont-match-up-my-legend-isnt-displaying-properly" class="nav-link active" data-scroll-target="#my-legends-labels-dont-match-up-my-legend-isnt-displaying-properly">My legend’s labels don’t match up / my legend isn’t displaying properly</a></li>
   <li><a href="#the-y-axis-of-my-histplot-shows-the-count-not-the-density" id="toc-the-y-axis-of-my-histplot-shows-the-count-not-the-density" class="nav-link" data-scroll-target="#the-y-axis-of-my-histplot-shows-the-count-not-the-density">The y-axis of my <code>histplot</code> shows the count, not the density</a></li>
+  <li><a href="#im-having-trouble-labeling-the-axestitle-of-my-graph" id="toc-im-having-trouble-labeling-the-axestitle-of-my-graph" class="nav-link" data-scroll-target="#im-having-trouble-labeling-the-axestitle-of-my-graph">I’m having trouble labeling the axes/title of my graph</a></li>
+  <li><a href="#my-sns.lineplot-has-an-unwanted-shaded-region-around-the-solid-lines." id="toc-my-sns.lineplot-has-an-unwanted-shaded-region-around-the-solid-lines." class="nav-link" data-scroll-target="#my-sns.lineplot-has-an-unwanted-shaded-region-around-the-solid-lines.">My <code>sns.lineplot</code> has an unwanted shaded region around the solid lines.</a></li>
   </ul>
 </nav>
 </div>
@@ -75,19 +106,109 @@ ul.task-list li input[type="checkbox"] {
 <section id="my-legends-labels-dont-match-up-my-legend-isnt-displaying-properly" class="level3">
 <h3 class="anchored" data-anchor-id="my-legends-labels-dont-match-up-my-legend-isnt-displaying-properly">My legend’s labels don’t match up / my legend isn’t displaying properly</h3>
 <p>If you simply add <code>plt.legend()</code> after your plotting line of code, you should see a legend. When using seaborn, sometimes it will automatically populate the legend. However, if you’re plotting multiple lines or sets of points on a single plot, the labels in the legend may not correctly line up with what’s shown.</p>
-<p>Make sure to pass in the <code>label</code> argument into the function call with the label you want associated with that individual plot. For example,</p>
+<p>Make sure to pass in the <code>label=</code> argument into the plotting function with the label you want associated with that individual plot. For example,</p>
 <pre><code>sns.histplot(means_arr, label = 'simulated values') # informative label name
 plt.title('Simulated values') 
 plt.plot(original, 10, 'bo', label = 'original test statistic') # informative label name
 plt.legend(loc = 'upper left') # can specify location of legend</code></pre>
 <center>
-<img src="example_label_plot.png" width="500">
+<img src="images/example_label_plot.png" width="500">
 </center>
 <p><br></p>
 </section>
 <section id="the-y-axis-of-my-histplot-shows-the-count-not-the-density" class="level2">
 <h2 class="anchored" data-anchor-id="the-y-axis-of-my-histplot-shows-the-count-not-the-density">The y-axis of my <code>histplot</code> shows the count, not the density</h2>
-<p>Look into the <code>sns.histplot</code> <a href="https://seaborn.pydata.org/generated/seaborn.histplot.html">documentation</a> and see what arguments the <code>stat</code> parameter takes in. By default, <code>stat=count</code>, but if you wanted to normalize the distribution such that the total area is 1, you could consider <code>stat=density</code>.</p>
+<p>Look into the <code>sns.histplot</code> <a href="https://seaborn.pydata.org/generated/seaborn.histplot.html">documentation</a> and see what arguments the <code>stat=</code> parameter takes in. By default, <code>stat=count</code>, and the number of elements in each histogram bin is the y axis. But if you wanted to normalize the distribution such that the total area is 1, consider passing <code>stat=density</code> into the plot function.</p>
+</section>
+<section id="im-having-trouble-labeling-the-axestitle-of-my-graph" class="level2">
+<h2 class="anchored" data-anchor-id="im-having-trouble-labeling-the-axestitle-of-my-graph">I’m having trouble labeling the axes/title of my graph</h2>
+<p>To label the axes and title of a graph, we use the following syntax:</p>
+<pre><code>plt.xlabel(“x axis name”) 
+plt.ylabel(“y axis name”) 
+plt.title(“graph title”) </code></pre>
+<p>Where <code>plt.xlabel</code>, <code>plt.ylabel</code>, and <code>plt.title</code> are matplotlib functions that we call.</p>
+<p>However, we often see students use the following incorrect syntax to try and label their plot:</p>
+<pre><code>plt.xlabel = “x name”
+plt.ylabel = "y name”
+plt.title = “graph title” </code></pre>
+<p>Now, instead of <code>plt.xlabel</code>, <code>plt.ylabel</code>, and <code>plt.title</code> being functions, they are strings. Trying to call one of the labelling function using the correct syntax afterwards (ie.<code>plt.xlabel(“x name”)</code>) results in a <code>TypeError: str object is not callable</code>. If this happens to you, comb through your notebook and look for places when you used the incorrect syntax. After fixing it, <a href="https://ds100.org/debugging-guide/jupyter101/jupyter101.html#restarting-kernel">restart your kernel</a> and <a href="https://ds100.org/debugging-guide/jupyter101/jupyter101.html#running-cells">rerun your cells</a>.</p>
+</section>
+<section id="my-sns.lineplot-has-an-unwanted-shaded-region-around-the-solid-lines." class="level2">
+<h2 class="anchored" data-anchor-id="my-sns.lineplot-has-an-unwanted-shaded-region-around-the-solid-lines.">My <code>sns.lineplot</code> has an unwanted shaded region around the solid lines.</h2>
+<blockquote class="blockquote">
+<p>Note: the following examples are taken from <code>sns.lineplot</code>’s <a href="https://seaborn.pydata.org/generated/seaborn.lineplot.html">documentation</a>.</p>
+</blockquote>
+<p><code>sns.lineplot</code> gives us a clean line when each x value has one y value. For example, the table</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Year</th>
+<th>May</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1948</td>
+<td>120</td>
+</tr>
+<tr class="even">
+<td>1949</td>
+<td>122</td>
+</tr>
+<tr class="odd">
+<td>1950</td>
+<td>123</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(\vdots\)</span></p>
+<p>will result in the following clean plot because each year corresponds to a single “Number of Flights in May” value.</p>
+<center>
+<img src="images/normal_lineplot.png" width="500">
+</center>
+<p><br></p>
+<p>When each x value has multiple y values, <code>sns.lineplot</code> will automatically plot a shaded region around the solid line, where the solid line is the mean of the y values for that x value and the shaded region is the 95% confidence interval (read more about confidence intervals in the <a href="https://inferentialthinking.com/chapters/13/3/Confidence_Intervals.html?highlight=confidence+intervals">Data 8 textbook</a>). For example, the table</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Year</th>
+<th>May</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1948</td>
+<td>115</td>
+</tr>
+<tr class="even">
+<td>1948</td>
+<td>120</td>
+</tr>
+<tr class="odd">
+<td>1948</td>
+<td>125</td>
+</tr>
+<tr class="even">
+<td>1949</td>
+<td>118</td>
+</tr>
+<tr class="odd">
+<td>1949</td>
+<td>122</td>
+</tr>
+<tr class="even">
+<td>1949</td>
+<td>126</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(\vdots\)</span></p>
+<p>will plot a lineplot with a shaded region representing the 95% confidence interval.</p>
+<center>
+<img src="images/shaded_lineplot.png" width="500">
+</center>
+<p><br></p>
+<p>If you do not want the shaded region, aggregate the data such that there is only one y-value for a given x-value; then, make the plot.</p>
 </section>
 
 </main>

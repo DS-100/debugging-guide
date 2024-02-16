@@ -20,7 +20,7 @@ Visualizations are how data scientists use to communicate their insights to the 
 
 If you simply add `plt.legend()` after your plotting line of code, you should see a legend. When using seaborn, sometimes it will automatically populate the legend. However, if you’re plotting multiple lines or sets of points on a single plot, the labels in the legend may not correctly line up with what’s shown. 
 
-Make sure to pass in the `label=` argument into the plotting function with the label you want associated with that individual plot. For example, 
+Make sure to pass in the `label` argument into the plotting function with the label you want associated with that individual plot. For example, 
 
 ```
 sns.histplot(means_arr, label = 'simulated values') # informative label name
@@ -33,7 +33,7 @@ plt.legend(loc = 'upper left') # can specify location of legend
 
 ## The y-axis of my `histplot` shows the count, not the density
 
-Look into the `sns.histplot` [documentation](https://seaborn.pydata.org/generated/seaborn.histplot.html) and see what arguments the `stat=` parameter takes in. By default, `stat=count`, and the number of elements in each histogram bin is the y axis. But if you wanted to normalize the distribution such that the total area is 1, consider passing `stat=density` into the plot function.
+Look into the `sns.histplot` [documentation](https://seaborn.pydata.org/generated/seaborn.histplot.html) and see what arguments the `stat` parameter takes in. By default, `stat=count`, and the number of elements in each histogram bin is the y axis. But if you wanted to normalize the distribution such that the total area is 1, consider passing `stat=density` into the plot function.
 
 ## I’m having trouble labeling the axes/title of my graph 
 To label the axes and title of a graph, we use the following syntax: 
@@ -49,16 +49,16 @@ Where `plt.xlabel`, `plt.ylabel`, and `plt.title` are matplotlib functions that 
 However, we often see students use the following incorrect syntax to try and label their plot: 
 
 ```
-plt.xlabel = “x name”
-plt.ylabel = "y name”
-plt.title = “graph title” 
+plt.xlabel = "x name"
+plt.ylabel = "y name"
+plt.title = "graph title"
 ```
 Now, instead of `plt.xlabel`, `plt.ylabel`, and `plt.title` being functions, they are strings. Trying to call one of the labelling function using the correct syntax afterwards (ie.` plt.xlabel(“x name”)`) results in a `TypeError: str object is not callable`. If this happens to you, comb through your notebook and look for places when you used the incorrect syntax. After fixing it, [restart your kernel](https://ds100.org/debugging-guide/jupyter101/jupyter101.html#restarting-kernel) and [rerun your cells](https://ds100.org/debugging-guide/jupyter101/jupyter101.html#running-cells). 
 
 ## My `sns.lineplot` has an unwanted shaded region around the solid lines.
 >Note: the following examples are taken from `sns.lineplot`'s [documentation](https://seaborn.pydata.org/generated/seaborn.lineplot.html). 
 
-`sns.lineplot` gives us a clean line when each x value has one y value. For example, the table 
+`sns.lineplot` gives us a clean line when each `x` value has one `y` value. For example, the table 
 
 | Year | May | 
 | --- | --- | 
