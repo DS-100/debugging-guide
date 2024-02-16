@@ -74,7 +74,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Visualizations are how data scientists use to communicate their insights to the world. In the process of making a <a href="https://ds100.org/course-notes/visualization_2/visualization_2.html#harnessing-context">good visualization</a>, be it while adding a legend or setting the x-axis label, we may run into some errors. Let’s take a look at how to resolve them below!</p>
 <section id="my-legends-labels-dont-match-up-my-legend-isnt-displaying-properly" class="level3">
 <h3 class="anchored" data-anchor-id="my-legends-labels-dont-match-up-my-legend-isnt-displaying-properly">My legend’s labels don’t match up / my legend isn’t displaying properly</h3>
-<p>If you simply add <code>plt.legend()</code> after your plotting line of code, you should see a legend. When using seaborn, sometimes it will automatically populate However, if you’re plotting multiple lines or sets of points on a single plot, the labels in the legend may not correctly line up with what’s shown. Make sure to pass in the <code>label</code> argument into the function call with the label you want associated with that individual plot. For example,</p>
+<p>If you simply add <code>plt.legend()</code> after your plotting line of code, you should see a legend. When using seaborn, sometimes it will automatically populate the legend. However, if you’re plotting multiple lines or sets of points on a single plot, the labels in the legend may not correctly line up with what’s shown.</p>
+<p>Make sure to pass in the <code>label</code> argument into the function call with the label you want associated with that individual plot. For example,</p>
 <pre><code>sns.histplot(means_arr, label = 'simulated values') # informative label name
 plt.title('Simulated values') 
 plt.plot(original, 10, 'bo', label = 'original test statistic') # informative label name
@@ -86,7 +87,7 @@ plt.legend(loc = 'upper left') # can specify location of legend</code></pre>
 </section>
 <section id="the-y-axis-of-my-histplot-shows-the-count-not-the-density" class="level2">
 <h2 class="anchored" data-anchor-id="the-y-axis-of-my-histplot-shows-the-count-not-the-density">The y-axis of my <code>histplot</code> shows the count, not the density</h2>
-<p>Look into the <code>sns.histplot</code> (documentation)[https://seaborn.pydata.org/generated/seaborn.histplot.html] and see what arguments the <code>stat</code> parameter takes in. By default, <code>stat=count</code>, but if you wanted to normalize the distribution such that the total area is 1, you could consider <code>stat=density</code>.</p>
+<p>Look into the <code>sns.histplot</code> <a href="https://seaborn.pydata.org/generated/seaborn.histplot.html">documentation</a> and see what arguments the <code>stat</code> parameter takes in. By default, <code>stat=count</code>, but if you wanted to normalize the distribution such that the total area is 1, you could consider <code>stat=density</code>.</p>
 </section>
 
 </main>
