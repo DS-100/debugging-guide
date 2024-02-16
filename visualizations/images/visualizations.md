@@ -28,3 +28,9 @@ plt.legend(loc = 'upper left') # can specify location of legend
 ```
 <center><img src = "example_label_plot.png" width = "500"></img></a></center>
 <br>
+
+## The y-axis of my `histplot` shows the count, not the density
+
+Look into the `sns.histplot` (documentation)[https://seaborn.pydata.org/generated/seaborn.histplot.html] and see what arguments the `stat` parameter takes in. By default, `stat=count`, but if you wanted to normalize the distribution such that the total area is 1, you could consider `stat=density`.
+
+
