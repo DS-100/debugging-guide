@@ -18,7 +18,9 @@ Visualizations are how data scientists use to communicate their insights to the 
 
 ### My legend’s labels don’t match up / my legend isn’t displaying properly
 
-If you simply add `plt.legend()` after your plotting line of code, you should see a legend. When using seaborn, sometimes it will automatically populate  However, if you’re plotting multiple lines or sets of points on a single plot, the labels in the legend may not correctly line up with what’s shown. Make sure to pass in the `label` argument into the function call with the label you want associated with that individual plot. For example, 
+If you simply add `plt.legend()` after your plotting line of code, you should see a legend. When using seaborn, sometimes it will automatically populate the legend. However, if you’re plotting multiple lines or sets of points on a single plot, the labels in the legend may not correctly line up with what’s shown. 
+
+Make sure to pass in the `label` argument into the function call with the label you want associated with that individual plot. For example, 
 
 ```
 sns.histplot(means_arr, label = 'simulated values') # informative label name
@@ -31,6 +33,6 @@ plt.legend(loc = 'upper left') # can specify location of legend
 
 ## The y-axis of my `histplot` shows the count, not the density
 
-Look into the `sns.histplot` (documentation)[https://seaborn.pydata.org/generated/seaborn.histplot.html] and see what arguments the `stat` parameter takes in. By default, `stat=count`, but if you wanted to normalize the distribution such that the total area is 1, you could consider `stat=density`.
+Look into the `sns.histplot` [documentation](https://seaborn.pydata.org/generated/seaborn.histplot.html) and see what arguments the `stat` parameter takes in. By default, `stat=count`, but if you wanted to normalize the distribution such that the total area is 1, you could consider `stat=density`.
 
 
