@@ -18,9 +18,9 @@ Visualizations are how data scientists use to communicate their insights to the 
 
 ### My legend’s labels don’t match up / my legend isn’t displaying properly
 
-If you simply add `plt.legend()` after your plotting line of code, you should see a legend. When using seaborn, sometimes it will automatically populate the legend. However, if you’re plotting multiple lines or sets of points on a single plot, the labels in the legend may not correctly line up with what’s shown. 
+If you simply add `plt.legend()` after your plotting line of code, you should see a legend; seaborn will sometimes automatically populate the legend. However, if you’re plotting multiple lines or sets of points on a single plot, the labels in the legend may not correctly line up with what’s shown. 
 
-Make sure to pass in the `label` argument into the plotting function with the label you want associated with that individual plot. For example, 
+Make sure to pass in the `label` argument into the `sns` plotting function with the label you want associated with that individual plot. For example, 
 
 ```
 sns.histplot(means_arr, label = 'simulated values') # informative label name
@@ -53,7 +53,7 @@ plt.xlabel = "x name"
 plt.ylabel = "y name"
 plt.title = "graph title"
 ```
-Now, instead of `plt.xlabel`, `plt.ylabel`, and `plt.title` being functions, they are strings. Trying to call one of the labelling function using the correct syntax afterwards (ie.` plt.xlabel(“x name”)`) results in a `TypeError: str object is not callable`. If this happens to you, comb through your notebook and look for places when you used the incorrect syntax. After fixing it, [restart your kernel](https://ds100.org/debugging-guide/jupyter101/jupyter101.html#restarting-kernel) and [rerun your cells](https://ds100.org/debugging-guide/jupyter101/jupyter101.html#running-cells). 
+Now, instead of `plt.xlabel`, `plt.ylabel`, and `plt.title` being functions, they are strings. Trying to call one of the labelling function using the correct syntax in the next few cells (ie.` plt.xlabel(“x name”)`) will result in a `TypeError: str object is not callable`. If this happens to you, comb through your notebook and look for places when you used the incorrect syntax. After fixing it, [restart your kernel](https://ds100.org/debugging-guide/jupyter101/jupyter101.html#restarting-kernel) and [rerun your cells](https://ds100.org/debugging-guide/jupyter101/jupyter101.html#running-cells). 
 
 ## My `sns.lineplot` has an unwanted shaded region around the solid lines.
 >Note: the following examples are taken from `sns.lineplot`'s [documentation](https://seaborn.pydata.org/generated/seaborn.lineplot.html). 
@@ -65,14 +65,14 @@ Now, instead of `plt.xlabel`, `plt.ylabel`, and `plt.title` being functions, the
 | 1948 | 120 | 
 | 1949 | 122 | 
 | 1950  | 123| 
-$\vdots$
+| $\vdots$ | $\vdots$ | 
 
-will result in the following clean plot because each year corresponds to a single "Number of Flights in May" value. 
+will give us a clean plot because each year corresponds to a single "Number of Flights in May" value. 
 
 <center><img src = "images/normal_lineplot.png" width = "500"></img></a></center>
 <br>
 
-When each x value has multiple y values, `sns.lineplot` will automatically plot a shaded region around the solid line, where the solid line is the mean of the y values for that x value and the shaded region is the 95% confidence interval (read more about confidence intervals in the [Data 8 textbook](https://inferentialthinking.com/chapters/13/3/Confidence_Intervals.html?highlight=confidence+intervals)). For example, the table 
+When each x value has multiple y values, `sns.lineplot` will automatically plot a shaded region around the solid line, where the solid line is the mean of the y values for that x value (think of a groupby on x aggregated by `.mean()` on y) and the shaded region is the 95% confidence interval (read more about confidence intervals in the [Data 8 textbook](https://inferentialthinking.com/chapters/13/3/Confidence_Intervals.html?highlight=confidence+intervals)). For example, the table 
 
 | Year | May | 
 | --- | --- | 
@@ -82,9 +82,9 @@ When each x value has multiple y values, `sns.lineplot` will automatically plot 
 | 1949 | 118 | 
 | 1949 | 122 | 
 | 1949 | 126 |
-$\vdots$
+| $\vdots$ | $\vdots$ | 
 
-will plot a lineplot with a shaded region representing the 95% confidence interval. 
+will plot a lineplot with a shaded region. 
 
 <center><img src = "images/shaded_lineplot.png" width = "500"></img></a></center>
 <br>

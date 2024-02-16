@@ -19,6 +19,7 @@ book:
         - autograder_gradescope/autograder_gradescope.md
         - pandas/pandas.md
         - regex/regex.md
+        - visualizations/visualizations.md
         # - projA2/projA2.md
     
     sidebar:
