@@ -19,7 +19,7 @@ jupyter: python3
 
 Type errors like these usually stem from applying a numeric aggregation function to a non-numeric column as described in the [Pandas section](https://ds100.org/debugging-guide/pandas/pandas.html#typeerror-could-not-convert-string-to-numeric) of the debugging guide.
 
-Aggregation functions like `np.median` and `np.mean` are only well-defined for columns with numeric types. CIt is likely that your code is attempting to aggregate across all columns in training_data, including those of type `str`. Instead of aggregating across the entire DataFrame, try selecting the relevant columns upon which to aggregate.
+Aggregation functions like `np.median` and `np.mean` are only well-defined for columns with numeric types. It is likely that your code is attempting to aggregate across all columns in training_data, including those of type `str`. Instead of aggregating across the entire DataFrame, try selecting the relevant columns upon which to aggregate.
 
 ### `TypeError: unhashable type: 'Series'
 
@@ -29,7 +29,7 @@ This error can occur if you try and use Python's `in` to check whether values in
 
 ### I'm not sure how to use `sklearn` to do One Hot Encoding
 
-A good starting point is to revisit the One Hot Encoding question in Lab 7. It's recommended you look through this portion of [the walkthrough](https://youtu.be/LohVOmiulHQ?feature=shared&t=442), so you have a good understanding of how to use the `OneHotEncoder` object. Looking through each line of code, be sure you know whether you understand what each variable represents, the output of the functions used, and what the similarities and differences are between the question in the lab and project are.
+A good starting point is to revisit the One Hot Encoding question in Lab 7. It's recommended you look through this portion of [the walkthrough](https://youtu.be/LohVOmiulHQ?feature=shared&t=442), so you have a good understanding of how to use the `OneHotEncoder` object. Looking through each line of code, be sure you know what each variable represents, the expected outputs of the functions used, and what the similarities and differences are between the question in the lab and project are. Making a new cell and experimenting with examples from [the documentation](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html) is usually the best way to start, similar to what's done in the lab walkthrough.
 
 ### My OHE columns contain a lot of `NaN` values
 
