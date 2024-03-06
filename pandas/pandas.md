@@ -61,10 +61,11 @@ Working with the `elections` dataset for example,
 
     elections.groupby('Year').agg('mean')
     
-would error because `pandas` cannot compute the mean of the names of presidents. There are two ways to get around this: 
+would error because `pandas` cannot compute the mean of the names of presidents. There are three ways to get around this: 
 
 1. Select only the numeric columns you are interested in before applying the aggregation function. In the above case, both `elections.groupby('Year')['Popular Vote']` or `elections['Popular vote'].groupby('Year')` would work.
 2. Setting the `numeric_only` argument to `True` in the `.agg` call, thereby applying the aggregation function only to numeric columns. For example, `elections.groupby('Year').agg('mean', numeric_only=True)`.
+3. Passing in a dictionary to `.agg` where you specify the column you are applying a particular aggregation function to. Continuing the same example, this looks like `elections.groupby('Year').agg({'Popular vote' : 'mean')`.
 
 ### `TypeError: 'NoneType' object is not subscriptable` / `AttributeError: 'NoneType' object has no attribute 'shape'`
 This usually occurs as you assign a `None` value to a variable,  then try to either index into or access some attribute of that variable. For Python functions like `append` and `extend`, you do not need to do any variable assignment because they mutate the variable directly and return `None`. Assigning `None` tends to happen as a result of code like:
