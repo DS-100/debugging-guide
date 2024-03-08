@@ -29,7 +29,7 @@ This error can occur if you try and use Python's `in` to check whether values in
 
 ### I'm not sure how to use `sklearn` to do One Hot Encoding
 
-A good starting point is to revisit the One Hot Encoding question in Lab 7. It's recommended you look through this portion of [the walkthrough](https://youtu.be/LohVOmiulHQ?feature=shared&t=442), so you have a good understanding of how to use the `OneHotEncoder` object. Pay attention to what each variable represents and the expected outputs of the functions used. Can you map the logic from the lab to this project? A good starting point is to make a new cell and experimenting with examples from [the documentation](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html).
+A good starting point is to revisit the One Hot Encoding question in Lab 7. It's recommended you look through this portion of [the walkthrough](https://youtu.be/LohVOmiulHQ?feature=shared&t=442), so you have a good understanding of how to use the `OneHotEncoder` object. Pay attention to what each variable represents and the expected outputs of the functions used. Can you map the logic from the lab to this project? A nice way to start is to make a new cell and experiment with examples from [the documentation](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html).
 
 ### My OHE columns contain a lot of `NaN` values
 
