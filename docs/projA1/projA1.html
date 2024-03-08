@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Yash Dave">
-<meta name="author" content="Lillian Weng">
 
-<title>Data 100 Debugging Guide</title>
+<title>Data 100 Debugging Guide - Project A1 Common Questions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,24 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./jupyter101/jupyter101.html" rel="next">
-<link href="./data100_logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../visualizations/visualizations.html" rel="prev">
+<link href="../data100_logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -82,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">About</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../projA1/projA1.html"><span class="chapter-title">Project A1 Common Questions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -96,11 +94,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./data100_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../data100_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Data 100 Debugging Guide</a> 
+      <a href="../">Data 100 Debugging Guide</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/DS-100/debugging-guide" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -115,43 +113,43 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./jupyter101/jupyter101.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Jupyter 101</span></a>
+  <a href="../jupyter101/jupyter101.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Jupyter 101</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./jupyter_datahub/jupyter_datahub.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Jupyter / Datahub</span></a>
+  <a href="../jupyter_datahub/jupyter_datahub.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Jupyter / Datahub</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./autograder_gradescope/autograder_gradescope.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autograder and Gradescope</span></a>
+  <a href="../autograder_gradescope/autograder_gradescope.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autograder and Gradescope</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pandas/pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pandas</span></a>
+  <a href="../pandas/pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pandas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regex/regex.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">RegEx</span></a>
+  <a href="../regex/regex.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">RegEx</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./visualizations/visualizations.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Visualizations</span></a>
+  <a href="../visualizations/visualizations.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Visualizations</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./projA1/projA1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Project A1 Common Questions</span></a>
+  <a href="../projA1/projA1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Project A1 Common Questions</span></a>
   </div>
 </li>
     </ul>
@@ -164,7 +162,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
+  <li><a href="#question-6" id="toc-question-6" class="nav-link active" data-scroll-target="#question-6">Question 6</a>
+  <ul>
+  <li><a href="#typeerror-could-not-convert-string-to-float-sf" id="toc-typeerror-could-not-convert-string-to-float-sf" class="nav-link" data-scroll-target="#typeerror-could-not-convert-string-to-float-sf"><code>TypeError: could not convert string to float: 'SF'</code></a></li>
+  <li><a href="#typeerror-unhashable-type-series" id="toc-typeerror-unhashable-type-series" class="nav-link" data-scroll-target="#typeerror-unhashable-type-series"><code>TypeError: unhashable type: 'Series'</code></a></li>
+  </ul></li>
+  <li><a href="#question-7" id="toc-question-7" class="nav-link" data-scroll-target="#question-7">Question 7</a>
+  <ul>
+  <li><a href="#im-not-sure-how-to-use-sklearn-to-do-one-hot-encoding" id="toc-im-not-sure-how-to-use-sklearn-to-do-one-hot-encoding" class="nav-link" data-scroll-target="#im-not-sure-how-to-use-sklearn-to-do-one-hot-encoding">I’m not sure how to use <code>sklearn</code> to do One Hot Encoding</a></li>
+  <li><a href="#my-ohe-columns-contain-a-lot-of-nan-values" id="toc-my-ohe-columns-contain-a-lot-of-nan-values" class="nav-link" data-scroll-target="#my-ohe-columns-contain-a-lot-of-nan-values">My OHE columns contain a lot of <code>NaN</code> values</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -173,20 +180,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data 100 Debugging Guide</h1>
+<h1 class="title"><span class="chapter-title">Project A1 Common Questions</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-             <p>Yash Dave </p>
-             <p>Lillian Weng </p>
-          </div>
-  </div>
     
   
     
@@ -197,13 +197,30 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="about" class="level1 unnumbered">
-<h1 class="unnumbered">About</h1>
-<p>This text offers pointers for keyboard shortcuts or common mistakes that accompany the coursework in the Spring 2024 Edition of the UC Berkeley course Data 100: Principles and Techniques of Data Science.</p>
-<p>Inspiration for this guide was taken from the UC San Diego course DSC 10: Principles of Data Science and their <a href="https://dsc10.com/debugging/">debugging guide</a>.</p>
-<p>If you spot any typos or would like to suggest any changes, please fill out the <a href="https://docs.google.com/forms/d/e/1FAIpQLSe0fBEJwt6aEfZxU3fh3llNk8rSWHj6Umq0km3wPqmFu0MlGA/viewform?usp=sf_link">Data 100 Content Feedback Form (Spring 2024)</a>. Note that this link will only work if you have an <span class="citation" data-cites="berkeley.edu">@berkeley.edu</span> email address. If you’re not a student at Berkeley and would like to provide feedback, please email us at <strong>data100.instructors@berkeley.edu</strong></p>
+<section id="question-6" class="level2">
+<h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
+<section id="typeerror-could-not-convert-string-to-float-sf" class="level3">
+<h3 class="anchored" data-anchor-id="typeerror-could-not-convert-string-to-float-sf"><code>TypeError: could not convert string to float: 'SF'</code></h3>
+<p>Type errors like these usually stem from applying a numeric aggregation function to a non-numeric column as described in the <a href="https://ds100.org/debugging-guide/pandas/pandas.html#typeerror-could-not-convert-string-to-numeric"><code>pandas</code> section</a> of the debugging guide.</p>
+<p>Aggregation functions like <code>np.median</code> and <code>np.mean</code> are only well-defined for columns with numeric types like <code>int</code> and <code>float</code>. Your code is likely trying to aggregate across all columns in <code>training_data</code>, including those of type <code>str</code>. Instead of aggregating across the entire <code>DataFrame</code>, try just selecting the relevant columns.</p>
+</section>
+<section id="typeerror-unhashable-type-series" class="level3">
+<h3 class="anchored" data-anchor-id="typeerror-unhashable-type-series"><code>TypeError: unhashable type: 'Series'</code></h3>
+<p>This error can occur if you try and use Python’s <code>in</code> to check whether values in a <code>Series</code> are contained in a list. If you’re trying to perform boolean filtering in this manner, you should look into the <code>.isin</code> (<a href="https://pandas.pydata.org/docs/reference/api/pandas.Series.isin.html">documentation</a>) function as introduced in HW 2.</p>
+</section>
+</section>
+<section id="question-7" class="level2">
+<h2 class="anchored" data-anchor-id="question-7">Question 7</h2>
+<section id="im-not-sure-how-to-use-sklearn-to-do-one-hot-encoding" class="level3">
+<h3 class="anchored" data-anchor-id="im-not-sure-how-to-use-sklearn-to-do-one-hot-encoding">I’m not sure how to use <code>sklearn</code> to do One Hot Encoding</h3>
+<p>A good starting point is to revisit the One Hot Encoding question in Lab 7. It’s recommended you look through this portion of <a href="https://youtu.be/LohVOmiulHQ?feature=shared&amp;t=442">the walkthrough</a>, so you have a good understanding of how to use the <code>OneHotEncoder</code> object. Pay attention to what each variable represents and the expected outputs of the functions used. Can you map the logic from the lab to this project? A good starting point is to make a new cell and experimenting with examples from <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">the documentation</a>.</p>
+</section>
+<section id="my-ohe-columns-contain-a-lot-of-nan-values" class="level3">
+<h3 class="anchored" data-anchor-id="my-ohe-columns-contain-a-lot-of-nan-values">My OHE columns contain a lot of <code>NaN</code> values</h3>
+<p>This may happen if you try and merge the OHE columns with the <code>training_data</code> table without making sure both <code>DataFrame</code> have the <em>same index values</em>. Look into the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html"><code>pd.merge</code> documentation</a> for ways to resolve this.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -596,11 +613,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../visualizations/visualizations.html" class="pagination-link  aria-label=" &lt;span="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Visualizations</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./jupyter101/jupyter101.html" class="pagination-link" aria-label="<span class='chapter-number'>1</span>&nbsp; <span class='chapter-title'>Jupyter 101</span>">
-        <span class="nav-page-text"><span class="chapter-title">Jupyter 101</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
