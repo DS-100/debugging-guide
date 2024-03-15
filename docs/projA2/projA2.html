@@ -244,14 +244,14 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="general-debugging-tips">General Debugging Tips</h3>
 <p>Question 5 is a challenging question that mirrors a lot of data science work in the real world: cleaning, exploring, and transforming data; fitting a model, working with a pre-defined pipeline and evaluating your model’s performance. Here are some general debugging tips to make the process easier:</p>
 <ul>
-<li>Separate small tasks into helper functions, especially if you will execute them multiple times. For example, one-hot-encoding a categorical variable is a good helper function to make because you could perform it on multiple such columns. If you’re parsing a column with RegEx, it also might be a good idea to separate it to a helper function. This allows you to verify that you’re not making errors in these small tasks and prevents unknown bugs from appearing.</li>
+<li>Separate small tasks into helper functions, especially if you will execute them multiple times. For example, a helper function that one-hot encodes a categorical variable may be helpful as you could perform it on multiple such columns. If you’re parsing a column with RegEx, it also might be a good idea to separate it to a helper function. This allows you to verify that you’re not making errors in these small tasks and prevents unknown bugs from appearing.</li>
 <li>Feel free to make new cells to play with the data! As long as you delete them afterward, it will not affect the autograder.</li>
-<li>The <code>feature_engine_final</code> looks daunting at first, but start small. First, try and implement a model with a single feature to get familiar with how the function works, then slowly experiment with adding one feature at a time and see how that affects your training RMSE.</li>
+<li>The <code>feature_engine_final</code> looks daunting at first, but start small. First, try and implement a model with a single feature to get familiar with how the pipeline works, then slowly experiment with adding one feature at a time and see how that affects your training RMSE.</li>
 </ul>
 </section>
 <section id="my-training-rmse-is-low-but-my-validationtest-rmse-is-high" class="level3">
 <h3 class="anchored" data-anchor-id="my-training-rmse-is-low-but-my-validationtest-rmse-is-high">My training RMSE is low, but my validation/test RMSE is high</h3>
-<p>Your model is likely overfitting to the training data and does not generalize to the test set. Recall the bias-variance tradeoff discussed in lecture. As you add more features and make your model more complex, it is expected that your training error will decrease. Your validation and test error may also decrease initially, but if your model is too complex, you run into this issue.</p>
+<p>Your model is likely overfitting to the training data and does not generalize to the test set. Recall the bias-variance tradeoff discussed in lecture. As you add more features and make your model more complex, it is expected that your training error will decrease. Your validation and test error may also decrease initially, but if your model is too complex, you end up with high validation and test RMSE.</p>
 <center>
 <img src="under_overfit.png" width="500">
 </center>

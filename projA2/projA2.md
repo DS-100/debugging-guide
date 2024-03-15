@@ -18,12 +18,13 @@ jupyter: python3
 ### General Debugging Tips
 Question 5 is a challenging question that mirrors a lot of data science work in the real world: cleaning, exploring, and transforming data; fitting a model, working with a pre-defined pipeline and evaluating your model's performance. Here are some general debugging tips to make the process easier: 
 
-* Separate small tasks into helper functions, especially if you will execute them multiple times. For example, one-hot-encoding a categorical variable is a good helper function to make because you could perform it on multiple such columns. If you're parsing a column with RegEx, it also might be a good idea to separate it to a helper function. This allows you to verify that you're not making errors in these small tasks and prevents unknown bugs from appearing. 
+* Separate small tasks into helper functions, especially if you will execute them multiple times. For example, a helper function that one-hot encodes a categorical variable may be helpful as you could perform it on multiple such columns. If you're parsing a column with RegEx, it also might be a good idea to separate it to a helper function. This allows you to verify that you're not making errors in these small tasks and prevents unknown bugs from appearing. 
 * Feel free to make new cells to play with the data! As long as you delete them afterward, it will not affect the autograder. 
-* The `feature_engine_final` looks daunting at first, but start small. First, try and implement a model with a single feature to get familiar with how the function works, then slowly experiment with adding one feature at a time and see how that affects your training RMSE. 
+* The `feature_engine_final` looks daunting at first, but start small. First, try and implement a model with a single feature to get familiar with how the pipeline works, then slowly experiment with adding one feature at a time and see how that affects your training RMSE. 
 
 ### My training RMSE is low, but my validation/test RMSE is high
-Your model is likely overfitting to the training data and does not generalize to the test set. Recall the bias-variance tradeoff discussed in lecture. As you add more features and make your model more complex, it is expected that your training error will decrease. Your validation and test error may also decrease initially, but if your model is too complex, you run into this issue.
+
+Your model is likely overfitting to the training data and does not generalize to the test set. Recall the bias-variance tradeoff discussed in lecture. As you add more features and make your model more complex, it is expected that your training error will decrease. Your validation and test error may also decrease initially, but if your model is too complex, you end up with high validation and test RMSE.
 
 <center><img src = "under_overfit.png" width = "500"></img></a></center>
 
