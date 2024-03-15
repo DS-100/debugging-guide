@@ -196,7 +196,7 @@ at Berkeley and would like to provide feedback, please email us at
 
 \chapter{Jupyter 101}\label{jupyter-101}
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-note-color-frame, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, leftrule=.75mm, bottomtitle=1mm, coltitle=black, breakable, bottomrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, toptitle=1mm, titlerule=0mm, toprule=.15mm, left=2mm, rightrule=.15mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, bottomtitle=1mm, colback=white, titlerule=0mm, bottomrule=.15mm, opacitybacktitle=0.6, breakable, colframe=quarto-callout-note-color-frame, leftrule=.75mm, rightrule=.15mm, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, toprule=.15mm, left=2mm, arc=.35mm]
 
 If you're using a MacBook, replace \texttt{ctrl} with \texttt{cmd}.
 
@@ -1337,7 +1337,7 @@ documentation} for ways to resolve this.
 
 \chapter{Project A2 Common Questions}\label{project-a2-common-questions}
 
-\section{Question 5d and 5f}\label{question-5d-and-5f}
+\section{Questions 5d and 5f}\label{questions-5d-and-5f}
 
 \subsection{General Debugging Tips}\label{general-debugging-tips}
 
@@ -1361,11 +1361,11 @@ process easier:
   Feel free to make new cells to play with the data! As long as you
   delete them afterward, it will not affect the autograder.
 \item
-  The \texttt{feature\_engine\_final} looks daunting at first, but start
-  small. First, try and implement a model with a single feature to get
-  familiar with how the pipeline works, then slowly experiment with
-  adding one feature at a time and see how that affects your training
-  RMSE.
+  The \texttt{feature\_engine\_final} function looks daunting at first,
+  but start small. First, try and implement a model with a single
+  feature to get familiar with how the pipeline works, then slowly
+  experiment with adding one feature at a time and see how that affects
+  your training RMSE.
 \end{itemize}
 
 \subsection{My training RMSE is low, but my validation/test RMSE is
@@ -1379,11 +1379,15 @@ and test error may also decrease initially, but if your model is too
 complex, you end up with high validation and test RMSE.
 
 Consider visualizing the relationship between the features you've chosen
-and the (Log) Sale Price and removing the features that are not highly
-correlated to decrease model complexity. Removing outliers can also help
-your model generalize better and prevent it from fitting to noise in the
-data. Methods like cross-validation allow you to get a better sense of
-where you lie along the validation error curve.
+and the \texttt{(Log)\ Sale\ Price} and removing the features that are
+not highly correlated to decrease model complexity. Removing outliers
+can also help your model generalize better and prevent it from fitting
+to noise in the data. Methods like cross-validation allow you to get a
+better sense of where you lie along the validation error curve. Feel
+free to take a look at the
+\href{https://ds100.org/sp24/resources/assets/lectures/lec16/lec16.html}{code
+used in lecture 16} if you're confused on how to implement
+cross-validation.
 
 \subsection{\texorpdfstring{\texttt{ValueError:\ Per-column\ arrays\ must\ each\ be\ 1-dimensional}}{ValueError: Per-column arrays must each be 1-dimensional}}\label{valueerror-per-column-arrays-must-each-be-1-dimensional}
 

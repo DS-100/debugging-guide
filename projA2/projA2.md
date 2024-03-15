@@ -13,14 +13,14 @@ format:
 jupyter: python3
 ---
 
-## Question 5d and 5f
+## Questions 5d and 5f
 
 ### General Debugging Tips
 Question 5 is a challenging question that mirrors a lot of data science work in the real world: cleaning, exploring, and transforming data; fitting a model, working with a pre-defined pipeline and evaluating your model's performance. Here are some general debugging tips to make the process easier: 
 
 * Separate small tasks into helper functions, especially if you will execute them multiple times. For example, a helper function that one-hot encodes a categorical variable may be helpful as you could perform it on multiple such columns. If you're parsing a column with RegEx, it also might be a good idea to separate it to a helper function. This allows you to verify that you're not making errors in these small tasks and prevents unknown bugs from appearing. 
 * Feel free to make new cells to play with the data! As long as you delete them afterward, it will not affect the autograder. 
-* The `feature_engine_final` looks daunting at first, but start small. First, try and implement a model with a single feature to get familiar with how the pipeline works, then slowly experiment with adding one feature at a time and see how that affects your training RMSE. 
+* The `feature_engine_final` function looks daunting at first, but start small. First, try and implement a model with a single feature to get familiar with how the pipeline works, then slowly experiment with adding one feature at a time and see how that affects your training RMSE. 
 
 ### My training RMSE is low, but my validation/test RMSE is high
 
@@ -28,8 +28,7 @@ Your model is likely overfitting to the training data and does not generalize to
 
 <center><img src = "under_overfit.png" width = "500"></img></a></center>
 
-Consider visualizing the relationship between the features you've chosen and the (Log) Sale Price and removing the features that are not highly correlated to decrease model complexity. Removing outliers can also help your model generalize better and prevent it from fitting to noise in the data. Methods like cross-validation allow you to get a better sense of where you lie along the validation error curve.
-
+Consider visualizing the relationship between the features you've chosen and the `(Log) Sale Price` and removing the features that are not highly correlated to decrease model complexity. Removing outliers can also help your model generalize better and prevent it from fitting to noise in the data. Methods like cross-validation allow you to get a better sense of where you lie along the validation error curve. Feel free to take a look at the [code used in lecture 16](https://ds100.org/sp24/resources/assets/lectures/lec16/lec16.html) if you're confused on how to implement cross-validation.
 
 ### `ValueError: Per-column arrays must each be 1-dimensional`
 If you're passing the tests for `5d` but getting this error in `5f`, then your `Y` variable is likely a `DataFrame` instead of a `Series`. `sklearn` models like `LinearRegression` expect `X` to be a 2D datatype (ie. `DataFrame`, 2D `NumPy` array) and `Y` to be a 1D datatype (ie. `Series`, 1D `NumPy` array). 
