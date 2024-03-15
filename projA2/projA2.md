@@ -28,10 +28,10 @@ Your model is likely overfitting to the training data and does not generalize to
 
 <center><img src = "under_overfit.png" width = "500"></img></a></center>
 
-Consider visualizing the relationship between the features you've chosen and the `(Log) Sale Price` and removing the features that are not highly correlated to decrease model complexity. Removing outliers can also help your model generalize better and prevent it from fitting to noise in the data. Methods like cross-validation allow you to get a better sense of where you lie along the validation error curve. Feel free to take a look at the [code used in lecture 16](https://ds100.org/sp24/resources/assets/lectures/lec16/lec16.html) if you're confused on how to implement cross-validation.
+To decrease model complexity, consider visualizing the relationship between the features you've chosen with the `(Log) Sale Price` and removing features that are not highly correlated. Removing outliers can also help your model generalize better and prevent it from fitting to noise in the data. Methods like cross-validation allow you to get a better sense of where you lie along the validation error curve. Feel free to take a look at the [code used in Lecture 16](https://ds100.org/sp24/resources/assets/lectures/lec16/lec16.html) if you're confused on how to implement cross-validation.
 
 ### `ValueError: Per-column arrays must each be 1-dimensional`
-If you're passing the tests for `5d` but getting this error in `5f`, then your `Y` variable is likely a `DataFrame` instead of a `Series`. `sklearn` models like `LinearRegression` expect `X` to be a 2D datatype (ie. `DataFrame`, 2D `NumPy` array) and `Y` to be a 1D datatype (ie. `Series`, 1D `NumPy` array). 
+If you're passing the tests for question 5d but getting this error in question 5f, then your `Y` variable is likely a `DataFrame`, not a `Series`. `sklearn` models like `LinearRegression` expect `X` to be a 2D datatype (ie. `DataFrame`, 2D `NumPy` array) and `Y` to be a 1D datatype (ie. `Series`, 1D `NumPy` array). 
 
 ### `KeyError: 'Sale Price'`/`KeyError: 'Log Sale Price'`
 `KeyError`s are raised when a column name does not exist in your `DataFrame`. You could be getting this error because:
@@ -46,19 +46,19 @@ This error usually occurs when your final design matrix has non-numeric columns.
 ### `ValueError: Input X contains infinity or a value too large for dtype('float64')` 
 The reason why your `X` data contains infinity is likely because you are taking the logarithm of 0 somewhere in your code. To prevent this, try: 
 
-* Adding a small number to the features that you want to perform the log transformation on so that all values are positive and greater than 0. **Note that whatever value you add to your train data, you should add the same to your test data.**
-* Removing zeroes before taking the logarithm. This is only possible on the training data as you cannot drop rows from the test set.
+* Adding a small number to the features that you want to perform the log transformation on so that all values are positive and greater than 0. **Note that whatever value you add to your train data should also be added to your test data.**
+* Removing zeroes before taking the logarithm. Note that this is only possible on the training data as you cannot drop rows from the test set.
 
 
 ### `ValueError: Input X contains NaN`
 The reason why your design matrix `X` contains `NaN` values is likely because you take the log of a negative number somewhere in your code. To prevent this, try:
 
-* Shifting the range of values for features that you want to perform the logging operation on to positive values greater than 0. **Note that whatever value you add to your train data, you should add the same to your test data.**
-* Removing negative values before taking the log.
+* Shifting the range of values for features that you want to perform the logging operation on to positive values greater than 0. **Note that whatever value you add to your train data should also be added to your test data.**
+* Removing negative values before taking the log. Note that this is only possible on the training data as you cannot drop rows from the test set.
 
 
 ### `ValueError: The feature names should match those that were passed during fit`
-This error is followed by one or both of: 
+This error is followed by one or both of the following: 
 
 
 ```
@@ -78,21 +78,21 @@ This error occurs if the columns/features you’re passing in for the test datas
 Potential causes for this error: 
 
 * Your preprocessing for `X` is different for training and testing. Double-check your code in `feature_engine_final`! Besides removing any references to `'Sale Price'` and code that would remove rows from the test set, your preprocessing should be the same.
-* Some one-hot-encoded categories are present in training but not in testing (or vice versa). For example, let's say that the feature "Data 100" has categories "A", "B", "C", and "D". If "A", "B", and "C" are present in the training data, but "B", "C", and "D" are present in the testing data, you will get this error: 
+* Some one-hot-encoded categories are present in training but not in testing (or vice versa). For example, let's say that the feature `"Data100"` has categories "A", "B", "C", and "D". If "A", "B", and "C" are present in the training data, but "B", "C", and "D" are present in the testing data, you will get this error: 
 
     ```
     The feature names should match those that were passed during fit. Feature names unseen at fit time: 
-    - D
+    - Data100_D
       ...
 
     Feature names seen at fit time, yet now missing
-    - A
+    - Data100_A
     ```
 
 ## Gradescope 
 
 ### I don't have many Gradescope submissions left
-If you're almost out of Gradescope submissions, try using k-fold cross-validation to check the accuracy of your model. Results from cross-validation will be closer to the test set accuracy than results from the training data. 
+If you're almost out of Gradescope submissions, try using k-fold cross-validation to check the accuracy of your model. Results from cross-validation will be closer to the test set accuracy than results from the training data. Feel free to take a look at the [code used in Lecture 16](https://ds100.org/sp24/resources/assets/lectures/lec16/lec16.html) if you're confused on how to implement cross-validation.
 
 ### "Wrong number of lines ( __ instead of __ )"
 This occurs when you remove outliers when preprocessing the testing data. *Please do not remove any outliers from your test set.* You may only remove outliers in training data.
@@ -101,4 +101,4 @@ This occurs when you remove outliers when preprocessing the testing data. *Pleas
 
 This error is caused by overly large predictions that create an extremely large RMSE. The cell before you generate your submission runs `submission_df["Value"].describe()`, which returns some summary statistics of your predictions. Your maximum value for `Log Sale Price` should not be over 25.
 
-For your reference, a log sale price of 25 corresponds to a sale price of $e^{25} \approx$ 70 billion which is far bigger than anything found in the dataset. If you see such large predictions, you can try removing outliers from the *training* data or experimenting with new features so that your model generalizes better. 
+For your reference, a log sale price of 25 corresponds to a sale price of $e^{25} \approx$ 70 billion, which is far bigger than anything found in the dataset. If you see such large predictions, you can try removing outliers from the *training* data or experimenting with new features so that your model generalizes better. 
