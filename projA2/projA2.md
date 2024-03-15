@@ -43,7 +43,7 @@ If you're passing the tests for `5d` but getting this error in `5f`, then your `
 
 This error usually occurs when your final design matrix has non-numeric columns. The `fit` function of a `lm.LinearRegression` object can take a `pandas` `DataFrame` as the `X` argument, but requires that the `DataFrame` is only composed of numeric values.
 
-### `Input X contains infinity or a value too large for dtype('float64')` 
+### `ValueError: Input X contains infinity or a value too large for dtype('float64')` 
 The reason why your `X` data contains infinity is likely because you are taking the logarithm of 0 somewhere in your code. To prevent this, try: 
 
 * Adding a small number to the features that you want to perform the log transformation on so that all values are positive and greater than 0. **Note that whatever value you add to your train data, you should add the same to your test data.**

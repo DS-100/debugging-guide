@@ -196,7 +196,7 @@ at Berkeley and would like to provide feedback, please email us at
 
 \chapter{Jupyter 101}\label{jupyter-101}
 
-\begin{tcolorbox}[enhanced jigsaw, coltitle=black, arc=.35mm, opacityback=0, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, breakable, opacitybacktitle=0.6, titlerule=0mm, colback=white, bottomtitle=1mm, toptitle=1mm, leftrule=.75mm, toprule=.15mm, left=2mm, colframe=quarto-callout-note-color-frame]
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-note-color-frame, leftrule=.75mm, arc=.35mm, bottomrule=.15mm, rightrule=.15mm, left=2mm, coltitle=black, titlerule=0mm, colback=white, breakable, colbacktitle=quarto-callout-note-color!10!white, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, toprule=.15mm, opacityback=0]
 
 If you're using a MacBook, replace \texttt{ctrl} with \texttt{cmd}.
 
@@ -1332,6 +1332,211 @@ This may happen if you try and merge the OHE columns with the
 \texttt{DataFrame} have the \emph{same index values}. Look into the
 \href{https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html}{\texttt{pd.merge}
 documentation} for ways to resolve this.
+
+\bookmarksetup{startatroot}
+
+\chapter{Project A2 Common Questions}\label{project-a2-common-questions}
+
+\section{Question 5d and 5f}\label{question-5d-and-5f}
+
+\subsection{General Debugging Tips}\label{general-debugging-tips}
+
+Question 5 is a challenging question that mirrors a lot of data science
+work in the real world: cleaning, exploring, and transforming data;
+fitting a model, working with a pre-defined pipeline and evaluating your
+model's performance. Here are some general debugging tips to make the
+process easier:
+
+\begin{itemize}
+\tightlist
+\item
+  Separate small tasks into helper functions, especially if you will
+  execute them multiple times. For example, one-hot-encoding a
+  categorical variable is a good helper function to make because you
+  could perform it on multiple such columns. If you're parsing a column
+  with RegEx, it also might be a good idea to separate it to a helper
+  function. This allows you to verify that you're not making errors in
+  these small tasks and prevents unknown bugs from appearing.
+\item
+  Feel free to make new cells to play with the data! As long as you
+  delete them afterward, it will not affect the autograder.
+\item
+  The \texttt{feature\_engine\_final} looks daunting at first, but start
+  small. First, try and implement a model with a single feature to get
+  familiar with how the function works, then slowly experiment with
+  adding one feature at a time and see how that affects your training
+  RMSE.
+\end{itemize}
+
+\subsection{My training RMSE is low, but my validation/test RMSE is
+high}\label{my-training-rmse-is-low-but-my-validationtest-rmse-is-high}
+
+Your model is likely overfitting to the training data and does not
+generalize to the test set. Recall the bias-variance tradeoff discussed
+in lecture. As you add more features and make your model more complex,
+it is expected that your training error will decrease. Your validation
+and test error may also decrease initially, but if your model is too
+complex, you run into this issue.
+
+Consider visualizing the relationship between the features you've chosen
+and the (Log) Sale Price and removing the features that are not highly
+correlated to decrease model complexity. Removing outliers can also help
+your model generalize better and prevent it from fitting to noise in the
+data. Methods like cross-validation allow you to get a better sense of
+where you lie along the validation error curve.
+
+\subsection{\texorpdfstring{\texttt{ValueError:\ Per-column\ arrays\ must\ each\ be\ 1-dimensional}}{ValueError: Per-column arrays must each be 1-dimensional}}\label{valueerror-per-column-arrays-must-each-be-1-dimensional}
+
+If you're passing the tests for \texttt{5d} but getting this error in
+\texttt{5f}, then your \texttt{Y} variable is likely a
+\texttt{DataFrame} instead of a \texttt{Series}. \texttt{sklearn} models
+like \texttt{LinearRegression} expect \texttt{X} to be a 2D datatype
+(ie. \texttt{DataFrame}, 2D \texttt{NumPy} array) and \texttt{Y} to be a
+1D datatype (ie. \texttt{Series}, 1D \texttt{NumPy} array).
+
+\subsection{\texorpdfstring{\texttt{KeyError:\ \textquotesingle{}Sale\ Price\textquotesingle{}}/\texttt{KeyError:\ \textquotesingle{}Log\ Sale\ Price\textquotesingle{}}}{KeyError: \textquotesingle Sale Price\textquotesingle/KeyError: \textquotesingle Log Sale Price\textquotesingle{}}}\label{keyerror-sale-pricekeyerror-log-sale-price}
+
+\texttt{KeyError}s are raised when a column name does not exist in your
+\texttt{DataFrame}. You could be getting this error because:
+
+\begin{itemize}
+\tightlist
+\item
+  The test set does not contain a \texttt{"(Log)\ Sale\ Price"} as
+  that's what we're trying to predict. Make sure you only reference the
+  \texttt{"(Log)\ Sale\ Price"} column when working with training data
+  (\texttt{is\_test\_set=False}).
+\item
+  You dropped the \texttt{"Sale\ Price"} column twice in your
+  preprocessing code.
+\end{itemize}
+
+\subsection{\texorpdfstring{\texttt{Value\ Error:\ could\ not\ convert\ string\ to\ float}}{Value Error: could not convert string to float}}\label{value-error-could-not-convert-string-to-float}
+
+This error usually occurs when your final design matrix has non-numeric
+columns. The \texttt{fit} function of a \texttt{lm.LinearRegression}
+object can take a \texttt{pandas} \texttt{DataFrame} as the \texttt{X}
+argument, but requires that the \texttt{DataFrame} is only composed of
+numeric values.
+
+\subsection{\texorpdfstring{\texttt{ValueError:\ Input\ X\ contains\ infinity\ or\ a\ value\ too\ large\ for\ dtype(\textquotesingle{}float64\textquotesingle{})}}{ValueError: Input X contains infinity or a value too large for dtype(\textquotesingle float64\textquotesingle)}}\label{valueerror-input-x-contains-infinity-or-a-value-too-large-for-dtypefloat64}
+
+The reason why your \texttt{X} data contains infinity is likely because
+you are taking the logarithm of 0 somewhere in your code. To prevent
+this, try:
+
+\begin{itemize}
+\tightlist
+\item
+  Adding a small number to the features that you want to perform the log
+  transformation on so that all values are positive and greater than 0.
+  \textbf{Note that whatever value you add to your train data, you
+  should add the same to your test data.}
+\item
+  Removing zeroes before taking the logarithm. This is only possible on
+  the training data as you cannot drop rows from the test set.
+\end{itemize}
+
+\subsection{\texorpdfstring{\texttt{ValueError:\ Input\ X\ contains\ NaN}}{ValueError: Input X contains NaN}}\label{valueerror-input-x-contains-nan}
+
+The reason why your design matrix \texttt{X} contains \texttt{NaN}
+values is likely because you take the log of a negative number somewhere
+in your code. To prevent this, try:
+
+\begin{itemize}
+\tightlist
+\item
+  Shifting the range of values for features that you want to perform the
+  logging operation on to positive values greater than 0. \textbf{Note
+  that whatever value you add to your train data, you should add the
+  same to your test data.}
+\item
+  Removing negative values before taking the log.
+\end{itemize}
+
+\subsection{\texorpdfstring{\texttt{ValueError:\ The\ feature\ names\ should\ match\ those\ that\ were\ passed\ during\ fit}}{ValueError: The feature names should match those that were passed during fit}}\label{valueerror-the-feature-names-should-match-those-that-were-passed-during-fit}
+
+This error is followed by one or both of:
+
+\begin{verbatim}
+Feature names unseen at fit time: 
+- FEATURE NAME 1
+- FEATURE NAME 2
+  ...
+
+Feature names seen at fit time, yet now missing
+- FEATURE NAME 1
+- FEATURE NAME 2
+  ...
+\end{verbatim}
+
+This error occurs if the columns/features you're passing in for the test
+dataset aren't the same as the features you used to train the model.
+\texttt{sklearn}'s models expect the testing data's column names to
+match the training data's. The features listed under
+\texttt{Feature\ names\ unseen\ at\ fit\ time} are columns that were
+present in the \emph{training} data but not the \emph{testing} data, and
+features listed under
+\texttt{Feature\ names\ seen\ at\ fit\ time,\ yet\ now\ missing} were
+present in the \emph{testing} data but not the \emph{training} data.
+
+Potential causes for this error:
+
+\begin{itemize}
+\item
+  Your preprocessing for \texttt{X} is different for training and
+  testing. Double-check your code in \texttt{feature\_engine\_final}!
+  Besides removing any references to
+  \texttt{\textquotesingle{}Sale\ Price\textquotesingle{}} and code that
+  would remove rows from the test set, your preprocessing should be the
+  same.
+\item
+  Some one-hot-encoded categories are present in training but not in
+  testing (or vice versa). For example, let's say that the feature
+  ``Data 100'' has categories ``A'', ``B'', ``C'', and ``D''. If ``A'',
+  ``B'', and ``C'' are present in the training data, but ``B'', ``C'',
+  and ``D'' are present in the testing data, you will get this error:
+
+\begin{verbatim}
+The feature names should match those that were passed during fit. Feature names unseen at fit time: 
+- D
+  ...
+
+Feature names seen at fit time, yet now missing
+- A
+\end{verbatim}
+\end{itemize}
+
+\section{Gradescope}\label{gradescope-1}
+
+\subsection{I don't have many Gradescope submissions
+left}\label{i-dont-have-many-gradescope-submissions-left}
+
+If you're almost out of Gradescope submissions, try using k-fold
+cross-validation to check the accuracy of your model. Results from
+cross-validation will be closer to the test set accuracy than results
+from the training data.
+
+\subsection{``Wrong number of lines ( \_\_ instead of \_\_
+)''}\label{wrong-number-of-lines-__-instead-of-__}
+
+This occurs when you remove outliers when preprocessing the testing
+data. \emph{Please do not remove any outliers from your test set.} You
+may only remove outliers in training data.
+
+\subsection{Numerical Overflow}\label{numerical-overflow}
+
+This error is caused by overly large predictions that create an
+extremely large RMSE. The cell before you generate your submission runs
+\texttt{submission\_df{[}"Value"{]}.describe()}, which returns some
+summary statistics of your predictions. Your maximum value for
+\texttt{Log\ Sale\ Price} should not be over 25.
+
+For your reference, a log sale price of 25 corresponds to a sale price
+of \(e^{25} \approx\) 70 billion which is far bigger than anything found
+in the dataset. If you see such large predictions, you can try removing
+outliers from the \emph{training} data or experimenting with new
+features so that your model generalizes better.
 
 
 

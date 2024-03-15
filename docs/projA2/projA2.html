@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Project A2 Common Questions</title>
+<title>Data 100 Debugging Guide - Project A2 Common Questions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,16 +23,50 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="projA2_files/libs/clipboard/clipboard.min.js"></script>
-<script src="projA2_files/libs/quarto-html/quarto.js"></script>
-<script src="projA2_files/libs/quarto-html/popper.min.js"></script>
-<script src="projA2_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="projA2_files/libs/quarto-html/anchor.min.js"></script>
-<link href="projA2_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="projA2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="projA2_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="projA2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="projA2_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../projA1/projA1.html" rel="prev">
+<link href="../data100_logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -66,11 +100,99 @@ window.Quarto = {
 
 </head>
 
-<body>
+<body class="nav-sidebar floating">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  <nav id="TOC" role="doc-toc" class="toc-active">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../projA2/projA2.html"><span class="chapter-title">Project A2 Common Questions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../data100_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Data 100 Debugging Guide</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/DS-100/debugging-guide" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../jupyter101/jupyter101.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Jupyter 101</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../jupyter_datahub/jupyter_datahub.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Jupyter / Datahub</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../autograder_gradescope/autograder_gradescope.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autograder and Gradescope</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pandas/pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pandas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regex/regex.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">RegEx</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualizations/visualizations.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Visualizations</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projA1/projA1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Project A1 Common Questions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projA2/projA2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Project A2 Common Questions</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
@@ -81,7 +203,7 @@ window.Quarto = {
   <li><a href="#valueerror-per-column-arrays-must-each-be-1-dimensional" id="toc-valueerror-per-column-arrays-must-each-be-1-dimensional" class="nav-link" data-scroll-target="#valueerror-per-column-arrays-must-each-be-1-dimensional"><code>ValueError: Per-column arrays must each be 1-dimensional</code></a></li>
   <li><a href="#keyerror-sale-pricekeyerror-log-sale-price" id="toc-keyerror-sale-pricekeyerror-log-sale-price" class="nav-link" data-scroll-target="#keyerror-sale-pricekeyerror-log-sale-price"><code>KeyError: 'Sale Price'</code>/<code>KeyError: 'Log Sale Price'</code></a></li>
   <li><a href="#value-error-could-not-convert-string-to-float" id="toc-value-error-could-not-convert-string-to-float" class="nav-link" data-scroll-target="#value-error-could-not-convert-string-to-float"><code>Value Error: could not convert string to float</code></a></li>
-  <li><a href="#input-x-contains-infinity-or-a-value-too-large-for-dtypefloat64" id="toc-input-x-contains-infinity-or-a-value-too-large-for-dtypefloat64" class="nav-link" data-scroll-target="#input-x-contains-infinity-or-a-value-too-large-for-dtypefloat64"><code>Input X contains infinity or a value too large for dtype('float64')</code></a></li>
+  <li><a href="#valueerror-input-x-contains-infinity-or-a-value-too-large-for-dtypefloat64" id="toc-valueerror-input-x-contains-infinity-or-a-value-too-large-for-dtypefloat64" class="nav-link" data-scroll-target="#valueerror-input-x-contains-infinity-or-a-value-too-large-for-dtypefloat64"><code>ValueError: Input X contains infinity or a value too large for dtype('float64')</code></a></li>
   <li><a href="#valueerror-input-x-contains-nan" id="toc-valueerror-input-x-contains-nan" class="nav-link" data-scroll-target="#valueerror-input-x-contains-nan"><code>ValueError: Input X contains NaN</code></a></li>
   <li><a href="#valueerror-the-feature-names-should-match-those-that-were-passed-during-fit" id="toc-valueerror-the-feature-names-should-match-those-that-were-passed-during-fit" class="nav-link" data-scroll-target="#valueerror-the-feature-names-should-match-those-that-were-passed-during-fit"><code>ValueError: The feature names should match those that were passed during fit</code></a></li>
   </ul></li>
@@ -93,12 +215,13 @@ window.Quarto = {
   </ul></li>
   </ul>
 </nav>
-</div>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Project A2 Common Questions</h1>
+<h1 class="title"><span class="chapter-title">Project A2 Common Questions</span></h1>
 </div>
 
 
@@ -150,8 +273,8 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="value-error-could-not-convert-string-to-float"><code>Value Error: could not convert string to float</code></h3>
 <p>This error usually occurs when your final design matrix has non-numeric columns. The <code>fit</code> function of a <code>lm.LinearRegression</code> object can take a <code>pandas</code> <code>DataFrame</code> as the <code>X</code> argument, but requires that the <code>DataFrame</code> is only composed of numeric values.</p>
 </section>
-<section id="input-x-contains-infinity-or-a-value-too-large-for-dtypefloat64" class="level3">
-<h3 class="anchored" data-anchor-id="input-x-contains-infinity-or-a-value-too-large-for-dtypefloat64"><code>Input X contains infinity or a value too large for dtype('float64')</code></h3>
+<section id="valueerror-input-x-contains-infinity-or-a-value-too-large-for-dtypefloat64" class="level3">
+<h3 class="anchored" data-anchor-id="valueerror-input-x-contains-infinity-or-a-value-too-large-for-dtypefloat64"><code>ValueError: Input X contains infinity or a value too large for dtype('float64')</code></h3>
 <p>The reason why your <code>X</code> data contains infinity is likely because you are taking the logarithm of 0 somewhere in your code. To prevent this, try:</p>
 <ul>
 <li>Adding a small number to the features that you want to perform the log transformation on so that all values are positive and greater than 0. <strong>Note that whatever value you add to your train data, you should add the same to your test data.</strong></li>
@@ -206,11 +329,12 @@ Feature names seen at fit time, yet now missing
 <h3 class="anchored" data-anchor-id="numerical-overflow">Numerical Overflow</h3>
 <p>This error is caused by overly large predictions that create an extremely large RMSE. The cell before you generate your submission runs <code>submission_df["Value"].describe()</code>, which returns some summary statistics of your predictions. Your maximum value for <code>Log Sale Price</code> should not be over 25.</p>
 <p>For your reference, a log sale price of 25 corresponds to a sale price of <span class="math inline">\(e^{25} \approx\)</span> 70 billion which is far bigger than anything found in the dataset. If you see such large predictions, you can try removing outliers from the <em>training</em> data or experimenting with new features so that your model generalizes better.</p>
+
+
 </section>
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -598,6 +722,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../projA1/projA1.html" class="pagination-link  aria-label=" &lt;span="" a1="" common="" questions&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Project A1 Common Questions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
