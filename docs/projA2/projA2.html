@@ -207,8 +207,10 @@ window.Quarto = {
   <li><a href="#valueerror-input-x-contains-nan" id="toc-valueerror-input-x-contains-nan" class="nav-link" data-scroll-target="#valueerror-input-x-contains-nan"><code>ValueError: Input X contains NaN</code></a></li>
   <li><a href="#valueerror-the-feature-names-should-match-those-that-were-passed-during-fit" id="toc-valueerror-the-feature-names-should-match-those-that-were-passed-during-fit" class="nav-link" data-scroll-target="#valueerror-the-feature-names-should-match-those-that-were-passed-during-fit"><code>ValueError: The feature names should match those that were passed during fit</code></a></li>
   <li><a href="#valueerror-operands-could-not-be-broadcast-together-with-shapes-..." id="toc-valueerror-operands-could-not-be-broadcast-together-with-shapes-..." class="nav-link" data-scroll-target="#valueerror-operands-could-not-be-broadcast-together-with-shapes-..."><code>ValueError: operands could not be broadcast together with shapes ...</code></a></li>
-  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
-  <li><a href="#im-getting-negative-values-for-the-prop_overest-plot-in-6c" id="toc-im-getting-negative-values-for-the-prop_overest-plot-in-6c" class="nav-link" data-scroll-target="#im-getting-negative-values-for-the-prop_overest-plot-in-6c">I’m getting negative values for the <code>prop_overest</code> plot in <code>6c</code></a></li>
+  </ul></li>
+  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a>
+  <ul>
+  <li><a href="#im-getting-negative-values-for-the-prop_overest-plot" id="toc-im-getting-negative-values-for-the-prop_overest-plot" class="nav-link" data-scroll-target="#im-getting-negative-values-for-the-prop_overest-plot">I’m getting negative values for the <code>prop_overest</code> plot</a></li>
   </ul></li>
   <li><a href="#gradescope" id="toc-gradescope" class="nav-link" data-scroll-target="#gradescope">Gradescope</a>
   <ul>
@@ -274,7 +276,7 @@ window.Quarto = {
 </section>
 <section id="value-error-could-not-convert-string-to-float" class="level3">
 <h3 class="anchored" data-anchor-id="value-error-could-not-convert-string-to-float"><code>Value Error: could not convert string to float</code></h3>
-<p>If you simply run <code>X = data.drop(columns = ["Log Sale Price", "Sale Price"])</code> or something similar, wherein you leave in non-numeric columns of <code>data</code>, you may run into this error. The <code>fit</code> function of a <code>lm.LinearRegression</code> object can take a <code>pandas</code> <code>DataFrame</code> as the <code>X</code> argument, but requires that the <code>DataFrame</code> is only composed of numeric values.</p>
+<p>This error occurs if your final design matric contains non-numeric columns. For example, if you simply run <code>X = data.drop(columns = ["Log Sale Price", "Sale Price"])</code>, all the non-numeric columns of <code>data</code> are still included in <code>X</code> and you will see this error message. The <code>fit</code> function of a <code>lm.LinearRegression</code> object can take a <code>pandas</code> <code>DataFrame</code> as the <code>X</code> argument, but requires that the <code>DataFrame</code> is only composed of numeric values.</p>
 </section>
 <section id="valueerror-input-x-contains-infinity-or-a-value-too-large-for-dtypefloat64" class="level3">
 <h3 class="anchored" data-anchor-id="valueerror-input-x-contains-infinity-or-a-value-too-large-for-dtypefloat64"><code>ValueError: Input X contains infinity or a value too large for dtype('float64')</code></h3>
@@ -321,11 +323,11 @@ Feature names seen at fit time, yet now missing
 <h3 class="anchored" data-anchor-id="valueerror-operands-could-not-be-broadcast-together-with-shapes-..."><code>ValueError: operands could not be broadcast together with shapes ...</code></h3>
 <p>This error occurs when you attempt to perform an operation on two NumPy arrays with mismatched dimensions. For example, <code>np.ones(100000) - np.ones(1000000)</code> is not defined since you cannot perform elementwise addition on arrays with different lengths. Use the error traceback to identify which line is erroring, and print out the shape of the arrays on the line before using <code>.shape</code>.</p>
 </section>
-<section id="question-6" class="level3">
-<h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
 </section>
-<section id="im-getting-negative-values-for-the-prop_overest-plot-in-6c" class="level3">
-<h3 class="anchored" data-anchor-id="im-getting-negative-values-for-the-prop_overest-plot-in-6c">I’m getting negative values for the <code>prop_overest</code> plot in <code>6c</code></h3>
+<section id="question-6" class="level2">
+<h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
+<section id="im-getting-negative-values-for-the-prop_overest-plot" class="level3">
+<h3 class="anchored" data-anchor-id="im-getting-negative-values-for-the-prop_overest-plot">I’m getting negative values for the <code>prop_overest</code> plot</h3>
 <p>Note that in the function body, the skeleton code includes:</p>
 <pre><code># DO NOT MODIFY THESE TWO LINES
     if subset_df.shape[0] == 0:

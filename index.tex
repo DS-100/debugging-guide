@@ -196,7 +196,7 @@ at Berkeley and would like to provide feedback, please email us at
 
 \chapter{Jupyter 101}\label{jupyter-101}
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, colback=white, rightrule=.15mm, coltitle=black, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacityback=0, left=2mm, toprule=.15mm, arc=.35mm, titlerule=0mm, breakable, toptitle=1mm, bottomtitle=1mm, leftrule=.75mm]
+\begin{tcolorbox}[enhanced jigsaw, colback=white, left=2mm, bottomrule=.15mm, toptitle=1mm, opacitybacktitle=0.6, bottomtitle=1mm, breakable, arc=.35mm, toprule=.15mm, opacityback=0, coltitle=black, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, colframe=quarto-callout-note-color-frame, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, leftrule=.75mm]
 
 If you're using a MacBook, replace \texttt{ctrl} with \texttt{cmd}.
 
@@ -1417,13 +1417,14 @@ datatype (ie. \texttt{Series}, 1D \texttt{NumPy} array).
 
 \subsection{\texorpdfstring{\texttt{Value\ Error:\ could\ not\ convert\ string\ to\ float}}{Value Error: could not convert string to float}}\label{value-error-could-not-convert-string-to-float}
 
-If you simply run
-\texttt{X\ =\ data.drop(columns\ =\ {[}"Log\ Sale\ Price",\ "Sale\ Price"{]})}
-or something similar, wherein you leave in non-numeric columns of
-\texttt{data}, you may run into this error. The \texttt{fit} function of
-a \texttt{lm.LinearRegression} object can take a \texttt{pandas}
-\texttt{DataFrame} as the \texttt{X} argument, but requires that the
-\texttt{DataFrame} is only composed of numeric values.
+This error occurs if your final design matric contains non-numeric
+columns. For example, if you simply run
+\texttt{X\ =\ data.drop(columns\ =\ {[}"Log\ Sale\ Price",\ "Sale\ Price"{]})},
+all the non-numeric columns of \texttt{data} are still included in
+\texttt{X} and you will see this error message. The \texttt{fit}
+function of a \texttt{lm.LinearRegression} object can take a
+\texttt{pandas} \texttt{DataFrame} as the \texttt{X} argument, but
+requires that the \texttt{DataFrame} is only composed of numeric values.
 
 \subsection{\texorpdfstring{\texttt{ValueError:\ Input\ X\ contains\ infinity\ or\ a\ value\ too\ large\ for\ dtype(\textquotesingle{}float64\textquotesingle{})}}{ValueError: Input X contains infinity or a value too large for dtype(\textquotesingle float64\textquotesingle)}}\label{valueerror-input-x-contains-infinity-or-a-value-too-large-for-dtypefloat64}
 
@@ -1526,11 +1527,11 @@ cannot perform elementwise addition on arrays with different lengths.
 Use the error traceback to identify which line is erroring, and print
 out the shape of the arrays on the line before using \texttt{.shape}.
 
-\subsection{Question 6}\label{question-6-1}
+\section{Question 6}\label{question-6-1}
 
 \subsection{\texorpdfstring{I'm getting negative values for the
-\texttt{prop\_overest} plot in
-\texttt{6c}}{I'm getting negative values for the prop\_overest plot in 6c}}\label{im-getting-negative-values-for-the-prop_overest-plot-in-6c}
+\texttt{prop\_overest}
+plot}{I'm getting negative values for the prop\_overest plot}}\label{im-getting-negative-values-for-the-prop_overest-plot}
 
 Note that in the function body, the skeleton code includes:
 

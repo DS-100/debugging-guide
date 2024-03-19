@@ -41,7 +41,7 @@ If you're passing the tests for question 5d but getting this error in question 5
 
 ### `Value Error: could not convert string to float`
 
-If you simply run `X = data.drop(columns = ["Log Sale Price", "Sale Price"])` or something similar, wherein you leave in non-numeric columns of `data`, you may run into this error. The `fit` function of a `lm.LinearRegression` object can take a `pandas` `DataFrame` as the `X` argument, but requires that the `DataFrame` is only composed of numeric values.
+This error occurs if your final design matric contains non-numeric columns. For example, if you simply run `X = data.drop(columns = ["Log Sale Price", "Sale Price"])`, all the non-numeric columns of `data` are still included in `X` and you will see this error message. The `fit` function of a `lm.LinearRegression` object can take a `pandas` `DataFrame` as the `X` argument, but requires that the `DataFrame` is only composed of numeric values.
 
 ### `ValueError: Input X contains infinity or a value too large for dtype('float64')` 
 The reason why your `X` data contains infinity is likely because you are taking the logarithm of 0 somewhere in your code. To prevent this, try: 
@@ -93,9 +93,9 @@ Potential causes for this error:
 
 This error occurs when you attempt to perform an operation on two NumPy arrays with mismatched dimensions. For example, `np.ones(100000) - np.ones(1000000)` is not defined since you cannot perform elementwise addition on arrays with different lengths. Use the error traceback to identify which line is erroring, and print out the shape of the arrays on the line before using `.shape`.
 
-### Question 6
+## Question 6
 
-### I'm getting negative values for the `prop_overest` plot in `6c`
+### I'm getting negative values for the `prop_overest` plot
 
 Note that in the function body, the skeleton code includes:
 ```
