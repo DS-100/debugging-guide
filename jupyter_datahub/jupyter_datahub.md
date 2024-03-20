@@ -85,3 +85,6 @@ Converting a Jupyter notebook to a PDF involves formatting some of the markdown 
 
 ## I can't open Jupyter: `HTTP ERROR 431`
 If this happens, try [clearing your browser cache](https://support.google.com/accounts/answer/32050?hl=en&co=GENIE.Platform%3DDesktop) or opening Datahub in an incognito window.
+
+## Datahub is not loading 
+If your link to Datahub is not loading, go to https://data100.datahub.berkeley.edu/hub/home and restart your server.

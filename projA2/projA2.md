@@ -97,7 +97,7 @@ This error occurs when you attempt to perform an operation on two NumPy arrays w
 This error occurs when a `NoneType` variable is being accessed like a class, for example `None.some_function()`. It may be difficult to identify where the `NoneType` is coming from, but here are some possible causes: 
 
 * Check that your helper functions always end with a `return` statement and that the result is expected!
-* `panda`'s `inplace=` argument allows us to simplify code; instead of reassigning `df = df.an_operation(inplace=False)`, you can choose to shorten the operation as `df.an_operation(inplace=True)`. Note that any `inplace=True` argument modifies the `DataFrame` and *returns nothing*. Both `df = df.an_operation(inplace=True)` and `df.an_operation(inplace=True).another_operation()` will result in this `TypeError`.
+* `pandas`' `inplace=` argument allows us to simplify code; instead of reassigning `df = df.an_operation(inplace=False)`, you can choose to shorten the operation as `df.an_operation(inplace=True)`. Note that any `inplace=True` argument modifies the `DataFrame` and *returns nothing* (read more about it in [this stack overflow post](https://stackoverflow.com/questions/45570984/in-pandas-is-inplace-true-considered-harmful-or-not)). Both `df = df.an_operation(inplace=True)` and `df.an_operation(inplace=True).another_operation()` will result in this `TypeError`.
 
 We suggest adding print statements to your function to find the `None` values.
 
