@@ -99,7 +99,7 @@ This error occurs when a `NoneType` variable is being accessed like a class, for
 * Check that your helper functions always end with a `return` statement and that the result is expected!
 * `pandas`' `inplace=` argument allows us to simplify code; instead of reassigning `df = df.an_operation(inplace=False)`, you can choose to shorten the operation as `df.an_operation(inplace=True)`. Note that any `inplace=True` argument modifies the `DataFrame` and *returns nothing* (read more about it in [this stack overflow post](https://stackoverflow.com/questions/45570984/in-pandas-is-inplace-true-considered-harmful-or-not)). Both `df = df.an_operation(inplace=True)` and `df.an_operation(inplace=True).another_operation()` will result in this `TypeError`.
 
-We suggest adding print statements to your function to find the `None` values.
+Check the return type of all functions you end up using. For example, `np.append(arr_1, arr_2)` returns a `NumPy` array. In contrast, `Python`’s `.append` function mutates the iterable and returns `None`. If you are unsure of what data type is being returned, looking up the documentation of the function , adding print statements, using `type(some_function(input)` are all useful ways to debug your code.
 
 
 ## Question 6

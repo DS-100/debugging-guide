@@ -296,7 +296,7 @@ Feature names seen at fit time, yet now missing
 <li>Check that your helper functions always end with a <code>return</code> statement and that the result is expected!</li>
 <li><code>pandas</code>’ <code>inplace=</code> argument allows us to simplify code; instead of reassigning <code>df = df.an_operation(inplace=False)</code>, you can choose to shorten the operation as <code>df.an_operation(inplace=True)</code>. Note that any <code>inplace=True</code> argument modifies the <code>DataFrame</code> and <em>returns nothing</em> (read more about it in <a href="https://stackoverflow.com/questions/45570984/in-pandas-is-inplace-true-considered-harmful-or-not">this stack overflow post</a>). Both <code>df = df.an_operation(inplace=True)</code> and <code>df.an_operation(inplace=True).another_operation()</code> will result in this <code>TypeError</code>.</li>
 </ul>
-<p>We suggest adding print statements to your function to find the <code>None</code> values.</p>
+<p>Check the return type of all functions you end up using. For example, <code>np.append(arr_1, arr_2)</code> returns a <code>NumPy</code> array. In contrast, <code>Python</code>’s <code>.append</code> function mutates the iterable and returns <code>None</code>. If you are unsure of what data type is being returned, looking up the documentation of the function , adding print statements, using <code>type(some_function(input)</code> are all useful ways to debug your code.</p>
 </section>
 </section>
 <section id="question-6" class="level2">
