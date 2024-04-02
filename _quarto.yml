@@ -22,6 +22,7 @@ book:
         - visualizations/visualizations.md
         - projA1/projA1.md
         - projA2/projA2.md
+        - sql/sql.md
     
     sidebar:
         logo: "data100_logo.png"
