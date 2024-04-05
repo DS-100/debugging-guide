@@ -22,6 +22,12 @@ jupyter:
     language: python
     name: python3
 ---
+## Failing on Gradescope but passing locally
+
+This usually occurs when an unzipped file is submitted to Gradescope. Please directly submit the file downloaded through the link under the final submission cell of the notebook to Gradescope (no need to unzip it). The zip file should contain a results folder containing .pkl files in it.
+
+Submit the full zip files. Don’t unzip it before submitting to Gradescope.
+
 
 ## `NameError: name ‘...’ is not defined`
 
@@ -39,7 +45,26 @@ There is usually a less visible error message outputted right after the cell whe
 **2. Ambiguous Column Reference in Joins**
 
 - **Issue:** Referring to a column that exists in both tables being joined, without specifying which table's column to use.
-- **Solution:** Specify the table from which to select the column from. Use the format`tableName.columnName` to clear up the ambiguity. For example, if joining `tableA` and `tableB`, both containing `column`, specify `tableA.column` or `tableB.column`.
+- **Solution:** Specify the table from which to select the column from. Use the format `tableName.columnName` to clear up the ambiguity. For example, if joining `tableA` and `tableB`, both containing `column`, specify `tableA.column` or `tableB.column`.
+
+## `No such column/table`
+
+This error occurs when SQL cannot find the column or table you are referencing. Make sure that the column names and tables are spelled and capatalized exactly as shown in the assignment.
+
+If you are trying to reference a column that is not in the current table, consider using `JOIN` to be able to access these columns. You can reference the course notes [here](https://ds100.org/course-notes/sql_II/sql_II.html#joining-tables) for a refresher on how to use the `JOIN` clause.
+
+## Error message near `CASE`
+
+You may run into errors near the `CASE` clause if you are creaing a column using `CASE` and then referencing the new column in the `SELECT` clause as well. 
+
+When you are using `CASE` within `SELECT`, the new column will automatically be selected. You can reference the course notes [here](https://ds100.org/course-notes/sql_II/sql_II.html#using-conditional-statements-with-case) for a refresher on how to use the `CASE` clause.
+
+
+## Error message near `#...`
+
+When making comments in SQL, make sure that you are using double hyphens (`--`) instead of the Python syntax (`#`). 
+
+Because you are still coding within a Python notebook, the SQL query colors may not match up to what you expect. Therefore,   using `#...` will look like a comment but  output an error. When you use `--` the text may not change, but SQL will still read it as a comment! 
 
 ## Filtering with multiple conditions
 
