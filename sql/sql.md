@@ -138,7 +138,7 @@ SELECT * FROM sqlite_master WHERE type='table';
 
 which outputs the schema for each table. If we're working with the IMDB database, we get the following output: 
 
-<center><img src = "images/imdb_schema.png" width = "720"></img></a></center>
+<center><img src = "images/imdb_schema.png" width = "700"></img></a></center>
 
 
 We can see that the table `Title` contains the columns
