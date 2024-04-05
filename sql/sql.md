@@ -94,8 +94,10 @@ This occurs when you have an error in your SQL code, causing the cell after to f
 
 is an error message that you can read to debug your code. Note that this error could be formatted as one long string without any indents or newlines, so it may be harder than typical `Python` errors to parse.
 
-#### IFFY ABOUT INCLUDING **Some scenarios and fixes**
-TODO: go back to this section
+<!--
+Note: Not included as these questions don't come up as frequently in the HW, but can be added later if need be
+#### **Some scenarios and fixes**
+
 
 **1. Incorrect Alias Usage**
 
@@ -106,6 +108,8 @@ TODO: go back to this section
 
 - **Issue:** Referring to a column that exists in both tables being joined, without specifying which table's column to use.
 - **Solution:** Specify the table from which to select the column from. Use the format `tableName.columnName` to clear up the ambiguity. For example, if joining `tableA` and `tableB`, both containing `column`, specify `tableA.column` or `tableB.column`.
+
+-->
 
 ### `Referenced column "{some_string}" not found`
 There are 2 potential causes for this error: 
@@ -134,7 +138,8 @@ SELECT * FROM sqlite_master WHERE type='table';
 
 which outputs the schema for each table. If we're working with the IMDB database, we get the following output: 
 
-<center><img src = "images/imdb_schema.png" width = "700"></img></a></center>
+<center><img src = "images/imdb_schema.png" width = "720"></img></a></center>
+
 
 We can see that the table `Title` contains the columns
 
@@ -142,6 +147,12 @@ We can see that the table `Title` contains the columns
 * `titleType` of type `VARCHAR`
 * `primaryTitle` of type `VARCHAR`
 * and so on...
+
+It's a good idea to double check the types of the columns involved by looking at the schema before performing numerical comparisons and when deciding whether to `CAST` a particular column. 
+
+### My query runs but I'm not passing the tests
+
+For a lot of questions in the homework, we limit our focus to **movie** titles. Double check that you are filtering your results appropriately. More generally, if you find your queries aren't erroring, but are failing the tests due to some logical error, a good starting point is always reading the question again and making a checklist of all the conditions you need to implement.
 
 <!-- Not including cuz duckdb fixes this
 
@@ -160,7 +171,10 @@ It is important to use only the supported data types when casting, otherwise the
 
 For example, doing `CAST(num AS integer)` will error since `int` is a supported data type, but `integer` is not. -->
 
-## IFFY ABOUT INCLUDING Frame not returned when using (...) in filtering
+<!--
+Note: Not included as these questions don't come up as frequently in the HW, but can be added later if need be
+
+## Frame not returned when using (...) in filtering
 
 In `SQL`, tuples are a sequence of values grouped together by parenthesis. They are meant for use with the `IN` keyword when filtering data based on set membership. You need to be careful when using tuples with other filtering keywords such as `LIKE`.
 
@@ -173,3 +187,5 @@ In `SQL`, tuples are a sequence of values grouped together by parenthesis. They 
 
 1. `WHERE (item LIKE '%orange%' OR item LIKE '%strawberry%')`
 2. `WHERE item IN ('fruit', 'vegetable')`
+
+-->

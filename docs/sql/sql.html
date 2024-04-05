@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data 100 Debugging Guide - Project A1 Common Questions</title>
+<title>Data 100 Debugging Guide - SQL Common Errors</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../projA2/projA2.html" rel="next">
-<link href="../visualizations/visualizations.html" rel="prev">
+<link href="../projA2/projA2.html" rel="prev">
 <link href="../data100_logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -81,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../projA1/projA1.html"><span class="chapter-title">Project A1 Common Questions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sql/sql.html"><span class="chapter-title">SQL Common Errors</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -150,7 +149,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../projA1/projA1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Project A1 Common Questions</span></a>
+  <a href="../projA1/projA1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Project A1 Common Questions</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -160,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sql/sql.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">SQL Common Errors</span></a>
+  <a href="../sql/sql.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">SQL Common Errors</span></a>
   </div>
 </li>
     </ul>
@@ -173,15 +172,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#question-6" id="toc-question-6" class="nav-link active" data-scroll-target="#question-6">Question 6</a>
+  <li><a href="#common-misconceptions" id="toc-common-misconceptions" class="nav-link active" data-scroll-target="#common-misconceptions">Common Misconceptions</a>
   <ul>
-  <li><a href="#typeerror-could-not-convert-string-to-float-sf" id="toc-typeerror-could-not-convert-string-to-float-sf" class="nav-link" data-scroll-target="#typeerror-could-not-convert-string-to-float-sf"><code>TypeError: could not convert string to float: 'SF'</code></a></li>
-  <li><a href="#typeerror-unhashable-type-series" id="toc-typeerror-unhashable-type-series" class="nav-link" data-scroll-target="#typeerror-unhashable-type-series"><code>TypeError: unhashable type: 'Series'</code></a></li>
+  <li><a href="#how-to-read-sql-errors" id="toc-how-to-read-sql-errors" class="nav-link" data-scroll-target="#how-to-read-sql-errors">How to read SQL Errors</a></li>
+  <li><a href="#comments-in-sql" id="toc-comments-in-sql" class="nav-link" data-scroll-target="#comments-in-sql">Comments in SQL</a></li>
+  <li><a href="#filtering-with-multiple-conditions" id="toc-filtering-with-multiple-conditions" class="nav-link" data-scroll-target="#filtering-with-multiple-conditions">Filtering with multiple conditions</a></li>
+  <li><a href="#truncated-display-limit" id="toc-truncated-display-limit" class="nav-link" data-scroll-target="#truncated-display-limit">Truncated Display Limit</a></li>
   </ul></li>
-  <li><a href="#question-7" id="toc-question-7" class="nav-link" data-scroll-target="#question-7">Question 7</a>
+  <li><a href="#common-errors" id="toc-common-errors" class="nav-link" data-scroll-target="#common-errors">Common Errors</a>
   <ul>
-  <li><a href="#im-not-sure-how-to-use-sklearn-to-do-one-hot-encoding" id="toc-im-not-sure-how-to-use-sklearn-to-do-one-hot-encoding" class="nav-link" data-scroll-target="#im-not-sure-how-to-use-sklearn-to-do-one-hot-encoding">I’m not sure how to use <code>sklearn</code> to do One Hot Encoding</a></li>
-  <li><a href="#my-ohe-columns-contain-a-lot-of-nan-values" id="toc-my-ohe-columns-contain-a-lot-of-nan-values" class="nav-link" data-scroll-target="#my-ohe-columns-contain-a-lot-of-nan-values">My OHE columns contain a lot of <code>NaN</code> values</a></li>
+  <li><a href="#nameerror-name-res_q-is-not-defined" id="toc-nameerror-name-res_q-is-not-defined" class="nav-link" data-scroll-target="#nameerror-name-res_q-is-not-defined"><code>NameError: name ‘[res_q#]’ is not defined</code></a></li>
+  <li><a href="#referenced-column-some_string-not-found" id="toc-referenced-column-some_string-not-found" class="nav-link" data-scroll-target="#referenced-column-some_string-not-found"><code>Referenced column "{some_string}" not found</code></a></li>
+  <li><a href="#cannot-compare-values-of-type-__-and-type-__" id="toc-cannot-compare-values-of-type-__-and-type-__" class="nav-link" data-scroll-target="#cannot-compare-values-of-type-__-and-type-__"><code>Cannot compare values of type __ and type __</code></a></li>
+  <li><a href="#my-query-runs-but-im-not-passing-the-tests" id="toc-my-query-runs-but-im-not-passing-the-tests" class="nav-link" data-scroll-target="#my-query-runs-but-im-not-passing-the-tests">My query runs but I’m not passing the tests</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -191,7 +194,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Project A1 Common Questions</span></h1>
+<h1 class="title"><span class="chapter-title">SQL Common Errors</span></h1>
 </div>
 
 
@@ -208,27 +211,151 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="question-6" class="level2">
-<h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
-<section id="typeerror-could-not-convert-string-to-float-sf" class="level3">
-<h3 class="anchored" data-anchor-id="typeerror-could-not-convert-string-to-float-sf"><code>TypeError: could not convert string to float: 'SF'</code></h3>
-<p>Type errors like these usually stem from applying a numeric aggregation function to a non-numeric column as described in the <a href="https://ds100.org/debugging-guide/pandas/pandas.html#typeerror-could-not-convert-string-to-numeric"><code>pandas</code> section</a> of the debugging guide.</p>
-<p>Aggregation functions like <code>np.median</code> and <code>np.mean</code> are only well-defined for columns with numeric types like <code>int</code> and <code>float</code>. Your code is likely trying to aggregate across all columns in <code>training_data</code>, including those of type <code>str</code>. Instead of aggregating across the entire <code>DataFrame</code>, try just selecting the relevant columns.</p>
+<section id="common-misconceptions" class="level2">
+<h2 class="anchored" data-anchor-id="common-misconceptions">Common Misconceptions</h2>
+<section id="how-to-read-sql-errors" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-read-sql-errors">How to read SQL Errors</h3>
+<p>Because Jupyter notebooks run Python natively, we need to import extra modules like <code>sql</code>, <code>sqlalchemy</code>, and <code>duckdb</code> in order to run SQL queries within Jupyter. This results in slightly more complex error messages than normal Python. Refer to the image below if you need help identifying the most important parts (the red and blue text).</p>
+<center>
+<img src="images/sql_error.png" width="700">
+</center>
+<p>Sometimes, SQL errors may show up as a long string without any red highlight, for example:</p>
+<p><code>(duckdb.duckdb.BinderException) Binder Error: Referenced column "some_column" not found in FROM clause! LINE 1: SELECT some_column                ^</code> <code>...</code></p>
+<p>(Note that this is the same error as the one above). While these errors may not be formatted as nicely, try your best to read it. You can even copy the error into a new cell and manually indent sentences for readability!</p>
 </section>
-<section id="typeerror-unhashable-type-series" class="level3">
-<h3 class="anchored" data-anchor-id="typeerror-unhashable-type-series"><code>TypeError: unhashable type: 'Series'</code></h3>
-<p>This error can occur if you try and use Python’s <code>in</code> to check whether values in a <code>Series</code> are contained in a list. If you’re trying to perform boolean filtering in this manner, you should look into the <code>.isin</code> (<a href="https://pandas.pydata.org/docs/reference/api/pandas.Series.isin.html">documentation</a>) function as introduced in HW 2.</p>
+<section id="comments-in-sql" class="level3">
+<h3 class="anchored" data-anchor-id="comments-in-sql">Comments in SQL</h3>
+<p>Unlike <code>Python</code>, which uses <code>#</code> or triple quotes <code>""" something """</code> to indicate a comment, SQL comments take the following forms:</p>
+<pre><code>-- This is a single-line or in-line comment
+
+/* 
+  This is a 
+  multi-line 
+  comment 
+*/</code></pre>
+<p>Because you are still coding within a Python notebook, the SQL query colors may not match up to what you expect. Therefore, using <code>#...</code> will still be green text but give you a <code>Parser Error: syntax error at or near...</code>. When you use <code>--</code> or <code>/* ... */</code>, the text color may not change, but SQL will still read it as a comment!</p>
+<!-- 
+Note: not including this one since we switched from Lisa's grading method of pickling files to Rohan's method with the uppdated Otter Grader
+
+## Failing on Gradescope but passing locally
+
+This usually occurs when an unzipped file is submitted to Gradescope. Please directly submit the file downloaded through the link under the final submission cell of the notebook to Gradescope (no need to unzip it). The zip file should contain a results folder containing .pkl files in it.
+
+Submit the full zip files. Don’t unzip it before submitting to Gradescope. -->
+</section>
+<section id="filtering-with-multiple-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="filtering-with-multiple-conditions">Filtering with multiple conditions</h3>
+<p>When you are using more than one condition in filtering clauses such as <code>WHERE</code> or <code>HAVING</code>, it is important to keep in mind that the ordering of <code>OR</code>s and <code>AND</code>s will affect your SQL output.</p>
+<p>In <code>SQL</code>, the operator precedence typically evaluates <code>AND</code> operations before <code>OR</code> operations, and so incorrectly ordered conditions can lead to unexpected results. To ensure your conditions are evaluated in the intended order, use parentheses to group them explicitly.</p>
+<p>For example, consider the following query condition:</p>
+<p><code>WHERE A &gt; 500 AND B &gt; 200 OR C &lt; 50</code></p>
+<p>By default, is it is evaluated as</p>
+<p><code>WHERE (A &gt; 500 AND B &gt; 200) OR C &lt; 50</code></p>
+<p>since <code>AND</code> has a higher precedence than <code>OR</code>. To evaluate it differently, add parentheses to specify the order of operations:</p>
+<p><code>WHERE A &gt; 500 AND (B &gt; 200 OR C &lt; 50)</code></p>
+</section>
+<section id="truncated-display-limit" class="level3">
+<h3 class="anchored" data-anchor-id="truncated-display-limit">Truncated Display Limit</h3>
+<p>Our Jupyter Notebooks are set to only display the first 10 rows of a SQL query. Otherwise, your notebook would likely crash with the weight of displaying &gt;1000 rows. Because of this, you’ll likely see a</p>
+<p><code>Truncated to displaylimit of 10</code></p>
+<p>printed right below your SQL query.</p>
 </section>
 </section>
-<section id="question-7" class="level2">
-<h2 class="anchored" data-anchor-id="question-7">Question 7</h2>
-<section id="im-not-sure-how-to-use-sklearn-to-do-one-hot-encoding" class="level3">
-<h3 class="anchored" data-anchor-id="im-not-sure-how-to-use-sklearn-to-do-one-hot-encoding">I’m not sure how to use <code>sklearn</code> to do One Hot Encoding</h3>
-<p>A good starting point is to revisit the One Hot Encoding question in Lab 7. It’s recommended you look through this portion of <a href="https://youtu.be/LohVOmiulHQ?feature=shared&amp;t=442">the walkthrough</a>, so you have a good understanding of how to use the <code>OneHotEncoder</code> object. Pay attention to what each variable represents and the expected outputs of the functions used. Can you map the logic from the lab to this project? A nice way to start is to make a new cell and experiment with examples from <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">the documentation</a>.</p>
+<section id="common-errors" class="level2">
+<h2 class="anchored" data-anchor-id="common-errors">Common Errors</h2>
+<section id="nameerror-name-res_q-is-not-defined" class="level3">
+<h3 class="anchored" data-anchor-id="nameerror-name-res_q-is-not-defined"><code>NameError: name ‘[res_q#]’ is not defined</code></h3>
+<p>This occurs when you have an error in your SQL code, causing the cell after to fail. Because we’re working with Jupyter Notebooks, some SQL errors are not highlighted in red like <code>Python</code> errors usually are. Check the output under your <code>%%sql</code> cell to see if it ran smoothly. Any text below</p>
+<p><code>Running query in 'duckdb:///data/{database_name}.db</code></p>
+<p>is an error message that you can read to debug your code. Note that this error could be formatted as one long string without any indents or newlines, so it may be harder than typical <code>Python</code> errors to parse.</p>
+<!--
+Note: Not included as these questions don't come up as frequently in the HW, but can be added later if need be
+#### **Some scenarios and fixes**
+
+
+**1. Incorrect Alias Usage**
+
+- **Issue:** Referring to a column or table using its original name instead of the alias assigned with the `AS` keyword.
+- **Solution:** Always use the alias, if you have assigned one, when referencing a column or table. For example, if you set `SELECT column AS col FROM table`, use `col` in your subsequent references.
+
+**2. Ambiguous Column Reference in Joins**
+
+- **Issue:** Referring to a column that exists in both tables being joined, without specifying which table's column to use.
+- **Solution:** Specify the table from which to select the column from. Use the format `tableName.columnName` to clear up the ambiguity. For example, if joining `tableA` and `tableB`, both containing `column`, specify `tableA.column` or `tableB.column`.
+
+-->
 </section>
-<section id="my-ohe-columns-contain-a-lot-of-nan-values" class="level3">
-<h3 class="anchored" data-anchor-id="my-ohe-columns-contain-a-lot-of-nan-values">My OHE columns contain a lot of <code>NaN</code> values</h3>
-<p>This may happen if you try and merge the OHE columns with the <code>training_data</code> table without making sure both <code>DataFrame</code> have the <em>same index values</em>. Look into the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html"><code>pd.merge</code> documentation</a> for ways to resolve this.</p>
+<section id="referenced-column-some_string-not-found" class="level3">
+<h3 class="anchored" data-anchor-id="referenced-column-some_string-not-found"><code>Referenced column "{some_string}" not found</code></h3>
+<p>There are 2 potential causes for this error:</p>
+<ol type="1">
+<li><strong>The column you’re looking for does not exist in the table.</strong> Make sure that the column names are spelled and capatalized exactly as shown in the assignment. If you are trying to reference a column that is not in the current table, consider using <code>JOIN</code> to be able to access these columns. You can reference the <a href="https://ds100.org/course-notes/sql_II/sql_II.html#joining-tables">SQL II course notes</a> for a refresher on how to use the <code>JOIN</code> clause.</li>
+<li>You used double quotes <code>""</code> around <code>some_string</code> instead of single quotes <code>''</code>. Unlike <code>Python</code>, SQL differentiates double and single quotes. Double quotes are used to indicate something that exists within the database, like tables and column names; single quotes are used to indicate strings.</li>
+</ol>
+<!-- Does not error using duckdb
+
+## Error message near `CASE`
+
+You may run into errors near the `CASE` clause if you are creaing a column using `CASE` and then referencing the new column in the `SELECT` clause as well. 
+
+When you are using `CASE` within `SELECT`, the new column will automatically be selected. You can reference the course notes [here](https://ds100.org/course-notes/sql_II/sql_II.html#using-conditional-statements-with-case) for a refresher on how to use the `CASE` clause. -->
+</section>
+<section id="cannot-compare-values-of-type-__-and-type-__" class="level3">
+<h3 class="anchored" data-anchor-id="cannot-compare-values-of-type-__-and-type-__"><code>Cannot compare values of type __ and type __</code></h3>
+<p>This error often occurs when a string-type column (ie. <code>CHAR</code> or <code>VARCHAR</code>) is compared with a numeric-type column (ie. <code>INT</code>, <code>BIGINT</code>, <code>FLOAT</code>, <code>REAL</code>). If you’re interested in learning more about SQL datatypes, check out <a href="https://www.w3schools.com/sql/sql_datatypes.asp">this link</a>!</p>
+<p>To debug, start by checking the type of the column(s) you’re working with; you can either scroll up to (or make a new) cell with the code:</p>
+<pre><code>%%sql
+SELECT * FROM sqlite_master WHERE type='table';</code></pre>
+<p>which outputs the schema for each table. If we’re working with the IMDB database, we get the following output:</p>
+<center>
+<img src="images/imdb_schema.png" width="720">
+</center>
+<p>We can see that the table <code>Title</code> contains the columns</p>
+<ul>
+<li><code>tconst</code> of type <code>BIGINT</code></li>
+<li><code>titleType</code> of type <code>VARCHAR</code></li>
+<li><code>primaryTitle</code> of type <code>VARCHAR</code></li>
+<li>and so on…</li>
+</ul>
+<p>It’s a good idea to double check the types of the columns involved by looking at the schema before performing numerical comparisons and when deciding whether to <code>CAST</code> a particular column.</p>
+</section>
+<section id="my-query-runs-but-im-not-passing-the-tests" class="level3">
+<h3 class="anchored" data-anchor-id="my-query-runs-but-im-not-passing-the-tests">My query runs but I’m not passing the tests</h3>
+<p>For a lot of questions in the homework, we limit our focus to <strong>movie</strong> titles. Double check that you are filtering your results appropriately. More generally, if you find your queries aren’t erroring, but are failing the tests due to some logical error, a good starting point is always reading the question again and making a checklist of all the conditions you need to implement.</p>
+<!-- Not including cuz duckdb fixes this
+
+##Incorrect data types with `CAST`
+
+It is important to use only the supported data types when casting, otherwise the query will result in an error. SQL supports casting to and from the following data types:
+
+- **Integer Types**: `bigint`, `int`, `smallint`, `tinyint`
+- **Boolean Type**: `bit`
+- **Decimal Types**: `decimal`, `numeric`, `money`, `smallmoney`
+- **Floating Point Types**: `float`, `real`
+- **Date and Time Types**: `datetime`, `smalldatetime`
+- **Character Strings**: `char`, `varchar`, `text`
+- **Unicode Character Strings**: `nchar`, `nvarchar`, `ntext`
+- **Binary Strings**: `binary`, `varbinary`, `image`
+
+For example, doing `CAST(num AS integer)` will error since `int` is a supported data type, but `integer` is not. -->
+<!--
+Note: Not included as these questions don't come up as frequently in the HW, but can be added later if need be
+
+## Frame not returned when using (...) in filtering
+
+In `SQL`, tuples are a sequence of values grouped together by parenthesis. They are meant for use with the `IN` keyword when filtering data based on set membership. You need to be careful when using tuples with other filtering keywords such as `LIKE`.
+
+#### **Incorrect usage:**
+
+1.  `WHERE item LIKE ('%orange%' OR '%strawberry%')`
+2.  `WHERE item IN ('fruit', 'vegetable')`
+
+#### **Correct usage:**
+
+1. `WHERE (item LIKE '%orange%' OR item LIKE '%strawberry%')`
+2. `WHERE item IN ('fruit', 'vegetable')`
+
+-->
 
 
 </section>
@@ -624,14 +751,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../visualizations/visualizations.html" class="pagination-link  aria-label=" &lt;span="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Visualizations</span></span>
+      <a href="../projA2/projA2.html" class="pagination-link  aria-label=" &lt;span="" a2="" common="" questions&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Project A2 Common Questions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../projA2/projA2.html" class="pagination-link" aria-label="<span class='chapter-number'>8</span>&nbsp; <span class='chapter-title'>Project A2 Common Questions</span>">
-        <span class="nav-page-text"><span class="chapter-title">Project A2 Common Questions</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
