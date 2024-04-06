@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.545">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,12 +47,7 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -61,7 +56,6 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -77,12 +71,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sql/sql.html"><span class="chapter-title">SQL Common Errors</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sql/sql.html"><span class="chapter-title">SQL Common Errors</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -92,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
       <img src="../data100_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
@@ -100,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Data 100 Debugging Guide</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/DS-100/debugging-guide" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/DS-100/debugging-guide" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
     </div>
       </div>
@@ -165,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
@@ -207,25 +201,23 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
-
 </header>
-
 
 <section id="common-misconceptions" class="level2">
 <h2 class="anchored" data-anchor-id="common-misconceptions">Common Misconceptions</h2>
 <section id="how-to-read-sql-errors" class="level3">
 <h3 class="anchored" data-anchor-id="how-to-read-sql-errors">How to read SQL Errors</h3>
-<p>Because Jupyter notebooks run Python natively, we need to import extra modules like <code>sql</code>, <code>sqlalchemy</code>, and <code>duckdb</code> in order to run SQL queries within Jupyter. This results in slightly more complex error messages than normal Python. Refer to the image below if you need help identifying the most important parts (the red and blue text).</p>
+<p>Because Jupyter notebooks run Python natively, we need to import extra modules like <code>sql</code>, <code>sqlalchemy</code>, and <code>duckdb</code> in order to run SQL queries within our notebook. This results in slightly more complex error messages than normal Python. Refer to the image below if you need help identifying the most important parts (the red and blue text).</p>
 <center>
 <img src="images/sql_error.png" width="700">
 </center>
 <p>Sometimes, SQL errors may show up as a long string without any red highlight, for example:</p>
 <p><code>(duckdb.duckdb.BinderException) Binder Error: Referenced column "some_column" not found in FROM clause! LINE 1: SELECT some_column                ^</code> <code>...</code></p>
-<p>(Note that this is the same error as the one above). While these errors may not be formatted as nicely, try your best to read it. You can even copy the error into a new cell and manually indent sentences for readability!</p>
+<p>Note that this is the same error as the one above – it’s just not formatted nicely. Try your best to parse it; you can even copy the error into a new cell and manually indent sentences if it helps with readability!</p>
 </section>
 <section id="comments-in-sql" class="level3">
 <h3 class="anchored" data-anchor-id="comments-in-sql">Comments in SQL</h3>
-<p>Unlike <code>Python</code>, which uses <code>#</code> or triple quotes <code>""" something """</code> to indicate a comment, SQL comments take the following forms:</p>
+<p>Unlike <code>Python</code>, which uses <code>#...</code> or triple quotes <code>"""..."""</code> to indicate a comment, SQL comments take the following forms:</p>
 <pre><code>-- This is a single-line or in-line comment
 
 /* 
@@ -233,7 +225,9 @@ ul.task-list li input[type="checkbox"] {
   multi-line 
   comment 
 */</code></pre>
-<p>Because you are still coding within a Python notebook, the SQL query colors may not match up to what you expect. Therefore, using <code>#...</code> will still be green text but give you a <code>Parser Error: syntax error at or near...</code>. When you use <code>--</code> or <code>/* ... */</code>, the text color may not change, but SQL will still read it as a comment!</p>
+<p>Because you are still coding within a Python notebook, the colors that Jupyter chooses for your SQL queries may not match up to what you expect; using <code>#...</code> will be green text like Python comments, but running the code will give you:</p>
+<p><code>Parser Error: syntax error at or near...</code></p>
+<p>Using <code>--</code> or <code>/* ... */</code> may not color-code the text correctly, but SQL will still read it as a comment!</p>
 <!-- 
 Note: not including this one since we switched from Lisa's grading method of pickling files to Rohan's method with the uppdated Otter Grader
 
@@ -245,20 +239,20 @@ Submit the full zip files. Don’t unzip it before submitting to Gradescope. -->
 </section>
 <section id="filtering-with-multiple-conditions" class="level3">
 <h3 class="anchored" data-anchor-id="filtering-with-multiple-conditions">Filtering with multiple conditions</h3>
-<p>When you are using more than one condition in filtering clauses such as <code>WHERE</code> or <code>HAVING</code>, it is important to keep in mind that the ordering of <code>OR</code>s and <code>AND</code>s will affect your SQL output.</p>
+<p>When you are using more than one condition in filtering clauses like <code>WHERE</code> or <code>HAVING</code>, it’s important consider that the ordering of <code>OR</code>s and <code>AND</code>s will affect your SQL output.</p>
 <p>In <code>SQL</code>, the operator precedence typically evaluates <code>AND</code> operations before <code>OR</code> operations, and so incorrectly ordered conditions can lead to unexpected results. To ensure your conditions are evaluated in the intended order, use parentheses to group them explicitly.</p>
 <p>For example, consider the following query condition:</p>
 <p><code>WHERE A &gt; 500 AND B &gt; 200 OR C &lt; 50</code></p>
-<p>By default, is it is evaluated as</p>
+<p>By default, is will be evaluated as</p>
 <p><code>WHERE (A &gt; 500 AND B &gt; 200) OR C &lt; 50</code></p>
-<p>since <code>AND</code> has a higher precedence than <code>OR</code>. To evaluate it differently, add parentheses to specify the order of operations:</p>
+<p>because <code>AND</code> has a higher precedence than <code>OR</code>. To evaluate it differently, add parentheses to specify the order of operations:</p>
 <p><code>WHERE A &gt; 500 AND (B &gt; 200 OR C &lt; 50)</code></p>
 </section>
 <section id="truncated-display-limit" class="level3">
 <h3 class="anchored" data-anchor-id="truncated-display-limit">Truncated Display Limit</h3>
-<p>Our Jupyter Notebooks are set to only display the first 10 rows of a SQL query. Otherwise, your notebook would likely crash with the weight of displaying &gt;1000 rows. Because of this, you’ll likely see a</p>
+<p>Our Jupyter Notebooks are set to only display the first 10 rows of a table. Otherwise, your notebook would likely crash with the weight of displaying &gt;1000 rows. You’ll likely see a</p>
 <p><code>Truncated to displaylimit of 10</code></p>
-<p>printed right below your SQL query.</p>
+<p>printed right below your SQL query if your table contains more than 10 rows.</p>
 </section>
 </section>
 <section id="common-errors" class="level2">
@@ -268,6 +262,7 @@ Submit the full zip files. Don’t unzip it before submitting to Gradescope. -->
 <p>This occurs when you have an error in your SQL code, causing the cell after to fail. Because we’re working with Jupyter Notebooks, some SQL errors are not highlighted in red like <code>Python</code> errors usually are. Check the output under your <code>%%sql</code> cell to see if it ran smoothly. Any text below</p>
 <p><code>Running query in 'duckdb:///data/{database_name}.db</code></p>
 <p>is an error message that you can read to debug your code. Note that this error could be formatted as one long string without any indents or newlines, so it may be harder than typical <code>Python</code> errors to parse.</p>
+
 <!--
 Note: Not included as these questions don't come up as frequently in the HW, but can be added later if need be
 #### **Some scenarios and fixes**
@@ -290,7 +285,7 @@ Note: Not included as these questions don't come up as frequently in the HW, but
 <p>There are 2 potential causes for this error:</p>
 <ol type="1">
 <li><strong>The column you’re looking for does not exist in the table.</strong> Make sure that the column names are spelled and capatalized exactly as shown in the assignment. If you are trying to reference a column that is not in the current table, consider using <code>JOIN</code> to be able to access these columns. You can reference the <a href="https://ds100.org/course-notes/sql_II/sql_II.html#joining-tables">SQL II course notes</a> for a refresher on how to use the <code>JOIN</code> clause.</li>
-<li>You used double quotes <code>""</code> around <code>some_string</code> instead of single quotes <code>''</code>. Unlike <code>Python</code>, SQL differentiates double and single quotes. Double quotes are used to indicate something that exists within the database, like tables and column names; single quotes are used to indicate strings.</li>
+<li><strong>You used double quotes <code>""</code> around <code>some_string</code> instead of single quotes <code>''</code></strong>. Unlike <code>Python</code>, SQL differentiates double and single quotes: double quotes indicate something that exists within the database, like tables and column names; single quotes indicate strings.</li>
 </ol>
 <!-- Does not error using duckdb
 
@@ -303,7 +298,7 @@ When you are using `CASE` within `SELECT`, the new column will automatically be 
 <section id="cannot-compare-values-of-type-__-and-type-__" class="level3">
 <h3 class="anchored" data-anchor-id="cannot-compare-values-of-type-__-and-type-__"><code>Cannot compare values of type __ and type __</code></h3>
 <p>This error often occurs when a string-type column (ie. <code>CHAR</code> or <code>VARCHAR</code>) is compared with a numeric-type column (ie. <code>INT</code>, <code>BIGINT</code>, <code>FLOAT</code>, <code>REAL</code>). If you’re interested in learning more about SQL datatypes, check out <a href="https://www.w3schools.com/sql/sql_datatypes.asp">this link</a>!</p>
-<p>To debug, start by checking the type of the column(s) you’re working with; you can either scroll up to (or make a new) cell with the code:</p>
+<p>To debug, start by checking the type of the column(s) you’re working with; you can either scroll up to the cell (or make a new cell) with the code:</p>
 <pre><code>%%sql
 SELECT * FROM sqlite_master WHERE type='table';</code></pre>
 <p>which outputs the schema for each table. If we’re working with the IMDB database, we get the following output:</p>
@@ -338,6 +333,7 @@ It is important to use only the supported data types when casting, otherwise the
 - **Binary Strings**: `binary`, `varbinary`, `image`
 
 For example, doing `CAST(num AS integer)` will error since `int` is a supported data type, but `integer` is not. -->
+
 <!--
 Note: Not included as these questions don't come up as frequently in the HW, but can be added later if need be
 
@@ -441,9 +437,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -453,17 +450,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -476,125 +464,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -638,7 +507,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -664,32 +532,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -751,7 +593,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../projA2/projA2.html" class="pagination-link  aria-label=" &lt;span="" a2="" common="" questions&lt;="" span&gt;"="">
+      <a href="../projA2/projA2.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Project A2 Common Questions</span></span>
       </a>          
   </div>
@@ -759,7 +601,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-
 
 
 

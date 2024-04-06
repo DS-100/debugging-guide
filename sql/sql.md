@@ -24,7 +24,7 @@ jupyter:
 ---
 ## Common Misconceptions
 ### How to read SQL Errors
-Because Jupyter notebooks run Python natively, we need to import extra modules like `sql`, `sqlalchemy`, and `duckdb` in order to run SQL queries within Jupyter. This results in slightly more complex error messages than normal Python. Refer to the image below if you need help identifying the most important parts (the red and blue text). 
+Because Jupyter notebooks run Python natively, we need to import extra modules like `sql`, `sqlalchemy`, and `duckdb` in order to run SQL queries within our notebook. This results in slightly more complex error messages than normal Python. Refer to the image below if you need help identifying the most important parts (the red and blue text). 
 
 <center><img src = "images/sql_error.png" width = "700"></img></a></center>
 
@@ -35,10 +35,10 @@ LINE 1: SELECT some_column
                ^`
 `...`
 
-(Note that this is the same error as the one above). While these errors may not be formatted as nicely, try your best to read it. You can even copy the error into a new cell and manually indent sentences for readability!
+Note that this is the same error as the one above -- it's just not formatted nicely. Try your best to parse it; you can even copy the error into a new cell and manually indent sentences if it helps with readability!
 
 ### Comments in SQL
-Unlike `Python`, which uses `#` or triple quotes `""" something """` to indicate a comment, SQL comments take the following forms: 
+Unlike `Python`, which uses `#...` or triple quotes `"""..."""` to indicate a comment, SQL comments take the following forms: 
 
 ```
 -- This is a single-line or in-line comment
@@ -50,7 +50,11 @@ Unlike `Python`, which uses `#` or triple quotes `""" something """` to indicate
 */
 ```
 
-Because you are still coding within a Python notebook, the SQL query colors may not match up to what you expect. Therefore, using `#...` will still be green text but give you a `Parser Error: syntax error at or near...`. When you use `--` or `/* ... */`, the text color may not change, but SQL will still read it as a comment! 
+Because you are still coding within a Python notebook, the colors that Jupyter chooses for your SQL queries may not match up to what you expect; using `#...` will be green text like Python comments, but running the code will give you:
+
+ `Parser Error: syntax error at or near...`
+ 
+Using `--` or `/* ... */` may not color-code the text correctly, but SQL will still read it as a comment! 
 
 <!-- 
 Note: not including this one since we switched from Lisa's grading method of pickling files to Rohan's method with the uppdated Otter Grader
@@ -63,7 +67,7 @@ Submit the full zip files. Don’t unzip it before submitting to Gradescope. -->
 
 ### Filtering with multiple conditions
 
-When you are using more than one condition in filtering clauses such as `WHERE` or `HAVING`, it is important to keep in mind that the ordering of `OR`s and `AND`s will affect your SQL output.
+When you are using more than one condition in filtering clauses like `WHERE` or `HAVING`, it's important consider that the ordering of `OR`s and `AND`s will affect your SQL output.
 
 In `SQL`, the operator precedence typically evaluates `AND` operations before `OR` operations, and so incorrectly ordered conditions can lead to unexpected results. To ensure your conditions are evaluated in the intended order, use parentheses to group them explicitly.
 
@@ -71,20 +75,20 @@ For example, consider the following query condition:
 
 `WHERE A > 500 AND B > 200 OR C < 50`
 
-By default, is it is evaluated as 
+By default, is will be evaluated as 
 
 `WHERE (A > 500 AND B > 200) OR C < 50`
 
- since `AND` has a higher precedence than `OR`. To evaluate it differently, add parentheses to specify the order of operations:
+because `AND` has a higher precedence than `OR`. To evaluate it differently, add parentheses to specify the order of operations:
 
 `WHERE A > 500 AND (B > 200 OR C < 50)`
 
 ### Truncated Display Limit
-Our Jupyter Notebooks are set to only display the first 10 rows of a SQL query. Otherwise, your notebook would likely crash with the weight of displaying >1000 rows. Because of this, you'll likely see a 
+Our Jupyter Notebooks are set to only display the first 10 rows of a table. Otherwise, your notebook would likely crash with the weight of displaying >1000 rows. You'll likely see a 
 
 `Truncated to displaylimit of 10`
 
-printed right below your SQL query. 
+printed right below your SQL query if your table contains more than 10 rows. 
 
 ## Common Errors
 ### `NameError: name ‘[res_q#]’ is not defined`
@@ -115,7 +119,7 @@ Note: Not included as these questions don't come up as frequently in the HW, but
 There are 2 potential causes for this error: 
 
 1. **The column you're looking for does not exist in the table.** Make sure that the column names are spelled and capatalized exactly as shown in the assignment. If you are trying to reference a column that is not in the current table, consider using `JOIN` to be able to access these columns. You can reference the [SQL II course notes](https://ds100.org/course-notes/sql_II/sql_II.html#joining-tables) for a refresher on how to use the `JOIN` clause.
-2. You used double quotes `""` around `some_string` instead of single quotes `''`. Unlike `Python`, SQL differentiates double and single quotes. Double quotes are used to indicate something that exists within the database, like tables and column names; single quotes are used to indicate strings. 
+2. **You used double quotes `""` around `some_string` instead of single quotes `''`**. Unlike `Python`, SQL differentiates double and single quotes: double quotes indicate something that exists within the database, like tables and column names; single quotes indicate strings. 
 
 <!-- Does not error using duckdb
 
@@ -129,7 +133,7 @@ When you are using `CASE` within `SELECT`, the new column will automatically be 
 ### `Cannot compare values of type __ and type __`
 This error often occurs when a string-type column (ie. `CHAR` or `VARCHAR`) is compared with a numeric-type column (ie. `INT`, `BIGINT`, `FLOAT`, `REAL`). If you're interested in learning more about SQL datatypes, check out [this link](https://www.w3schools.com/sql/sql_datatypes.asp)! 
 
-To debug, start by checking the type of the column(s) you're working with; you can either scroll up to (or make a new) cell with the code: 
+To debug, start by checking the type of the column(s) you're working with; you can either scroll up to the cell (or make a new cell) with the code: 
 
 ```
 %%sql
