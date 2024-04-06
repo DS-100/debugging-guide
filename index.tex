@@ -1,0 +1,1830 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Data 100 Debugging Guide},
+  pdfauthor={Yash Dave; Lillian Weng},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Data 100 Debugging Guide}
+\author{Yash Dave \and Lillian Weng}
+\date{}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\bookmarksetup{startatroot}
+
+\chapter*{About}\label{about}
+\addcontentsline{toc}{chapter}{About}
+
+\markboth{About}{About}
+
+This text offers pointers for keyboard shortcuts or common mistakes that
+accompany the coursework in the Spring 2024 Edition of the UC Berkeley
+course Data 100: Principles and Techniques of Data Science.
+
+Inspiration for this guide was taken from the UC San Diego course DSC
+10: Principles of Data Science and their
+\href{https://dsc10.com/debugging/}{debugging guide}.
+
+If you spot any typos or would like to suggest any changes, please fill
+out the
+\href{https://docs.google.com/forms/d/e/1FAIpQLSe0fBEJwt6aEfZxU3fh3llNk8rSWHj6Umq0km3wPqmFu0MlGA/viewform?usp=sf_link}{Data
+100 Content Feedback Form (Spring 2024)}. Note that this link will only
+work if you have an @berkeley.edu email address. If you're not a student
+at Berkeley and would like to provide feedback, please email us at
+\textbf{data100.instructors@berkeley.edu}
+
+\bookmarksetup{startatroot}
+
+\chapter{Jupyter 101}\label{jupyter-101}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, bottomrule=.15mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, left=2mm, opacitybacktitle=0.6, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, coltitle=black, breakable, bottomtitle=1mm, titlerule=0mm, rightrule=.15mm, toprule=.15mm, colback=white, opacityback=0, colbacktitle=quarto-callout-note-color!10!white]
+
+If you're using a MacBook, replace \texttt{ctrl} with \texttt{cmd}.
+
+\end{tcolorbox}
+
+\section{Shortcuts for Cells}\label{shortcuts-for-cells}
+
+For the following commands, make sure you're in command mode. You can
+enter this mode by pressing \texttt{esc}.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{a}: create a cell above
+\item
+  \texttt{b}: create a cell below
+\item
+  \texttt{dd}: delete current cell
+\item
+  \texttt{m}: convert a cell to markdown (text cell)
+\item
+  \texttt{y}: convert a cell to code
+\end{itemize}
+
+\section{Running Cells}\label{running-cells}
+
+For individual cells,
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{ctrl} + \texttt{return}: run the current cell
+\item
+  \texttt{shift} + \texttt{return}: run the current cell and move to the
+  next cell
+\end{itemize}
+
+To run all cells in a notebook:
+
+\begin{itemize}
+\item
+  In the menu bar on the left, click \texttt{Run}. From here, you have
+  several options. The ones we use most commonly are:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{Run\ All\ Above\ Selected\ Cell}: this runs every cell above
+    the selected cell
+  \item
+    \texttt{Run\ Selected\ Cell\ and\ All\ Below}: this runs the
+    selected cell and all cells below
+  \item
+    \texttt{Run\ All}: this runs every cell in the notebook from
+    top-to-bottom
+  \end{itemize}
+\end{itemize}
+
+\section{Saving your notebook}\label{saving-your-notebook}
+
+Jupyter autosaves your work, but there can be a delay. As such, it's a
+good idea to save your work as often as you remember and especially
+before submitting assignments. To do so, press \texttt{ctrl} +
+\texttt{s}.
+
+\section{Restarting Kernel}\label{restarting-kernel}
+
+In the menu bar on the left, click \texttt{Kernel}. From here, you have
+several options. The ones we use most commonly are:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Restart\ Kernel...}
+\item
+  \texttt{Restart\ Kernel\ and\ Run\ up\ to\ Selected\ Cell}
+\item
+  \texttt{Restart\ Kernel\ and\ Run\ All\ Cells}
+\end{itemize}
+
+\section{Automatically Closing
+Brackets}\label{automatically-closing-brackets}
+
+Many IDEs like VSCode have a functionality that automatically closes
+brackets. For example, pressing \texttt{(}, \texttt{\{}, or \texttt{{[}}
+would automatically add the second bracket at the other end \texttt{)},
+\texttt{\}}, and \texttt{{]}}, respectively. Datahub does not have this
+functionality turned on by default, but you can do so by going into
+\texttt{Settings} -\textgreater{} \texttt{Auto\ Close\ Brackets}. If you
+see a check mark to the left of \texttt{Auto\ Close\ Brackets}, then
+it's enabled.
+
+\bookmarksetup{startatroot}
+
+\chapter{Jupyter / Datahub}\label{jupyter-datahub}
+
+\section{My kernel died, restarted, or is very
+slow}\label{my-kernel-died-restarted-or-is-very-slow}
+
+Jupyterhub connects you to an external container to run your code. That
+connection could be slow/severed because:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  you haven't made any changes to the notebook for a while
+\item
+  a cell took too much time to run
+\item
+  a cell took up too many resources to compute
+\end{enumerate}
+
+When you see a message like this:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Either press the ``Ok'' button or reload the page
+\item
+  \href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#restarting-kernel}{Restart
+  your kernel}
+\item
+  \href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#running-cells}{Rerun
+  your cells}
+\end{enumerate}
+
+Note that you may lose some recent work if your kernel restarted when
+you were in the middle of editing a cell. As such, we recommend
+\href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#saving-your-notebook}{saving
+your work} as often as possible.
+
+If this does not fix the issue, it could be a problem with your code,
+usually the last cell that executed before your kernel crashed. Double
+check your logic, and feel free to make a private post on Ed if you're
+stuck!
+
+\section{I can't edit a cell}\label{i-cant-edit-a-cell}
+
+We set some cells to read-only mode prevent accidental modification. To
+make the cell writeable,
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Click the cell
+\item
+  Click setting on the top right corner
+\item
+  Under ``Common Tools'', you can toggle between ``Editable'' (can edit
+  the cell) and ``Read-Only'' (cannot edit the cell)
+\end{enumerate}
+
+\section{My text cell looks like
+code}\label{my-text-cell-looks-like-code}
+
+If you double-click on a text (markdown) cell, it'll appear in its raw
+format. To fix this, simply run the cell. If this doesn't fix the
+problem, check out the commonly asked question below.
+
+\section{My text cell changed to a code cell / My code cell changed to a
+text
+cell}\label{my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell}
+
+Sometimes, a text (markdown) cell was changed to a code cell, or a code
+cell can't be run because it's been changed to a text (markdown) or raw
+cell. To fix this, toggle the desired cell type in the top bar.
+
+\section{Why does running a particular cell cause my kernel to
+die?}\label{why-does-running-a-particular-cell-cause-my-kernel-to-die}
+
+If one particular cell seems to cause your kernel to die, this is likely
+because the computer is trying to use more memory than it has available.
+For instance: your code is trying to create a gigantic array. To prevent
+the entire server from crashing, the kernel will ``die''. This is an
+indication that there is a mistake in your code that you need to fix.
+
+\section{I accidentally deleted something in a cell that was provided to
+me -- how do I get it
+back?}\label{i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back}
+
+Suppose you're working on Lab 5. One solution is to go directly to
+DataHub and rename your lab05 folder to something else, like lab05-old.
+Then, click the Lab 5 link on the course website again, and it'll bring
+you to a brand-new version of Lab 5. You can then copy your work from
+your old Lab 5 to this new one, which should have the original version
+of the assignment.
+
+Alternatively, you can access this
+\href{https://github.com/DS-100/sp24-student}{public repo} and navigate
+to a blank copy of the assignment you were working on. In the case of
+Lab 5 for example, the notebook would be located at
+\texttt{lab/lab05/lab05.ipynb}. You can then check and copy over the
+contents of the deleted cell into a new cell in your existing notebook.
+
+\section{``Click here to download zip file'' is not
+working}\label{click-here-to-download-zip-file-is-not-working}
+
+When this happens, you can download the zip file through the menu on the
+left.
+
+Right click on the generated zip file and click ``Download''.
+
+\section{\texorpdfstring{I can't export my assignment as a PDF due to a
+\texttt{LatexFailed}
+error}{I can't export my assignment as a PDF due to a LatexFailed error}}\label{i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error}
+
+Occasionally when running the \texttt{grader.export(run\_tests=True)}
+cell at the end of the notebook, you run into an error where the PDF
+failed to generate:
+
+Converting a Jupyter notebook to a PDF involves formatting some of the
+markdown text in \href{https://www.latex-project.org/}{LaTeX}. However,
+this process will fail if your free response answers have (unresolved)
+LaTeX characters like \texttt{\textbackslash{}n}, \texttt{\$}, or
+\texttt{\$\$}. There are several ways to resolve this:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Export the notebook as a PDF}: In the upper left hand menu, go
+  to \texttt{File} -\textgreater{}
+  \texttt{Save\ and\ Export\ Notebook\ As} -\textgreater{} \texttt{PDF}.
+  Upload this file to Gradescope under the ``Submit PDF'' option.
+\item
+  \textbf{Print the notebook from HTML}: In the upper left hand menu, go
+  to \texttt{File} -\textgreater{}
+  \texttt{Save\ and\ Export\ Notebook\ As} -\textgreater{}
+  \texttt{HTML}. In the new tab that will open up, print the website by
+  typing \texttt{ctrl} + \texttt{p} (Windows) or \texttt{cmd} +
+  \texttt{p} (Mac).
+\item
+  \textbf{Take screenshots}: If you're short on time, your best bet is
+  to take screenshots of your free response answers. When submitting to
+  Gradescope, choose the ``Submit Images'' options instead of the
+  ``Submit PDF'' option.
+\item
+  \textbf{Removing special LaTeX characters}: If you have more time and
+  would like the Datahub-generated PDF, please remove any special LaTeX
+  characters from your free response answers.
+\end{enumerate}
+
+\section{\texorpdfstring{I can't open Jupyter:
+\texttt{HTTP\ ERROR\ 431}}{I can't open Jupyter: HTTP ERROR 431}}\label{i-cant-open-jupyter-http-error-431}
+
+If this happens, try
+\href{https://support.google.com/accounts/answer/32050?hl=en&co=GENIE.Platform\%3DDesktop}{clearing
+your browser cache} or opening Datahub in an incognito window.
+
+\section{Datahub is not loading}\label{datahub-is-not-loading}
+
+If your link to Datahub is not loading, go to
+\url{https://data100.datahub.berkeley.edu/hub/home} and restart your
+server.
+
+\bookmarksetup{startatroot}
+
+\chapter{Autograder and Gradescope}\label{autograder-and-gradescope}
+
+Citation
+
+Many of these common questions were taken and modified from the UC San
+Diego course DSC 10: Principles of Data Science and their
+\href{https://dsc10.com/debugging/}{debugging guide}.
+
+\section{Autograder}\label{autograder}
+
+\subsection{Understanding autograder error
+messages}\label{understanding-autograder-error-messages}
+
+When you pass a test, you'll see a nice message and a cute emoji!
+
+When you don't, however, the message can be a little confusing.
+
+The best course of action is to find the test case that failed and use
+that as a starting point to debug your code.
+
+In the example above, we see that the test case in green,
+\texttt{max\_swing\ in\ set(bus{[}\textquotesingle{}name\textquotesingle{}{]})},
+is not passing. The actual output (in blue) is often hard to parse, so
+the best course of action is to:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Make a new (temporary) cell after the \texttt{grader.check(...)} cell.
+  Please do not make a new cell in between the given code cell and the
+  \texttt{grader.check(...)} cell, as it could mess with the results.
+\item
+  Copy and paste the failing test case into your temporary cell and run
+  it.
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    If it's giving you an error like in the example above, look at the
+    last line of the error and use the Debugging Guide's search
+    functionality in the top left menu to find the corresponding guide.
+  \item
+    If it's not giving you an error, it'll likely give you an output
+    like \texttt{False}. This means that your code does not cause an
+    error (yay!), but it returns an incorrect output. In these casses,
+    inspect each individual element of the test case. The example above
+    checks if \texttt{max\_swing} is in
+    \texttt{set(bus{[}\textquotesingle{}name\textquotesingle{}{]})}, so
+    it might be a good idea to display both variables and do a visual
+    check.
+  \item
+    If you're still having issues, post on Ed!
+  \end{enumerate}
+\item
+  After your \texttt{grader.check(...)} passes, feel free to delete the
+  temporary cell.
+\end{enumerate}
+
+\subsection{\texorpdfstring{Why do I get an error saying
+``\texttt{grader\ is\ not\ defined}''?}{Why do I get an error saying ``grader is not defined''?}}\label{why-do-i-get-an-error-saying-grader-is-not-defined}
+
+If it has been a while since you've worked on an assignment, the kernel
+will shut itself down to preserve memory. When this happens, all of your
+variables are forgotten, including the grader. That's OK. The easiest
+way to fix this is by
+\href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#restarting-kernel}{restarting
+your kernel and rerunning all the cells}. To do this, in the top left
+menu, click \texttt{Kernel} -\textgreater{}
+\texttt{Restart\ and\ Run\ All\ Cells}.
+
+\subsection{I'm positive I have the right answer, but the test fails. Is
+there a mistake in the
+test?}\label{im-positive-i-have-the-right-answer-but-the-test-fails.-is-there-a-mistake-in-the-test}
+
+While you might see the correct answer displayed as the result of the
+cell, chances are your solution isn't being stored in the answer
+variable. Make sure you are assigning the result to the answer variable
+and that there are no typos in the variable name. Finally,
+\href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#restarting-kernel}{restart
+your kernel and run all the cells in order}: \texttt{Kernel}
+-\textgreater{} \texttt{Restart\ and\ Run\ All\ Cells}.
+
+\subsection{\texorpdfstring{Why does the last \texttt{grader.export}
+cell fail if all previous tests
+passed?}{Why does the last grader.export cell fail if all previous tests passed?}}\label{why-does-the-last-grader.export-cell-fail-if-all-previous-tests-passed}
+
+This can happen if you ``overwrite'' a variable that is used in a
+question. For instance, say Question 1 asks you to store your answer in
+a variable named \texttt{stat} and, later on in the notebook, you change
+the value of \texttt{stat}; the test right after Question 1 will pass,
+but the test at the end of the notebook will fail. It is good
+programming practice to give your variables informative names and to
+avoid repeating the same variable name for more than one purpose.
+
+\subsection{Why does a notebook test fail now when it passed before, and
+I didn't change my
+code?}\label{why-does-a-notebook-test-fail-now-when-it-passed-before-and-i-didnt-change-my-code}
+
+You probably ran your notebook out of order.
+\href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#running-cells}{Re-run
+all previous cells} in order, which is how your code will be graded.
+
+\section{Gradescope}\label{gradescope}
+
+When submitting to Gradescope, there are often unexpected errors that
+make students lose more points than expected. Thus, it is imperative
+that you \textbf{stay on the submission page until the autograder
+finishes running}, and the results are displayed.
+
+\subsection{Why did a Gradescope test fail when all the Jupyter
+notebook's tests
+passed?}\label{why-did-a-gradescope-test-fail-when-all-the-jupyter-notebooks-tests-passed}
+
+This can happen if you're running your notebook's cells out of order.
+The autograder runs your notebook from top-to-bottom. If you're defining
+a variable at the bottom of your notebook and using it at the top, the
+Gradescope autograder will fail because it doesn't recognize the
+variable when it encounters it.
+
+This is why we recommend going into the top left menu and clicking
+\texttt{Kernel} -\textgreater{} \texttt{Restart} -\textgreater{}
+\texttt{Run\ All}. The autograder ``forgets'' all of the variables and
+runs the notebook from top-to-bottom like the Gradescope autograder
+does. This will highlight any issues.
+
+Find the first cell that raises an error. Make sure that all of the
+variables used in that cell have been defined above that cell, and not
+below.
+
+\subsection{\texorpdfstring{Why do I get a
+\texttt{NameError:\ name\ \_\_\_\ is\ not\ defined} when I run a grader
+check?}{Why do I get a NameError: name \_\_\_ is not defined when I run a grader check?}}\label{why-do-i-get-a-nameerror-name-___-is-not-defined-when-i-run-a-grader-check}
+
+This happens when you try to access a variable that has not been defined
+yet. Since the autograder runs all the cells in-order, if you happened
+to define a variable in a cell further down and accessed it before that
+cell, the autograder will likely throw this error. Another reason this
+could occur is because the notebook was not saved before the autograder
+tests are run. When in doubt, it is good practice to restart your
+kernel, run all the cells again, and save the notebook before running
+the cell that causes this error.
+
+\subsection{My autograder keeps running/timed
+out}\label{my-autograder-keeps-runningtimed-out}
+
+If your Gradescope submission page has been stuck running on this page
+for a while:
+
+or if it times out:
+
+it means that the Gradescope autograder failed to execute in the
+expected amount of time. This could be due to an inefficiency in your
+code or a problem on Gradescope's end, so we recommend resubmitting and
+letting the autograder rerun. \textbf{It is your responsibility to
+ensure that the autograder runs properly}, and, if it still fails, to
+follow up by making a private Ed post.
+
+\bookmarksetup{startatroot}
+
+\chapter{Pandas}\label{pandas}
+
+\section{\texorpdfstring{Understanding \texttt{pandas}
+errors}{Understanding pandas errors}}\label{understanding-pandas-errors}
+
+\texttt{pandas} errors can look red, scary, and very long. Fortunately,
+we don't need to understand the entire thing! The most important parts
+of an error message are at the \textbf{top}, which tells you which line
+of code is causing the issue, and at the \textbf{bottom}, which tells
+you exactly what the error message is.
+
+This note is (mostly) structured around the error messages that show up
+at the bottom.
+
+\section{My code is taking a really long time to
+run}\label{my-code-is-taking-a-really-long-time-to-run}
+
+It is normal for a cell to take a few seconds -- sometimes a few minutes
+-- to run. If it's is taking too long, however, you have several
+options:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Try restarting the kernel. Sometimes, Datahub glitches or lags,
+  causing the code to run slower than expected.
+  \href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#restarting-kernel}{Restarting
+  the kernel} should fix this problem, but if the cell is still taking a
+  while to run, it is likely a problem with your code.
+\item
+  Scrutinize your code. Am I using too many for loops? Is there a
+  repeated operation that I can substitute with a \texttt{pandas}
+  function?
+\end{enumerate}
+
+\section{Why is it generally better avoid using loops or list
+comprehensions when
+possible?}\label{why-is-it-generally-better-avoid-using-loops-or-list-comprehensions-when-possible}
+
+In one word: performance. \texttt{NumPy} and \texttt{pandas} functions
+are optimized to handle large amounts of data in an efficient manner.
+Even for simple operations, like the elementwise addition of two arrays,
+\texttt{NumPy} arrays are much faster and scale better (feel free to
+experiment with this yourself using \texttt{\%\%time}). This is why we
+encourage you to \textbf{vectorize} your code (ie. using \texttt{NumPy}
+arrays, \texttt{Series}, or \texttt{DataFrames} instead of Python lists)
+and use in-built \texttt{NumPy}/\texttt{pandas} functions wherever
+possible.
+
+\section{KeyErrors}\label{keyerrors}
+
+\subsection{\texorpdfstring{\texttt{KeyError:\ \textquotesingle{}column\_name\textquotesingle{}}}{KeyError: \textquotesingle column\_name\textquotesingle{}}}\label{keyerror-column_name}
+
+This error usually happens when we have a \texttt{DataFame} called
+\texttt{df}, and we're trying to do an operation on a column
+\texttt{\textquotesingle{}column\_name\textquotesingle{}} that does not
+exist. If you encounter this error, double check that you're operating
+on the right column. It might be a good idea to display \texttt{df} and
+see what it looks like. You could also call \texttt{df.columns} to list
+all the columns in \texttt{df}.
+
+\section{TypeErrors}\label{typeerrors}
+
+\subsection{\texorpdfstring{\texttt{TypeError:\ \textquotesingle{}\_\_\_\textquotesingle{}\ object\ is\ not\ callable}}{TypeError: \textquotesingle\_\_\_\textquotesingle{} object is not callable}}\label{typeerror-___-object-is-not-callable}
+
+This often happens when you use a default keyword (like \texttt{str},
+\texttt{list}, \texttt{range}, \texttt{bool}, \texttt{sum}, or
+\texttt{max}) as a variable name, for instance:
+
+\begin{verbatim}
+sum = 1 + 2 + 3
+\end{verbatim}
+
+These errors can be tricky because they don't error on their own but
+cause problems when we try to use the name \texttt{sum} (for example)
+later on in the notebook.
+
+To fix the issue, identify any such lines of code (Ctrl+F on
+``\texttt{sum\ =}'' for example), change your variable names to be
+something more informative, and
+\href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#restarting-kernel}{restart
+your notebook}.
+
+Python keywords like \texttt{str} and \texttt{list} appear in green
+text, so be on the lookout if any of your variable names appear in
+green!
+
+\subsection{\texorpdfstring{\texttt{TypeError:\ could\ not\ convert\ string\ to\ a\ float}}{TypeError: could not convert string to a float}}\label{typeerror-could-not-convert-string-to-a-float}
+
+This error often occurs when we try to do math operations (ie.
+\texttt{sum}, \texttt{average}, \texttt{min}, \texttt{max}) on a
+\texttt{DataFrame} column or \texttt{Series} that contains strings
+instead of numbers (note that we can do math operations with booleans;
+Python treats \texttt{True} as 1 and \texttt{False} as 0).
+
+Double check that the column you're interested in is a numerical type
+(\texttt{int}, \texttt{float}, or \texttt{double}). If it looks like a
+number, but you're still getting this error, you can use
+\texttt{.astype(...)}
+(\href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.astype.html}{documentation})
+to change the datatype of a \texttt{DataFrame} or \texttt{Series}.
+
+\subsection{\texorpdfstring{\texttt{TypeError:\ Could\ not\ convert\ \textless{}string\textgreater{}\ to\ numeric}}{TypeError: Could not convert \textless string\textgreater{} to numeric}}\label{typeerror-could-not-convert-string-to-numeric}
+
+Related to the above (but distinct), you may run into this error when
+performing a numeric aggregation function (like \texttt{mean} or
+\texttt{sum} functions that take integer arguments) after doing a
+\texttt{groupby} operation on a \texttt{DataFrame} with non-numeric
+columns.
+
+Working with the \texttt{elections} dataset for example,
+
+\begin{verbatim}
+elections.groupby('Year').agg('mean')
+\end{verbatim}
+
+would error because \texttt{pandas} cannot compute the mean of the names
+of presidents. There are three ways to get around this:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Select only the numeric columns you are interested in before applying
+  the aggregation function. In the above case, both
+  \texttt{elections.groupby(\textquotesingle{}Year\textquotesingle{}){[}\textquotesingle{}Popular\ Vote\textquotesingle{}{]}}
+  or
+  \texttt{elections{[}\textquotesingle{}Popular\ vote\textquotesingle{}{]}.groupby(\textquotesingle{}Year\textquotesingle{})}
+  would work.
+\item
+  Setting the \texttt{numeric\_only} argument to \texttt{True} in the
+  \texttt{.agg} call, thereby applying the aggregation function only to
+  numeric columns. For example,
+  \texttt{elections.groupby(\textquotesingle{}Year\textquotesingle{}).agg(\textquotesingle{}mean\textquotesingle{},\ numeric\_only=True)}.
+\item
+  Passing in a dictionary to \texttt{.agg} where you specify the column
+  you are applying a particular aggregation function to. Continuing the
+  same example, this looks like
+  \texttt{elections.groupby(\textquotesingle{}Year\textquotesingle{}).agg(\{\textquotesingle{}Popular\ vote\textquotesingle{}\ :\ \textquotesingle{}mean\textquotesingle{})}.
+\end{enumerate}
+
+\subsection{\texorpdfstring{\texttt{TypeError:\ \textquotesingle{}NoneType\textquotesingle{}\ object\ is\ not\ subscriptable}
+/
+\texttt{AttributeError:\ \textquotesingle{}NoneType\textquotesingle{}\ object\ has\ no\ attribute\ \textquotesingle{}shape\textquotesingle{}}}{TypeError: \textquotesingle NoneType\textquotesingle{} object is not subscriptable / AttributeError: \textquotesingle NoneType\textquotesingle{} object has no attribute \textquotesingle shape\textquotesingle{}}}\label{typeerror-nonetype-object-is-not-subscriptable-attributeerror-nonetype-object-has-no-attribute-shape}
+
+This usually occurs as you assign a \texttt{None} value to a variable,
+then try to either index into or access some attribute of that variable.
+For Python functions like \texttt{append} and \texttt{extend}, you do
+not need to do any variable assignment because they mutate the variable
+directly and return \texttt{None}. Assigning \texttt{None} tends to
+happen as a result of code like:
+
+\begin{verbatim}
+some_list = some_list.append(element)
+\end{verbatim}
+
+In contrast, an operation like \texttt{np.append} does not mutate the
+variable in place and, instead, returns a copy. In these cases,
+(re)assignment is necessary:
+
+\begin{verbatim}
+some_array = np.append(some_array, element)
+\end{verbatim}
+
+\subsection{\texorpdfstring{\texttt{TypeError:\ \textquotesingle{}int\textquotesingle{}/\textquotesingle{}float\textquotesingle{}\ object\ is\ not\ subscriptable}}{TypeError: \textquotesingle int\textquotesingle/\textquotesingle float\textquotesingle{} object is not subscriptable}}\label{typeerror-intfloat-object-is-not-subscriptable}
+
+This occurs when you try and index into an integer or other numeric
+\texttt{Python} data type. It can be confusing to debug amidst a muddle
+of code, but you can use the error message to identify which variable is
+causing this error. Using \texttt{type(var\_name)} to check the data
+type of the variable in question can be a good starting point.
+
+\section{IndexErrors}\label{indexerrors}
+
+\subsection{\texorpdfstring{\texttt{IndexError:\ invalid\ index\ to\ scalar\ variable.}}{IndexError: invalid index to scalar variable.}}\label{indexerror-invalid-index-to-scalar-variable.}
+
+This error is similar to the last \texttt{TypeError} in the previous
+section. However, it is slightly different in that scalar variables come
+up in the context of \texttt{NumPy} data types which have slightly
+different attributes.
+
+For a concrete example, if you defined
+
+\begin{verbatim}
+numpy_arr = np.array([1])
+\end{verbatim}
+
+and indexed into it twice (\texttt{numpy\_arr{[}0{]}{[}0{]}}), you would
+get the above error. Unlike a Python integer whose type is \texttt{int},
+\texttt{type(numpy\_arr{[}0{]})} returns the \texttt{NumPy} version of
+an integer, \texttt{numpy.int64}. Additionally, you can check the data
+type by accessing the \texttt{.dtype} attribute of \texttt{NumPy} array
+(\texttt{numpy\_arr.dtype}) or scalar variable
+(\texttt{numpy\_arr{[}0{]}.dtype}).
+
+\subsection{\texorpdfstring{\texttt{IndexError:\ index\ \_\ is\ out\ of\ bounds\ for\ axis\ \_\ with\ size\ \_}}{IndexError: index \_ is out of bounds for axis \_ with size \_}}\label{indexerror-index-_-is-out-of-bounds-for-axis-_-with-size-_}
+
+This error usually happens when you try to index a value that's greater
+than the size of the array/list/\texttt{DataFrame}/\texttt{Series}. For
+example,
+
+\begin{verbatim}
+some_list = [2, 4, 6, 8]
+\end{verbatim}
+
+\texttt{some\_list} has a length of 4. Trying \texttt{some\_list{[}6{]}}
+will error because index 6 is greater than the length of the array. Note
+that \texttt{some\_list{[}4{]}} will also cause an \texttt{IndexError}
+because Python and \texttt{pandas} uses zero indexing, which means that
+the first element has index 0, the second element has index 1, etc.;
+\texttt{some\_list{[}4{]}} would grab the fifth element, which is
+impossible when the list only has 4 elements.
+
+\section{ValueErrors}\label{valueerrors}
+
+\subsection{\texorpdfstring{\texttt{ValueError:\ Truth\ value\ of\ a\ Series\ is\ ambiguous}}{ValueError: Truth value of a Series is ambiguous}}\label{valueerror-truth-value-of-a-series-is-ambiguous}
+
+This error could occur when you apply Python logical operators
+(\texttt{or}, \texttt{and}, \texttt{not}), which only operate on a
+single boolean values, to \texttt{NumPy} arrays or \texttt{Series}
+objects, which can contain multiple values. The fix is to use bitwise
+operators \texttt{\textbar{}}, \texttt{\&}, \texttt{\textasciitilde{}} ,
+respectively, to allow for element-wise comparisons between values in
+arrays or \texttt{Series}.
+
+Alternatively, these errors could emerge due to overwriting Python
+keywords like \texttt{bool} and \texttt{sum} that may be used in the
+autograder tests, similar to what's described
+\href{https://ds100.org/debugging-guide/pandas/pandas.html\#typeerror-___-object-is-not-callable}{here}.
+You should follow a similar procedure of identifying the line of code
+erroring, checking if you've overwritten any Python keywords using
+Ctrl+F, and renaming those variables to something more informative
+before restarting your kernel and running the erroring tests again.
+
+\subsection{\texorpdfstring{\texttt{ValueError:\ Can\ only\ compare\ identically-labeled\ Series\ objects}}{ValueError: Can only compare identically-labeled Series objects}}\label{valueerror-can-only-compare-identically-labeled-series-objects}
+
+As the message would suggest, this error occurs when comparing two
+\texttt{Series} objects that have different lengths. You can double
+check the lengths of the \texttt{Series} using
+\texttt{len(series\_name)} or \texttt{series\_name.size}.
+
+\subsection{\texorpdfstring{\texttt{ValueError:\ -1\ is\ not\ in\ range}
+/
+\texttt{KeyError:\ -1}}{ValueError: -1 is not in range / KeyError: -1}}\label{valueerror--1-is-not-in-range-keyerror--1}
+
+This error occurs when you try and index into a \texttt{Series} or
+\texttt{DataFrame} as you would a Python list. Unlike a list where
+passing an index of -1 gives the last element, \texttt{pandas}
+interprets \texttt{df{[}-1{]}} as an attempt to find the row
+corresponding to index -1 (that is, \texttt{df.loc{[}-1{]}}). If your
+intention is to pick out the last row in \texttt{df}, consider using
+integer-position based indexing by doing \texttt{df.iloc{[}-1{]}}. In
+general, to avoid ambiguity in these cases, it is also good practice to
+write out both the row and column indices you want with
+\texttt{df.iloc{[}-1,\ :{]}}.
+
+\bookmarksetup{startatroot}
+
+\chapter{RegEx}\label{regex}
+
+RegEx syntax can be incredibly confusing, so we highly encourage using
+sources like the Data 100 Exam reference sheet (you can find this under
+the ``Exam Resources'' section on our
+\href{https://ds100.org/sp24/resources/}{Resources page}) or websites
+like \href{https://regex101.com/}{regex101.com} to help build your
+understanding.
+
+\section{How to Interpret regex101}\label{how-to-interpret-regex101}
+
+\href{https://regex101.com/}{Regex101} is a great tool that helps you
+visually interact with RegEx patterns. Let's take a look at its
+components with a simple example.
+
+\subsection{Example 1: Basic}\label{example-1-basic}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{-1}
+\tightlist
+\item
+  \textbf{Flavor}: Regular expressions work slightly differently
+  depending on the programming language you use. In Data 100, we only
+  use the \texttt{Python} flavor. By default, regex101 opens on the
+  PCRE2 flavor, so make sure to change to \texttt{Python} before
+  experimenting.
+\item
+  \textbf{Regular Expression}: This is where the RegEx expression goes.
+  For this example, our pattern is \texttt{Data\ 100}. In
+  \texttt{Python}, we denote it as a string \texttt{r"Data\ 100"} with
+  the prefix \texttt{r} to indicate that this is a RegEx expression, not
+  a normal \texttt{Python} string. In regex101, because we changed to
+  the \texttt{Python} flavor, we don't need to type out the \texttt{r"}
+  at the start or the \texttt{"} at the end, as that's already set up
+  for us.
+\item
+  \textbf{Explanation}: This portion of the website explains each
+  component of the pattern above. Since it does not contain any special
+  characters, \texttt{Data\ 100} will match any portion of a string
+  containing \texttt{Data\ 100}.
+\item
+  \textbf{Test String}: This is where you can try out different inputs
+  and see if they match the RegEx pattern. Of the 4 example sentences,
+  we see that only the first sentence contains characters that match the
+  pattern, highlighted in blue. (Note that while sentence 3 does contain
+  \texttt{data\ 100}, RegEx is sensitive to capitalization. \texttt{d}
+  and \texttt{D} are different characters)
+\item
+  \textbf{Match Information}: Each match between the RegEx expression
+  and test strings is shown here.
+\end{enumerate}
+
+\subsection{Example 2: Greedy}\label{example-2-greedy}
+
+For this example, let's replace the \texttt{100} in our original
+expression with \texttt{\textbackslash{}d+} so that our pattern is
+\texttt{Data\ \textbackslash{}d+}
+
+\texttt{\textbackslash{}d} and \texttt{+} are both special operators,
+and the explanation on the top right (boxed in red) tells us what they
+do:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{\textbackslash{}d} matches digits, or any number between 0 and
+  9. It's equivalent to \texttt{{[}0-9{]}}.
+\item
+  \texttt{+} matches the previous token \(\geq 1\) times. It is a
+  \emph{greedy operation}, meaning it will match as many characters as
+  possible.
+\end{itemize}
+
+Altogether, the expression \texttt{\textbackslash{}d+} will match any
+digit one or more times. Look at each match under ``Match Information''.
+Can you see why they align with \texttt{Data\ \textbackslash{}d+}?
+
+\subsection{Example 3: Capturing
+Groups}\label{example-3-capturing-groups}
+
+Let's say we're given a body of text with dates formatted as
+\texttt{DD/Month/YYYY} (ie. 04/Jan/2014), and we're interested in
+extracting the dates. An expression like
+\texttt{r"\textbackslash{}d+\textbackslash{}/\textbackslash{}w+\textbackslash{}/\textbackslash{}d+"}
+would match any string with the \texttt{DD/Month/YYYY} format:
+
+\begin{itemize}
+\tightlist
+\item
+  the first \texttt{\textbackslash{}d+} matches \texttt{DD} patterns
+  (ie. \texttt{04})
+\item
+  \texttt{\textbackslash{}/} matches the \texttt{/} separator. Since
+  \texttt{/} is a special operator in RegEx, we need to escape it with
+  \texttt{\textbackslash{}} to get the literal character.
+\item
+  \texttt{\textbackslash{}w+} in the middle matches \texttt{Month}
+  patterns we're interested in (ie. \texttt{Jan}, \texttt{January})
+\item
+  lastly, \texttt{\textbackslash{}d+} matches \texttt{YYYY} patterns
+  (ie. \texttt{2014})
+\end{itemize}
+
+That's great! This pattern will match the entirety of
+\texttt{DD/Month/YYYY}, but what if we want to access \texttt{DD}
+individually? What about \texttt{YYYY}? This is where \textbf{capturing
+groups} comes in handy. Capturing groups are RegEx expressions
+surrounded by parenthesis \texttt{()} that are used to remember the text
+they match so that it can be referenced later. Putting capturing groups
+around \texttt{\textbackslash{}d+} and \texttt{\textbackslash{}w+} to
+get
+\texttt{r"(\textbackslash{}d+)\textbackslash{}/(\textbackslash{}w+)\textbackslash{}/(\textbackslash{}d+)"}gives
+us the following:
+
+\begin{itemize}
+\tightlist
+\item
+  The ``Explanation'' section now shows an explanation for each of the 3
+  capturing groups.
+\item
+  In our test strings, the portion matching the RegEx expression is
+  highlighted in blue per usual. Additionally, each capturing group is
+  highlighted with a particular color: green, orange, and purple.
+\item
+  These colored highlights correspond to their match/group under ``Match
+  Information''. ``Match \#'' (light blue) shows the entire portion that
+  matches the expression while ``Group \#'' shows the match per group.
+\end{itemize}
+
+\subsubsection{How do I access captured
+groups?}\label{how-do-i-access-captured-groups}
+
+To access each group, we use the following syntax:
+
+\begin{verbatim}
+target_string = "Today's date is 01/March/2024."
+result = re.search(r"(\d+)\/(\w+)\/(\d+)", target_string)
+
+result # re.Match object
+result.groups() # all captured groups: ('01', 'March', '2024')
+result.group(0) # '01/March/2024', the full match
+result.group(1) # '01', the first captured group
+result.group(2) # 'March', the second captured group
+result.group(3) # '2024', the third captured group
+\end{verbatim}
+
+\section{RegEx Misconceptions \& General
+Errors}\label{regex-misconceptions-general-errors}
+
+\subsection{\texorpdfstring{I'm certain my RegEx pattern in
+\texttt{.str.replace} is correct, but I'm not passing the grader
+check.}{I'm certain my RegEx pattern in .str.replace is correct, but I'm not passing the grader check.}}\label{im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check.}
+
+Here's the skeleton from the exam reference sheet:
+
+\texttt{s.str.replace(pat,\ repl,\ regex=False)}
+
+Notice how the \texttt{regex=} argument has a default value of
+\texttt{False}, causing \texttt{pandas} to treat \texttt{pat} like a
+normal \texttt{Python} string. Make sure to set \texttt{regex=True} if
+you're using RegEx!
+
+\subsection{\texorpdfstring{My RegEx pattern matches the test cases on
+regex101, but is not working in \texttt{pandas} with
+\texttt{.str.findall} / \texttt{.str.extractall} /
+\texttt{.str.extract}.}{My RegEx pattern matches the test cases on regex101, but is not working in pandas with .str.findall / .str.extractall / .str.extract.}}\label{my-regex-pattern-matches-the-test-cases-on-regex101-but-is-not-working-in-pandas-with-.str.findall-.str.extractall-.str.extract.}
+
+The most likely reason for this is forgetting to include the \texttt{r}
+before the string with your regular expression. Without including the
+\texttt{r} in \texttt{.str.findall(r".*")}, \texttt{pandas} will not
+interpret your pattern as a regex expression and will only match it
+literally.
+
+\subsection{\texorpdfstring{\texttt{Value\ Error:\ pattern\ contains\ no\ capture\ groups}}{Value Error: pattern contains no capture groups}}\label{value-error-pattern-contains-no-capture-groups}
+
+These errors usually occur when using \texttt{s.str.extract} or
+\texttt{s.str.extractall}. Read more about it in the
+\href{https://ds100.org/course-notes/regex/regex.html\#extraction-with-pandas}{RegEx
+course notes}. This error means that your RegEx pattern does not match
+anything in the given \texttt{Series} of strings. To debug this, try
+putting your pattern into \href{https://regex101.com/}{regex101.com} and
+use example strings from the Series as test cases.
+
+\subsection{When do I need to escape
+characters?}\label{when-do-i-need-to-escape-characters}
+
+The special characters in RegEx are:
+\texttt{.\ \^{}\ \$\ *\ +\ ?\ {]}\ {[}\ \textbackslash{}\ \textbar{}\ (\ )\ \{\ \}\ \}}
+
+If you want to match exactly those characters in a RegEx expression, you
+need to ``escape'' them by preceding them with a backslash
+\texttt{\textbackslash{}}. However, the rules around this can change in
+the context of character classes.
+
+For example, the pattern \texttt{r"{[}.{]}"} matches
+\texttt{\textquotesingle{}.\textquotesingle{}}, the literal period. In
+this context, it is not treated as a special character. The hyphen,
+while not included in the list of special characters, also changes its
+behavior depending on its position in a character class. It can be used
+to specify a range of characters (e.g.~\texttt{r"{[}0-9{]}"}) based on
+their Unicode values, or match a literal
+\texttt{\textquotesingle{}-\textquotesingle{}} if it does not have two
+adjacent characters (e.g.~\texttt{r"{[}-09{]}"} matches \texttt{-},
+\texttt{0}, \texttt{9}). To be on the safer side, you could escape
+\texttt{-} like in \texttt{r"{[}0\textbackslash{}-9{]}"} to achieve the
+same result.
+
+Finally, it's generally good practice to escape both single and double
+quotes for greater readability. Technically, patterns like
+\texttt{r"\textquotesingle{}(.\textbackslash{}*)\textquotesingle{}"} and
+\texttt{r\textquotesingle{}"(.\textbackslash{}*)"\textquotesingle{}} do
+work as you'd expect, but you can already see how confusing it is to
+decipher what's going on. Escaping the quotes inside the pattern does
+not affect what matches you get, but makes it easier to figure out what
+the intended match was.
+
+\subsection{\texorpdfstring{The three uses of
+\texttt{\^{}}}{The three uses of \^{}}}\label{the-three-uses-of}
+
+The \texttt{\^{}} character can be tricky to wrap your head around given
+how its function changes depending on the context:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  If used at the start of a pattern, like in
+  \texttt{r"\^{}\textbackslash{}w"}, it means that a lowercase letter
+  must begin the string in order for a match to occur.
+\item
+  If included at the start of a character class, like in
+  \texttt{r"{[}\^{}abc{]}"}, it negates all the characters in that class
+  and will match with any other character -- in the above example, any
+  character that is not \texttt{a}, \texttt{b}, \texttt{c}.
+\item
+  Finally, if escaped as in \texttt{r"\textbackslash{}\^{}"} it is
+  treated as a literal and will match any instance of \texttt{\^{}}.
+\end{enumerate}
+
+\subsection{\texorpdfstring{What's the difference between all the
+\texttt{re}
+functions?}{What's the difference between all the re functions?}}\label{whats-the-difference-between-all-the-re-functions}
+
+The exam reference sheets give a few \texttt{re} functions, but how can
+you determine which one to use?
+
+\texttt{re.match} and \texttt{re.search} only return \emph{one} instance
+of a match between string and pattern (or None if there's no match) -
+\texttt{re.match} only considers characters at the beginning of a string
+- \texttt{re.search} considers characters anywhere in the string - For
+example: ``` pattern = r''Data 100'' example1 = ``Data 100 is the
+best!'' example2 = ``I love Data 100!''
+
+re.match(pattern, example1).group(0) \# matches ``Data 100''
+re.match(pattern, example2) \# does not match ``Data 100'' because it's
+not at the beginning of a string; returns None
+
+re.search(pattern, example1).group(0) \# matches ``Data 100''
+re.search(pattern, example2).group(0) \# matches ``Data 100'' ```
+
+If, instead, you're interested in finding \emph{all} matches between the
+given string and pattern, \texttt{re.findall} will find them all,
+returning the matches in a list.
+
+\begin{verbatim}
+re.findall(r'\d+', 'Data 100, Data 8, Data 101') 
+# returns a list of strings: ['100', '8', '101']
+
+re.findall(r'\d+', 'Data science is great')  
+# no matches found, returns empty list: []
+\end{verbatim}
+
+\texttt{re.sub} will find them all \emph{and replace it} with a string
+of your choice.
+
+\begin{verbatim}
+re.sub(r'\d+', 'panda', 'Data 100, Data 8, Data 101') 
+# returns 'Data panda, Data panda, Data panda'
+
+re.sub(r'\d+', 'panda', 'Data science is great')  
+# no matches found, returns the original string "Data science is great" 
+\end{verbatim}
+
+\subsection{\texorpdfstring{What's the difference between \texttt{re}
+functions and \texttt{pd.Series.str}
+functions?}{What's the difference between re functions and pd.Series.str functions?}}\label{whats-the-difference-between-re-functions-and-pd.series.str-functions}
+
+Generally, all the \texttt{pd.Series.str} functions are used when you
+want to apply a Python or RegEx string function to a \emph{Series of
+strings}. In contrast, \texttt{re} functions are applied to string
+objects. The reference sheet gives a great overview of the different use
+cases of each of the \texttt{pd.Series.str} functions.
+
+\bookmarksetup{startatroot}
+
+\chapter{Visualizations}\label{visualizations}
+
+Visualizations are how data scientists use to communicate their insights
+to the world. In the process of making a
+\href{https://ds100.org/course-notes/visualization_2/visualization_2.html\#harnessing-context}{good
+visualization}, be it while adding a legend or setting the x-axis label,
+we may run into some errors. Let's take a look at how to resolve them
+below!
+
+\subsection{My legend's labels don't match up / my legend isn't
+displaying
+properly}\label{my-legends-labels-dont-match-up-my-legend-isnt-displaying-properly}
+
+If you simply add \texttt{plt.legend()} after your plotting line of
+code, you should see a legend; seaborn will sometimes automatically
+populate the legend. However, if you're plotting multiple lines or sets
+of points on a single plot, the labels in the legend may not correctly
+line up with what's shown.
+
+Make sure to pass in the \texttt{label} argument into the \texttt{sns}
+plotting function with the label you want associated with that
+individual plot. For example,
+
+\begin{verbatim}
+sns.histplot(means_arr, label = 'simulated values') # informative label name
+plt.title('Simulated values') 
+plt.plot(original, 10, 'bo', label = 'original test statistic') # informative label name
+plt.legend(loc = 'upper left') # can specify location of legend
+\end{verbatim}
+
+\section{\texorpdfstring{The y-axis of my \texttt{histplot} shows the
+count, not the
+density}{The y-axis of my histplot shows the count, not the density}}\label{the-y-axis-of-my-histplot-shows-the-count-not-the-density}
+
+Look into the \texttt{sns.histplot}
+\href{https://seaborn.pydata.org/generated/seaborn.histplot.html}{documentation}
+and see what arguments the \texttt{stat} parameter takes in. By default,
+\texttt{stat=count}, and the number of elements in each histogram bin is
+the y axis. But if you wanted to normalize the distribution such that
+the total area is 1, consider passing \texttt{stat=density} into the
+plot function.
+
+\section{I'm having trouble labeling the axes/title of my
+graph}\label{im-having-trouble-labeling-the-axestitle-of-my-graph}
+
+To label the axes and title of a graph, we use the following syntax:
+
+\begin{verbatim}
+plt.xlabel(“x axis name”) 
+plt.ylabel(“y axis name”) 
+plt.title(“graph title”) 
+\end{verbatim}
+
+Where \texttt{plt.xlabel}, \texttt{plt.ylabel}, and \texttt{plt.title}
+are matplotlib functions that we call.
+
+However, we often see students use the following incorrect syntax to try
+and label their plot:
+
+\begin{verbatim}
+plt.xlabel = "x name"
+plt.ylabel = "y name"
+plt.title = "graph title"
+\end{verbatim}
+
+Now, instead of \texttt{plt.xlabel}, \texttt{plt.ylabel}, and
+\texttt{plt.title} being functions, they are strings. Trying to call one
+of the labelling function using the correct syntax in the next few cells
+(ie.\texttt{plt.xlabel(“x\ name”)}) will result in a
+\texttt{TypeError:\ str\ object\ is\ not\ callable}. If this happens to
+you, comb through your notebook and look for places when you used the
+incorrect syntax. After fixing it,
+\href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#restarting-kernel}{restart
+your kernel} and
+\href{https://ds100.org/debugging-guide/jupyter101/jupyter101.html\#running-cells}{rerun
+your cells}.
+
+\section{\texorpdfstring{My \texttt{sns.lineplot} has an unwanted shaded
+region around the solid
+lines.}{My sns.lineplot has an unwanted shaded region around the solid lines.}}\label{my-sns.lineplot-has-an-unwanted-shaded-region-around-the-solid-lines.}
+
+\begin{quote}
+Note: the following examples are taken from \texttt{sns.lineplot}'s
+\href{https://seaborn.pydata.org/generated/seaborn.lineplot.html}{documentation}.
+\end{quote}
+
+\texttt{sns.lineplot} gives us a clean line when each \texttt{x} value
+has one \texttt{y} value. For example, the table
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Year & May \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1948 & 120 \\
+1949 & 122 \\
+1950 & 123 \\
+\(\vdots\) & \(\vdots\) \\
+\end{longtable}
+
+will give us a clean plot because each year corresponds to a single
+``Number of Flights in May'' value.
+
+When each x value has multiple y values, \texttt{sns.lineplot} will
+automatically plot a shaded region around the solid line, where the
+solid line is the mean of the y values for that x value (think of a
+groupby on x aggregated by \texttt{.mean()} on y) and the shaded region
+is the 95\% confidence interval (read more about confidence intervals in
+the
+\href{https://inferentialthinking.com/chapters/13/3/Confidence_Intervals.html?highlight=confidence+intervals}{Data
+8 textbook}). For example, the table
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Year & May \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1948 & 115 \\
+1948 & 120 \\
+1948 & 125 \\
+1949 & 118 \\
+1949 & 122 \\
+1949 & 126 \\
+\(\vdots\) & \(\vdots\) \\
+\end{longtable}
+
+will plot a lineplot with a shaded region.
+
+If you do not want the shaded region, aggregate the data such that there
+is only one y-value for a given x-value; then, make the plot.
+
+\bookmarksetup{startatroot}
+
+\chapter{Project A1 Common Questions}\label{project-a1-common-questions}
+
+\section{Question 6}\label{question-6}
+
+\subsection{\texorpdfstring{\texttt{TypeError:\ could\ not\ convert\ string\ to\ float:\ \textquotesingle{}SF\textquotesingle{}}}{TypeError: could not convert string to float: \textquotesingle SF\textquotesingle{}}}\label{typeerror-could-not-convert-string-to-float-sf}
+
+Type errors like these usually stem from applying a numeric aggregation
+function to a non-numeric column as described in the
+\href{https://ds100.org/debugging-guide/pandas/pandas.html\#typeerror-could-not-convert-string-to-numeric}{\texttt{pandas}
+section} of the debugging guide.
+
+Aggregation functions like \texttt{np.median} and \texttt{np.mean} are
+only well-defined for columns with numeric types like \texttt{int} and
+\texttt{float}. Your code is likely trying to aggregate across all
+columns in \texttt{training\_data}, including those of type
+\texttt{str}. Instead of aggregating across the entire
+\texttt{DataFrame}, try just selecting the relevant columns.
+
+\subsection{\texorpdfstring{\texttt{TypeError:\ unhashable\ type:\ \textquotesingle{}Series\textquotesingle{}}}{TypeError: unhashable type: \textquotesingle Series\textquotesingle{}}}\label{typeerror-unhashable-type-series}
+
+This error can occur if you try and use Python's \texttt{in} to check
+whether values in a \texttt{Series} are contained in a list. If you're
+trying to perform boolean filtering in this manner, you should look into
+the \texttt{.isin}
+(\href{https://pandas.pydata.org/docs/reference/api/pandas.Series.isin.html}{documentation})
+function as introduced in HW 2.
+
+\section{Question 7}\label{question-7}
+
+\subsection{\texorpdfstring{I'm not sure how to use \texttt{sklearn} to
+do One Hot
+Encoding}{I'm not sure how to use sklearn to do One Hot Encoding}}\label{im-not-sure-how-to-use-sklearn-to-do-one-hot-encoding}
+
+A good starting point is to revisit the One Hot Encoding question in Lab
+7. It's recommended you look through this portion of
+\href{https://youtu.be/LohVOmiulHQ?feature=shared&t=442}{the
+walkthrough}, so you have a good understanding of how to use the
+\texttt{OneHotEncoder} object. Pay attention to what each variable
+represents and the expected outputs of the functions used. Can you map
+the logic from the lab to this project? A nice way to start is to make a
+new cell and experiment with examples from
+\href{https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html}{the
+documentation}.
+
+\subsection{\texorpdfstring{My OHE columns contain a lot of \texttt{NaN}
+values}{My OHE columns contain a lot of NaN values}}\label{my-ohe-columns-contain-a-lot-of-nan-values}
+
+This may happen if you try and merge the OHE columns with the
+\texttt{training\_data} table without making sure both
+\texttt{DataFrame} have the \emph{same index values}. Look into the
+\href{https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html}{\texttt{pd.merge}
+documentation} for ways to resolve this.
+
+\bookmarksetup{startatroot}
+
+\chapter{Project A2 Common Questions}\label{project-a2-common-questions}
+
+\section{Questions 5d and 5f}\label{questions-5d-and-5f}
+
+\subsection{General Debugging Tips}\label{general-debugging-tips}
+
+Question 5 is a challenging question that mirrors a lot of data science
+work in the real world: cleaning, exploring, and transforming data;
+fitting a model, working with a pre-defined pipeline and evaluating your
+model's performance. Here are some general debugging tips to make the
+process easier:
+
+\begin{itemize}
+\tightlist
+\item
+  Separate small tasks into helper functions, especially if you will
+  execute them multiple times. For example, a helper function that
+  one-hot encodes a categorical variable may be helpful as you could
+  perform it on multiple such columns. If you're parsing a column with
+  RegEx, it also might be a good idea to separate it to a helper
+  function. This allows you to verify that you're not making errors in
+  these small tasks and prevents unknown bugs from appearing.
+\item
+  Feel free to make new cells to play with the data! As long as you
+  delete them afterward, it will not affect the autograder.
+\item
+  The \texttt{feature\_engine\_final} function looks daunting at first,
+  but start small. First, try and implement a model with a single
+  feature to get familiar with how the pipeline works, then slowly
+  experiment with adding one feature at a time and see how that affects
+  your training RMSE.
+\end{itemize}
+
+\subsection{My training RMSE is low, but my validation/test RMSE is
+high}\label{my-training-rmse-is-low-but-my-validationtest-rmse-is-high}
+
+Your model is likely overfitting to the training data and does not
+generalize to the test set. Recall the bias-variance tradeoff discussed
+in lecture. As you add more features and make your model more complex,
+it is expected that your training error will decrease. Your validation
+and test error may also decrease initially, but if your model is too
+complex, you end up with high validation and test RMSE.
+
+To decrease model complexity, consider visualizing the relationship
+between the features you've chosen with the \texttt{(Log)\ Sale\ Price}
+and removing features that are not highly correlated. Removing outliers
+can also help your model generalize better and prevent it from fitting
+to noise in the data. Methods like cross-validation allow you to get a
+better sense of where you lie along the validation error curve. Feel
+free to take a look at the
+\href{https://ds100.org/sp24/resources/assets/lectures/lec16/lec16.html}{code
+used in Lecture 16} if you're confused on how to implement
+cross-validation.
+
+\subsection{\texorpdfstring{\texttt{ValueError:\ Per-column\ arrays\ must\ each\ be\ 1-dimensional}}{ValueError: Per-column arrays must each be 1-dimensional}}\label{valueerror-per-column-arrays-must-each-be-1-dimensional}
+
+If you're passing the tests for question 5d but getting this error in
+question 5f, then your \texttt{Y} variable is likely a
+\texttt{DataFrame}, not a \texttt{Series}. \texttt{sklearn} models like
+\texttt{LinearRegression} expect \texttt{X} to be a 2D datatype (ie.
+\texttt{DataFrame}, 2D \texttt{NumPy} array) and \texttt{Y} to be a 1D
+datatype (ie. \texttt{Series}, 1D \texttt{NumPy} array).
+
+\subsection{\texorpdfstring{\texttt{KeyError:\ \textquotesingle{}Sale\ Price\textquotesingle{}}/\texttt{KeyError:\ \textquotesingle{}Log\ Sale\ Price\textquotesingle{}}}{KeyError: \textquotesingle Sale Price\textquotesingle/KeyError: \textquotesingle Log Sale Price\textquotesingle{}}}\label{keyerror-sale-pricekeyerror-log-sale-price}
+
+\texttt{KeyError}s are raised when a column name does not exist in your
+\texttt{DataFrame}. You could be getting this error because:
+
+\begin{itemize}
+\tightlist
+\item
+  The test set does not contain a \texttt{"(Log)\ Sale\ Price"} as
+  that's what we're trying to predict. Make sure you only reference the
+  \texttt{"(Log)\ Sale\ Price"} column when working with training data
+  (\texttt{is\_test\_set=False}).
+\item
+  You dropped the \texttt{"Sale\ Price"} column twice in your
+  preprocessing code.
+\end{itemize}
+
+\subsection{\texorpdfstring{\texttt{Value\ Error:\ could\ not\ convert\ string\ to\ float}}{Value Error: could not convert string to float}}\label{value-error-could-not-convert-string-to-float}
+
+This error occurs if your final design matric contains non-numeric
+columns. For example, if you simply run
+\texttt{X\ =\ data.drop(columns\ =\ {[}"Log\ Sale\ Price",\ "Sale\ Price"{]})},
+all the non-numeric columns of \texttt{data} are still included in
+\texttt{X} and you will see this error message. The \texttt{fit}
+function of a \texttt{lm.LinearRegression} object can take a
+\texttt{pandas} \texttt{DataFrame} as the \texttt{X} argument, but
+requires that the \texttt{DataFrame} is only composed of numeric values.
+
+\subsection{\texorpdfstring{\texttt{ValueError:\ Input\ X\ contains\ infinity\ or\ a\ value\ too\ large\ for\ dtype(\textquotesingle{}float64\textquotesingle{})}}{ValueError: Input X contains infinity or a value too large for dtype(\textquotesingle float64\textquotesingle)}}\label{valueerror-input-x-contains-infinity-or-a-value-too-large-for-dtypefloat64}
+
+The reason why your \texttt{X} data contains infinity is likely because
+you are taking the logarithm of 0 somewhere in your code. To prevent
+this, try:
+
+\begin{itemize}
+\tightlist
+\item
+  Adding a small number to the features that you want to perform the log
+  transformation on so that all values are positive and greater than 0.
+  \textbf{Note that whatever value you add to your train data should
+  also be added to your test data.}
+\item
+  Removing zeroes before taking the logarithm. Note that this is only
+  possible on the training data as you cannot drop rows from the test
+  set.
+\end{itemize}
+
+\subsection{\texorpdfstring{\texttt{ValueError:\ Input\ X\ contains\ NaN}}{ValueError: Input X contains NaN}}\label{valueerror-input-x-contains-nan}
+
+The reason why your design matrix \texttt{X} contains \texttt{NaN}
+values is likely because you take the log of a negative number somewhere
+in your code. To prevent this, try:
+
+\begin{itemize}
+\tightlist
+\item
+  Shifting the range of values for features that you want to perform the
+  logging operation on to positive values greater than 0. \textbf{Note
+  that whatever value you add to your train data should also be added to
+  your test data.}
+\item
+  Removing negative values before taking the log. Note that this is only
+  possible on the training data as you cannot drop rows from the test
+  set.
+\end{itemize}
+
+\subsection{\texorpdfstring{\texttt{ValueError:\ The\ feature\ names\ should\ match\ those\ that\ were\ passed\ during\ fit}}{ValueError: The feature names should match those that were passed during fit}}\label{valueerror-the-feature-names-should-match-those-that-were-passed-during-fit}
+
+This error is followed by one or both of the following:
+
+\begin{verbatim}
+Feature names unseen at fit time: 
+- FEATURE NAME 1
+- FEATURE NAME 2
+  ...
+
+Feature names seen at fit time, yet now missing
+- FEATURE NAME 1
+- FEATURE NAME 2
+  ...
+\end{verbatim}
+
+This error occurs if the columns/features you're passing in for the test
+dataset aren't the same as the features you used to train the model.
+\texttt{sklearn}'s models expect the testing data's column names to
+match the training data's. The features listed under
+\texttt{Feature\ names\ unseen\ at\ fit\ time} are columns that were
+present in the \emph{training} data but not the \emph{testing} data, and
+features listed under
+\texttt{Feature\ names\ seen\ at\ fit\ time,\ yet\ now\ missing} were
+present in the \emph{testing} data but not the \emph{training} data.
+
+Potential causes for this error:
+
+\begin{itemize}
+\item
+  Your preprocessing for \texttt{X} is different for training and
+  testing. Double-check your code in \texttt{feature\_engine\_final}!
+  Besides removing any references to
+  \texttt{\textquotesingle{}Sale\ Price\textquotesingle{}} and code that
+  would remove rows from the test set, your preprocessing should be the
+  same.
+\item
+  Some one-hot-encoded categories are present in training but not in
+  testing (or vice versa). For example, let's say that the feature
+  \texttt{"Data100"} has categories ``A'', ``B'', ``C'', and ``D''. If
+  ``A'', ``B'', and ``C'' are present in the training data, but ``B'',
+  ``C'', and ``D'' are present in the testing data, you will get this
+  error:
+
+\begin{verbatim}
+The feature names should match those that were passed during fit. Feature names unseen at fit time: 
+- Data100_D
+  ...
+
+Feature names seen at fit time, yet now missing
+- Data100_A
+\end{verbatim}
+\end{itemize}
+
+\subsection{\texorpdfstring{\texttt{ValueError:\ operands\ could\ not\ be\ broadcast\ together\ with\ shapes\ ...}}{ValueError: operands could not be broadcast together with shapes ...}}\label{valueerror-operands-could-not-be-broadcast-together-with-shapes-...}
+
+This error occurs when you attempt to perform an operation on two NumPy
+arrays with mismatched dimensions. For example,
+\texttt{np.ones(100000)\ -\ np.ones(1000000)} is not defined since you
+cannot perform elementwise addition on arrays with different lengths.
+Use the error traceback to identify which line is erroring, and print
+out the shape of the arrays on the line before using \texttt{.shape}.
+
+\subsection{\texorpdfstring{\texttt{TypeError:\ NoneType\ is\ not\ subscriptable}}{TypeError: NoneType is not subscriptable}}\label{typeerror-nonetype-is-not-subscriptable}
+
+This error occurs when a \texttt{NoneType} variable is being accessed
+like a class, for example \texttt{None.some\_function()}. It may be
+difficult to identify where the \texttt{NoneType} is coming from, but
+here are some possible causes:
+
+\begin{itemize}
+\tightlist
+\item
+  Check that your helper functions always end with a \texttt{return}
+  statement and that the result is expected!
+\item
+  \texttt{pandas}' \texttt{inplace=} argument allows us to simplify
+  code; instead of reassigning
+  \texttt{df\ =\ df.an\_operation(inplace=False)}, you can choose to
+  shorten the operation as \texttt{df.an\_operation(inplace=True)}. Note
+  that any \texttt{inplace=True} argument modifies the
+  \texttt{DataFrame} and \emph{returns nothing} (read more about it in
+  \href{https://stackoverflow.com/questions/45570984/in-pandas-is-inplace-true-considered-harmful-or-not}{this
+  stack overflow post}). Both
+  \texttt{df\ =\ df.an\_operation(inplace=True)} and
+  \texttt{df.an\_operation(inplace=True).another\_operation()} will
+  result in this \texttt{TypeError}.
+\end{itemize}
+
+Check the return type of all functions you end up using. For example,
+\texttt{np.append(arr\_1,\ arr\_2)} returns a \texttt{NumPy} array. In
+contrast, \texttt{Python}'s \texttt{.append} function mutates the
+iterable and returns \texttt{None}. If you are unsure of what data type
+is being returned, looking up the documentation of the function , adding
+print statements, using \texttt{type(some\_function(input)} are all
+useful ways to debug your code.
+
+\section{Question 6}\label{question-6-1}
+
+\subsection{\texorpdfstring{I'm getting negative values for the
+\texttt{prop\_overest}
+plot}{I'm getting negative values for the prop\_overest plot}}\label{im-getting-negative-values-for-the-prop_overest-plot}
+
+Note that in the function body, the skeleton code includes:
+
+\begin{verbatim}
+# DO NOT MODIFY THESE TWO LINES
+    if subset_df.shape[0] == 0:
+        return -1
+\end{verbatim}
+
+The above two lines of code are included to avoid dividing by 0 when
+computing \texttt{prop\_overest} in the case that \texttt{subset\_df}
+does not have any rows. When interpreting the plots, you can disregard
+the negative portions as you know they are invalid values corresponding
+to this edge case. You can verify this by observing that your
+\texttt{RMSE} plot does not display the corresponding intervals.
+
+\section{Gradescope}\label{gradescope-1}
+
+\subsection{I don't have many Gradescope submissions
+left}\label{i-dont-have-many-gradescope-submissions-left}
+
+If you're almost out of Gradescope submissions, try using k-fold
+cross-validation to check the accuracy of your model. Results from
+cross-validation will be closer to the test set accuracy than results
+from the training data. Feel free to take a look at the
+\href{https://ds100.org/sp24/resources/assets/lectures/lec16/lec16.html}{code
+used in Lecture 16} if you're confused on how to implement
+cross-validation.
+
+\subsection{``Wrong number of lines ( \_\_ instead of \_\_
+)''}\label{wrong-number-of-lines-__-instead-of-__}
+
+This occurs when you remove outliers when preprocessing the testing
+data. \emph{Please do not remove any outliers from your test set.} You
+may only remove outliers in training data.
+
+\subsection{Numerical Overflow}\label{numerical-overflow}
+
+This error is caused by overly large predictions that create an
+extremely large RMSE. The cell before you generate your submission runs
+\texttt{submission\_df{[}"Value"{]}.describe()}, which returns some
+summary statistics of your predictions. Your maximum value for
+\texttt{Log\ Sale\ Price} should not be over 25.
+
+For your reference, a log sale price of 25 corresponds to a sale price
+of \(e^{25} \approx\) 70 billion, which is far bigger than anything
+found in the dataset. If you see such large predictions, you can try
+removing outliers from the \emph{training} data or experimenting with
+new features so that your model generalizes better.
+
+\bookmarksetup{startatroot}
+
+\chapter{SQL Common Errors}\label{sql-common-errors}
+
+\section{Common Misconceptions}\label{common-misconceptions}
+
+\subsection{How to read SQL Errors}\label{how-to-read-sql-errors}
+
+Because Jupyter notebooks run Python natively, we need to import extra
+modules like \texttt{sql}, \texttt{sqlalchemy}, and \texttt{duckdb} in
+order to run SQL queries within our notebook. This results in slightly
+more complex error messages than normal Python. Refer to the image below
+if you need help identifying the most important parts (the red and blue
+text).
+
+Sometimes, SQL errors may show up as a long string without any red
+highlight, for example:
+
+\texttt{(duckdb.duckdb.BinderException)\ Binder\ Error:\ Referenced\ column\ "some\_column"\ not\ found\ in\ FROM\ clause!\ LINE\ 1:\ SELECT\ some\_column\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \^{}}
+\texttt{...}
+
+Note that this is the same error as the one above -- it's just not
+formatted nicely. Try your best to parse it; you can even copy the error
+into a new cell and manually indent sentences if it helps with
+readability!
+
+\subsection{Comments in SQL}\label{comments-in-sql}
+
+Unlike \texttt{Python}, which uses \texttt{\#...} or triple quotes
+\texttt{"""..."""} to indicate a comment, SQL comments take the
+following forms:
+
+\begin{verbatim}
+-- This is a single-line or in-line comment
+
+/* 
+  This is a 
+  multi-line 
+  comment 
+*/
+\end{verbatim}
+
+Because you are still coding within a Python notebook, the colors that
+Jupyter chooses for your SQL queries may not match up to what you
+expect; using \texttt{\#...} will be green text like Python comments,
+but running the code will give you:
+
+\texttt{Parser\ Error:\ syntax\ error\ at\ or\ near...}
+
+Using \texttt{-\/-} or \texttt{/*\ ...\ */} may not color-code the text
+correctly, but SQL will still read it as a comment!
+
+\subsection{Filtering with multiple
+conditions}\label{filtering-with-multiple-conditions}
+
+When you are using more than one condition in filtering clauses like
+\texttt{WHERE} or \texttt{HAVING}, it's important consider that the
+ordering of \texttt{OR}s and \texttt{AND}s will affect your SQL output.
+
+In \texttt{SQL}, the operator precedence typically evaluates
+\texttt{AND} operations before \texttt{OR} operations, and so
+incorrectly ordered conditions can lead to unexpected results. To ensure
+your conditions are evaluated in the intended order, use parentheses to
+group them explicitly.
+
+For example, consider the following query condition:
+
+\texttt{WHERE\ A\ \textgreater{}\ 500\ AND\ B\ \textgreater{}\ 200\ OR\ C\ \textless{}\ 50}
+
+By default, is will be evaluated as
+
+\texttt{WHERE\ (A\ \textgreater{}\ 500\ AND\ B\ \textgreater{}\ 200)\ OR\ C\ \textless{}\ 50}
+
+because \texttt{AND} has a higher precedence than \texttt{OR}. To
+evaluate it differently, add parentheses to specify the order of
+operations:
+
+\texttt{WHERE\ A\ \textgreater{}\ 500\ AND\ (B\ \textgreater{}\ 200\ OR\ C\ \textless{}\ 50)}
+
+\subsection{Truncated Display Limit}\label{truncated-display-limit}
+
+Our Jupyter Notebooks are set to only display the first 10 rows of a
+table. Otherwise, your notebook would likely crash with the weight of
+displaying \textgreater1000 rows. You'll likely see a
+
+\texttt{Truncated\ to\ displaylimit\ of\ 10}
+
+printed right below your SQL query if your table contains more than 10
+rows.
+
+\section{Common Errors}\label{common-errors}
+
+\subsection{\texorpdfstring{\texttt{NameError:\ name\ ‘{[}res\_q\#{]}’\ is\ not\ defined}}{NameError: name `{[}res\_q\#{]}' is not defined}}\label{nameerror-name-res_q-is-not-defined}
+
+This occurs when you have an error in your SQL code, causing the cell
+after to fail. Because we're working with Jupyter Notebooks, some SQL
+errors are not highlighted in red like \texttt{Python} errors usually
+are. Check the output under your \texttt{\%\%sql} cell to see if it ran
+smoothly. Any text below
+
+\texttt{Running\ query\ in\ \textquotesingle{}duckdb:///data/\{database\_name\}.db}
+
+is an error message that you can read to debug your code. Note that this
+error could be formatted as one long string without any indents or
+newlines, so it may be harder than typical \texttt{Python} errors to
+parse.
+
+\subsection{\texorpdfstring{\texttt{Referenced\ column\ "\{some\_string\}"\ not\ found}}{Referenced column "\{some\_string\}" not found}}\label{referenced-column-some_string-not-found}
+
+There are 2 potential causes for this error:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{The column you're looking for does not exist in the table.}
+  Make sure that the column names are spelled and capatalized exactly as
+  shown in the assignment. If you are trying to reference a column that
+  is not in the current table, consider using \texttt{JOIN} to be able
+  to access these columns. You can reference the
+  \href{https://ds100.org/course-notes/sql_II/sql_II.html\#joining-tables}{SQL
+  II course notes} for a refresher on how to use the \texttt{JOIN}
+  clause.
+\item
+  \textbf{You used double quotes \texttt{""} around
+  \texttt{some\_string} instead of single quotes
+  \texttt{\textquotesingle{}\textquotesingle{}}}. Unlike
+  \texttt{Python}, SQL differentiates double and single quotes: double
+  quotes indicate something that exists within the database, like tables
+  and column names; single quotes indicate strings.
+\end{enumerate}
+
+\subsection{\texorpdfstring{\texttt{Cannot\ compare\ values\ of\ type\ \_\_\ and\ type\ \_\_}}{Cannot compare values of type \_\_ and type \_\_}}\label{cannot-compare-values-of-type-__-and-type-__}
+
+This error often occurs when a string-type column (ie. \texttt{CHAR} or
+\texttt{VARCHAR}) is compared with a numeric-type column (ie.
+\texttt{INT}, \texttt{BIGINT}, \texttt{FLOAT}, \texttt{REAL}). If you're
+interested in learning more about SQL datatypes, check out
+\href{https://www.w3schools.com/sql/sql_datatypes.asp}{this link}!
+
+To debug, start by checking the type of the column(s) you're working
+with; you can either scroll up to the cell (or make a new cell) with the
+code:
+
+\begin{verbatim}
+%%sql
+SELECT * FROM sqlite_master WHERE type='table';
+\end{verbatim}
+
+which outputs the schema for each table. If we're working with the IMDB
+database, we get the following output:
+
+We can see that the table \texttt{Title} contains the columns
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{tconst} of type \texttt{BIGINT}
+\item
+  \texttt{titleType} of type \texttt{VARCHAR}
+\item
+  \texttt{primaryTitle} of type \texttt{VARCHAR}
+\item
+  and so on\ldots{}
+\end{itemize}
+
+It's a good idea to double check the types of the columns involved by
+looking at the schema before performing numerical comparisons and when
+deciding whether to \texttt{CAST} a particular column.
+
+\subsection{My query runs but I'm not passing the
+tests}\label{my-query-runs-but-im-not-passing-the-tests}
+
+For a lot of questions in the homework, we limit our focus to
+\textbf{movie} titles. Double check that you are filtering your results
+appropriately. More generally, if you find your queries aren't erroring,
+but are failing the tests due to some logical error, a good starting
+point is always reading the question again and making a checklist of all
+the conditions you need to implement.
+
+
+
+\end{document}
