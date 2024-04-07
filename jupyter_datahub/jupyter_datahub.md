@@ -88,6 +88,7 @@ Converting a Jupyter notebook to a PDF involves formatting some of the markdown 
 3. **Take screenshots**: If you're short on time, your best bet is to take screenshots of your free response answers. When submitting to Gradescope, choose the "Submit Images" options instead of the "Submit PDF" option. 
 4. **Removing special LaTeX characters**: If you have more time and would like the Datahub-generated PDF, please remove any special LaTeX characters from your free response answers.
 
+If you use an alternate form of submission listed above, you don't need to worry if you can't select pages or if the selection doesn't align. We'll manually look through your submission when grading, and will account for that.
 
 ## I can't open Jupyter: `HTTP ERROR 431`
 If this happens, try [clearing your browser cache](https://support.google.com/accounts/answer/32050?hl=en&co=GENIE.Platform%3DDesktop) or opening Datahub in an incognito window.
