@@ -18,18 +18,21 @@ After you've installed quarto, go into your terminal on your *local* device and 
 If you're unable to clone the repo, please contact the head/infra TAs to make sure you have read/write access to this repository. 
 
 ### Environment Setup
-This section will ensure that you have all the necessary packages to render the website. We recommend using Conda ([download here](https://www.anaconda.com/download)) to keep track of your environment. 
+This section will ensure that you have all the necessary packages to render the website and is identical to the corresponding section in the [course-notes repo](https://github.com/DS-100/course-notes). We recommend using Conda ([download here](https://www.anaconda.com/download)) to keep track of your environment. 
 
-If you've already set up your environment for the [Data 100 Course Notes Repo](https://github.com/DS-100/course-notes), run the following in your terminal in the main `debugging-guide` directory: `conda activate data100quarto`. The course note environment will  work for the debugging guide (not but vice versa)
-
-If you haven't set up the course notes environment, run the following in your terminal within the main directory: 
+Run the following in your terminal within the main directory: 
 
 ```
-conda create --name data100-debug-guide --file requirements.txt
-conda activate data100-debug-guide
+conda create --name data100quarto 
+conda activate data100quarto
+pip3 install -r requirements.txt # will take a while
+ipython kernel install --user
 ```
 
-Remember to always activate the right environment before running anything. 
+If you get an `error: externally-managed-environment` on the third line, run `pip3 install -r requirements.txt --break-system-packages`
+
+Remember to always activate the right environment before running anything with `conda activate data100quarto`.
+
 
 ## Repo Organization
 This website uses Quarto to render pages. The main index can be found in `_quarto.yml`, and subpages are organized under the `chapters` section. Each subpage has it's own folder and `.md` (markdown) file. Note that unlike the [Course Notes repo](https://github.com/DS-100/course-notes), the debugging guide rarely runs any code, so we rely on `.md` files rather than `.qmd` to save us the trouble of converting from `.qmd` to `.ipynb` for editing, then back to `.qmd` to render the website. Instead we can make edits directly to the `.md` file. 
