@@ -65,7 +65,7 @@ If one particular cell seems to cause your kernel to die, this is likely because
 ## I accidentally deleted something in a cell that was provided to me – how do I get it back?
 Suppose you’re working on Lab 5. One solution is to go directly to DataHub and rename your lab05 folder to something else, like lab05-old. Then, click the Lab 5 link on the course website again, and it’ll bring you to a brand-new version of Lab 5. You can then copy your work from your old Lab 5 to this new one, which should have the original version of the assignment.
 
-Alternatively, you can access this [public repo](https://github.com/DS-100/sp24-student) and navigate to a blank copy of the assignment you were working on. In the case of Lab 5 for example, the notebook would be located at `lab/lab05/lab05.ipynb`. You can then check and copy over the contents of the deleted cell into a new cell in your existing notebook. 
+Alternatively, you can access this [public repo](https://github.com/DS-100/fa24-student) and navigate to a blank copy of the assignment you were working on. In the case of Lab 5 for example, the notebook would be located at `lab/lab05/lab05.ipynb`. You can then check and copy over the contents of the deleted cell into a new cell in your existing notebook. 
 
 ## "Click <u>here</u> to download zip file" is not working
 When this happens, you can download the zip file through the menu on the left. 
