@@ -28,7 +28,7 @@ Your model is likely overfitting to the training data and does not generalize to
 
 <center><img src = "under_overfit.png" width = "500"></img></a></center>
 
-To decrease model complexity, consider visualizing the relationship between the features you've chosen with the `(Log) Sale Price` and removing features that are not highly correlated. Removing outliers can also help your model generalize better and prevent it from fitting to noise in the data. Methods like cross-validation allow you to get a better sense of where you lie along the validation error curve. Feel free to take a look at the [code used in Lecture 16](https://ds100.org/sp24/resources/assets/lectures/lec16/lec16.html) if you're confused on how to implement cross-validation.
+To decrease model complexity, consider visualizing the relationship between the features you've chosen with the `(Log) Sale Price` and removing features that are not highly correlated. Removing outliers can also help your model generalize better and prevent it from fitting to noise in the data. Methods like cross-validation allow you to get a better sense of where you lie along the validation error curve. Feel free to take a look at the [code used in Lecture 16](https://ds100.org/fa24/resources/assets/lectures/lec16/lec16.html) if you're confused on how to implement cross-validation.
 
 ### `ValueError: Per-column arrays must each be 1-dimensional`
 If you're passing the tests for question 5d but getting this error in question 5f, then your `Y` variable is likely a `DataFrame`, not a `Series`. `sklearn` models like `LinearRegression` expect `X` to be a 2D datatype (ie. `DataFrame`, 2D `NumPy` array) and `Y` to be a 1D datatype (ie. `Series`, 1D `NumPy` array). 
@@ -117,7 +117,7 @@ The above two lines of code are included to avoid dividing by 0 when computing `
 ## Gradescope 
 
 ### I don't have many Gradescope submissions left
-If you're almost out of Gradescope submissions, try using k-fold cross-validation to check the accuracy of your model. Results from cross-validation will be closer to the test set accuracy than results from the training data. Feel free to take a look at the [code used in Lecture 16](https://ds100.org/sp24/resources/assets/lectures/lec16/lec16.html) if you're confused on how to implement cross-validation.
+If you're almost out of Gradescope submissions, try using k-fold cross-validation to check the accuracy of your model. Results from cross-validation will be closer to the test set accuracy than results from the training data. Feel free to take a look at the [code used in Lecture 16](https://ds100.org/fa24/resources/assets/lectures/lec16/lec16.html) if you're confused on how to implement cross-validation.
 
 ### "Wrong number of lines ( __ instead of __ )"
 This occurs when you remove outliers when preprocessing the testing data. *Please do not remove any outliers from your test set.* You may only remove outliers in training data.
