@@ -124,6 +124,6 @@ This occurs when you remove outliers when preprocessing the testing data. *Pleas
 
 ### Numerical Overflow 
 
-This error is caused by overly large predictions that create an extremely large RMSE. The cell before you generate your submission runs `submission_df["Value"].describe()`, which returns some summary statistics of your predictions. Your maximum value for `Log Sale Price` should not be over 25.
+This error can be caused by negative predictions or overly large predictions that create an extremely large RMSE. The cell before you generate your submission runs `submission_df["Value"].describe()`, which returns some summary statistics of your predictions. Your maximum value for `Log Sale Price` should not be over 25, and your minimum value should not be below 0.
 
-For your reference, a log sale price of 25 corresponds to a sale price of $e^{25} \approx$ 70 billion, which is far bigger than anything found in the dataset. If you see such large predictions, you can try removing outliers from the *training* data or experimenting with new features so that your model generalizes better. 
+For your reference, a log sale price of 25 corresponds to a sale price of $e^{25} \approx$ 70 billion, which is far bigger than anything found in the dataset. A log sale price of -1 corresponds to a sale price of $e^{-1} \approx \$0.37$, which is also not reasonable. If you see such large or small predictions, you can try removing outliers from the *training* data or experimenting with new features so that your model generalizes better. 

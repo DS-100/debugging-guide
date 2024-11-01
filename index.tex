@@ -191,7 +191,7 @@ us at \textbf{data100.instructors@berkeley.edu}
 
 \chapter{Jupyter 101}\label{jupyter-101}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, left=2mm, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, bottomtitle=1mm, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, colframe=quarto-callout-note-color-frame, arc=.35mm, bottomrule=.15mm, rightrule=.15mm, breakable, titlerule=0mm, toprule=.15mm, leftrule=.75mm, colback=white, coltitle=black]
+\begin{tcolorbox}[enhanced jigsaw, toptitle=1mm, opacitybacktitle=0.6, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, breakable, bottomtitle=1mm, rightrule=.15mm, toprule=.15mm, left=2mm, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, coltitle=black, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, leftrule=.75mm, bottomrule=.15mm]
 
 If you're using a MacBook, replace \texttt{ctrl} with \texttt{cmd}.
 
@@ -1633,17 +1633,21 @@ may only remove outliers in training data.
 
 \subsection{Numerical Overflow}\label{numerical-overflow}
 
-This error is caused by overly large predictions that create an
-extremely large RMSE. The cell before you generate your submission runs
+This error can be caused by negative predictions or overly large
+predictions that create an extremely large RMSE. The cell before you
+generate your submission runs
 \texttt{submission\_df{[}"Value"{]}.describe()}, which returns some
 summary statistics of your predictions. Your maximum value for
-\texttt{Log\ Sale\ Price} should not be over 25.
+\texttt{Log\ Sale\ Price} should not be over 25, and your minimum value
+should not be below 0.
 
 For your reference, a log sale price of 25 corresponds to a sale price
 of \(e^{25} \approx\) 70 billion, which is far bigger than anything
-found in the dataset. If you see such large predictions, you can try
-removing outliers from the \emph{training} data or experimenting with
-new features so that your model generalizes better.
+found in the dataset. A log sale price of -1 corresponds to a sale price
+of \(e^{-1} \approx \$0.37\), which is also not reasonable. If you see
+such large or small predictions, you can try removing outliers from the
+\emph{training} data or experimenting with new features so that your
+model generalizes better.
 
 
 

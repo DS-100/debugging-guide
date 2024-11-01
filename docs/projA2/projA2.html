@@ -357,8 +357,8 @@ Feature names seen at fit time, yet now missing
 </section>
 <section id="numerical-overflow" class="level3">
 <h3 class="anchored" data-anchor-id="numerical-overflow">Numerical Overflow</h3>
-<p>This error is caused by overly large predictions that create an extremely large RMSE. The cell before you generate your submission runs <code>submission_df["Value"].describe()</code>, which returns some summary statistics of your predictions. Your maximum value for <code>Log Sale Price</code> should not be over 25.</p>
-<p>For your reference, a log sale price of 25 corresponds to a sale price of <span class="math inline">\(e^{25} \approx\)</span> 70 billion, which is far bigger than anything found in the dataset. If you see such large predictions, you can try removing outliers from the <em>training</em> data or experimenting with new features so that your model generalizes better.</p>
+<p>This error can be caused by negative predictions or overly large predictions that create an extremely large RMSE. The cell before you generate your submission runs <code>submission_df["Value"].describe()</code>, which returns some summary statistics of your predictions. Your maximum value for <code>Log Sale Price</code> should not be over 25, and your minimum value should not be below 0.</p>
+<p>For your reference, a log sale price of 25 corresponds to a sale price of <span class="math inline">\(e^{25} \approx\)</span> 70 billion, which is far bigger than anything found in the dataset. A log sale price of -1 corresponds to a sale price of <span class="math inline">\(e^{-1} \approx \$0.37\)</span>, which is also not reasonable. If you see such large or small predictions, you can try removing outliers from the <em>training</em> data or experimenting with new features so that your model generalizes better.</p>
 
 
 </section>
