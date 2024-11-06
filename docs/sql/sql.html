@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data 100 Debugging Guide - RegEx</title>
+<title>Data 100 Debugging Guide - SQL Common Errors</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../visualizations/visualizations.html" rel="next">
-<link href="../pandas/pandas.html" rel="prev">
+<link href="../projA2/projA2.html" rel="prev">
 <link href="../data100_logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -69,35 +68,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -110,7 +80,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regex/regex.html"><span class="chapter-title">RegEx</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sql/sql.html"><span class="chapter-title">SQL Common Errors</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -169,7 +139,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../regex/regex.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">RegEx</span></a>
+  <a href="../regex/regex.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">RegEx</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -189,7 +159,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sql/sql.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">SQL Common Errors</span></a>
+  <a href="../sql/sql.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">SQL Common Errors</span></a>
   </div>
 </li>
     </ul>
@@ -202,24 +172,19 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#how-to-interpret-regex101" id="toc-how-to-interpret-regex101" class="nav-link active" data-scroll-target="#how-to-interpret-regex101">How to Interpret regex101</a>
+  <li><a href="#common-misconceptions" id="toc-common-misconceptions" class="nav-link active" data-scroll-target="#common-misconceptions">Common Misconceptions</a>
   <ul>
-  <li><a href="#example-1-basic" id="toc-example-1-basic" class="nav-link" data-scroll-target="#example-1-basic">Example 1: Basic</a></li>
-  <li><a href="#example-2-greedy" id="toc-example-2-greedy" class="nav-link" data-scroll-target="#example-2-greedy">Example 2: Greedy</a></li>
-  <li><a href="#example-3-capturing-groups" id="toc-example-3-capturing-groups" class="nav-link" data-scroll-target="#example-3-capturing-groups">Example 3: Capturing Groups</a>
-  <ul>
-  <li><a href="#how-do-i-access-captured-groups" id="toc-how-do-i-access-captured-groups" class="nav-link" data-scroll-target="#how-do-i-access-captured-groups">How do I access captured groups?</a></li>
+  <li><a href="#how-to-read-sql-errors" id="toc-how-to-read-sql-errors" class="nav-link" data-scroll-target="#how-to-read-sql-errors">How to read SQL Errors</a></li>
+  <li><a href="#comments-in-sql" id="toc-comments-in-sql" class="nav-link" data-scroll-target="#comments-in-sql">Comments in SQL</a></li>
+  <li><a href="#filtering-with-multiple-conditions" id="toc-filtering-with-multiple-conditions" class="nav-link" data-scroll-target="#filtering-with-multiple-conditions">Filtering with multiple conditions</a></li>
+  <li><a href="#truncated-display-limit" id="toc-truncated-display-limit" class="nav-link" data-scroll-target="#truncated-display-limit">Truncated Display Limit</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#regex-misconceptions-general-errors" id="toc-regex-misconceptions-general-errors" class="nav-link" data-scroll-target="#regex-misconceptions-general-errors">RegEx Misconceptions &amp; General Errors</a>
+  <li><a href="#common-errors" id="toc-common-errors" class="nav-link" data-scroll-target="#common-errors">Common Errors</a>
   <ul>
-  <li><a href="#im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check." id="toc-im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check." class="nav-link" data-scroll-target="#im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check.">I’m certain my RegEx pattern in <code>.str.replace</code> is correct, but I’m not passing the grader check.</a></li>
-  <li><a href="#my-regex-pattern-matches-the-test-cases-on-regex101-but-is-not-working-in-pandas-with-.str.findall-.str.extractall-.str.extract." id="toc-my-regex-pattern-matches-the-test-cases-on-regex101-but-is-not-working-in-pandas-with-.str.findall-.str.extractall-.str.extract." class="nav-link" data-scroll-target="#my-regex-pattern-matches-the-test-cases-on-regex101-but-is-not-working-in-pandas-with-.str.findall-.str.extractall-.str.extract.">My RegEx pattern matches the test cases on regex101, but is not working in <code>pandas</code> with <code>.str.findall</code> / <code>.str.extractall</code> / <code>.str.extract</code>.</a></li>
-  <li><a href="#value-error-pattern-contains-no-capture-groups" id="toc-value-error-pattern-contains-no-capture-groups" class="nav-link" data-scroll-target="#value-error-pattern-contains-no-capture-groups"><code>Value Error: pattern contains no capture groups</code></a></li>
-  <li><a href="#when-do-i-need-to-escape-characters" id="toc-when-do-i-need-to-escape-characters" class="nav-link" data-scroll-target="#when-do-i-need-to-escape-characters">When do I need to escape characters?</a></li>
-  <li><a href="#the-three-uses-of" id="toc-the-three-uses-of" class="nav-link" data-scroll-target="#the-three-uses-of">The three uses of <code>^</code></a></li>
-  <li><a href="#whats-the-difference-between-all-the-re-functions" id="toc-whats-the-difference-between-all-the-re-functions" class="nav-link" data-scroll-target="#whats-the-difference-between-all-the-re-functions">What’s the difference between all the <code>re</code> functions?</a></li>
-  <li><a href="#whats-the-difference-between-re-functions-and-pd.series.str-functions" id="toc-whats-the-difference-between-re-functions-and-pd.series.str-functions" class="nav-link" data-scroll-target="#whats-the-difference-between-re-functions-and-pd.series.str-functions">What’s the difference between <code>re</code> functions and <code>pd.Series.str</code> functions?</a></li>
+  <li><a href="#nameerror-name-res_q-is-not-defined" id="toc-nameerror-name-res_q-is-not-defined" class="nav-link" data-scroll-target="#nameerror-name-res_q-is-not-defined"><code>NameError: name ‘[res_q#]’ is not defined</code></a></li>
+  <li><a href="#referenced-column-some_string-not-found" id="toc-referenced-column-some_string-not-found" class="nav-link" data-scroll-target="#referenced-column-some_string-not-found"><code>Referenced column "{some_string}" not found</code></a></li>
+  <li><a href="#cannot-compare-values-of-type-__-and-type-__" id="toc-cannot-compare-values-of-type-__-and-type-__" class="nav-link" data-scroll-target="#cannot-compare-values-of-type-__-and-type-__"><code>Cannot compare values of type __ and type __</code></a></li>
+  <li><a href="#my-query-runs-but-im-not-passing-the-tests" id="toc-my-query-runs-but-im-not-passing-the-tests" class="nav-link" data-scroll-target="#my-query-runs-but-im-not-passing-the-tests">My query runs but I’m not passing the tests</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -229,7 +194,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">RegEx</span></h1>
+<h1 class="title"><span class="chapter-title">SQL Common Errors</span></h1>
 </div>
 
 
@@ -246,130 +211,153 @@ window.Quarto = {
 </header>
 
 
-<p>RegEx syntax can be incredibly confusing, so we highly encourage using sources like the Data 100 Exam reference sheet (you can find this under the “Exam Resources” section on our <a href="https://ds100.org/sp24/resources/">Resources page</a>) or websites like <a href="https://regex101.com/">regex101.com</a> to help build your understanding.</p>
-<section id="how-to-interpret-regex101" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-interpret-regex101">How to Interpret regex101</h2>
-<p><a href="https://regex101.com/">Regex101</a> is a great tool that helps you visually interact with RegEx patterns. Let’s take a look at its components with a simple example.</p>
-<section id="example-1-basic" class="level3">
-<h3 class="anchored" data-anchor-id="example-1-basic">Example 1: Basic</h3>
+<section id="common-misconceptions" class="level2">
+<h2 class="anchored" data-anchor-id="common-misconceptions">Common Misconceptions</h2>
+<section id="how-to-read-sql-errors" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-read-sql-errors">How to read SQL Errors</h3>
+<p>Because Jupyter notebooks run Python natively, we need to import extra modules like <code>sql</code>, <code>sqlalchemy</code>, and <code>duckdb</code> in order to run SQL queries within our notebook. This results in slightly more complex error messages than normal Python. Refer to the image below if you need help identifying the most important parts (the red and blue text).</p>
 <center>
-<img src="images/updated_basic.png" width="700">
+<img src="images/sql_error.png" width="700">
 </center>
-<p><br></p>
-<ol start="0" type="1">
-<li><strong>Flavor</strong>: Regular expressions work slightly differently depending on the programming language you use. In Data 100, we only use the <code>Python</code> flavor. By default, regex101 opens on the PCRE2 flavor, so make sure to change to <code>Python</code> before experimenting.</li>
-<li><strong>Regular Expression</strong>: This is where the RegEx expression goes. For this example, our pattern is <code>Data 100</code>. In <code>Python</code>, we denote it as a string <code>r"Data 100"</code> with the prefix <code>r</code> to indicate that this is a RegEx expression, not a normal <code>Python</code> string. In regex101, because we changed to the <code>Python</code> flavor, we don’t need to type out the <code>r"</code> at the start or the <code>"</code> at the end, as that’s already set up for us.</li>
-<li><strong>Explanation</strong>: This portion of the website explains each component of the pattern above. Since it does not contain any special characters, <code>Data 100</code> will match any portion of a string containing <code>Data 100</code>.</li>
-<li><strong>Test String</strong>: This is where you can try out different inputs and see if they match the RegEx pattern. Of the 4 example sentences, we see that only the first sentence contains characters that match the pattern, highlighted in blue. (Note that while sentence 3 does contain <code>data 100</code>, RegEx is sensitive to capitalization. <code>d</code> and <code>D</code> are different characters)</li>
-<li><strong>Match Information</strong>: Each match between the RegEx expression and test strings is shown here.</li>
-</ol>
+<p>Sometimes, SQL errors may show up as a long string without any red highlight, for example:</p>
+<p><code>(duckdb.duckdb.BinderException) Binder Error: Referenced column "some_column" not found in FROM clause! LINE 1: SELECT some_column                ^</code> <code>...</code></p>
+<p>Note that this is the same error as the one above – it’s just not formatted nicely. Try your best to parse it; you can even copy the error into a new cell and manually indent sentences if it helps with readability!</p>
 </section>
-<section id="example-2-greedy" class="level3">
-<h3 class="anchored" data-anchor-id="example-2-greedy">Example 2: Greedy</h3>
-<p>For this example, let’s replace the <code>100</code> in our original expression with <code>\d+</code> so that our pattern is <code>Data \d+</code></p>
-<center>
-<img src="images/updated_greedy.png" width="700">
-</center>
-<p><br></p>
-<p><code>\d</code> and <code>+</code> are both special operators, and the explanation on the top right (boxed in red) tells us what they do:</p>
-<ul>
-<li><code>\d</code> matches digits, or any number between 0 and 9. It’s equivalent to <code>[0-9]</code>.</li>
-<li><code>+</code> matches the previous token <span class="math inline">\(\geq 1\)</span> times. It is a <em>greedy operation</em>, meaning it will match as many characters as possible.</li>
-</ul>
-<p>Altogether, the expression <code>\d+</code> will match any digit one or more times. Look at each match under “Match Information”. Can you see why they align with <code>Data \d+</code>?</p>
-</section>
-<section id="example-3-capturing-groups" class="level3">
-<h3 class="anchored" data-anchor-id="example-3-capturing-groups">Example 3: Capturing Groups</h3>
-<p>Let’s say we’re given a body of text with dates formatted as <code>DD/Month/YYYY</code> (ie. 04/Jan/2014), and we’re interested in extracting the dates. An expression like <code>r"\d+\/\w+\/\d+"</code> would match any string with the <code>DD/Month/YYYY</code> format:</p>
-<ul>
-<li>the first <code>\d+</code> matches <code>DD</code> patterns (ie. <code>04</code>)</li>
-<li><code>\/</code> matches the <code>/</code> separator. Since <code>/</code> is a special operator in RegEx, we need to escape it with <code>\</code> to get the literal character.</li>
-<li><code>\w+</code> in the middle matches <code>Month</code> patterns we’re interested in (ie. <code>Jan</code>, <code>January</code>)</li>
-<li>lastly, <code>\d+</code> matches <code>YYYY</code> patterns (ie. <code>2014</code>)</li>
-</ul>
-<p>That’s great! This pattern will match the entirety of <code>DD/Month/YYYY</code>, but what if we want to access <code>DD</code> individually? What about <code>YYYY</code>? This is where <strong>capturing groups</strong> comes in handy. Capturing groups are RegEx expressions surrounded by parenthesis <code>()</code> that are used to remember the text they match so that it can be referenced later. Putting capturing groups around <code>\d+</code> and <code>\w+</code> to get <code>r"(\d+)\/(\w+)\/(\d+)"</code>gives us the following:</p>
-<center>
-<img src="images/updated_capturing_groups.png" width="700">
-</center>
-<p><br></p>
-<ul>
-<li>The “Explanation” section now shows an explanation for each of the 3 capturing groups.</li>
-<li>In our test strings, the portion matching the RegEx expression is highlighted in blue per usual. Additionally, each capturing group is highlighted with a particular color: green, orange, and purple.</li>
-<li>These colored highlights correspond to their match/group under “Match Information”. “Match #” (light blue) shows the entire portion that matches the expression while “Group #” shows the match per group.</li>
-</ul>
-<section id="how-do-i-access-captured-groups" class="level4">
-<h4 class="anchored" data-anchor-id="how-do-i-access-captured-groups">How do I access captured groups?</h4>
-<p>To access each group, we use the following syntax:</p>
-<pre><code>target_string = "Today's date is 01/March/2024."
-result = re.search(r"(\d+)\/(\w+)\/(\d+)", target_string)
+<section id="comments-in-sql" class="level3">
+<h3 class="anchored" data-anchor-id="comments-in-sql">Comments in SQL</h3>
+<p>Unlike <code>Python</code>, which uses <code>#...</code> or triple quotes <code>"""..."""</code> to indicate a comment, SQL comments take the following forms:</p>
+<pre><code>-- This is a single-line or in-line comment
 
-result # re.Match object
-result.groups() # all captured groups: ('01', 'March', '2024')
-result.group(0) # '01/March/2024', the full match
-result.group(1) # '01', the first captured group
-result.group(2) # 'March', the second captured group
-result.group(3) # '2024', the third captured group</code></pre>
+/* 
+  This is a 
+  multi-line 
+  comment 
+*/</code></pre>
+<p>Because you are still coding within a Python notebook, the colors that Jupyter chooses for your SQL queries may not match up to what you expect; using <code>#...</code> will be green text like Python comments, but running the code will give you:</p>
+<p><code>Parser Error: syntax error at or near...</code></p>
+<p>Using <code>--</code> or <code>/* ... */</code> may not color-code the text correctly, but SQL will still read it as a comment!</p>
+<!-- 
+Note: not including this one since we switched from Lisa's grading method of pickling files to Rohan's method with the uppdated Otter Grader
+
+## Failing on Gradescope but passing locally
+
+This usually occurs when an unzipped file is submitted to Gradescope. Please directly submit the file downloaded through the link under the final submission cell of the notebook to Gradescope (no need to unzip it). The zip file should contain a results folder containing .pkl files in it.
+
+Submit the full zip files. Don’t unzip it before submitting to Gradescope. -->
+</section>
+<section id="filtering-with-multiple-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="filtering-with-multiple-conditions">Filtering with multiple conditions</h3>
+<p>When you are using more than one condition in filtering clauses like <code>WHERE</code> or <code>HAVING</code>, it’s important consider that the ordering of <code>OR</code>s and <code>AND</code>s will affect your SQL output.</p>
+<p>In <code>SQL</code>, the operator precedence typically evaluates <code>AND</code> operations before <code>OR</code> operations, and so incorrectly ordered conditions can lead to unexpected results. To ensure your conditions are evaluated in the intended order, use parentheses to group them explicitly.</p>
+<p>For example, consider the following query condition:</p>
+<p><code>WHERE A &gt; 500 AND B &gt; 200 OR C &lt; 50</code></p>
+<p>By default, is will be evaluated as</p>
+<p><code>WHERE (A &gt; 500 AND B &gt; 200) OR C &lt; 50</code></p>
+<p>because <code>AND</code> has a higher precedence than <code>OR</code>. To evaluate it differently, add parentheses to specify the order of operations:</p>
+<p><code>WHERE A &gt; 500 AND (B &gt; 200 OR C &lt; 50)</code></p>
+</section>
+<section id="truncated-display-limit" class="level3">
+<h3 class="anchored" data-anchor-id="truncated-display-limit">Truncated Display Limit</h3>
+<p>Our Jupyter Notebooks are set to only display the first 10 rows of a table. Otherwise, your notebook would likely crash with the weight of displaying &gt;1000 rows. You’ll likely see a</p>
+<p><code>Truncated to displaylimit of 10</code></p>
+<p>printed right below your SQL query if your table contains more than 10 rows.</p>
 </section>
 </section>
+<section id="common-errors" class="level2">
+<h2 class="anchored" data-anchor-id="common-errors">Common Errors</h2>
+<section id="nameerror-name-res_q-is-not-defined" class="level3">
+<h3 class="anchored" data-anchor-id="nameerror-name-res_q-is-not-defined"><code>NameError: name ‘[res_q#]’ is not defined</code></h3>
+<p>This occurs when you have an error in your SQL code, causing the cell after to fail. Because we’re working with Jupyter Notebooks, some SQL errors are not highlighted in red like <code>Python</code> errors usually are. Check the output under your <code>%%sql</code> cell to see if it ran smoothly. Any text below</p>
+<p><code>Running query in 'duckdb:///data/{database_name}.db</code></p>
+<p>is an error message that you can read to debug your code. Note that this error could be formatted as one long string without any indents or newlines, so it may be harder than typical <code>Python</code> errors to parse.</p>
+<!--
+Note: Not included as these questions don't come up as frequently in the HW, but can be added later if need be
+#### **Some scenarios and fixes**
+
+
+**1. Incorrect Alias Usage**
+
+- **Issue:** Referring to a column or table using its original name instead of the alias assigned with the `AS` keyword.
+- **Solution:** Always use the alias, if you have assigned one, when referencing a column or table. For example, if you set `SELECT column AS col FROM table`, use `col` in your subsequent references.
+
+**2. Ambiguous Column Reference in Joins**
+
+- **Issue:** Referring to a column that exists in both tables being joined, without specifying which table's column to use.
+- **Solution:** Specify the table from which to select the column from. Use the format `tableName.columnName` to clear up the ambiguity. For example, if joining `tableA` and `tableB`, both containing `column`, specify `tableA.column` or `tableB.column`.
+
+-->
 </section>
-<section id="regex-misconceptions-general-errors" class="level2">
-<h2 class="anchored" data-anchor-id="regex-misconceptions-general-errors">RegEx Misconceptions &amp; General Errors</h2>
-<section id="im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check." class="level3">
-<h3 class="anchored" data-anchor-id="im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check.">I’m certain my RegEx pattern in <code>.str.replace</code> is correct, but I’m not passing the grader check.</h3>
-<p>Here’s the skeleton from the exam reference sheet:</p>
-<p><code>s.str.replace(pat, repl, regex=False)</code></p>
-<p>Notice how the <code>regex=</code> argument has a default value of <code>False</code>, causing <code>pandas</code> to treat <code>pat</code> like a normal <code>Python</code> string. Make sure to set <code>regex=True</code> if you’re using RegEx!</p>
-</section>
-<section id="my-regex-pattern-matches-the-test-cases-on-regex101-but-is-not-working-in-pandas-with-.str.findall-.str.extractall-.str.extract." class="level3">
-<h3 class="anchored" data-anchor-id="my-regex-pattern-matches-the-test-cases-on-regex101-but-is-not-working-in-pandas-with-.str.findall-.str.extractall-.str.extract.">My RegEx pattern matches the test cases on regex101, but is not working in <code>pandas</code> with <code>.str.findall</code> / <code>.str.extractall</code> / <code>.str.extract</code>.</h3>
-<p>The most likely reason for this is forgetting to include the <code>r</code> before the string with your regular expression. Without including the <code>r</code> in <code>.str.findall(r".*")</code>, <code>pandas</code> will not interpret your pattern as a regex expression and will only match it literally.</p>
-</section>
-<section id="value-error-pattern-contains-no-capture-groups" class="level3">
-<h3 class="anchored" data-anchor-id="value-error-pattern-contains-no-capture-groups"><code>Value Error: pattern contains no capture groups</code></h3>
-<p>These errors usually occur when using <code>s.str.extract</code> or <code>s.str.extractall</code>. Read more about it in the <a href="https://ds100.org/course-notes/regex/regex.html#extraction-with-pandas">RegEx course notes</a>. This error means that your RegEx pattern does not match anything in the given <code>Series</code> of strings. To debug this, try putting your pattern into <a href="https://regex101.com/">regex101.com</a> and use example strings from the Series as test cases.</p>
-</section>
-<section id="when-do-i-need-to-escape-characters" class="level3">
-<h3 class="anchored" data-anchor-id="when-do-i-need-to-escape-characters">When do I need to escape characters?</h3>
-<p>The special characters in RegEx are: <code>. ^ $ * + ? ] [ \ | ( ) { } }</code></p>
-<p>If you want to match exactly those characters in a RegEx expression, you need to “escape” them by preceding them with a backslash <code>\</code>. However, the rules around this can change in the context of character classes.</p>
-<p>For example, the pattern <code>r"[.]"</code> matches <code>'.'</code>, the literal period. In this context, it is not treated as a special character. The hyphen, while not included in the list of special characters, also changes its behavior depending on its position in a character class. It can be used to specify a range of characters (e.g.&nbsp;<code>r"[0-9]"</code>) based on their Unicode values, or match a literal <code>'-'</code> if it does not have two adjacent characters (e.g.&nbsp;<code>r"[-09]"</code> matches <code>-</code>, <code>0</code>, <code>9</code>). To be on the safer side, you could escape <code>-</code> like in <code>r"[0\-9]"</code> to achieve the same result.</p>
-<p>Finally, it’s generally good practice to escape both single and double quotes for greater readability. Technically, patterns like <code>r"'(.\*)'"</code> and <code>r'"(.\*)"'</code> do work as you’d expect, but you can already see how confusing it is to decipher what’s going on. Escaping the quotes inside the pattern does not affect what matches you get, but makes it easier to figure out what the intended match was.</p>
-</section>
-<section id="the-three-uses-of" class="level3">
-<h3 class="anchored" data-anchor-id="the-three-uses-of">The three uses of <code>^</code></h3>
-<p>The <code>^</code> character can be tricky to wrap your head around given how its function changes depending on the context:</p>
+<section id="referenced-column-some_string-not-found" class="level3">
+<h3 class="anchored" data-anchor-id="referenced-column-some_string-not-found"><code>Referenced column "{some_string}" not found</code></h3>
+<p>There are 2 potential causes for this error:</p>
 <ol type="1">
-<li>If used at the start of a pattern, like in <code>r"^\w"</code>, it means that a lowercase letter must begin the string in order for a match to occur.</li>
-<li>If included at the start of a character class, like in <code>r"[^abc]"</code>, it negates all the characters in that class and will match with any other character – in the above example, any character that is not <code>a</code>, <code>b</code>, <code>c</code>.</li>
-<li>Finally, if escaped as in <code>r"\^"</code> it is treated as a literal and will match any instance of <code>^</code>.</li>
+<li><strong>The column you’re looking for does not exist in the table.</strong> Make sure that the column names are spelled and capatalized exactly as shown in the assignment. If you are trying to reference a column that is not in the current table, consider using <code>JOIN</code> to be able to access these columns. You can reference the <a href="https://ds100.org/course-notes/sql_II/sql_II.html#joining-tables">SQL II course notes</a> for a refresher on how to use the <code>JOIN</code> clause.</li>
+<li><strong>You used double quotes <code>""</code> around <code>some_string</code> instead of single quotes <code>''</code></strong>. Unlike <code>Python</code>, SQL differentiates double and single quotes: double quotes indicate something that exists within the database, like tables and column names; single quotes indicate strings.</li>
 </ol>
+<!-- Does not error using duckdb
+
+## Error message near `CASE`
+
+You may run into errors near the `CASE` clause if you are creaing a column using `CASE` and then referencing the new column in the `SELECT` clause as well. 
+
+When you are using `CASE` within `SELECT`, the new column will automatically be selected. You can reference the course notes [here](https://ds100.org/course-notes/sql_II/sql_II.html#using-conditional-statements-with-case) for a refresher on how to use the `CASE` clause. -->
 </section>
-<section id="whats-the-difference-between-all-the-re-functions" class="level3">
-<h3 class="anchored" data-anchor-id="whats-the-difference-between-all-the-re-functions">What’s the difference between all the <code>re</code> functions?</h3>
-<p>The exam reference sheets give a few <code>re</code> functions, but how can you determine which one to use?</p>
+<section id="cannot-compare-values-of-type-__-and-type-__" class="level3">
+<h3 class="anchored" data-anchor-id="cannot-compare-values-of-type-__-and-type-__"><code>Cannot compare values of type __ and type __</code></h3>
+<p>This error often occurs when a string-type column (ie. <code>CHAR</code> or <code>VARCHAR</code>) is compared with a numeric-type column (ie. <code>INT</code>, <code>BIGINT</code>, <code>FLOAT</code>, <code>REAL</code>). If you’re interested in learning more about SQL datatypes, check out <a href="https://www.w3schools.com/sql/sql_datatypes.asp">this link</a>!</p>
+<p>To debug, start by checking the type of the column(s) you’re working with; you can either scroll up to the cell (or make a new cell) with the code:</p>
+<pre><code>%%sql
+SELECT * FROM sqlite_master WHERE type='table';</code></pre>
+<p>which outputs the schema for each table. If we’re working with the IMDB database, we get the following output:</p>
 <center>
-<img src="images/ref_sheet_re_methods.png" width="800">
+<img src="images/imdb_schema.png" width="700">
 </center>
-<p><br></p>
-<p><code>re.match</code> and <code>re.search</code> only return <em>one</em> instance of a match between string and pattern (or None if there’s no match) - <code>re.match</code> only considers characters at the beginning of a string - <code>re.search</code> considers characters anywhere in the string - For example: ``` pattern = r”Data 100” example1 = “Data 100 is the best!” example2 = “I love Data 100!”</p>
-<p>re.match(pattern, example1).group(0) # matches “Data 100” re.match(pattern, example2) # does not match “Data 100” because it’s not at the beginning of a string; returns None</p>
-<p>re.search(pattern, example1).group(0) # matches “Data 100” re.search(pattern, example2).group(0) # matches “Data 100” ```</p>
-<p>If, instead, you’re interested in finding <em>all</em> matches between the given string and pattern, <code>re.findall</code> will find them all, returning the matches in a list.</p>
-<pre><code>re.findall(r'\d+', 'Data 100, Data 8, Data 101') 
-# returns a list of strings: ['100', '8', '101']
-
-re.findall(r'\d+', 'Data science is great')  
-# no matches found, returns empty list: []</code></pre>
-<p><code>re.sub</code> will find them all <em>and replace it</em> with a string of your choice.</p>
-<pre><code>re.sub(r'\d+', 'panda', 'Data 100, Data 8, Data 101') 
-# returns 'Data panda, Data panda, Data panda'
-
-re.sub(r'\d+', 'panda', 'Data science is great')  
-# no matches found, returns the original string "Data science is great" </code></pre>
+<p>We can see that the table <code>Title</code> contains the columns</p>
+<ul>
+<li><code>tconst</code> of type <code>BIGINT</code></li>
+<li><code>titleType</code> of type <code>VARCHAR</code></li>
+<li><code>primaryTitle</code> of type <code>VARCHAR</code></li>
+<li>and so on…</li>
+</ul>
+<p>It’s a good idea to double check the types of the columns involved by looking at the schema before performing numerical comparisons and when deciding whether to <code>CAST</code> a particular column.</p>
 </section>
-<section id="whats-the-difference-between-re-functions-and-pd.series.str-functions" class="level3">
-<h3 class="anchored" data-anchor-id="whats-the-difference-between-re-functions-and-pd.series.str-functions">What’s the difference between <code>re</code> functions and <code>pd.Series.str</code> functions?</h3>
-<p>Generally, all the <code>pd.Series.str</code> functions are used when you want to apply a Python or RegEx string function to a <em>Series of strings</em>. In contrast, <code>re</code> functions are applied to string objects. The reference sheet gives a great overview of the different use cases of each of the <code>pd.Series.str</code> functions.</p>
+<section id="my-query-runs-but-im-not-passing-the-tests" class="level3">
+<h3 class="anchored" data-anchor-id="my-query-runs-but-im-not-passing-the-tests">My query runs but I’m not passing the tests</h3>
+<p>For a lot of questions in the homework, we limit our focus to <strong>movie</strong> titles. Double check that you are filtering your results appropriately. More generally, if you find your queries aren’t erroring, but are failing the tests due to some logical error, a good starting point is always reading the question again and making a checklist of all the conditions you need to implement.</p>
+<!-- Not including cuz duckdb fixes this
+
+##Incorrect data types with `CAST`
+
+It is important to use only the supported data types when casting, otherwise the query will result in an error. SQL supports casting to and from the following data types:
+
+- **Integer Types**: `bigint`, `int`, `smallint`, `tinyint`
+- **Boolean Type**: `bit`
+- **Decimal Types**: `decimal`, `numeric`, `money`, `smallmoney`
+- **Floating Point Types**: `float`, `real`
+- **Date and Time Types**: `datetime`, `smalldatetime`
+- **Character Strings**: `char`, `varchar`, `text`
+- **Unicode Character Strings**: `nchar`, `nvarchar`, `ntext`
+- **Binary Strings**: `binary`, `varbinary`, `image`
+
+For example, doing `CAST(num AS integer)` will error since `int` is a supported data type, but `integer` is not. -->
+<!--
+Note: Not included as these questions don't come up as frequently in the HW, but can be added later if need be
+
+## Frame not returned when using (...) in filtering
+
+In `SQL`, tuples are a sequence of values grouped together by parenthesis. They are meant for use with the `IN` keyword when filtering data based on set membership. You need to be careful when using tuples with other filtering keywords such as `LIKE`.
+
+#### **Incorrect usage:**
+
+1.  `WHERE item LIKE ('%orange%' OR '%strawberry%')`
+2.  `WHERE item IN ('fruit', 'vegetable')`
+
+#### **Correct usage:**
+
+1. `WHERE (item LIKE '%orange%' OR item LIKE '%strawberry%')`
+2. `WHERE item IN ('fruit', 'vegetable')`
+
+-->
 
 
 </section>
@@ -765,14 +753,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../pandas/pandas.html" class="pagination-link  aria-label=" &lt;span="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Pandas</span></span>
+      <a href="../projA2/projA2.html" class="pagination-link  aria-label=" &lt;span="" a2="" common="" questions&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Project A2 Common Questions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../visualizations/visualizations.html" class="pagination-link" aria-label="<span class='chapter-number'>6</span>&nbsp; <span class='chapter-title'>Visualizations</span>">
-        <span class="nav-page-text"><span class="chapter-title">Visualizations</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

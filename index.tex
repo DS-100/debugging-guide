@@ -191,7 +191,7 @@ us at \textbf{data100.instructors@berkeley.edu}
 
 \chapter{Jupyter 101}\label{jupyter-101}
 
-\begin{tcolorbox}[enhanced jigsaw, toptitle=1mm, opacitybacktitle=0.6, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, breakable, bottomtitle=1mm, rightrule=.15mm, toprule=.15mm, left=2mm, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, coltitle=black, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, leftrule=.75mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, arc=.35mm, rightrule=.15mm, coltitle=black, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, bottomtitle=1mm, colback=white, titlerule=0mm, leftrule=.75mm, toptitle=1mm, bottomrule=.15mm, toprule=.15mm, left=2mm]
 
 If you're using a MacBook, replace \texttt{ctrl} with \texttt{cmd}.
 
@@ -1648,6 +1648,186 @@ of \(e^{-1} \approx \$0.37\), which is also not reasonable. If you see
 such large or small predictions, you can try removing outliers from the
 \emph{training} data or experimenting with new features so that your
 model generalizes better.
+
+\bookmarksetup{startatroot}
+
+\chapter{SQL Common Errors}\label{sql-common-errors}
+
+\section{Common Misconceptions}\label{common-misconceptions}
+
+\subsection{How to read SQL Errors}\label{how-to-read-sql-errors}
+
+Because Jupyter notebooks run Python natively, we need to import extra
+modules like \texttt{sql}, \texttt{sqlalchemy}, and \texttt{duckdb} in
+order to run SQL queries within our notebook. This results in slightly
+more complex error messages than normal Python. Refer to the image below
+if you need help identifying the most important parts (the red and blue
+text).
+
+Sometimes, SQL errors may show up as a long string without any red
+highlight, for example:
+
+\texttt{(duckdb.duckdb.BinderException)\ Binder\ Error:\ Referenced\ column\ "some\_column"\ not\ found\ in\ FROM\ clause!\ LINE\ 1:\ SELECT\ some\_column\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \^{}}
+\texttt{...}
+
+Note that this is the same error as the one above -- it's just not
+formatted nicely. Try your best to parse it; you can even copy the error
+into a new cell and manually indent sentences if it helps with
+readability!
+
+\subsection{Comments in SQL}\label{comments-in-sql}
+
+Unlike \texttt{Python}, which uses \texttt{\#...} or triple quotes
+\texttt{"""..."""} to indicate a comment, SQL comments take the
+following forms:
+
+\begin{verbatim}
+-- This is a single-line or in-line comment
+
+/* 
+  This is a 
+  multi-line 
+  comment 
+*/
+\end{verbatim}
+
+Because you are still coding within a Python notebook, the colors that
+Jupyter chooses for your SQL queries may not match up to what you
+expect; using \texttt{\#...} will be green text like Python comments,
+but running the code will give you:
+
+\texttt{Parser\ Error:\ syntax\ error\ at\ or\ near...}
+
+Using \texttt{-\/-} or \texttt{/*\ ...\ */} may not color-code the text
+correctly, but SQL will still read it as a comment!
+
+\subsection{Filtering with multiple
+conditions}\label{filtering-with-multiple-conditions}
+
+When you are using more than one condition in filtering clauses like
+\texttt{WHERE} or \texttt{HAVING}, it's important consider that the
+ordering of \texttt{OR}s and \texttt{AND}s will affect your SQL output.
+
+In \texttt{SQL}, the operator precedence typically evaluates
+\texttt{AND} operations before \texttt{OR} operations, and so
+incorrectly ordered conditions can lead to unexpected results. To ensure
+your conditions are evaluated in the intended order, use parentheses to
+group them explicitly.
+
+For example, consider the following query condition:
+
+\texttt{WHERE\ A\ \textgreater{}\ 500\ AND\ B\ \textgreater{}\ 200\ OR\ C\ \textless{}\ 50}
+
+By default, is will be evaluated as
+
+\texttt{WHERE\ (A\ \textgreater{}\ 500\ AND\ B\ \textgreater{}\ 200)\ OR\ C\ \textless{}\ 50}
+
+because \texttt{AND} has a higher precedence than \texttt{OR}. To
+evaluate it differently, add parentheses to specify the order of
+operations:
+
+\texttt{WHERE\ A\ \textgreater{}\ 500\ AND\ (B\ \textgreater{}\ 200\ OR\ C\ \textless{}\ 50)}
+
+\subsection{Truncated Display Limit}\label{truncated-display-limit}
+
+Our Jupyter Notebooks are set to only display the first 10 rows of a
+table. Otherwise, your notebook would likely crash with the weight of
+displaying \textgreater1000 rows. You'll likely see a
+
+\texttt{Truncated\ to\ displaylimit\ of\ 10}
+
+printed right below your SQL query if your table contains more than 10
+rows.
+
+\section{Common Errors}\label{common-errors}
+
+\subsection{\texorpdfstring{\texttt{NameError:\ name\ ‘{[}res\_q\#{]}’\ is\ not\ defined}}{NameError: name `{[}res\_q\#{]}' is not defined}}\label{nameerror-name-res_q-is-not-defined}
+
+This occurs when you have an error in your SQL code, causing the cell
+after to fail. Because we're working with Jupyter Notebooks, some SQL
+errors are not highlighted in red like \texttt{Python} errors usually
+are. Check the output under your \texttt{\%\%sql} cell to see if it ran
+smoothly. Any text below
+
+\texttt{Running\ query\ in\ \textquotesingle{}duckdb:///data/\{database\_name\}.db}
+
+is an error message that you can read to debug your code. Note that this
+error could be formatted as one long string without any indents or
+newlines, so it may be harder than typical \texttt{Python} errors to
+parse.
+
+\subsection{\texorpdfstring{\texttt{Referenced\ column\ "\{some\_string\}"\ not\ found}}{Referenced column "\{some\_string\}" not found}}\label{referenced-column-some_string-not-found}
+
+There are 2 potential causes for this error:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{The column you're looking for does not exist in the table.}
+  Make sure that the column names are spelled and capatalized exactly as
+  shown in the assignment. If you are trying to reference a column that
+  is not in the current table, consider using \texttt{JOIN} to be able
+  to access these columns. You can reference the
+  \href{https://ds100.org/course-notes/sql_II/sql_II.html\#joining-tables}{SQL
+  II course notes} for a refresher on how to use the \texttt{JOIN}
+  clause.
+\item
+  \textbf{You used double quotes \texttt{""} around
+  \texttt{some\_string} instead of single quotes
+  \texttt{\textquotesingle{}\textquotesingle{}}}. Unlike
+  \texttt{Python}, SQL differentiates double and single quotes: double
+  quotes indicate something that exists within the database, like tables
+  and column names; single quotes indicate strings.
+\end{enumerate}
+
+\subsection{\texorpdfstring{\texttt{Cannot\ compare\ values\ of\ type\ \_\_\ and\ type\ \_\_}}{Cannot compare values of type \_\_ and type \_\_}}\label{cannot-compare-values-of-type-__-and-type-__}
+
+This error often occurs when a string-type column (ie. \texttt{CHAR} or
+\texttt{VARCHAR}) is compared with a numeric-type column (ie.
+\texttt{INT}, \texttt{BIGINT}, \texttt{FLOAT}, \texttt{REAL}). If you're
+interested in learning more about SQL datatypes, check out
+\href{https://www.w3schools.com/sql/sql_datatypes.asp}{this link}!
+
+To debug, start by checking the type of the column(s) you're working
+with; you can either scroll up to the cell (or make a new cell) with the
+code:
+
+\begin{verbatim}
+%%sql
+SELECT * FROM sqlite_master WHERE type='table';
+\end{verbatim}
+
+which outputs the schema for each table. If we're working with the IMDB
+database, we get the following output:
+
+We can see that the table \texttt{Title} contains the columns
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{tconst} of type \texttt{BIGINT}
+\item
+  \texttt{titleType} of type \texttt{VARCHAR}
+\item
+  \texttt{primaryTitle} of type \texttt{VARCHAR}
+\item
+  and so on\ldots{}
+\end{itemize}
+
+It's a good idea to double check the types of the columns involved by
+looking at the schema before performing numerical comparisons and when
+deciding whether to \texttt{CAST} a particular column.
+
+\subsection{My query runs but I'm not passing the
+tests}\label{my-query-runs-but-im-not-passing-the-tests}
+
+For a lot of questions in the homework, we limit our focus to
+\textbf{movie} titles. Double check that you are filtering your results
+appropriately. More generally, if you find your queries aren't erroring,
+but are failing the tests due to some logical error, a good starting
+point is always reading the question again and making a checklist of all
+the conditions you need to implement.
 
 
 
