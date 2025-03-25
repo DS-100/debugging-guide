@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Pandas – Data 100 Debugging Guide</title>
+<title>RegEx – Data 100 Debugging Guide</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../regex/regex.html" rel="next">
-<link href="../autograder_gradescope/autograder_gradescope.html" rel="prev">
+<link href="../visualizations/visualizations.html" rel="next">
+<link href="../pandas/pandas.html" rel="prev">
 <link href="../data100_logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -81,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pandas/pandas.html"><span class="chapter-title">Pandas</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regex/regex.html"><span class="chapter-title">RegEx</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -135,12 +164,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pandas/pandas.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Pandas</span></a>
+  <a href="../pandas/pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pandas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../regex/regex.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">RegEx</span></a>
+  <a href="../regex/regex.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">RegEx</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -168,31 +197,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#understanding-pandas-errors" id="toc-understanding-pandas-errors" class="nav-link active" data-scroll-target="#understanding-pandas-errors">Understanding <code>pandas</code> errors</a></li>
-  <li><a href="#my-code-is-taking-a-really-long-time-to-run" id="toc-my-code-is-taking-a-really-long-time-to-run" class="nav-link" data-scroll-target="#my-code-is-taking-a-really-long-time-to-run">My code is taking a really long time to run</a></li>
-  <li><a href="#why-is-it-generally-better-avoid-using-loops-or-list-comprehensions-when-possible" id="toc-why-is-it-generally-better-avoid-using-loops-or-list-comprehensions-when-possible" class="nav-link" data-scroll-target="#why-is-it-generally-better-avoid-using-loops-or-list-comprehensions-when-possible">Why is it generally better avoid using loops or list comprehensions when possible?</a></li>
-  <li><a href="#keyerrors" id="toc-keyerrors" class="nav-link" data-scroll-target="#keyerrors">KeyErrors</a>
+  <li><a href="#how-to-interpret-regex101" id="toc-how-to-interpret-regex101" class="nav-link active" data-scroll-target="#how-to-interpret-regex101">How to Interpret regex101</a>
   <ul>
-  <li><a href="#keyerror-column_name" id="toc-keyerror-column_name" class="nav-link" data-scroll-target="#keyerror-column_name"><code>KeyError: 'column_name'</code></a></li>
+  <li><a href="#example-1-basic" id="toc-example-1-basic" class="nav-link" data-scroll-target="#example-1-basic">Example 1: Basic</a></li>
+  <li><a href="#example-2-greedy" id="toc-example-2-greedy" class="nav-link" data-scroll-target="#example-2-greedy">Example 2: Greedy</a></li>
+  <li><a href="#example-3-capturing-groups" id="toc-example-3-capturing-groups" class="nav-link" data-scroll-target="#example-3-capturing-groups">Example 3: Capturing Groups</a>
+  <ul>
+  <li><a href="#how-do-i-access-captured-groups" id="toc-how-do-i-access-captured-groups" class="nav-link" data-scroll-target="#how-do-i-access-captured-groups">How do I access captured groups?</a></li>
   </ul></li>
-  <li><a href="#typeerrors" id="toc-typeerrors" class="nav-link" data-scroll-target="#typeerrors">TypeErrors</a>
-  <ul>
-  <li><a href="#typeerror-___-object-is-not-callable" id="toc-typeerror-___-object-is-not-callable" class="nav-link" data-scroll-target="#typeerror-___-object-is-not-callable"><code>TypeError: '___' object is not callable</code></a></li>
-  <li><a href="#typeerror-could-not-convert-string-to-a-float" id="toc-typeerror-could-not-convert-string-to-a-float" class="nav-link" data-scroll-target="#typeerror-could-not-convert-string-to-a-float"><code>TypeError: could not convert string to a float</code></a></li>
-  <li><a href="#typeerror-could-not-convert-string-to-numeric" id="toc-typeerror-could-not-convert-string-to-numeric" class="nav-link" data-scroll-target="#typeerror-could-not-convert-string-to-numeric"><code>TypeError: Could not convert &lt;string&gt; to numeric</code></a></li>
-  <li><a href="#typeerror-nonetype-object-is-not-subscriptable-attributeerror-nonetype-object-has-no-attribute-shape" id="toc-typeerror-nonetype-object-is-not-subscriptable-attributeerror-nonetype-object-has-no-attribute-shape" class="nav-link" data-scroll-target="#typeerror-nonetype-object-is-not-subscriptable-attributeerror-nonetype-object-has-no-attribute-shape"><code>TypeError: 'NoneType' object is not subscriptable</code> / <code>AttributeError: 'NoneType' object has no attribute 'shape'</code></a></li>
-  <li><a href="#typeerror-intfloat-object-is-not-subscriptable" id="toc-typeerror-intfloat-object-is-not-subscriptable" class="nav-link" data-scroll-target="#typeerror-intfloat-object-is-not-subscriptable"><code>TypeError: 'int'/'float' object is not subscriptable</code></a></li>
   </ul></li>
-  <li><a href="#indexerrors" id="toc-indexerrors" class="nav-link" data-scroll-target="#indexerrors">IndexErrors</a>
+  <li><a href="#regex-misconceptions-general-errors" id="toc-regex-misconceptions-general-errors" class="nav-link" data-scroll-target="#regex-misconceptions-general-errors">RegEx Misconceptions &amp; General Errors</a>
   <ul>
-  <li><a href="#indexerror-invalid-index-to-scalar-variable." id="toc-indexerror-invalid-index-to-scalar-variable." class="nav-link" data-scroll-target="#indexerror-invalid-index-to-scalar-variable."><code>IndexError: invalid index to scalar variable.</code></a></li>
-  <li><a href="#indexerror-index-_-is-out-of-bounds-for-axis-_-with-size-_" id="toc-indexerror-index-_-is-out-of-bounds-for-axis-_-with-size-_" class="nav-link" data-scroll-target="#indexerror-index-_-is-out-of-bounds-for-axis-_-with-size-_"><code>IndexError: index _ is out of bounds for axis _ with size _</code></a></li>
-  </ul></li>
-  <li><a href="#valueerrors" id="toc-valueerrors" class="nav-link" data-scroll-target="#valueerrors">ValueErrors</a>
-  <ul>
-  <li><a href="#valueerror-truth-value-of-a-series-is-ambiguous" id="toc-valueerror-truth-value-of-a-series-is-ambiguous" class="nav-link" data-scroll-target="#valueerror-truth-value-of-a-series-is-ambiguous"><code>ValueError: Truth value of a Series is ambiguous</code></a></li>
-  <li><a href="#valueerror-can-only-compare-identically-labeled-series-objects" id="toc-valueerror-can-only-compare-identically-labeled-series-objects" class="nav-link" data-scroll-target="#valueerror-can-only-compare-identically-labeled-series-objects"><code>ValueError: Can only compare identically-labeled Series objects</code></a></li>
-  <li><a href="#valueerror--1-is-not-in-range-keyerror--1" id="toc-valueerror--1-is-not-in-range-keyerror--1" class="nav-link" data-scroll-target="#valueerror--1-is-not-in-range-keyerror--1"><code>ValueError: -1 is not in range</code> / <code>KeyError: -1</code></a></li>
+  <li><a href="#im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check." id="toc-im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check." class="nav-link" data-scroll-target="#im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check.">I’m certain my RegEx pattern in <code>.str.replace</code> is correct, but I’m not passing the grader check.</a></li>
+  <li><a href="#my-regex-pattern-matches-the-test-cases-on-regex101-but-is-not-working-in-pandas-with-.str.findall-.str.extractall-.str.extract." id="toc-my-regex-pattern-matches-the-test-cases-on-regex101-but-is-not-working-in-pandas-with-.str.findall-.str.extractall-.str.extract." class="nav-link" data-scroll-target="#my-regex-pattern-matches-the-test-cases-on-regex101-but-is-not-working-in-pandas-with-.str.findall-.str.extractall-.str.extract.">My RegEx pattern matches the test cases on regex101, but is not working in <code>pandas</code> with <code>.str.findall</code> / <code>.str.extractall</code> / <code>.str.extract</code>.</a></li>
+  <li><a href="#value-error-pattern-contains-no-capture-groups" id="toc-value-error-pattern-contains-no-capture-groups" class="nav-link" data-scroll-target="#value-error-pattern-contains-no-capture-groups"><code>Value Error: pattern contains no capture groups</code></a></li>
+  <li><a href="#when-do-i-need-to-escape-characters" id="toc-when-do-i-need-to-escape-characters" class="nav-link" data-scroll-target="#when-do-i-need-to-escape-characters">When do I need to escape characters?</a></li>
+  <li><a href="#the-three-uses-of" id="toc-the-three-uses-of" class="nav-link" data-scroll-target="#the-three-uses-of">The three uses of <code>^</code></a></li>
+  <li><a href="#whats-the-difference-between-all-the-re-functions" id="toc-whats-the-difference-between-all-the-re-functions" class="nav-link" data-scroll-target="#whats-the-difference-between-all-the-re-functions">What’s the difference between all the <code>re</code> functions?</a></li>
+  <li><a href="#whats-the-difference-between-re-functions-and-pd.series.str-functions" id="toc-whats-the-difference-between-re-functions-and-pd.series.str-functions" class="nav-link" data-scroll-target="#whats-the-difference-between-re-functions-and-pd.series.str-functions">What’s the difference between <code>re</code> functions and <code>pd.Series.str</code> functions?</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -202,7 +224,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Pandas</span></h1>
+<h1 class="title"><span class="chapter-title">RegEx</span></h1>
 </div>
 
 
@@ -219,103 +241,130 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="understanding-pandas-errors" class="level2">
-<h2 class="anchored" data-anchor-id="understanding-pandas-errors">Understanding <code>pandas</code> errors</h2>
-<p><code>pandas</code> errors can look red, scary, and very long. Fortunately, we don’t need to understand the entire thing! The most important parts of an error message are at the <strong>top</strong>, which tells you which line of code is causing the issue, and at the <strong>bottom</strong>, which tells you exactly what the error message is.</p>
+<p>RegEx syntax can be incredibly confusing, so we highly encourage using sources like the Data 100 Exam reference sheet (you can find this under the “Exam Resources” section on our <a href="https://ds100.org/sp24/resources/">Resources page</a>) or websites like <a href="https://regex101.com/">regex101.com</a> to help build your understanding.</p>
+<section id="how-to-interpret-regex101" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-interpret-regex101">How to Interpret regex101</h2>
+<p><a href="https://regex101.com/">Regex101</a> is a great tool that helps you visually interact with RegEx patterns. Let’s take a look at its components with a simple example.</p>
+<section id="example-1-basic" class="level3">
+<h3 class="anchored" data-anchor-id="example-1-basic">Example 1: Basic</h3>
 <center>
-<img src="pandas_error.png" width="700">
+<img src="images/updated_basic.png" width="700">
 </center>
 <p><br></p>
-<p>This note is (mostly) structured around the error messages that show up at the bottom.</p>
-</section>
-<section id="my-code-is-taking-a-really-long-time-to-run" class="level2">
-<h2 class="anchored" data-anchor-id="my-code-is-taking-a-really-long-time-to-run">My code is taking a really long time to run</h2>
-<p>It is normal for a cell to take a few seconds – sometimes a few minutes – to run. If it’s is taking too long, however, you have several options:</p>
-<ol type="1">
-<li>Try restarting the kernel. Sometimes, Datahub glitches or lags, causing the code to run slower than expected. <a href="https://ds100.org/debugging-guide/jupyter101/jupyter101.html#restarting-kernel">Restarting the kernel</a> should fix this problem, but if the cell is still taking a while to run, it is likely a problem with your code.</li>
-<li>Scrutinize your code. Am I using too many for loops? Is there a repeated operation that I can substitute with a <code>pandas</code> function?</li>
+<ol start="0" type="1">
+<li><strong>Flavor</strong>: Regular expressions work slightly differently depending on the programming language you use. In Data 100, we only use the <code>Python</code> flavor. By default, regex101 opens on the PCRE2 flavor, so make sure to change to <code>Python</code> before experimenting.</li>
+<li><strong>Regular Expression</strong>: This is where the RegEx expression goes. For this example, our pattern is <code>Data 100</code>. In <code>Python</code>, we denote it as a string <code>r"Data 100"</code> with the prefix <code>r</code> to indicate that this is a RegEx expression, not a normal <code>Python</code> string. In regex101, because we changed to the <code>Python</code> flavor, we don’t need to type out the <code>r"</code> at the start or the <code>"</code> at the end, as that’s already set up for us.</li>
+<li><strong>Explanation</strong>: This portion of the website explains each component of the pattern above. Since it does not contain any special characters, <code>Data 100</code> will match any portion of a string containing <code>Data 100</code>.</li>
+<li><strong>Test String</strong>: This is where you can try out different inputs and see if they match the RegEx pattern. Of the 4 example sentences, we see that only the first sentence contains characters that match the pattern, highlighted in blue. (Note that while sentence 3 does contain <code>data 100</code>, RegEx is sensitive to capitalization. <code>d</code> and <code>D</code> are different characters)</li>
+<li><strong>Match Information</strong>: Each match between the RegEx expression and test strings is shown here.</li>
 </ol>
 </section>
-<section id="why-is-it-generally-better-avoid-using-loops-or-list-comprehensions-when-possible" class="level2">
-<h2 class="anchored" data-anchor-id="why-is-it-generally-better-avoid-using-loops-or-list-comprehensions-when-possible">Why is it generally better avoid using loops or list comprehensions when possible?</h2>
-<p>In one word: performance. <code>NumPy</code> and <code>pandas</code> functions are optimized to handle large amounts of data in an efficient manner. Even for simple operations, like the elementwise addition of two arrays, <code>NumPy</code> arrays are much faster and scale better (feel free to experiment with this yourself using <code>%%time</code>). This is why we encourage you to <strong>vectorize</strong> your code (ie. using <code>NumPy</code> arrays, <code>Series</code>, or <code>DataFrames</code> instead of Python lists) and use in-built <code>NumPy</code>/<code>pandas</code> functions wherever possible.</p>
+<section id="example-2-greedy" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-greedy">Example 2: Greedy</h3>
+<p>For this example, let’s replace the <code>100</code> in our original expression with <code>\d+</code> so that our pattern is <code>Data \d+</code></p>
+<center>
+<img src="images/updated_greedy.png" width="700">
+</center>
+<p><br></p>
+<p><code>\d</code> and <code>+</code> are both special operators, and the explanation on the top right (boxed in red) tells us what they do:</p>
+<ul>
+<li><code>\d</code> matches digits, or any number between 0 and 9. It’s equivalent to <code>[0-9]</code>.</li>
+<li><code>+</code> matches the previous token <span class="math inline">\(\geq 1\)</span> times. It is a <em>greedy operation</em>, meaning it will match as many characters as possible.</li>
+</ul>
+<p>Altogether, the expression <code>\d+</code> will match any digit one or more times. Look at each match under “Match Information”. Can you see why they align with <code>Data \d+</code>?</p>
 </section>
-<section id="keyerrors" class="level2">
-<h2 class="anchored" data-anchor-id="keyerrors">KeyErrors</h2>
-<section id="keyerror-column_name" class="level3">
-<h3 class="anchored" data-anchor-id="keyerror-column_name"><code>KeyError: 'column_name'</code></h3>
-<p>This error usually happens when we have a <code>DataFame</code> called <code>df</code>, and we’re trying to do an operation on a column <code>'column_name'</code> that does not exist. If you encounter this error, double check that you’re operating on the right column. It might be a good idea to display <code>df</code> and see what it looks like. You could also call <code>df.columns</code> to list all the columns in <code>df</code>.</p>
+<section id="example-3-capturing-groups" class="level3">
+<h3 class="anchored" data-anchor-id="example-3-capturing-groups">Example 3: Capturing Groups</h3>
+<p>Let’s say we’re given a body of text with dates formatted as <code>DD/Month/YYYY</code> (ie. 04/Jan/2014), and we’re interested in extracting the dates. An expression like <code>r"\d+\/\w+\/\d+"</code> would match any string with the <code>DD/Month/YYYY</code> format:</p>
+<ul>
+<li>the first <code>\d+</code> matches <code>DD</code> patterns (ie. <code>04</code>)</li>
+<li><code>\/</code> matches the <code>/</code> separator. Since <code>/</code> is a special operator in RegEx, we need to escape it with <code>\</code> to get the literal character.</li>
+<li><code>\w+</code> in the middle matches <code>Month</code> patterns we’re interested in (ie. <code>Jan</code>, <code>January</code>)</li>
+<li>lastly, <code>\d+</code> matches <code>YYYY</code> patterns (ie. <code>2014</code>)</li>
+</ul>
+<p>That’s great! This pattern will match the entirety of <code>DD/Month/YYYY</code>, but what if we want to access <code>DD</code> individually? What about <code>YYYY</code>? This is where <strong>capturing groups</strong> comes in handy. Capturing groups are RegEx expressions surrounded by parenthesis <code>()</code> that are used to remember the text they match so that it can be referenced later. Putting capturing groups around <code>\d+</code> and <code>\w+</code> to get <code>r"(\d+)\/(\w+)\/(\d+)"</code>gives us the following:</p>
+<center>
+<img src="images/updated_capturing_groups.png" width="700">
+</center>
+<p><br></p>
+<ul>
+<li>The “Explanation” section now shows an explanation for each of the 3 capturing groups.</li>
+<li>In our test strings, the portion matching the RegEx expression is highlighted in blue per usual. Additionally, each capturing group is highlighted with a particular color: green, orange, and purple.</li>
+<li>These colored highlights correspond to their match/group under “Match Information”. “Match #” (light blue) shows the entire portion that matches the expression while “Group #” shows the match per group.</li>
+</ul>
+<section id="how-do-i-access-captured-groups" class="level4">
+<h4 class="anchored" data-anchor-id="how-do-i-access-captured-groups">How do I access captured groups?</h4>
+<p>To access each group, we use the following syntax:</p>
+<pre><code>target_string = "Today's date is 01/March/2024."
+result = re.search(r"(\d+)\/(\w+)\/(\d+)", target_string)
+
+result # re.Match object
+result.groups() # all captured groups: ('01', 'March', '2024')
+result.group(0) # '01/March/2024', the full match
+result.group(1) # '01', the first captured group
+result.group(2) # 'March', the second captured group
+result.group(3) # '2024', the third captured group</code></pre>
 </section>
 </section>
-<section id="typeerrors" class="level2">
-<h2 class="anchored" data-anchor-id="typeerrors">TypeErrors</h2>
-<section id="typeerror-___-object-is-not-callable" class="level3">
-<h3 class="anchored" data-anchor-id="typeerror-___-object-is-not-callable"><code>TypeError: '___' object is not callable</code></h3>
-<p>This often happens when you use a default keyword (like <code>str</code>, <code>list</code>, <code>range</code>, <code>bool</code>, <code>sum</code>, or <code>max</code>) as a variable name, for instance:</p>
-<pre><code>sum = 1 + 2 + 3</code></pre>
-<p>These errors can be tricky because they don’t error on their own but cause problems when we try to use the name <code>sum</code> (for example) later on in the notebook.</p>
-<p>To fix the issue, identify any such lines of code (Ctrl+F on “<code>sum =</code>” for example), change your variable names to be something more informative, and <a href="https://ds100.org/debugging-guide/jupyter101/jupyter101.html#restarting-kernel">restart your notebook</a>.</p>
-<p>Python keywords like <code>str</code> and <code>list</code> appear in green text, so be on the lookout if any of your variable names appear in green!</p>
 </section>
-<section id="typeerror-could-not-convert-string-to-a-float" class="level3">
-<h3 class="anchored" data-anchor-id="typeerror-could-not-convert-string-to-a-float"><code>TypeError: could not convert string to a float</code></h3>
-<p>This error often occurs when we try to do math operations (ie. <code>sum</code>, <code>average</code>, <code>min</code>, <code>max</code>) on a <code>DataFrame</code> column or <code>Series</code> that contains strings instead of numbers (note that we can do math operations with booleans; Python treats <code>True</code> as 1 and <code>False</code> as 0).</p>
-<p>Double check that the column you’re interested in is a numerical type (<code>int</code>, <code>float</code>, or <code>double</code>). If it looks like a number, but you’re still getting this error, you can use <code>.astype(...)</code> (<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.astype.html">documentation</a>) to change the datatype of a <code>DataFrame</code> or <code>Series</code>.</p>
+<section id="regex-misconceptions-general-errors" class="level2">
+<h2 class="anchored" data-anchor-id="regex-misconceptions-general-errors">RegEx Misconceptions &amp; General Errors</h2>
+<section id="im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check." class="level3">
+<h3 class="anchored" data-anchor-id="im-certain-my-regex-pattern-in-.str.replace-is-correct-but-im-not-passing-the-grader-check.">I’m certain my RegEx pattern in <code>.str.replace</code> is correct, but I’m not passing the grader check.</h3>
+<p>Here’s the skeleton from the exam reference sheet:</p>
+<p><code>s.str.replace(pat, repl, regex=False)</code></p>
+<p>Notice how the <code>regex=</code> argument has a default value of <code>False</code>, causing <code>pandas</code> to treat <code>pat</code> like a normal <code>Python</code> string. Make sure to set <code>regex=True</code> if you’re using RegEx!</p>
 </section>
-<section id="typeerror-could-not-convert-string-to-numeric" class="level3">
-<h3 class="anchored" data-anchor-id="typeerror-could-not-convert-string-to-numeric"><code>TypeError: Could not convert &lt;string&gt; to numeric</code></h3>
-<p>Related to the above (but distinct), you may run into this error when performing a numeric aggregation function (like <code>mean</code> or <code>sum</code> functions that take integer arguments) after doing a <code>groupby</code> operation on a <code>DataFrame</code> with non-numeric columns.</p>
-<p>Working with the <code>elections</code> dataset for example,</p>
-<pre><code>elections.groupby('Year').agg('mean')</code></pre>
-<p>would error because <code>pandas</code> cannot compute the mean of the names of presidents. There are three ways to get around this:</p>
+<section id="my-regex-pattern-matches-the-test-cases-on-regex101-but-is-not-working-in-pandas-with-.str.findall-.str.extractall-.str.extract." class="level3">
+<h3 class="anchored" data-anchor-id="my-regex-pattern-matches-the-test-cases-on-regex101-but-is-not-working-in-pandas-with-.str.findall-.str.extractall-.str.extract.">My RegEx pattern matches the test cases on regex101, but is not working in <code>pandas</code> with <code>.str.findall</code> / <code>.str.extractall</code> / <code>.str.extract</code>.</h3>
+<p>The most likely reason for this is forgetting to include the <code>r</code> before the string with your regular expression. Without including the <code>r</code> in <code>.str.findall(r".*")</code>, <code>pandas</code> will not interpret your pattern as a regex expression and will only match it literally.</p>
+</section>
+<section id="value-error-pattern-contains-no-capture-groups" class="level3">
+<h3 class="anchored" data-anchor-id="value-error-pattern-contains-no-capture-groups"><code>Value Error: pattern contains no capture groups</code></h3>
+<p>These errors usually occur when using <code>s.str.extract</code> or <code>s.str.extractall</code>. Read more about it in the <a href="https://ds100.org/course-notes/regex/regex.html#extraction-with-pandas">RegEx course notes</a>. This error means that your RegEx pattern does not match anything in the given <code>Series</code> of strings. To debug this, try putting your pattern into <a href="https://regex101.com/">regex101.com</a> and use example strings from the Series as test cases.</p>
+</section>
+<section id="when-do-i-need-to-escape-characters" class="level3">
+<h3 class="anchored" data-anchor-id="when-do-i-need-to-escape-characters">When do I need to escape characters?</h3>
+<p>The special characters in RegEx are: <code>. ^ $ * + ? ] [ \ | ( ) { } }</code></p>
+<p>If you want to match exactly those characters in a RegEx expression, you need to “escape” them by preceding them with a backslash <code>\</code>. However, the rules around this can change in the context of character classes.</p>
+<p>For example, the pattern <code>r"[.]"</code> matches <code>'.'</code>, the literal period. In this context, it is not treated as a special character. The hyphen, while not included in the list of special characters, also changes its behavior depending on its position in a character class. It can be used to specify a range of characters (e.g.&nbsp;<code>r"[0-9]"</code>) based on their Unicode values, or match a literal <code>'-'</code> if it does not have two adjacent characters (e.g.&nbsp;<code>r"[-09]"</code> matches <code>-</code>, <code>0</code>, <code>9</code>). To be on the safer side, you could escape <code>-</code> like in <code>r"[0\-9]"</code> to achieve the same result.</p>
+<p>Finally, it’s generally good practice to escape both single and double quotes for greater readability. Technically, patterns like <code>r"'(.\*)'"</code> and <code>r'"(.\*)"'</code> do work as you’d expect, but you can already see how confusing it is to decipher what’s going on. Escaping the quotes inside the pattern does not affect what matches you get, but makes it easier to figure out what the intended match was.</p>
+</section>
+<section id="the-three-uses-of" class="level3">
+<h3 class="anchored" data-anchor-id="the-three-uses-of">The three uses of <code>^</code></h3>
+<p>The <code>^</code> character can be tricky to wrap your head around given how its function changes depending on the context:</p>
 <ol type="1">
-<li>Select only the numeric columns you are interested in before applying the aggregation function. In the above case, both <code>elections.groupby('Year')['Popular Vote']</code> or <code>elections['Popular vote'].groupby('Year')</code> would work.</li>
-<li>Setting the <code>numeric_only</code> argument to <code>True</code> in the <code>.agg</code> call, thereby applying the aggregation function only to numeric columns. For example, <code>elections.groupby('Year').agg('mean', numeric_only=True)</code>.</li>
-<li>Passing in a dictionary to <code>.agg</code> where you specify the column you are applying a particular aggregation function to. Continuing the same example, this looks like <code>elections.groupby('Year').agg({'Popular vote' : 'mean')</code>.</li>
+<li>If used at the start of a pattern, like in <code>r"^\w"</code>, it means that a lowercase letter must begin the string in order for a match to occur.</li>
+<li>If included at the start of a character class, like in <code>r"[^abc]"</code>, it negates all the characters in that class and will match with any other character – in the above example, any character that is not <code>a</code>, <code>b</code>, <code>c</code>.</li>
+<li>Finally, if escaped as in <code>r"\^"</code> it is treated as a literal and will match any instance of <code>^</code>.</li>
 </ol>
 </section>
-<section id="typeerror-nonetype-object-is-not-subscriptable-attributeerror-nonetype-object-has-no-attribute-shape" class="level3">
-<h3 class="anchored" data-anchor-id="typeerror-nonetype-object-is-not-subscriptable-attributeerror-nonetype-object-has-no-attribute-shape"><code>TypeError: 'NoneType' object is not subscriptable</code> / <code>AttributeError: 'NoneType' object has no attribute 'shape'</code></h3>
-<p>This usually occurs as you assign a <code>None</code> value to a variable, then try to either index into or access some attribute of that variable. For Python functions like <code>append</code> and <code>extend</code>, you do not need to do any variable assignment because they mutate the variable directly and return <code>None</code>. Assigning <code>None</code> tends to happen as a result of code like:</p>
-<pre><code>some_list = some_list.append(element)</code></pre>
-<p>In contrast, an operation like <code>np.append</code> does not mutate the variable in place and, instead, returns a copy. In these cases, (re)assignment is necessary:</p>
-<pre><code>some_array = np.append(some_array, element)</code></pre>
+<section id="whats-the-difference-between-all-the-re-functions" class="level3">
+<h3 class="anchored" data-anchor-id="whats-the-difference-between-all-the-re-functions">What’s the difference between all the <code>re</code> functions?</h3>
+<p>The exam reference sheets give a few <code>re</code> functions, but how can you determine which one to use?</p>
+<center>
+<img src="images/ref_sheet_re_methods.png" width="800">
+</center>
+<p><br></p>
+<p><code>re.match</code> and <code>re.search</code> only return <em>one</em> instance of a match between string and pattern (or None if there’s no match) - <code>re.match</code> only considers characters at the beginning of a string - <code>re.search</code> considers characters anywhere in the string - For example: ``` pattern = r”Data 100” example1 = “Data 100 is the best!” example2 = “I love Data 100!”</p>
+<p>re.match(pattern, example1).group(0) # matches “Data 100” re.match(pattern, example2) # does not match “Data 100” because it’s not at the beginning of a string; returns None</p>
+<p>re.search(pattern, example1).group(0) # matches “Data 100” re.search(pattern, example2).group(0) # matches “Data 100” ```</p>
+<p>If, instead, you’re interested in finding <em>all</em> matches between the given string and pattern, <code>re.findall</code> will find them all, returning the matches in a list.</p>
+<pre><code>re.findall(r'\d+', 'Data 100, Data 8, Data 101') 
+# returns a list of strings: ['100', '8', '101']
+
+re.findall(r'\d+', 'Data science is great')  
+# no matches found, returns empty list: []</code></pre>
+<p><code>re.sub</code> will find them all <em>and replace it</em> with a string of your choice.</p>
+<pre><code>re.sub(r'\d+', 'panda', 'Data 100, Data 8, Data 101') 
+# returns 'Data panda, Data panda, Data panda'
+
+re.sub(r'\d+', 'panda', 'Data science is great')  
+# no matches found, returns the original string "Data science is great" </code></pre>
 </section>
-<section id="typeerror-intfloat-object-is-not-subscriptable" class="level3">
-<h3 class="anchored" data-anchor-id="typeerror-intfloat-object-is-not-subscriptable"><code>TypeError: 'int'/'float' object is not subscriptable</code></h3>
-<p>This occurs when you try and index into an integer or other numeric <code>Python</code> data type. It can be confusing to debug amidst a muddle of code, but you can use the error message to identify which variable is causing this error. Using <code>type(var_name)</code> to check the data type of the variable in question can be a good starting point.</p>
-</section>
-</section>
-<section id="indexerrors" class="level2">
-<h2 class="anchored" data-anchor-id="indexerrors">IndexErrors</h2>
-<section id="indexerror-invalid-index-to-scalar-variable." class="level3">
-<h3 class="anchored" data-anchor-id="indexerror-invalid-index-to-scalar-variable."><code>IndexError: invalid index to scalar variable.</code></h3>
-<p>This error is similar to the last <code>TypeError</code> in the previous section. However, it is slightly different in that scalar variables come up in the context of <code>NumPy</code> data types which have slightly different attributes.</p>
-<p>For a concrete example, if you defined</p>
-<pre><code>numpy_arr = np.array([1])</code></pre>
-<p>and indexed into it twice (<code>numpy_arr[0][0]</code>), you would get the above error. Unlike a Python integer whose type is <code>int</code>, <code>type(numpy_arr[0])</code> returns the <code>NumPy</code> version of an integer, <code>numpy.int64</code>. Additionally, you can check the data type by accessing the <code>.dtype</code> attribute of <code>NumPy</code> array (<code>numpy_arr.dtype</code>) or scalar variable (<code>numpy_arr[0].dtype</code>).</p>
-</section>
-<section id="indexerror-index-_-is-out-of-bounds-for-axis-_-with-size-_" class="level3">
-<h3 class="anchored" data-anchor-id="indexerror-index-_-is-out-of-bounds-for-axis-_-with-size-_"><code>IndexError: index _ is out of bounds for axis _ with size _</code></h3>
-<p>This error usually happens when you try to index a value that’s greater than the size of the array/list/<code>DataFrame</code>/<code>Series</code>. For example,</p>
-<pre><code>some_list = [2, 4, 6, 8]</code></pre>
-<p><code>some_list</code> has a length of 4. Trying <code>some_list[6]</code> will error because index 6 is greater than the length of the array. Note that <code>some_list[4]</code> will also cause an <code>IndexError</code> because Python and <code>pandas</code> uses zero indexing, which means that the first element has index 0, the second element has index 1, etc.; <code>some_list[4]</code> would grab the fifth element, which is impossible when the list only has 4 elements.</p>
-</section>
-</section>
-<section id="valueerrors" class="level2">
-<h2 class="anchored" data-anchor-id="valueerrors">ValueErrors</h2>
-<section id="valueerror-truth-value-of-a-series-is-ambiguous" class="level3">
-<h3 class="anchored" data-anchor-id="valueerror-truth-value-of-a-series-is-ambiguous"><code>ValueError: Truth value of a Series is ambiguous</code></h3>
-<p>This error could occur when you apply Python logical operators (<code>or</code>, <code>and</code>, <code>not</code>), which only operate on a single boolean values, to <code>NumPy</code> arrays or <code>Series</code> objects, which can contain multiple values. The fix is to use bitwise operators <code>|</code>, <code>&amp;</code>, <code>~</code> , respectively, to allow for element-wise comparisons between values in arrays or <code>Series</code>.</p>
-<p>Alternatively, these errors could emerge due to overwriting Python keywords like <code>bool</code> and <code>sum</code> that may be used in the autograder tests, similar to what’s described <a href="https://ds100.org/debugging-guide/pandas/pandas.html#typeerror-___-object-is-not-callable">here</a>. You should follow a similar procedure of identifying the line of code erroring, checking if you’ve overwritten any Python keywords using Ctrl+F, and renaming those variables to something more informative before restarting your kernel and running the erroring tests again.</p>
-</section>
-<section id="valueerror-can-only-compare-identically-labeled-series-objects" class="level3">
-<h3 class="anchored" data-anchor-id="valueerror-can-only-compare-identically-labeled-series-objects"><code>ValueError: Can only compare identically-labeled Series objects</code></h3>
-<p>As the message would suggest, this error occurs when comparing two <code>Series</code> objects that have different lengths. You can double check the lengths of the <code>Series</code> using <code>len(series_name)</code> or <code>series_name.size</code>.</p>
-</section>
-<section id="valueerror--1-is-not-in-range-keyerror--1" class="level3">
-<h3 class="anchored" data-anchor-id="valueerror--1-is-not-in-range-keyerror--1"><code>ValueError: -1 is not in range</code> / <code>KeyError: -1</code></h3>
-<p>This error occurs when you try and index into a <code>Series</code> or <code>DataFrame</code> as you would a Python list. Unlike a list where passing an index of -1 gives the last element, <code>pandas</code> interprets <code>df[-1]</code> as an attempt to find the row corresponding to index -1 (that is, <code>df.loc[-1]</code>). If your intention is to pick out the last row in <code>df</code>, consider using integer-position based indexing by doing <code>df.iloc[-1]</code>. In general, to avoid ambiguity in these cases, it is also good practice to write out both the row and column indices you want with <code>df.iloc[-1, :]</code>.</p>
+<section id="whats-the-difference-between-re-functions-and-pd.series.str-functions" class="level3">
+<h3 class="anchored" data-anchor-id="whats-the-difference-between-re-functions-and-pd.series.str-functions">What’s the difference between <code>re</code> functions and <code>pd.Series.str</code> functions?</h3>
+<p>Generally, all the <code>pd.Series.str</code> functions are used when you want to apply a Python or RegEx string function to a <em>Series of strings</em>. In contrast, <code>re</code> functions are applied to string objects. The reference sheet gives a great overview of the different use cases of each of the <code>pd.Series.str</code> functions.</p>
 
 
 </section>
@@ -744,13 +793,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../autograder_gradescope/autograder_gradescope.html" class="pagination-link" aria-label="Autograder and Gradescope">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Autograder and Gradescope</span></span>
+      <a href="../pandas/pandas.html" class="pagination-link" aria-label="Pandas">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Pandas</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../regex/regex.html" class="pagination-link" aria-label="RegEx">
-        <span class="nav-page-text"><span class="chapter-title">RegEx</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../visualizations/visualizations.html" class="pagination-link" aria-label="Visualizations">
+        <span class="nav-page-text"><span class="chapter-title">Visualizations</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

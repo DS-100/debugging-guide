@@ -18,10 +18,10 @@ book:
         - jupyter_datahub/jupyter_datahub.md
         - autograder_gradescope/autograder_gradescope.md
         - pandas/pandas.md
-        # - regex/regex.md
-        # - visualizations/visualizations.md
-        # - projA1/projA1.md
-        # - projA2/projA2.md
+        - regex/regex.md
+        - visualizations/visualizations.md
+        - projA1/projA1.md
+        - projA2/projA2.md
         # - sql/sql.md
     
     sidebar:
