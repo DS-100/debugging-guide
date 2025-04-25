@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Jupyter 101 – Data 100 Debugging Guide</title>
+<title>SQL Common Errors – Data 100 Debugging Guide</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../jupyter_datahub/jupyter_datahub.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../projA2/projA2.html" rel="prev">
 <link href="../data100_logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -81,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../jupyter101/jupyter101.html"><span class="chapter-title">Jupyter 101</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sql/sql.html"><span class="chapter-title">SQL Common Errors</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -120,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../jupyter101/jupyter101.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Jupyter 101</span></a>
+  <a href="../jupyter101/jupyter101.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Jupyter 101</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -160,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sql/sql.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">SQL Common Errors</span></a>
+  <a href="../sql/sql.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">SQL Common Errors</span></a>
   </div>
 </li>
     </ul>
@@ -173,11 +172,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#shortcuts-for-cells" id="toc-shortcuts-for-cells" class="nav-link active" data-scroll-target="#shortcuts-for-cells">Shortcuts for Cells</a></li>
-  <li><a href="#running-cells" id="toc-running-cells" class="nav-link" data-scroll-target="#running-cells">Running Cells</a></li>
-  <li><a href="#saving-your-notebook" id="toc-saving-your-notebook" class="nav-link" data-scroll-target="#saving-your-notebook">Saving your notebook</a></li>
-  <li><a href="#restarting-kernel" id="toc-restarting-kernel" class="nav-link" data-scroll-target="#restarting-kernel">Restarting Kernel</a></li>
-  <li><a href="#automatically-closing-brackets" id="toc-automatically-closing-brackets" class="nav-link" data-scroll-target="#automatically-closing-brackets">Automatically Closing Brackets</a></li>
+  <li><a href="#common-misconceptions" id="toc-common-misconceptions" class="nav-link active" data-scroll-target="#common-misconceptions">Common Misconceptions</a>
+  <ul>
+  <li><a href="#how-to-read-sql-errors" id="toc-how-to-read-sql-errors" class="nav-link" data-scroll-target="#how-to-read-sql-errors">How to read SQL Errors</a></li>
+  <li><a href="#comments-in-sql" id="toc-comments-in-sql" class="nav-link" data-scroll-target="#comments-in-sql">Comments in SQL</a></li>
+  <li><a href="#filtering-with-multiple-conditions" id="toc-filtering-with-multiple-conditions" class="nav-link" data-scroll-target="#filtering-with-multiple-conditions">Filtering with multiple conditions</a></li>
+  <li><a href="#truncated-display-limit" id="toc-truncated-display-limit" class="nav-link" data-scroll-target="#truncated-display-limit">Truncated Display Limit</a></li>
+  </ul></li>
+  <li><a href="#common-errors" id="toc-common-errors" class="nav-link" data-scroll-target="#common-errors">Common Errors</a>
+  <ul>
+  <li><a href="#nameerror-name-res_q-is-not-defined" id="toc-nameerror-name-res_q-is-not-defined" class="nav-link" data-scroll-target="#nameerror-name-res_q-is-not-defined"><code>NameError: name ‘[res_q#]’ is not defined</code></a></li>
+  <li><a href="#referenced-column-some_string-not-found" id="toc-referenced-column-some_string-not-found" class="nav-link" data-scroll-target="#referenced-column-some_string-not-found"><code>Referenced column "{some_string}" not found</code></a></li>
+  <li><a href="#cannot-compare-values-of-type-__-and-type-__" id="toc-cannot-compare-values-of-type-__-and-type-__" class="nav-link" data-scroll-target="#cannot-compare-values-of-type-__-and-type-__"><code>Cannot compare values of type __ and type __</code></a></li>
+  <li><a href="#my-query-runs-but-im-not-passing-the-tests" id="toc-my-query-runs-but-im-not-passing-the-tests" class="nav-link" data-scroll-target="#my-query-runs-but-im-not-passing-the-tests">My query runs but I’m not passing the tests</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -186,7 +194,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Jupyter 101</span></h1>
+<h1 class="title"><span class="chapter-title">SQL Common Errors</span></h1>
 </div>
 
 
@@ -203,77 +211,156 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>If you’re using a MacBook, replace <code>ctrl</code> with <code>cmd</code>.</p>
-</div>
-</div>
-</div>
-<section id="shortcuts-for-cells" class="level2">
-<h2 class="anchored" data-anchor-id="shortcuts-for-cells">Shortcuts for Cells</h2>
-<p>For the following commands, make sure you’re in command mode. You can enter this mode by pressing <code>esc</code>.</p>
-<ul>
-<li><code>a</code>: create a cell above</li>
-<li><code>b</code>: create a cell below</li>
-<li><code>dd</code>: delete current cell</li>
-<li><code>m</code>: convert a cell to markdown (text cell)</li>
-<li><code>y</code>: convert a cell to code</li>
-</ul>
-</section>
-<section id="running-cells" class="level2">
-<h2 class="anchored" data-anchor-id="running-cells">Running Cells</h2>
-<p>For individual cells,</p>
-<ul>
-<li><code>ctrl</code> + <code>return</code>: run the current cell</li>
-<li><code>shift</code> + <code>return</code>: run the current cell and move to the next cell</li>
-</ul>
-<p>To run all cells in a notebook:</p>
-<ul>
-<li><p>In the menu bar on the left, click <code>Run</code>. From here, you have several options. The ones we use most commonly are:</p>
-<ul>
-<li><code>Run All Above Selected Cell</code>: this runs every cell above the selected cell</li>
-<li><code>Run Selected Cell and All Below</code>: this runs the selected cell and all cells below</li>
-<li><code>Run All</code>: this runs every cell in the notebook from top-to-bottom</li>
-</ul></li>
-</ul>
+<section id="common-misconceptions" class="level2">
+<h2 class="anchored" data-anchor-id="common-misconceptions">Common Misconceptions</h2>
+<section id="how-to-read-sql-errors" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-read-sql-errors">How to read SQL Errors</h3>
+<p>Because Jupyter notebooks run Python natively, we need to import extra modules like <code>sql</code>, <code>sqlalchemy</code>, and <code>duckdb</code> in order to run SQL queries within our notebook. This results in slightly more complex error messages than normal Python. Refer to the image below if you need help identifying the most important parts (the red and blue text).</p>
 <center>
-<img src="run_all.gif" width="500">
+<img src="images/sql_error.png" width="700">
 </center>
+<p>Sometimes, SQL errors may show up as a long string without any red highlight, for example:</p>
+<p><code>(duckdb.duckdb.BinderException) Binder Error: Referenced column "some_column" not found in FROM clause! LINE 1: SELECT some_column                ^</code> <code>...</code></p>
+<p>Note that this is the same error as the one above – it’s just not formatted nicely. Try your best to parse it; you can even copy the error into a new cell and manually indent sentences if it helps with readability!</p>
 </section>
-<section id="saving-your-notebook" class="level2">
-<h2 class="anchored" data-anchor-id="saving-your-notebook">Saving your notebook</h2>
-<p>Jupyter autosaves your work, but there can be a delay. As such, it’s a good idea to save your work as often as you remember and especially before submitting assignments. To do so, press <code>ctrl</code> + <code>s</code>.</p>
+<section id="comments-in-sql" class="level3">
+<h3 class="anchored" data-anchor-id="comments-in-sql">Comments in SQL</h3>
+<p>Unlike <code>Python</code>, which uses <code>#...</code> or triple quotes <code>"""..."""</code> to indicate a comment, SQL comments take the following forms:</p>
+<pre><code>-- This is a single-line or in-line comment
+
+/* 
+  This is a 
+  multi-line 
+  comment 
+*/</code></pre>
+<p>Because you are still coding within a Python notebook, the colors that Jupyter chooses for your SQL queries may not match up to what you expect; using <code>#...</code> will be green text like Python comments, but running the code will give you:</p>
+<p><code>Parser Error: syntax error at or near...</code></p>
+<p>Using <code>--</code> or <code>/* ... */</code> may not color-code the text correctly, but SQL will still read it as a comment!</p>
+<!-- 
+Note: not including this one since we switched from Lisa's grading method of pickling files to Rohan's method with the uppdated Otter Grader
+
+## Failing on Gradescope but passing locally
+
+This usually occurs when an unzipped file is submitted to Gradescope. Please directly submit the file downloaded through the link under the final submission cell of the notebook to Gradescope (no need to unzip it). The zip file should contain a results folder containing .pkl files in it.
+
+Submit the full zip files. Don’t unzip it before submitting to Gradescope. -->
 </section>
-<section id="restarting-kernel" class="level2">
-<h2 class="anchored" data-anchor-id="restarting-kernel">Restarting Kernel</h2>
-<p>In the menu bar on the left, click <code>Kernel</code>. From here, you have several options. The ones we use most commonly are:</p>
-<ul>
-<li><code>Restart Kernel...</code></li>
-<li><code>Restart Kernel and Run up to Selected Cell</code></li>
-<li><code>Restart Kernel and Run All Cells</code></li>
-</ul>
-<center>
-<img src="kernel.gif" width="500">
-</center>
+<section id="filtering-with-multiple-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="filtering-with-multiple-conditions">Filtering with multiple conditions</h3>
+<p>When you are using more than one condition in filtering clauses like <code>WHERE</code> or <code>HAVING</code>, it’s important consider that the ordering of <code>OR</code>s and <code>AND</code>s will affect your SQL output.</p>
+<p>In <code>SQL</code>, the operator precedence typically evaluates <code>AND</code> operations before <code>OR</code> operations, and so incorrectly ordered conditions can lead to unexpected results. To ensure your conditions are evaluated in the intended order, use parentheses to group them explicitly.</p>
+<p>For example, consider the following query condition:</p>
+<p><code>WHERE A &gt; 500 AND B &gt; 200 OR C &lt; 50</code></p>
+<p>By default, is will be evaluated as</p>
+<p><code>WHERE (A &gt; 500 AND B &gt; 200) OR C &lt; 50</code></p>
+<p>because <code>AND</code> has a higher precedence than <code>OR</code>. To evaluate it differently, add parentheses to specify the order of operations:</p>
+<p><code>WHERE A &gt; 500 AND (B &gt; 200 OR C &lt; 50)</code></p>
 </section>
-<section id="automatically-closing-brackets" class="level2">
-<h2 class="anchored" data-anchor-id="automatically-closing-brackets">Automatically Closing Brackets</h2>
-<p>Many IDEs like VSCode have a functionality that automatically closes brackets. For example, pressing <code>(</code>, <code>{</code>, or <code>[</code> would automatically add the second bracket at the other end <code>)</code>, <code>}</code>, and <code>]</code>, respectively. Datahub does not have this functionality turned on by default, but you can do so by going into <code>Settings</code> -&gt; <code>Auto Close Brackets</code>. If you see a check mark to the left of <code>Auto Close Brackets</code>, then it’s enabled.</p>
-<center>
-<img src="autoclose_brackets.gif" width="500">
-</center>
+<section id="truncated-display-limit" class="level3">
+<h3 class="anchored" data-anchor-id="truncated-display-limit">Truncated Display Limit</h3>
+<p>Our Jupyter Notebooks are set to only display the first 10 rows of a table. Otherwise, your notebook would likely crash with the weight of displaying &gt;1000 rows. You’ll likely see a</p>
+<p><code>Truncated to displaylimit of 10</code></p>
+<p>printed right below your SQL query if your table contains more than 10 rows.</p>
+</section>
+</section>
+<section id="common-errors" class="level2">
+<h2 class="anchored" data-anchor-id="common-errors">Common Errors</h2>
+<section id="nameerror-name-res_q-is-not-defined" class="level3">
+<h3 class="anchored" data-anchor-id="nameerror-name-res_q-is-not-defined"><code>NameError: name ‘[res_q#]’ is not defined</code></h3>
+<p>This occurs when you have an error in your SQL code, causing the cell after to fail. Because we’re working with Jupyter Notebooks, some SQL errors are not highlighted in red like <code>Python</code> errors usually are. Check the output under your <code>%%sql</code> cell to see if it ran smoothly. Any text below</p>
+<p><code>Running query in 'duckdb:///data/{database_name}.db</code></p>
+<p>is an error message that you can read to debug your code. Note that this error could be formatted as one long string without any indents or newlines, so it may be harder than typical <code>Python</code> errors to parse.</p>
+<!--
+Note: Not included as these questions don't come up as frequently in the HW, but can be added later if need be
+#### **Some scenarios and fixes**
 
 
+**1. Incorrect Alias Usage**
+
+- **Issue:** Referring to a column or table using its original name instead of the alias assigned with the `AS` keyword.
+- **Solution:** Always use the alias, if you have assigned one, when referencing a column or table. For example, if you set `SELECT column AS col FROM table`, use `col` in your subsequent references.
+
+**2. Ambiguous Column Reference in Joins**
+
+- **Issue:** Referring to a column that exists in both tables being joined, without specifying which table's column to use.
+- **Solution:** Specify the table from which to select the column from. Use the format `tableName.columnName` to clear up the ambiguity. For example, if joining `tableA` and `tableB`, both containing `column`, specify `tableA.column` or `tableB.column`.
+
+-->
+</section>
+<section id="referenced-column-some_string-not-found" class="level3">
+<h3 class="anchored" data-anchor-id="referenced-column-some_string-not-found"><code>Referenced column "{some_string}" not found</code></h3>
+<p>There are 2 potential causes for this error:</p>
+<ol type="1">
+<li><strong>The column you’re looking for does not exist in the table.</strong> Make sure that the column names are spelled and capatalized exactly as shown in the assignment. If you are trying to reference a column that is not in the current table, consider using <code>JOIN</code> to be able to access these columns. You can reference the <a href="https://ds100.org/course-notes/sql_II/sql_II.html#joining-tables">SQL II course notes</a> for a refresher on how to use the <code>JOIN</code> clause.</li>
+<li><strong>You used double quotes <code>""</code> around <code>some_string</code> instead of single quotes <code>''</code></strong>. Unlike <code>Python</code>, SQL differentiates double and single quotes: double quotes indicate something that exists within the database, like tables and column names; single quotes indicate strings.</li>
+</ol>
+<!-- Does not error using duckdb
+
+## Error message near `CASE`
+
+You may run into errors near the `CASE` clause if you are creaing a column using `CASE` and then referencing the new column in the `SELECT` clause as well. 
+
+When you are using `CASE` within `SELECT`, the new column will automatically be selected. You can reference the course notes [here](https://ds100.org/course-notes/sql_II/sql_II.html#using-conditional-statements-with-case) for a refresher on how to use the `CASE` clause. -->
+</section>
+<section id="cannot-compare-values-of-type-__-and-type-__" class="level3">
+<h3 class="anchored" data-anchor-id="cannot-compare-values-of-type-__-and-type-__"><code>Cannot compare values of type __ and type __</code></h3>
+<p>This error often occurs when a string-type column (ie. <code>CHAR</code> or <code>VARCHAR</code>) is compared with a numeric-type column (ie. <code>INT</code>, <code>BIGINT</code>, <code>FLOAT</code>, <code>REAL</code>). If you’re interested in learning more about SQL datatypes, check out <a href="https://www.w3schools.com/sql/sql_datatypes.asp">this link</a>!</p>
+<p>To debug, start by checking the type of the column(s) you’re working with; you can either scroll up to the cell (or make a new cell) with the code:</p>
+<pre><code>%%sql
+SELECT * FROM sqlite_master WHERE type='table';</code></pre>
+<p>which outputs the schema for each table. If we’re working with the IMDB database, we get the following output:</p>
+<center>
+<img src="images/imdb_schema.png" width="700">
+</center>
+<p>We can see that the table <code>Title</code> contains the columns</p>
+<ul>
+<li><code>tconst</code> of type <code>BIGINT</code></li>
+<li><code>titleType</code> of type <code>VARCHAR</code></li>
+<li><code>primaryTitle</code> of type <code>VARCHAR</code></li>
+<li>and so on…</li>
+</ul>
+<p>It’s a good idea to double check the types of the columns involved by looking at the schema before performing numerical comparisons and when deciding whether to <code>CAST</code> a particular column.</p>
+</section>
+<section id="my-query-runs-but-im-not-passing-the-tests" class="level3">
+<h3 class="anchored" data-anchor-id="my-query-runs-but-im-not-passing-the-tests">My query runs but I’m not passing the tests</h3>
+<p>For a lot of questions in the homework, we limit our focus to <strong>movie</strong> titles. Double check that you are filtering your results appropriately. More generally, if you find your queries aren’t erroring, but are failing the tests due to some logical error, a good starting point is always reading the question again and making a checklist of all the conditions you need to implement.</p>
+<!-- Not including cuz duckdb fixes this
+
+##Incorrect data types with `CAST`
+
+It is important to use only the supported data types when casting, otherwise the query will result in an error. SQL supports casting to and from the following data types:
+
+- **Integer Types**: `bigint`, `int`, `smallint`, `tinyint`
+- **Boolean Type**: `bit`
+- **Decimal Types**: `decimal`, `numeric`, `money`, `smallmoney`
+- **Floating Point Types**: `float`, `real`
+- **Date and Time Types**: `datetime`, `smalldatetime`
+- **Character Strings**: `char`, `varchar`, `text`
+- **Unicode Character Strings**: `nchar`, `nvarchar`, `ntext`
+- **Binary Strings**: `binary`, `varbinary`, `image`
+
+For example, doing `CAST(num AS integer)` will error since `int` is a supported data type, but `integer` is not. -->
+<!--
+Note: Not included as these questions don't come up as frequently in the HW, but can be added later if need be
+
+## Frame not returned when using (...) in filtering
+
+In `SQL`, tuples are a sequence of values grouped together by parenthesis. They are meant for use with the `IN` keyword when filtering data based on set membership. You need to be careful when using tuples with other filtering keywords such as `LIKE`.
+
+#### **Incorrect usage:**
+
+1.  `WHERE item LIKE ('%orange%' OR '%strawberry%')`
+2.  `WHERE item IN ('fruit', 'vegetable')`
+
+#### **Correct usage:**
+
+1. `WHERE (item LIKE '%orange%' OR item LIKE '%strawberry%')`
+2. `WHERE item IN ('fruit', 'vegetable')`
+
+-->
+
+
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -699,14 +786,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="About">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">About</span>
+      <a href="../projA2/projA2.html" class="pagination-link" aria-label="Project A2 Common Questions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Project A2 Common Questions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../jupyter_datahub/jupyter_datahub.html" class="pagination-link" aria-label="Jupyter / Datahub">
-        <span class="nav-page-text"><span class="chapter-title">Jupyter / Datahub</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

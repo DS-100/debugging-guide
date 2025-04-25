@@ -418,5 +418,35 @@
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Project A2 Common Questions</span>"
     ]
+  },
+  {
+    "objectID": "sql/sql.html",
+    "href": "sql/sql.html",
+    "title": "SQL Common Errors",
+    "section": "",
+    "text": "Common Misconceptions",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>SQL Common Errors</span>"
+    ]
+  },
+  {
+    "objectID": "sql/sql.html#common-misconceptions",
+    "href": "sql/sql.html#common-misconceptions",
+    "title": "SQL Common Errors",
+    "section": "",
+    "text": "How to read SQL Errors\nBecause Jupyter notebooks run Python natively, we need to import extra modules like sql, sqlalchemy, and duckdb in order to run SQL queries within our notebook. This results in slightly more complex error messages than normal Python. Refer to the image below if you need help identifying the most important parts (the red and blue text).\n\n\n\nSometimes, SQL errors may show up as a long string without any red highlight, for example:\n(duckdb.duckdb.BinderException) Binder Error: Referenced column \"some_column\" not found in FROM clause! LINE 1: SELECT some_column                ^ ...\nNote that this is the same error as the one above – it’s just not formatted nicely. Try your best to parse it; you can even copy the error into a new cell and manually indent sentences if it helps with readability!\n\n\nComments in SQL\nUnlike Python, which uses #... or triple quotes \"\"\"...\"\"\" to indicate a comment, SQL comments take the following forms:\n-- This is a single-line or in-line comment\n\n/* \n  This is a \n  multi-line \n  comment \n*/\nBecause you are still coding within a Python notebook, the colors that Jupyter chooses for your SQL queries may not match up to what you expect; using #... will be green text like Python comments, but running the code will give you:\nParser Error: syntax error at or near...\nUsing -- or /* ... */ may not color-code the text correctly, but SQL will still read it as a comment!\n\n\n\nFiltering with multiple conditions\nWhen you are using more than one condition in filtering clauses like WHERE or HAVING, it’s important consider that the ordering of ORs and ANDs will affect your SQL output.\nIn SQL, the operator precedence typically evaluates AND operations before OR operations, and so incorrectly ordered conditions can lead to unexpected results. To ensure your conditions are evaluated in the intended order, use parentheses to group them explicitly.\nFor example, consider the following query condition:\nWHERE A &gt; 500 AND B &gt; 200 OR C &lt; 50\nBy default, is will be evaluated as\nWHERE (A &gt; 500 AND B &gt; 200) OR C &lt; 50\nbecause AND has a higher precedence than OR. To evaluate it differently, add parentheses to specify the order of operations:\nWHERE A &gt; 500 AND (B &gt; 200 OR C &lt; 50)\n\n\nTruncated Display Limit\nOur Jupyter Notebooks are set to only display the first 10 rows of a table. Otherwise, your notebook would likely crash with the weight of displaying &gt;1000 rows. You’ll likely see a\nTruncated to displaylimit of 10\nprinted right below your SQL query if your table contains more than 10 rows.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>SQL Common Errors</span>"
+    ]
+  },
+  {
+    "objectID": "sql/sql.html#common-errors",
+    "href": "sql/sql.html#common-errors",
+    "title": "SQL Common Errors",
+    "section": "Common Errors",
+    "text": "Common Errors\n\nNameError: name ‘[res_q#]’ is not defined\nThis occurs when you have an error in your SQL code, causing the cell after to fail. Because we’re working with Jupyter Notebooks, some SQL errors are not highlighted in red like Python errors usually are. Check the output under your %%sql cell to see if it ran smoothly. Any text below\nRunning query in 'duckdb:///data/{database_name}.db\nis an error message that you can read to debug your code. Note that this error could be formatted as one long string without any indents or newlines, so it may be harder than typical Python errors to parse.\n\n\n\nReferenced column \"{some_string}\" not found\nThere are 2 potential causes for this error:\n\nThe column you’re looking for does not exist in the table. Make sure that the column names are spelled and capatalized exactly as shown in the assignment. If you are trying to reference a column that is not in the current table, consider using JOIN to be able to access these columns. You can reference the SQL II course notes for a refresher on how to use the JOIN clause.\nYou used double quotes \"\" around some_string instead of single quotes ''. Unlike Python, SQL differentiates double and single quotes: double quotes indicate something that exists within the database, like tables and column names; single quotes indicate strings.\n\n\n\n\nCannot compare values of type __ and type __\nThis error often occurs when a string-type column (ie. CHAR or VARCHAR) is compared with a numeric-type column (ie. INT, BIGINT, FLOAT, REAL). If you’re interested in learning more about SQL datatypes, check out this link!\nTo debug, start by checking the type of the column(s) you’re working with; you can either scroll up to the cell (or make a new cell) with the code:\n%%sql\nSELECT * FROM sqlite_master WHERE type='table';\nwhich outputs the schema for each table. If we’re working with the IMDB database, we get the following output:\n\n\n\nWe can see that the table Title contains the columns\n\ntconst of type BIGINT\ntitleType of type VARCHAR\nprimaryTitle of type VARCHAR\nand so on…\n\nIt’s a good idea to double check the types of the columns involved by looking at the schema before performing numerical comparisons and when deciding whether to CAST a particular column.\n\n\nMy query runs but I’m not passing the tests\nFor a lot of questions in the homework, we limit our focus to movie titles. Double check that you are filtering your results appropriately. More generally, if you find your queries aren’t erroring, but are failing the tests due to some logical error, a good starting point is always reading the question again and making a checklist of all the conditions you need to implement.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>SQL Common Errors</span>"
+    ]
   }
 ]
