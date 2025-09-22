@@ -14,5 +14,3 @@ _site/*
 
 # Python byte-compiled cache
 __pycache__/
-
-**/*.quarto_ipynb
