@@ -83,6 +83,14 @@ Right click on the generated zip file and click "Download".
 
 <center><img src = "zip_download.png" width = "500"></img></a></center>
 
+## Autograder could not locate my PDF
+
+Sometimes when running the `grader.export(run_tests=True)` cell at the end of the notebook, you run into an error where the autograder could not locate the PDF:
+
+<center><img src = "pdf_not_located.png" width = "700"></img></a></center>
+
+To fix this, make sure you have not accidentally converted any cells to `raw` type. All cells should either be `markdown` or `code` cells. You can easily convert cells by following [these instructions](https://ds100.org/debugging-guide/jupyter_datahub/jupyter_datahub.html#my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell) earlier in the debugging guide.
+
 ## I can’t export my assignment as a PDF due to a `LatexFailed` error
 
 Occasionally when running the `grader.export(run_tests=True)` cell at the end of the notebook, you run into an error where the PDF failed to generate:

@@ -183,6 +183,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#why-does-running-a-particular-cell-cause-my-kernel-to-die" id="toc-why-does-running-a-particular-cell-cause-my-kernel-to-die" class="nav-link" data-scroll-target="#why-does-running-a-particular-cell-cause-my-kernel-to-die">Why does running a particular cell cause my kernel to die?</a></li>
   <li><a href="#i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back" id="toc-i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back" class="nav-link" data-scroll-target="#i-accidentally-deleted-something-in-a-cell-that-was-provided-to-me-how-do-i-get-it-back">I accidentally deleted something in a cell that was provided to me – how do I get it back?</a></li>
   <li><a href="#click-here-to-download-zip-file-is-not-working" id="toc-click-here-to-download-zip-file-is-not-working" class="nav-link" data-scroll-target="#click-here-to-download-zip-file-is-not-working">“Click <u>here</u> to download zip file” is not working</a></li>
+  <li><a href="#autograder-could-not-locate-my-pdf" id="toc-autograder-could-not-locate-my-pdf" class="nav-link" data-scroll-target="#autograder-could-not-locate-my-pdf">Autograder could not locate my PDF</a></li>
   <li><a href="#i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error" id="toc-i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error" class="nav-link" data-scroll-target="#i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error">I can’t export my assignment as a PDF due to a <code>LatexFailed</code> error</a></li>
   <li><a href="#i-cant-open-jupyter-http-error-431" id="toc-i-cant-open-jupyter-http-error-431" class="nav-link" data-scroll-target="#i-cant-open-jupyter-http-error-431">I can’t open Jupyter: <code>HTTP ERROR 431</code></a></li>
   <li><a href="#datahub-is-not-loading" id="toc-datahub-is-not-loading" class="nav-link" data-scroll-target="#datahub-is-not-loading">Datahub is not loading</a></li>
@@ -273,6 +274,14 @@ ul.task-list li input[type="checkbox"] {
 <center>
 <img src="zip_download.png" width="500">
 </center>
+</section>
+<section id="autograder-could-not-locate-my-pdf" class="level2">
+<h2 class="anchored" data-anchor-id="autograder-could-not-locate-my-pdf">Autograder could not locate my PDF</h2>
+<p>Sometimes when running the <code>grader.export(run_tests=True)</code> cell at the end of the notebook, you run into an error where the autograder could not locate the PDF:</p>
+<center>
+<img src="pdf_not_located.png" width="700">
+</center>
+<p>To fix this, make sure you have not accidentally converted any cells to <code>raw</code> type. All cells should either be <code>markdown</code> or <code>code</code> cells. You can easily convert cells by following <a href="https://ds100.org/debugging-guide/jupyter_datahub/jupyter_datahub.html#my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell">these instructions</a> earlier in the debugging guide.</p>
 </section>
 <section id="i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error" class="level2">
 <h2 class="anchored" data-anchor-id="i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error">I can’t export my assignment as a PDF due to a <code>LatexFailed</code> error</h2>

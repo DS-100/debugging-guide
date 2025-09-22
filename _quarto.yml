@@ -6,7 +6,7 @@ book:
   favicon: data100_logo.png
   title: "Data 100 Debugging Guide"
   image: data100_logo.png
-  author: ["Yash Dave", "Lillian Weng", "Wesley Zheng"]
+  author: ["Yash Dave", "Lillian Weng", "Wesley Zheng", "Emrie Loh"]
   repo-url: https://github.com/DS-100/debugging-guide
   search:
     location: sidebar
