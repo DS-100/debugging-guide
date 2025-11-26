@@ -1,4 +1,4 @@
-name: Accessibility Checks (With Render)
+name: Accessibility Checks
 
 on:
   push:
@@ -22,33 +22,37 @@ jobs:
       # 2. Setup Quarto
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+
+      # 3. Install TinyText (for rendering)
+      - name: Install TinyTeX
+        uses: quarto-dev/quarto-actions/tinytex@v2
       
-      # 3. Setup Node.js (for Axe and http-server)
+      # 4. Setup Node.js (for Axe and http-server)
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      # 4. Setup Python
+      # 5. Setup Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11.9' 
           cache: 'pip' 
 
-      # 5. Install Python dependencies
+      # 6. Install Python dependencies
       - name: Install Python dependencies
         run: pip install -r requirements.txt
       
-      # 6. Render the Site
+      # 7. Render the Site
       - name: Render Quarto Site
         run: quarto render
 
-      # 7. Install Tools
+      # 8. Install Tools
       - name: Install Axe and Server
         run: npm install -g @axe-core/cli http-server
 
-      # 8. Start Local Server (Background Process)
+      # 9. Start Local Server (Background Process)
       - name: Start Local Server
         run: |
           # Mimic the production path structure exactly with
@@ -61,7 +65,7 @@ jobs:
           
           sleep 5
 
-      # 9. Run Axe Scan
+      # 10. Run Axe Scan
       - name: Run Accessibility Scan
         id: axe-scan
         run: |
@@ -82,7 +86,7 @@ jobs:
             --save axe-report.json \
             --exit
 
-      # 10. Upload Report (Runs even if previous step fails)
+      # 11. Upload Report (Runs even if previous step fails)
       - name: Upload Accessibility Report
         if: always() 
         uses: actions/upload-artifact@v4
