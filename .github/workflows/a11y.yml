@@ -29,19 +29,26 @@ jobs:
         with:
           node-version: '20'
 
-      # 4. Install Python dependencies
+      # 4. Setup Python
+      - name: Set up Python
+        - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11.9' 
+          cache: 'pip' 
+
+      # 5. Install Python dependencies
       - name: Install Python dependencies
         run: pip install -r requirements.txt
       
-      # 5. Render the Site
+      # 6. Render the Site
       - name: Render Quarto Site
         run: quarto render
 
-      # 6. Install Tools
+      # 7. Install Tools
       - name: Install Axe and Server
         run: npm install -g @axe-core/cli http-server
 
-      # 7. Start Local Server (Background Process)
+      # 8. Start Local Server (Background Process)
       - name: Start Local Server
         run: |
           # Mimic the production path structure exactly with
@@ -54,7 +61,7 @@ jobs:
           
           sleep 5
 
-      # 8. Run Axe Scan
+      # 9. Run Axe Scan
       - name: Run Accessibility Scan
         id: axe-scan
         run: |
@@ -75,7 +82,7 @@ jobs:
             --save axe-report.json \
             --exit
 
-      # 9. Upload Report (Runs even if Step 8 fails)
+      # 10. Upload Report (Runs even if previous step fails)
       - name: Upload Accessibility Report
         if: always() 
         uses: actions/upload-artifact@v4
