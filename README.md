@@ -1,5 +1,7 @@
 # Debugging Guide
 
+[![Accessibility Checks](https://github.com/DS-100/debugging-guide/actions/workflows/a11y.yml/badge.svg)](https://github.com/DS-100/debugging-guide/actions/workflows/a11y.yml)
+
 Website link: https://ds100.org/debugging-guide/
 
 ## Repo Setup

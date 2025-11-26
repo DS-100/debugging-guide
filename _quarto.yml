@@ -3,6 +3,7 @@ project:
   output-dir: docs
 
 book:
+  site-url: "https://ds100.org/debugging-guide/"
   favicon: data100_logo.png
   title: "Data 100 Debugging Guide"
   image: data100_logo.png
