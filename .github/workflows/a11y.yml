@@ -6,8 +6,6 @@ on:
 
 env:
   PRODUCTION_URL: "https://ds100.org/debugging-guide/"
-  # must match the end of PRODUCTION_URL
-  # leave blank if at root
   SITE_SUBDIR: "debugging-guide"
 
 jobs:
@@ -15,44 +13,18 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      # 1. Checkout Code
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Setup Quarto with TinyTex
-      # - name: Set up Quarto
-      #   uses: quarto-dev/quarto-actions/setup@v2
-      #   env:
-      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     tinytex: true
-
-      # 3. Setup Node.js (for Axe and http-server)
+      # Setup Node.js and install Axe and http-server
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-
-      # 4. Setup Python
-      # - name: Set up Python
-      #   uses: actions/setup-python@v4
-      #   with:
-      #     python-version: '3.11.9' 
-      #     cache: 'pip' 
-
-      # 5. Install Python dependencies
-      # - name: Install Python dependencies
-      #   run: pip install -r requirements.txt
-      
-      # 6. Render the Site
-      # - name: Render Quarto Site
-      #   run: quarto render
-
-      # 7. Install Tools
       - name: Install Axe and Server
         run: npm install -g @axe-core/cli http-server
 
-      # 8. Start Local Server (Background Process)
+      # Start Local Server 
       - name: Start Local Server
         run: |
           # Mimic the production path structure exactly with
@@ -65,7 +37,7 @@ jobs:
           
           sleep 5
 
-      # 9. Run Axe Scan
+      # Run Axe Scan
       - name: Run Accessibility Scan
         id: axe-scan
         run: |
@@ -86,7 +58,7 @@ jobs:
             --save axe-report.json \
             --exit
 
-      # 10. Upload Report (Runs even if previous step fails)
+      # Upload Report even if previous step fails
       - name: Upload Accessibility Report
         if: always() 
         uses: actions/upload-artifact@v4
