@@ -2,14 +2,8 @@
 title: Jupyter 101
 format:
   html:
-    toc: true
-    toc-depth: 5
     toc-location: right
     code-fold: false
-    theme:
-      - cosmo
-      - cerulean
-    callout-icon: false
 jupyter:
   jupytext:
     text_representation:
