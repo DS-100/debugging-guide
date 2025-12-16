@@ -28,17 +28,12 @@ book:
     logo: "data100_logo.png"
 format:
   html:
-    theme: cosmo
+    theme: cosmos
     toc: true
     toc-depth: 5
     toc-expand: 3 # depth to expand index
     callout-icon: false
     number-sections: false
+    include-after-body: 
+      - assets/a11y-fixes.html
   pdf: default
-#   navbar:
-#     search: false
-#     right:
-#       - icon: github
-#         href: https://github.com/
-#         aria-label: GitHub
-#       - icon: arrows-fullscreen

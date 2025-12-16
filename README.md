@@ -1,6 +1,6 @@
 # Debugging Guide
 
-[![Accessibility Checks](https://github.com/DS-100/debugging-guide/actions/workflows/a11y.yml/badge.svg)](https://github.com/DS-100/debugging-guide/actions/workflows/a11y.yml)
+[![pages-build-deployment](https://github.com/DS-100/debugging-guide/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/DS-100/debugging-guide/actions/workflows/pages/pages-build-deployment) [![Accessibility Checks](https://github.com/DS-100/debugging-guide/actions/workflows/a11y.yml/badge.svg)](https://github.com/DS-100/debugging-guide/actions/workflows/a11y.yml)
 
 Website link: https://ds100.org/debugging-guide/
 
@@ -42,7 +42,7 @@ pip3 install -r requirements.txt # will take a while
 ipython kernel install --user
 ```
 
-If you get an `error: externally-managed-environment` on the third line, run `pip3 install -r requirements.txt --break-system-packages`
+If you get an `error: externally-managed-environment` on the third line, run `pip3 install -r requirements.txt --break-system-packages`. You may also run into issues if you're running on Apple silicon. I fixed this by running `conda install -c conda-forge scikit-learn==1.2.2 scikit-image==0.25.2` before `pip3 install -r requirements.txt`.
 
 Remember to always activate the right environment before running anything with `conda activate data100quarto`.
 
