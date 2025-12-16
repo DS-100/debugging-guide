@@ -2,14 +2,8 @@
 title: RegEx
 format:
   html:
-    toc: true
-    toc-depth: 5
     toc-location: right
     code-fold: false
-    theme:
-      - cosmo
-      - cerulean
-    callout-icon: false
 jupyter: python3
 ---
 
@@ -20,7 +14,7 @@ RegEx syntax can be incredibly confusing, so we highly encourage using sources l
 [Regex101](https://regex101.com/) is a great tool that helps you visually interact with RegEx patterns. Let's take a look at its components with a simple example. 
 
 ### Example 1: Basic
-<center><img src = "images/updated_basic.png" width = "700"></img></a></center>
+<center><img src = "images/updated_basic.png" width = "700" alt="A screenshot of regex101 with five different components of the website highlighted. On the left is region 0. In the upper middle is region 1. In the lower middle is region 3. On the upper right is region 2. On the lower right is region 4."></img></a></center>
 <br>
 
 0. **Flavor**: Regular expressions work slightly differently depending on the programming language you use. In Data 100, we only use the `Python` flavor. By default, regex101 opens on the PCRE2 flavor, so make sure to change to `Python` before experimenting.
@@ -32,7 +26,7 @@ RegEx syntax can be incredibly confusing, so we highly encourage using sources l
 ### Example 2: Greedy 
 For this example, let's replace the `100` in our original expression with `\d+` so that our pattern is `Data \d+`
 
-<center><img src = "images/updated_greedy.png" width = "700"></img></a></center>
+<center><img src = "images/updated_greedy.png" width = "700" alt="Screenshot of regex 101 highlighting part of the explanation, described more below."></img></a></center>
 <br>
 
 `\d` and `+` are both special operators, and the explanation on the top right (boxed in red) tells us what they do: 
@@ -52,7 +46,7 @@ Let's say we're given a body of text with dates formatted as `DD/Month/YYYY` (ie
 
 That's great! This pattern will match the entirety of `DD/Month/YYYY`, but what if we want to access `DD` individually? What about `YYYY`? This is where **capturing groups** comes in handy. Capturing groups are RegEx expressions surrounded by parenthesis `()`  that are used to remember the text they match so that it can be referenced later. Putting capturing groups around `\d+` and `\w+` to get `r"(\d+)\/(\w+)\/(\d+)"`gives us the following: 
 
-<center><img src = "images/updated_capturing_groups.png" width = "700"></img></a></center>
+<center><img src = "images/updated_capturing_groups.png" width = "700" alt=""></img></a></center>
 <br> 
 
 * The "Explanation" section now shows an explanation for each of the 3 capturing groups. 
@@ -113,7 +107,7 @@ The `^` character can be tricky to wrap your head around given how its function 
 
 The exam reference sheets give a few `re` functions, but how can you determine which one to use? 
 
-<center><img src = "images/ref_sheet_re_methods.png" width = "800"></img></a></center>
+<center><img src = "images/ref_sheet_re_methods.png" width = "800" alt="Screenshot of the exam reference sheet showing re.match(), re.search(), re.findall(), and re.sub()"></img></a></center>
 <br>
 
 `re.match` and `re.search` only return *one* instance of a match between string and pattern (or None if there's no match) 

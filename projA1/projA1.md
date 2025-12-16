@@ -2,14 +2,8 @@
 title: Project A1 Common Questions
 format:
   html:
-    toc: true
-    toc-depth: 5
     toc-location: right
     code-fold: false
-    theme:
-      - cosmo
-      - cerulean
-    callout-icon: false
 jupyter: python3
 ---
 
@@ -17,7 +11,7 @@ jupyter: python3
 
 ### `TypeError: could not convert string to float: 'SF'`
 
-Type errors like these usually stem from applying a numeric aggregation function to a non-numeric column as described in the [`pandas` section](https://ds100.org/debugging-guide/pandas/pandas.html#typeerror-could-not-convert-string-to-numeric) of the debugging guide.
+Type errors like these usually stem from applying a numeric aggregation function to a non-numeric column as described in the `pandas` [çsection](https://ds100.org/debugging-guide/pandas/pandas.html#typeerror-could-not-convert-string-to-numeric) of the debugging guide.
 
 Aggregation functions like `np.median` and `np.mean` are only well-defined for columns with numeric types like `int` and `float`. Your code is likely trying to aggregate across all columns in `training_data`, including those of type `str`. Instead of aggregating across the entire `DataFrame`, try just selecting the relevant columns.
 
@@ -33,5 +27,5 @@ A good starting point is to revisit the One Hot Encoding question in Lab 7. It's
 
 ### My OHE columns contain a lot of `NaN` values
 
-This may happen if you try and merge the OHE columns with the `training_data` table without making sure both `DataFrame` have the *same index values*. Look into the [`pd.merge` documentation](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html) for ways to resolve this.
+This may happen if you try and merge the OHE columns with the `training_data` table without making sure both `DataFrame` have the *same index values*. Look into the `pd.merge` [documentation](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html) for ways to resolve this.
 

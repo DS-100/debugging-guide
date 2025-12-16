@@ -2,21 +2,15 @@
 title: Pandas
 format:
   html:
-    toc: true
-    toc-depth: 5
     toc-location: right
     code-fold: false
-    theme:
-      - cosmo
-      - cerulean
-    callout-icon: false
 jupyter: python3
 ---
 
 ## Understanding `pandas` errors
 `pandas` errors can look red, scary, and very long. Fortunately, we don't need to understand the entire thing! The most important parts of an error message are at the **top**, which tells you which line of code is causing the issue, and at the **bottom**, which tells you exactly what the error message is. 
 
-<center><img src = "pandas_error.png" width = "700"></img></a></center>
+<center><img src = "pandas_error.png" width = "700" alt="A screenshot of an error output by running a pandas command. The screenshot is annotated, with the first annotation reading 'The arrow points to the line of code that is erroring' next to a green arrow in the error output. Also highlighted and annotated is the last line of the error message, 'The most useful error messages are usually at the bottom'"></img></a></center>
 <br>
 
 This note is (mostly) structured around the error messages that show up at the bottom. 
