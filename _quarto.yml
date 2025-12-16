@@ -35,5 +35,5 @@ format:
     callout-icon: false
     number-sections: false
     include-after-body: 
-      - assets/a11y-fixes.html
+      - a11y-fixes.html
   pdf: default
