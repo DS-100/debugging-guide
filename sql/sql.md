@@ -26,7 +26,7 @@ jupyter:
 ### How to read SQL Errors
 Because Jupyter notebooks run Python natively, we need to import extra modules like `sql`, `sqlalchemy`, and `duckdb` in order to run SQL queries within our notebook. This results in slightly more complex error messages than normal Python. Refer to the image below if you need help identifying the most important parts (the red and blue text). 
 
-<center><img src = "images/sql_error.png" width = "700"></img></a></center>
+<center><img src = "images/sql_error.png" width = "700" alt="Screenshot of a SQL Error message with the most important parts annotated. After 'Original error message from DB driver' is the highlighted error type followed by a description of why that error occured. Next in the error message is the line of code that caused the error."></img></a></center>
 
 Sometimes, SQL errors may show up as a long string without any red highlight, for example: 
 
@@ -142,7 +142,7 @@ SELECT * FROM sqlite_master WHERE type='table';
 
 which outputs the schema for each table. If we're working with the IMDB database, we get the following output: 
 
-<center><img src = "images/imdb_schema.png" width = "700"></img></a></center>
+<center><img src = "images/imdb_schema.png" width = "700" alt="Schema for the IMDB database"></img></a></center>
 
 
 We can see that the table `Title` contains the columns

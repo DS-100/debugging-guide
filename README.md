@@ -95,9 +95,11 @@ A pdf view of how this notebook renders in Quarto can be found [here](https://dr
 
 To give you the most control when inserting images, we use html with the following format to center images/figs and control their size: 
 
-```<center><img src = "IMAGE_NAME" width = "IMAGE_WIDTH_IN_PIXELS"></img></a></center>```
+```<center><img src = "IMAGE_NAME" width = "IMAGE_WIDTH_IN_PIXELS" alt="alt text here"></img></a></center>```
 
-For example, `<center><img src = "images/updated_basic.png" width = "700"></img></a></center>`.
+For example, `<center><img src = "images/updated_basic.png" width = "700" alt="description of image"></img></a></center>`.
+
+In some instances, the images may be completely described in the text of the page. In these cases, you may leave the alt text blank i.e. `alt=""`. BUT THE ALT TEXT MUST STILL BE INCLUDED.
 
 
 ## Generating Output + Rendering Website

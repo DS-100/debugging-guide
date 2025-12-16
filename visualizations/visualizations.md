@@ -28,7 +28,7 @@ plt.title('Simulated values')
 plt.plot(original, 10, 'bo', label = 'original test statistic') # informative label name
 plt.legend(loc = 'upper left') # can specify location of legend
 ```
-<center><img src = "images/example_label_plot.png" width = "500"></img></a></center>
+<center><img src = "images/example_label_plot.png" width = "500" alt="Histogram titled 'Simulated values of correlated coefficients'. The original test statistic is shown in the center of the distribution which ranges from just over 0.1 to just under 0.3. The distribution is roughly normal."></img></a></center>
 <br>
 
 ## The y-axis of my `histplot` shows the count, not the density
@@ -69,7 +69,7 @@ Now, instead of `plt.xlabel`, `plt.ylabel`, and `plt.title` being functions, the
 
 will give us a clean plot because each year corresponds to a single "Number of Flights in May" value. 
 
-<center><img src = "images/normal_lineplot.png" width = "500"></img></a></center>
+<center><img src = "images/normal_lineplot.png" width = "500" alt="A line plot is shown with year on the x-axis and May on the y-axis."></img></a></center>
 <br>
 
 When each x value has multiple y values, `sns.lineplot` will automatically plot a shaded region around the solid line, where the solid line is the mean of the y values for that x value (think of a groupby on x aggregated by `.mean()` on y) and the shaded region is the 95% confidence interval (read more about confidence intervals in the [Data 8 textbook](https://inferentialthinking.com/chapters/13/3/Confidence_Intervals.html?highlight=confidence+intervals)). For example, the table 
@@ -86,7 +86,7 @@ When each x value has multiple y values, `sns.lineplot` will automatically plot 
 
 will plot a lineplot with a shaded region. 
 
-<center><img src = "images/shaded_lineplot.png" width = "500"></img></a></center>
+<center><img src = "images/shaded_lineplot.png" width = "500" alt="The same lineplot as above is shown again with the 95% confidence interval shaded in around the line itself."></img></a></center>
 <br>
 
 If you do not want the shaded region, aggregate the data such that there is only one y-value for a given x-value; then, make the plot.

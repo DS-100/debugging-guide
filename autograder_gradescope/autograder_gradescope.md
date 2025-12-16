@@ -34,16 +34,16 @@ jupyter:
 
 When you pass a test, you'll see a nice message and a cute emoji!
 
-<center><img src = "passing_autograder.png" width = "200"></img></a></center>
+<center><img src = "passing_autograder.png" width = "200" alt="Screenshot of a grader cell for question q2a with cell ouput 'q2a passed'"></img></a></center>
 
 When you don't, however, the message can be a little confusing.
 
-<center><img src = "autograder_error.png" width = "600"></img></a></center>
+<center><img src = "autograder_error.png" width = "600" alt="Example of a cell output for a failing autograder test showing what test failed, what the code that was evaluated was, the expected output, and an error that was raised during the course of the test."></img></a></center>
 <br>
 
 The best course of action is to find the test case that failed and use that as a starting point to debug your code.
 
-<center><img src = "autograder_error_annot.png" width = "700"></img></a></center>
+<center><img src = "autograder_error_annot.png" width = "700" alt="An annotated version of the previous image which includes the note 'The most useful error message is usually at the bottom'"></img></a></center>
 
 In the example above, we see that the test case in green, `max_swing in set(bus['name'])`, is not passing. The actual output (in blue) is often hard to parse, so the best course of action is to:
 
@@ -100,11 +100,11 @@ This can happen if you import external packages when you are not instructed to d
 
 If your Gradescope submission page has been stuck running on this page for a while:
 
-<center><img src = "gradescope_loading.png" width = "350"></img></a></center>
+<center><img src = "gradescope_loading.png" width = "350" alt="Autograder Results. The autograder hasn't finish running yet."></img></a></center>
 
 or if it times out:
 
-<center><img src = "gradescope_timeout.png" width = "650"></img></a></center>
+<center><img src = "gradescope_timeout.png" width = "650" alt="Autograder Results. In a red box 'The autograder failed to respond in the expected amount of time. If the autograder continues to fail, contact your course staff for help in debugging this issue. Make sure to include a link to this page so they can help you most effectively.'"></img></a></center>
 
 it means that the Gradescope autograder failed to execute in the expected amount of time. TThis could be due to an inefficiency in your code or an issue on Gradescope's end, so we recommend resubmitting and allowing the autograder to rerun. If the issue persists after a few attempts, you may need to investigate your code for inefficiencies.
 

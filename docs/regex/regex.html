@@ -256,7 +256,7 @@ window.Quarto = {
 <section id="example-1-basic" class="level3">
 <h3 class="anchored" data-anchor-id="example-1-basic">Example 1: Basic</h3>
 <center>
-<img src="images/updated_basic.png" width="700">
+<img src="images/updated_basic.png" width="700" alt="A screenshot of regex101 with five different components of the website highlighted. On the left is region 0. In the upper middle is region 1. In the lower middle is region 3. On the upper right is region 2. On the lower right is region 4.">
 </center>
 <p><br></p>
 <ol start="0" type="1">
@@ -271,7 +271,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="example-2-greedy">Example 2: Greedy</h3>
 <p>For this example, let’s replace the <code>100</code> in our original expression with <code>\d+</code> so that our pattern is <code>Data \d+</code></p>
 <center>
-<img src="images/updated_greedy.png" width="700">
+<img src="images/updated_greedy.png" width="700" alt="Screenshot of regex 101 highlighting part of the explanation, described more below.">
 </center>
 <p><br></p>
 <p><code>\d</code> and <code>+</code> are both special operators, and the explanation on the top right (boxed in red) tells us what they do:</p>
@@ -292,7 +292,7 @@ window.Quarto = {
 </ul>
 <p>That’s great! This pattern will match the entirety of <code>DD/Month/YYYY</code>, but what if we want to access <code>DD</code> individually? What about <code>YYYY</code>? This is where <strong>capturing groups</strong> comes in handy. Capturing groups are RegEx expressions surrounded by parenthesis <code>()</code> that are used to remember the text they match so that it can be referenced later. Putting capturing groups around <code>\d+</code> and <code>\w+</code> to get <code>r"(\d+)\/(\w+)\/(\d+)"</code>gives us the following:</p>
 <center>
-<img src="images/updated_capturing_groups.png" width="700">
+<img src="images/updated_capturing_groups.png" width="700" alt="">
 </center>
 <p><br></p>
 <ul>
@@ -351,7 +351,7 @@ result.group(3) # '2024', the third captured group</code></pre>
 <h3 class="anchored" data-anchor-id="whats-the-difference-between-all-the-re-functions">What’s the difference between all the <code>re</code> functions?</h3>
 <p>The exam reference sheets give a few <code>re</code> functions, but how can you determine which one to use?</p>
 <center>
-<img src="images/ref_sheet_re_methods.png" width="800">
+<img src="images/ref_sheet_re_methods.png" width="800" alt="Screenshot of the exam reference sheet showing re.match(), re.search(), re.findall(), and re.sub()">
 </center>
 <p><br></p>
 <p><code>re.match</code> and <code>re.search</code> only return <em>one</em> instance of a match between string and pattern (or None if there’s no match) - <code>re.match</code> only considers characters at the beginning of a string - <code>re.search</code> considers characters anywhere in the string - For example: ``` pattern = r”Data 100” example1 = “Data 100 is the best!” example2 = “I love Data 100!”</p>

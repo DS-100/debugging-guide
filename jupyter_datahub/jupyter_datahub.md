@@ -33,7 +33,7 @@ Jupyterhub connects you to an external container to run your code. That connecti
 
 When you see a message like this:
 
-<center><img src = "kernel_die.png" width = "500"></img></a></center>
+<center><img src = "kernel_die.png" width = "500" alt="Screenshot of dead kernel messaging"></img></a></center>
 
 1. Either press the "Ok" button or reload the page
 2. [Restart your kernel](https://ds100.org/debugging-guide/jupyter101/jupyter101.html#restarting-kernel)
@@ -51,7 +51,7 @@ We set some cells to read-only mode prevent accidental modification. That said, 
 2. Click setting on the top right corner
 3. Under "Common Tools", you can toggle between "Editable" (can edit the cell) and "Read-Only" (cannot edit the cell)
 
-<center><img src = "toggle_edit.gif" width = "500"></img></a></center>
+<center><img src = "toggle_edit.gif" width = "500" alt="Gif showing how to toggle between 'Editable' and 'Read-Only' for a cell"></img></a></center>
 
 ## My text cell looks like code
 
@@ -61,7 +61,7 @@ If you double-click on a text (markdown) cell, it'll appear in its raw format. T
 
 Sometimes, a text (markdown) cell was changed to a code cell, or a code cell can't be run because it's been changed to a text (markdown) or raw cell. To fix this, toggle the desired cell type in the top bar.
 
-<center><img src = "toggle_cell_type.gif" width = "700"></img></a></center>
+<center><img src = "toggle_cell_type.gif" width = "700" alt="Gif showing how to toggle the cell type from code to text and back again."></img></a></center>
 
 ## Why does running a particular cell cause my kernel to die?
 
@@ -77,17 +77,17 @@ Alternatively, you can access this [public repo](https://github.com/DS-100/fa25-
 
 When this happens, you can download the zip file through the menu on the left.
 
-<center><img src = "zip_left_menu.png" width = "400"></img></a></center>
+<center><img src = "zip_left_menu.png" width = "400" alt="Left menu showing files with the zip file highlighted by a red box."></img></a></center>
 
 Right click on the generated zip file and click "Download".
 
-<center><img src = "zip_download.png" width = "500"></img></a></center>
+<center><img src = "zip_download.png" width = "500" alt="After right/force clicking on the zip file, click 'Download' which is highlighted in this screenshot with a red box."></img></a></center>
 
 ## Autograder could not locate my PDF
 
 Sometimes when running the `grader.export(run_tests=True)` cell at the end of the notebook, you run into an error where the autograder could not locate the PDF:
 
-<center><img src = "pdf_not_located.png" width = "700"></img></a></center>
+<center><img src = "pdf_not_located.png" width = "700" alt="Screenshot showing 'UserWarning: Could not locate a PDF to include'"></img></a></center>
 
 To fix this, make sure you have not accidentally converted any cells to `raw` type. All cells should either be `markdown` or `code` cells. You can easily convert cells by following [these instructions](https://ds100.org/debugging-guide/jupyter_datahub/jupyter_datahub.html#my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell) earlier in the debugging guide.
 
@@ -95,7 +95,7 @@ To fix this, make sure you have not accidentally converted any cells to `raw` ty
 
 Occasionally when running the `grader.export(run_tests=True)` cell at the end of the notebook, you run into an error where the PDF failed to generate:
 
-<center><img src = "LatexError.png" width = "500"></img></a></center>
+<center><img src = "LatexError.png" width = "500" alt="Screenshot of a latex error that begins with 'LatexFailed: PDF creating failed, captured latex output:...'"></img></a></center>
 
 Converting a Jupyter notebook to a PDF involves formatting some of the markdown text in [LaTeX](https://www.latex-project.org/). However, this process will fail if your free response answers have (unresolved) LaTeX characters like `\n`, `$`, or `$$`. There are several ways to resolve this:
 

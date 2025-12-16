@@ -228,16 +228,16 @@ Many of these common questions were taken and modified from the UC San Diego cou
 <h3 class="anchored" data-anchor-id="understanding-autograder-error-messages">Understanding autograder error messages</h3>
 <p>When you pass a test, you’ll see a nice message and a cute emoji!</p>
 <center>
-<img src="passing_autograder.png" width="200">
+<img src="passing_autograder.png" width="200" alt="Screenshot of a grader cell for question q2a with cell ouput 'q2a passed'">
 </center>
 <p>When you don’t, however, the message can be a little confusing.</p>
 <center>
-<img src="autograder_error.png" width="600">
+<img src="autograder_error.png" width="600" alt="Example of a cell output for a failing autograder test showing what test failed, what the code that was evaluated was, the expected output, and an error that was raised during the course of the test.">
 </center>
 <p><br></p>
 <p>The best course of action is to find the test case that failed and use that as a starting point to debug your code.</p>
 <center>
-<img src="autograder_error_annot.png" width="700">
+<img src="autograder_error_annot.png" width="700" alt="An annotated version of the previous image which includes the note 'The most useful error message is usually at the bottom'">
 </center>
 <p>In the example above, we see that the test case in green, <code>max_swing in set(bus['name'])</code>, is not passing. The actual output (in blue) is often hard to parse, so the best course of action is to:</p>
 <ol type="1">
@@ -291,11 +291,11 @@ Many of these common questions were taken and modified from the UC San Diego cou
 <h3 class="anchored" data-anchor-id="my-autograder-keeps-runningtimed-out">My autograder keeps running/timed out</h3>
 <p>If your Gradescope submission page has been stuck running on this page for a while:</p>
 <center>
-<img src="gradescope_loading.png" width="350">
+<img src="gradescope_loading.png" width="350" alt="Autograder Results. The autograder hasn't finish running yet.">
 </center>
 <p>or if it times out:</p>
 <center>
-<img src="gradescope_timeout.png" width="650">
+<img src="gradescope_timeout.png" width="650" alt="Autograder Results. In a red box 'The autograder failed to respond in the expected amount of time. If the autograder continues to fail, contact your course staff for help in debugging this issue. Make sure to include a link to this page so they can help you most effectively.'">
 </center>
 <p>it means that the Gradescope autograder failed to execute in the expected amount of time. TThis could be due to an inefficiency in your code or an issue on Gradescope’s end, so we recommend resubmitting and allowing the autograder to rerun. If the issue persists after a few attempts, you may need to investigate your code for inefficiencies.</p>
 <p>For example, if you rerun all cells in your Jupyter notebook and notice that some cells take significantly longer to run than others, you might need to optimize those cells. Keep in mind that the time it takes to run all tests in your Jupyter notebook is not equivalent to the time it takes on Gradescope/Pensieve. However, it is proportional—if your notebook runs slowly on Datahub, it will likely run even more slowly on Gradescope/Pensieve, as the difference in runtime is amplified.</p>

@@ -220,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="how-to-read-sql-errors">How to read SQL Errors</h3>
 <p>Because Jupyter notebooks run Python natively, we need to import extra modules like <code>sql</code>, <code>sqlalchemy</code>, and <code>duckdb</code> in order to run SQL queries within our notebook. This results in slightly more complex error messages than normal Python. Refer to the image below if you need help identifying the most important parts (the red and blue text).</p>
 <center>
-<img src="images/sql_error.png" width="700">
+<img src="images/sql_error.png" width="700" alt="Screenshot of a SQL Error message with the most important parts annotated. After 'Original error message from DB driver' is the highlighted error type followed by a description of why that error occured. Next in the error message is the line of code that caused the error.">
 </center>
 <p>Sometimes, SQL errors may show up as a long string without any red highlight, for example:</p>
 <p><code>(duckdb.duckdb.BinderException) Binder Error: Referenced column "some_column" not found in FROM clause! LINE 1: SELECT some_column                ^</code> <code>...</code></p>
@@ -313,7 +313,7 @@ When you are using `CASE` within `SELECT`, the new column will automatically be 
 SELECT * FROM sqlite_master WHERE type='table';</code></pre>
 <p>which outputs the schema for each table. If we’re working with the IMDB database, we get the following output:</p>
 <center>
-<img src="images/imdb_schema.png" width="700">
+<img src="images/imdb_schema.png" width="700" alt="Schema for the IMDB database">
 </center>
 <p>We can see that the table <code>Title</code> contains the columns</p>
 <ul>

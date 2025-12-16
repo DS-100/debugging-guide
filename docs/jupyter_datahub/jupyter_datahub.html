@@ -222,7 +222,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p>When you see a message like this:</p>
 <center>
-<img src="kernel_die.png" width="500">
+<img src="kernel_die.png" width="500" alt="Screenshot of dead kernel messaging">
 </center>
 <ol type="1">
 <li>Either press the “Ok” button or reload the page</li>
@@ -241,7 +241,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Under “Common Tools”, you can toggle between “Editable” (can edit the cell) and “Read-Only” (cannot edit the cell)</li>
 </ol>
 <center>
-<img src="toggle_edit.gif" width="500">
+<img src="toggle_edit.gif" width="500" alt="Gif showing how to toggle between 'Editable' and 'Read-Only' for a cell">
 </center>
 </section>
 <section id="my-text-cell-looks-like-code" class="level2">
@@ -252,7 +252,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell">My text cell changed to a code cell / My code cell changed to a text cell</h2>
 <p>Sometimes, a text (markdown) cell was changed to a code cell, or a code cell can’t be run because it’s been changed to a text (markdown) or raw cell. To fix this, toggle the desired cell type in the top bar.</p>
 <center>
-<img src="toggle_cell_type.gif" width="700">
+<img src="toggle_cell_type.gif" width="700" alt="Gif showing how to toggle the cell type from code to text and back again.">
 </center>
 </section>
 <section id="why-does-running-a-particular-cell-cause-my-kernel-to-die" class="level2">
@@ -268,18 +268,18 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="click-here-to-download-zip-file-is-not-working">“Click <u>here</u> to download zip file” is not working</h2>
 <p>When this happens, you can download the zip file through the menu on the left.</p>
 <center>
-<img src="zip_left_menu.png" width="400">
+<img src="zip_left_menu.png" width="400" alt="Left menu showing files with the zip file highlighted by a red box.">
 </center>
 <p>Right click on the generated zip file and click “Download”.</p>
 <center>
-<img src="zip_download.png" width="500">
+<img src="zip_download.png" width="500" alt="After right/force clicking on the zip file, click 'Download' which is highlighted in this screenshot with a red box.">
 </center>
 </section>
 <section id="autograder-could-not-locate-my-pdf" class="level2">
 <h2 class="anchored" data-anchor-id="autograder-could-not-locate-my-pdf">Autograder could not locate my PDF</h2>
 <p>Sometimes when running the <code>grader.export(run_tests=True)</code> cell at the end of the notebook, you run into an error where the autograder could not locate the PDF:</p>
 <center>
-<img src="pdf_not_located.png" width="700">
+<img src="pdf_not_located.png" width="700" alt="Screenshot showing 'UserWarning: Could not locate a PDF to include'">
 </center>
 <p>To fix this, make sure you have not accidentally converted any cells to <code>raw</code> type. All cells should either be <code>markdown</code> or <code>code</code> cells. You can easily convert cells by following <a href="https://ds100.org/debugging-guide/jupyter_datahub/jupyter_datahub.html#my-text-cell-changed-to-a-code-cell-my-code-cell-changed-to-a-text-cell">these instructions</a> earlier in the debugging guide.</p>
 </section>
@@ -287,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="i-cant-export-my-assignment-as-a-pdf-due-to-a-latexfailed-error">I can’t export my assignment as a PDF due to a <code>LatexFailed</code> error</h2>
 <p>Occasionally when running the <code>grader.export(run_tests=True)</code> cell at the end of the notebook, you run into an error where the PDF failed to generate:</p>
 <center>
-<img src="LatexError.png" width="500">
+<img src="LatexError.png" width="500" alt="Screenshot of a latex error that begins with 'LatexFailed: PDF creating failed, captured latex output:...'">
 </center>
 <p>Converting a Jupyter notebook to a PDF involves formatting some of the markdown text in <a href="https://www.latex-project.org/">LaTeX</a>. However, this process will fail if your free response answers have (unresolved) LaTeX characters like <code>\n</code>, <code>$</code>, or <code>$$</code>. There are several ways to resolve this:</p>
 <ol type="1">
