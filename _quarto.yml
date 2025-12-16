@@ -2,6 +2,15 @@ project:
   type: website
   output-dir: docs
 
+website:
+  site-url: "https://ds100.org/debugging-guide/"
+  page-footer: 
+    center:
+      - text: Accessibility
+        href: "https://dap.berkeley.edu/get-help/report-web-accessibility-issue"
+      - text: Nondiscrimination
+        href: "https://ophd.berkeley.edu/policies-and-procedures/nondiscrimination-policy-statement"
+
 book:
   site-url: "https://ds100.org/debugging-guide/"
   favicon: data100_logo.png
