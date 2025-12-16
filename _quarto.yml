@@ -10,31 +10,32 @@ website:
         href: "https://dap.berkeley.edu/get-help/report-web-accessibility-issue"
       - text: Nondiscrimination
         href: "https://ophd.berkeley.edu/policies-and-procedures/nondiscrimination-policy-statement"
-
-book:
-  site-url: "https://ds100.org/debugging-guide/"
   favicon: data100_logo.png
   title: "Data 100 Debugging Guide"
   image: data100_logo.png
-  author: ["Yash Dave", "Lillian Weng", "Wesley Zheng", "Emrie Loh"]
   repo-url: https://github.com/DS-100/debugging-guide
   search:
     location: sidebar
     type: textbox
-  chapters:
-    - index.md
-    - jupyter101/jupyter101.md
-    - jupyter_datahub/jupyter_datahub.md
-    - autograder_gradescope/autograder_gradescope.md
-    - pandas/pandas.md
-    - regex/regex.md
-    - visualizations/visualizations.md
-    - projA1/projA1.md
-    - projA2/projA2.md
-    - sql/sql.md
-
   sidebar:
     logo: "data100_logo.png"
+    style: "docked"
+    title: "Data 100 Debugging Guide"
+    logo-alt: "Data 100 logo"
+    tools:
+      - icon: github
+        href: https://github.com/DS-100/debugging-guide
+    contents:
+      - index.md
+      - jupyter101/jupyter101.md
+      - jupyter_datahub/jupyter_datahub.md
+      - autograder_gradescope/autograder_gradescope.md
+      - pandas/pandas.md
+      - regex/regex.md
+      - visualizations/visualizations.md
+      - projA1/projA1.md
+      - projA2/projA2.md
+      - sql/sql.md
 format:
   html:
     theme: cosmos
@@ -45,4 +46,3 @@ format:
     number-sections: false
     include-after-body: 
       - a11y-fixes.html
-  pdf: default
