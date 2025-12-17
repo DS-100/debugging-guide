@@ -48,7 +48,7 @@ Remember to always activate the right environment before running anything with `
 
 
 ## Repo Organization
-This website uses Quarto to render pages. The main index can be found in `_quarto.yml`, and subpages are organized under the `chapters` section. Each subpage has it's own folder and `.md` (markdown) file. Note that unlike the [Course Notes repo](https://github.com/DS-100/course-notes), the debugging guide rarely runs any code, so we rely on `.md` files rather than `.qmd` to save us the trouble of converting from `.qmd` to `.ipynb` for editing, then back to `.qmd` to render the website. Instead we can make edits directly to the `.md` file. 
+This website uses Quarto to render pages. The main index can be found in `_quarto.yml`, and subpages are organized under the `contents` section. Each subpage has it's own folder and `.md` (markdown) file. Note that unlike the [Course Notes repo](https://github.com/DS-100/course-notes), the debugging guide rarely runs any code, so we rely on `.md` files rather than `.qmd` to save us the trouble of converting from `.qmd` to `.ipynb` for editing, then back to `.qmd` to render the website. Instead we can make edits directly to the `.md` file. 
 
 ## Creating a new section
 To start a new document, create an empty folder `topic_name` and create an empty markdown file `topic_name.md`. Start each document like so: 
@@ -76,33 +76,33 @@ jupyter:
 
 Now, the notebook is ready for writing content.  In VSCode, you can activate a live preview of markdown files by clicking the button on the upper right-hand corner.
 
-![](md_preview.png)
+![](assets/images/readme/md_preview.png)
 
 Note that clicking on the quarto `Preview` button does not generate a *live* preview but rather a static one. Hence, we click the button on its right. 
 
 ## Document Formatting
-**Always `git pull` before making any new changes**. 
 
-A pdf view of how this notebook renders in Quarto can be found [here](https://drive.google.com/file/d/17ga5wvfcmvAzQ1rbnCP4kEf5bckST3--/view?usp=sharing).
+**Always `git pull` before making any new changes**. 
 
 #### Formatting Images
 
 To give you the most control when inserting images, we use html with the following format to center images/figs and control their size: 
 
-```<center><img src = "IMAGE_NAME" width = "IMAGE_WIDTH_IN_PIXELS" alt="alt text here"></img></a></center>```
+```<center><img src = "IMAGE_NAME" width = "IMAGE_WIDTH_IN_PIXELS" alt="ALT TEXT HERE"></img></a></center>```
 
 For example, `<center><img src = "images/updated_basic.png" width = "700" alt="description of image"></img></a></center>`.
 
-In some instances, the images may be completely described in the text of the page. In these cases, you may leave the alt text blank i.e. `alt=""`. BUT THE ALT TEXT MUST STILL BE INCLUDED.
-
+In some instances, the images may be completely described in the text of the page. In these cases, you may leave the alt text blank i.e. `alt=""`, **but alt text must still be included to meet our legal obligations.**
 
 ## Generating Output + Rendering Website
 After making edits to the `.md` files, ensure that the right documents are un-commented under `_quarto.yml`'s `chapter` section. Then, make sure you're using the right environment, and run `quarto render` in the main folder to render the entire website.
 
 To preview your changes, run `quarto preview`.
 
+Not all files in this repository need to be rendered. For example, images used in this README are not used in the website and as such do not need to be included in the rendered website. To ensure these files are not rendered, they are placed in the folder `assets/images/_readme/` which is not rendered because the folder begins with an underscore `_`. Read more about this [here](https://quarto.org/docs/websites/index.html#render-targets).
+
 ## Pushing to Github
-Once you're satisfied and *thoroughly tested* your changes, you can push your edits onto Github. There are two ways to do this: 
+Once you're satisfied and have *thoroughly tested* your changes, you can push your edits onto Github. There are two ways to do this: 
 
 1. **Command Line**. Navigate to the main `debugging-guide` folder if you haven't already and make sure you're in the right environment. 
 
@@ -114,11 +114,13 @@ git push # push your changes to github
 
 2. **Github Desktop** ([download](https://desktop.github.com/)). This is the GUI version of the command line. 
 
-  * Choose the files you want to commit on the left hand menu. By default, github will select all changes/new files. ![](git_files.png)
-  * Write an informative comment on the bottom left hand corner and click "commit to main" once finished ![](git_comment.png)
+  * Choose the files you want to commit on the left hand menu. By default, github will select all changes/new files. ![](assets/images/readme/git_files.png)
+  * Write an informative comment on the bottom left hand corner and click "commit to main" once finished ![](assets/images/readme/git_comment.png)
   * Push your changes using the button on the top right. 
 
-Once your changes are pushed, you can see the progress of your build in the ["Actions" tab](https://github.com/DS-100/debugging-guide/actions); green means the website built successfully, yellow/orange indicates that it's still building, and red means there was an error and the website was unable to build. The website  should take less than 5 minutes to build, and you will see the changes reflected in the [website](https://ds100.org/debugging-guide/). 
+Once your changes are pushed, you can see the progress of your build in the ["Actions" tab](https://github.com/DS-100/debugging-guide/actions). The Actions tab monitors all workflows. Currently there are two workflows: "pages-build-deployment" which builds and deploys the website, and "Accessibility Checks." If both checks complete successfully, you will see a green checkmark next to each workflow's most recent run on the Actions page as well as a green checkmark on the main repo page for the associated commit. Yellow/orange indicates that checks are still running, meaning that the website may not be deployed yet. Red means that at least one check was unable to complete successfully. You should always investigate if you see a red mark; It's possible that the website deployed successfully but the accessibility checks failed, or vice versa. 
+
+The website should take less than 5 minutes to deploy, and you will see the changes reflected in the [website](https://ds100.org/debugging-guide/). 
 
 
 ## Other Quarto Resources

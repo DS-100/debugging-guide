@@ -10,15 +10,15 @@ website:
         href: "https://dap.berkeley.edu/get-help/report-web-accessibility-issue"
       - text: Nondiscrimination
         href: "https://ophd.berkeley.edu/policies-and-procedures/nondiscrimination-policy-statement"
-  favicon: data100_logo.png
+  favicon: assets/images/data100_logo.png
   title: "Data 100 Debugging Guide"
-  image: data100_logo.png
+  image: assets/images/data100_logo.png
   repo-url: https://github.com/DS-100/debugging-guide
   search:
     location: sidebar
     type: textbox
   sidebar:
-    logo: "data100_logo.png"
+    logo: "assets/images/data100_logo.png"
     style: "docked"
     title: "Data 100 Debugging Guide"
     logo-alt: "Data 100 logo"
@@ -45,4 +45,4 @@ format:
     callout-icon: false
     number-sections: false
     include-after-body: 
-      - a11y-fixes.html
+      - assets/scripts/a11y-fixes.html
