@@ -58,14 +58,8 @@ To start a new document, create an empty folder `topic_name` and create an empty
 title: INSERT_TOPIC_TITLE
 format:
   html:
-    toc: true
-    toc-depth: 5
     toc-location: right
     code-fold: false
-    theme:
-      - cosmo
-      - cerulean
-    callout-icon: false
 jupyter:
   jupytext:
     text_representation:
