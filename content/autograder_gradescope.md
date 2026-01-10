@@ -3,7 +3,8 @@ title: Autograder and Gradescope / Pensieve
 ---
 
 :::{seealso} Citation
-    Many of these common questions were taken and modified from the UC San Diego course DSC 10: Principles of Data Science and their [debugging guide](https://dsc10.com/debugging/).
+
+Many of these common questions were taken and modified from the UC San Diego course DSC 10: Principles of Data Science and their [debugging guide](https://dsc10.com/debugging/).
 :::
 
 ## Autograder
@@ -78,6 +79,7 @@ Find the first cell that raises an error. Make sure that all of the variables us
 
 This happens when you try to access a variable that has not been defined yet. Since the autograder runs all the cells in-order, if you happened to define a variable in a cell further down and accessed it before that cell, the autograder will likely throw this error. Another reason this could occur is because the notebook was not saved before the autograder tests are run. When in doubt, it is good practice to restart your kernel, run all the cells again, and save the notebook before running the cell that causes this error.
 
+(multiple-nameError)=
 ### Why do I see multiple `NameError: name ___ is not defined` errors for all questions after a certain point on Gradescope/Pensieve?
 
 This can happen if you import external packages when you are not instructed to do so. The base image on Gradescope/Pensieve includes only a specific list of pre-installed packages, defined by the course staff in the autograder. If you import a package that is not on this list, it will not be available to the autograder, even if you download the package correctly on your local Jupyter notebook environment. As a result, it will first encounter a `ModuleNotFoundError` when trying to import the package (though this error may not be shown to you), and then a `NameError` for every question afterward. Although this behavior is unintuitive, it’s a limitation of the autograder—only course staff can view certain output messages from your notebook to prevent cheating. If you encounter this issue, review your notebook’s imports and ensure you are not using any packages not included in the autograder environment.
@@ -98,7 +100,7 @@ or if it times out:
 :alt: Autograder Results. In a red box 'The autograder failed to respond in the expected amount of time. If the autograder continues to fail, contact your course staff for help in debugging this issue. Make sure to include a link to this page so they can help you most effectively.
 ```
 
-it means that the Gradescope autograder failed to execute in the expected amount of time. TThis could be due to an inefficiency in your code or an issue on Gradescope's end, so we recommend resubmitting and allowing the autograder to rerun. If the issue persists after a few attempts, you may need to investigate your code for inefficiencies.
+it means that the Gradescope autograder failed to execute in the expected amount of time. This could be due to an inefficiency in your code or an issue on Gradescope's end, so we recommend resubmitting and allowing the autograder to rerun. If the issue persists after a few attempts, you may need to investigate your code for inefficiencies.
 
 For example, if you rerun all cells in your Jupyter notebook and notice that some cells take significantly longer to run than others, you might need to optimize those cells. Keep in mind that the time it takes to run all tests in your Jupyter notebook is not equivalent to the time it takes on Gradescope/Pensieve. However, it is proportional—if your notebook runs slowly on Datahub, it will likely run even more slowly on Gradescope/Pensieve, as the difference in runtime is amplified.
 

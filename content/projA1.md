@@ -6,7 +6,7 @@ title: Project A1 Common Questions
 
 ### `TypeError: could not convert string to float: 'SF'`
 
-Type errors like these usually stem from applying a numeric aggregation function to a non-numeric column as described in the `pandas` [çsection](#convert-str-float) of the debugging guide.
+Type errors like these usually stem from applying a numeric aggregation function to a non-numeric column as described in the `pandas` [section](#convert-str-float) of the debugging guide.
 
 Aggregation functions like `np.median` and `np.mean` are only well-defined for columns with numeric types like `int` and `float`. Your code is likely trying to aggregate across all columns in `training_data`, including those of type `str`. Instead of aggregating across the entire `DataFrame`, try just selecting the relevant columns.
 

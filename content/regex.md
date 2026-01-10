@@ -9,16 +9,16 @@ RegEx syntax can be incredibly confusing, so we highly encourage using sources l
 
 ### Example 1: Basic
 
-```{image} images/updated_basic.png" 
+```{image} images/updated_basic.png
 :width: 700
 :alt: A screenshot of regex101 with five different components of the website highlighted. On the left is region 0. In the upper middle is region 1. In the lower middle is region 3. On the upper right is region 2. On the lower right is region 4.
 ```
 
-0. **Flavor**: Regular expressions work slightly differently depending on the programming language you use. In Data 100, we only use the `Python` flavor. By default, regex101 opens on the PCRE2 flavor, so make sure to change to `Python` before experimenting.
-1. **Regular Expression**: This is where the RegEx expression goes. For this example, our pattern is `Data 100`. In `Python`, we denote it as a string `r"Data 100"` with the prefix `r` to indicate that this is a RegEx expression, not a normal `Python` string. In regex101, because we changed to the `Python` flavor, we don't need to type out the  `r"` at the start or the `"` at the end, as that's already set up for us.
-2. **Explanation**: This portion of the website explains each component of the pattern above. Since it does not contain any special characters, `Data 100` will match any portion of a string containing `Data 100`.
-3. **Test String**: This is where you can try out different inputs and see if they match the RegEx pattern. Of the 4 example sentences, we see that only the first sentence contains characters that match the pattern, highlighted in blue. (Note that while sentence 3 does contain `data 100`, RegEx is sensitive to capitalization. `d` and `D` are different characters)
-4. **Match Information**: Each match between the RegEx expression and test strings is shown here. 
+* 0\. **Flavor**: Regular expressions work slightly differently depending on the programming language you use. In Data 100, we only use the `Python` flavor. By default, regex101 opens on the PCRE2 flavor, so make sure to change to `Python` before experimenting.
+* 1\. **Regular Expression**: This is where the RegEx expression goes. For this example, our pattern is `Data 100`. In `Python`, we denote it as a string `r"Data 100"` with the prefix `r` to indicate that this is a RegEx expression, not a normal `Python` string. In regex101, because we changed to the `Python` flavor, we don't need to type out the  `r"` at the start or the `"` at the end, as that's already set up for us.
+* 2\. **Explanation**: This portion of the website explains each component of the pattern above. Since it does not contain any special characters, `Data 100` will match any portion of a string containing `Data 100`.
+* 3\. **Test String**: This is where you can try out different inputs and see if they match the RegEx pattern. Of the 4 example sentences, we see that only the first sentence contains characters that match the pattern, highlighted in blue. (Note that while sentence 3 does contain `data 100`, RegEx is sensitive to capitalization. `d` and `D` are different characters)
+* 4\. **Match Information**: Each match between the RegEx expression and test strings is shown here. 
 
 ### Example 2: Greedy 
 For this example, let's replace the `100` in our original expression with `\d+` so that our pattern is `Data \d+`
@@ -74,7 +74,9 @@ result.group(3) # '2024', the third captured group
 ### I'm certain my RegEx pattern in `.str.replace` is correct, but I'm not passing the grader check. 
 Here's the skeleton from the exam reference sheet: 
 
-  s.str.replace(pat, repl, regex=False)
+```python
+s.str.replace(pat, repl, regex=False)
+```
 
 Notice how the `regex=` argument has a default value of `False`, causing `pandas` to treat `pat` like a normal `Python` string. Make sure to set `regex=True` if you're using RegEx!
 
