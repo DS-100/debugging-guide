@@ -1,0 +1,24 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: f91906bb-92a8-45f2-94bd-7102ef44f39f
+  title: Data 100 Debugging Guide
+  license: BSD-3-Clause
+  toc: 
+    - file: content/index.md
+    - file: content/jupyter101.md
+    - file: content/jupyter_datahub.md
+    - file: content/autograder_gradescope.md
+    - file: content/pandas.md
+    - file: content/regex.md
+    - file: content/visualizations.md
+    - file: content/projA1.md
+    - file: content/projA2.md
+    - file: content/sql.md
+  github: https://github.com/DS-100/debugging-guide
+site:
+  template: book-theme
+  options:
+    favicon: assets/images/data100_logo.png
+    logo: assets/images/data100_logo.png
+    logo_text: "Data 100 Debugging Guide"
