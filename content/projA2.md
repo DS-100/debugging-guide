@@ -111,9 +111,9 @@ Note that in the function body, the skeleton code includes:
 
 The above two lines of code are included to avoid dividing by 0 when computing `prop_overest` in the case that `subset_df` does not have any rows. When interpreting the plots, you can disregard the negative portions as you know they are invalid values corresponding to this edge case. You can verify this by observing that your `RMSE` plot does not display the corresponding intervals.
 
-## Gradescope/Pensieve
+## Gradescope/Pensive
 
-### I don't have many Gradescope/Pensieve submissions left
+### I don't have many Gradescope/Pensive submissions left
 
 If you're almost out of Gradescope submissions, try using k-fold cross-validation to check the accuracy of your model. Results from cross-validation will be closer to the test set accuracy than results from the training data. Feel free to take a look at this [code](https://ds100.org/fa24/resources/assets/lectures/lec16/lec16.html) if you're confused on how to implement cross-validation.
 
@@ -123,7 +123,7 @@ This occurs when you remove outliers when preprocessing the testing data. _Pleas
 
 ### My code runs locally, but it fails for every question after a certain point
 
-See [Why do I see multiple NameError: name `___` is not defined errors for all questions after a certain point on Gradescope/Pensieve?](#multiple-nameError)
+See [Why do I see multiple NameError: name `___` is not defined errors for all questions after a certain point on Gradescope/Pensive?](#multiple-nameError)
 
 <!-- ### Numerical Overflow
 

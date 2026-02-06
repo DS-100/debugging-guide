@@ -1,5 +1,5 @@
 ---
-title: Autograder and Gradescope / Pensieve
+title: Autograder and Gradescope / Pensive
 ---
 
 :::{seealso} Citation
@@ -59,19 +59,19 @@ This can happen if you “overwrite” a variable that is used in a question. Fo
 
 You probably ran your notebook out of order. [Re-run all previous cells](#running-cells) in order, which is how your code will be graded.
 
-## Gradescope/Pensieve
+## Gradescope/Pensive
 
-When submitting to Gradescope or Pensieve, there are often unexpected errors that make students lose more points than expected. Thus, it is imperative that you **stay on the submission page until the autograder finishes running**, and the results are displayed.
+When submitting to Gradescope or Pensive, there are often unexpected errors that make students lose more points than expected. Thus, it is imperative that you **stay on the submission page until the autograder finishes running**, and the results are displayed.
 
-### Why did a Gradescope/Pensieve test fail when all the Jupyter notebook’s tests passed?
+### Why did a Gradescope/Pensive test fail when all the Jupyter notebook’s tests passed?
 
-This can happen if you’re running your notebook’s cells out of order. The autograder runs your notebook from top-to-bottom. If you’re defining a variable at the bottom of your notebook and using it at the top, the Gradescope/Pensieve autograder will fail because it doesn’t recognize the variable when it encounters it.
+This can happen if you’re running your notebook’s cells out of order. The autograder runs your notebook from top-to-bottom. If you’re defining a variable at the bottom of your notebook and using it at the top, the Gradescope/Pensive autograder will fail because it doesn’t recognize the variable when it encounters it.
 
-Another scenario where this can happen is if you defined a variable in an earlier cell but later changed its name or deleted it. While your current session's kernel will "remember" the variable, the Gradescope/Pensieve autograder will not, because it runs the notebook from top to bottom with no variables pre-stored. As a result, it will not recognize the variable if it has been deleted or renamed, and will throw an error.
+Another scenario where this can happen is if you defined a variable in an earlier cell but later changed its name or deleted it. While your current session's kernel will "remember" the variable, the Gradescope/Pensive autograder will not, because it runs the notebook from top to bottom with no variables pre-stored. As a result, it will not recognize the variable if it has been deleted or renamed, and will throw an error.
 
 The third scenario where this can happen is if you do not save your notebook before running the final export cell, which generates a zip file containing your notebook and the necessary files. If you run the export cell without saving, the autograder will not have access to the most recent version of your notebook, which can lead to unexpected errors. It will rely on the state of the notebook at the time of the last save, so any changes made afterward will not be reflected in the autograder’s execution.
 
-This is why we recommend first saving and then going into the top left menu and clicking `Kernel` -> `Restart` -> `Run All`. The autograder “forgets” all of the variables and runs the notebook from top-to-bottom like the Gradescope/Pensieve autograder does. This will highlight any issues.
+This is why we recommend first saving and then going into the top left menu and clicking `Kernel` -> `Restart` -> `Run All`. The autograder “forgets” all of the variables and runs the notebook from top-to-bottom like the Gradescope/Pensive autograder does. This will highlight any issues.
 
 Find the first cell that raises an error. Make sure that all of the variables used in that cell have been defined above that cell, and not below.
 
@@ -80,9 +80,9 @@ Find the first cell that raises an error. Make sure that all of the variables us
 This happens when you try to access a variable that has not been defined yet. Since the autograder runs all the cells in-order, if you happened to define a variable in a cell further down and accessed it before that cell, the autograder will likely throw this error. Another reason this could occur is because the notebook was not saved before the autograder tests are run. When in doubt, it is good practice to restart your kernel, run all the cells again, and save the notebook before running the cell that causes this error.
 
 (multiple-nameError)=
-### Why do I see multiple `NameError: name ___ is not defined` errors for all questions after a certain point on Gradescope/Pensieve?
+### Why do I see multiple `NameError: name ___ is not defined` errors for all questions after a certain point on Gradescope/Pensive?
 
-This can happen if you import external packages when you are not instructed to do so. The base image on Gradescope/Pensieve includes only a specific list of pre-installed packages, defined by the course staff in the autograder. If you import a package that is not on this list, it will not be available to the autograder, even if you download the package correctly on your local Jupyter notebook environment. As a result, it will first encounter a `ModuleNotFoundError` when trying to import the package (though this error may not be shown to you), and then a `NameError` for every question afterward. Although this behavior is unintuitive, it’s a limitation of the autograder—only course staff can view certain output messages from your notebook to prevent cheating. If you encounter this issue, review your notebook’s imports and ensure you are not using any packages not included in the autograder environment.
+This can happen if you import external packages when you are not instructed to do so. The base image on Gradescope/Pensive includes only a specific list of pre-installed packages, defined by the course staff in the autograder. If you import a package that is not on this list, it will not be available to the autograder, even if you download the package correctly on your local Jupyter notebook environment. As a result, it will first encounter a `ModuleNotFoundError` when trying to import the package (though this error may not be shown to you), and then a `NameError` for every question afterward. Although this behavior is unintuitive, it’s a limitation of the autograder—only course staff can view certain output messages from your notebook to prevent cheating. If you encounter this issue, review your notebook’s imports and ensure you are not using any packages not included in the autograder environment.
 
 ### My autograder keeps running/timed out
 
@@ -102,6 +102,6 @@ or if it times out:
 
 it means that the Gradescope autograder failed to execute in the expected amount of time. This could be due to an inefficiency in your code or an issue on Gradescope's end, so we recommend resubmitting and allowing the autograder to rerun. If the issue persists after a few attempts, you may need to investigate your code for inefficiencies.
 
-For example, if you rerun all cells in your Jupyter notebook and notice that some cells take significantly longer to run than others, you might need to optimize those cells. Keep in mind that the time it takes to run all tests in your Jupyter notebook is not equivalent to the time it takes on Gradescope/Pensieve. However, it is proportional—if your notebook runs slowly on Datahub, it will likely run even more slowly on Gradescope/Pensieve, as the difference in runtime is amplified.
+For example, if you rerun all cells in your Jupyter notebook and notice that some cells take significantly longer to run than others, you might need to optimize those cells. Keep in mind that the time it takes to run all tests in your Jupyter notebook is not equivalent to the time it takes on Gradescope/Pensive. However, it is proportional—if your notebook runs slowly on Datahub, it will likely run even more slowly on Gradescope/Pensive, as the difference in runtime is amplified.
 
 **It is your responsibility to ensure that the autograder runs properly**, and if it still fails, you should follow up by making a private Ed post.
