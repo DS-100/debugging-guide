@@ -1,5 +1,5 @@
 ---
-title: Homework 6 Hidden Tests
+title: Homework 6 Coding Hidden Tests
 ---
 
 ## Q2a
