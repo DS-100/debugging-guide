@@ -19,6 +19,7 @@ project:
     - file: content/hw6_hidden_tests.md
     - file: content/hw7_hidden_tests.md
     - file: content/sql.md
+    - file: content/projB1_hidden_tests.md
   github: https://github.com/DS-100/debugging-guide
 site:
   template: book-theme
