@@ -25,7 +25,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Build Jupyter Book
-        run: jupyter-book build --html
+        run: jupyter-book build --html --base-url /
 
       # 2. Setup Node environment for Axe
       - name: Setup Node.js
@@ -45,8 +45,6 @@ jobs:
           # A. Start a local server in the background
           npx http-server ./_build/html -p 8080 -s &
           sleep 5
-          curl -s http://localhost:8080/index.html | grep "myst-no-css"
-
           
           # B. Generate the URL list from the actual build artifacts
           cd _build/html
