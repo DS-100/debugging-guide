@@ -54,7 +54,6 @@ jobs:
           axe $URLS \
             --tags wcag2a,wcag2aa,wcag21a,wcag21aa \
             --save axe-report.json \
-            --browser-options "window-size=1920,1080" \
             --exit
 
       - name: Upload Accessibility Report
