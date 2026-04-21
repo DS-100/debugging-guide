@@ -39,6 +39,12 @@ jobs:
       - name: Get Matching Chrome version
         run: npx browser-driver-manager install chrome
 
+      - name: Dump HTML for Debugging
+        run: |
+          echo "--- START OF HTML ---"
+          cat _build/html/index.html
+          echo "--- END OF HTML ---"
+
       # 3. Serve, Discover URLs, and Run Axe
       - name: Run Axe Checks
         run: |
