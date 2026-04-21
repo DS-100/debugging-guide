@@ -45,6 +45,8 @@ jobs:
           # A. Start a local server in the background
           npx http-server ./_build/html -p 8080 -s &
           sleep 5
+          curl -s http://localhost:8080/index.html | grep "myst-no-css"
+
           
           # B. Generate the URL list from the actual build artifacts
           cd _build/html
