@@ -25,7 +25,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Build Jupyter Book
-        run: jupyter-book build --html --base-url /
+        run: jupyter-book build --html 
 
       # 2. Setup Node environment for Axe
       - name: Setup Node.js
@@ -52,6 +52,7 @@ jobs:
           
           # C. Run Axe CLI on the discovered URLs
           axe $URLS \
+            --wait 3000 \
             --tags wcag2a,wcag2aa,wcag21a,wcag21aa \
             --save axe-report.json \
             --exit
