@@ -54,6 +54,7 @@ jobs:
           axe $URLS \
             --tags wcag2a,wcag2aa,wcag21a,wcag21aa \
             --save axe-report.json \
+            --viewport-width 1920 --viewport-height 1080 \
             --exit
 
       - name: Upload Accessibility Report
