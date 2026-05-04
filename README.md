@@ -1,6 +1,6 @@
 # Debugging Guide
 
-[![Accessibility Checks](https://github.com/DS-100/debugging-guide/actions/workflows/a11y.yml/badge.svg)](https://github.com/DS-100/debugging-guide/actions/workflows/a11y.yml)
+[![GitHub Pages Deployment](https://github.com/DS-100/debugging-guide/actions/workflows/deploy.yml/badge.svg)](https://github.com/DS-100/debugging-guide/actions/workflows/deploy.yml) [![Accessibility Checks](https://github.com/DS-100/debugging-guide/actions/workflows/a11y.yml/badge.svg)](https://github.com/DS-100/debugging-guide/actions/workflows/a11y.yml)
 
 This was built with [Jupyter Book (MyST flavor)](https://jupyterbook.org/en/stable/intro.html). 
 
