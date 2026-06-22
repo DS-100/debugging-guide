@@ -13,13 +13,10 @@ project:
     - file: content/regex.md
     - file: content/visualizations.md
     - file: content/projA1.md
-    - file: content/projA1_hidden_tests.md
     - file: content/projA2.md
-    - file: content/projA2_hidden_tests.md
-    - file: content/hw6_hidden_tests.md
-    - file: content/hw7_hidden_tests.md
     - file: content/sql.md
-    - file: content/projB1_hidden_tests.md
+    - file: content/HW1_Hidden__Tests.md
+
   github: https://github.com/DS-100/debugging-guide
 site:
   template: book-theme

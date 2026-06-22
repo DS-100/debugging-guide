@@ -7,4 +7,4 @@ Inspiration for this guide was taken from the UC San Diego course DSC 10: Princi
 If you spot any typos or would like to suggest any changes, please email us at **data100.instructors@berkeley.edu** or [file an issue on our GitHub](https://github.com/DS-100/debugging-guide/issues/new).
 
 ## Authors
-In alphabetical order, Yash Dave, Sardaana Eginova, Willy Guan, Emrie Loh, Lillian Weng, and Wesley Zheng.
+In alphabetical order, Yash Dave, Sardaana Eginova, Willy Guan, Kevin Hu, Emrie Loh, Lillian Weng, and Wesley Zheng.
