@@ -4,7 +4,7 @@ title: Project A1 Hidden Tests
     
 ## Question 2
 
-### Q2ai
+### Q2a
 
 - `q2a` = [1, 100, 10, 101]
 
