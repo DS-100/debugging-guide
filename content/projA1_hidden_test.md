@@ -47,9 +47,3 @@ title: Project A1 Hidden Tests
 ### Q6c
 
 - The sum of `in_expensive_neighborhood` after calling `add_in_expensive_neighborhood(training_data, [44, 94, 93])` is 1290.
-
-## Question 7
-
-### Q7a
-
-- The sum across `Wall Material_Masonry`, `Wall Material_Stucco`, `Wall Material_Wood`, and `Wall Material_Wood&Masonry` is equal to the number of rows in `training_data_mapped`.
