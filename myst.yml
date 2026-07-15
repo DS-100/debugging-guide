@@ -17,6 +17,7 @@ project:
     - file: content/sql.md
     - file: content/HW1_Hidden__Tests.md
     - file: content/hw03_hidden_test.md
+    - file: content/projA1_hidden_test.md
 
   github: https://github.com/DS-100/debugging-guide
 site:
