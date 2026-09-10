@@ -8,7 +8,7 @@ project:
     - file: content/index.md
     - file: content/jupyter101.md
     - file: content/jupyter_datahub.md
-    - file: content/autograder_gradescope.md
+    - file: content/autograder_pensive.md
     # - file: content/pandas.md
     - file: content/regex.md
     - file: content/visualizations.md
