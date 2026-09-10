@@ -100,9 +100,9 @@ Occasionally when running the `grader.export(run_tests=True)` cell at the end of
 
 Converting a Jupyter notebook to a PDF involves formatting some of the markdown text in [LaTeX](https://www.latex-project.org/). However, this process will fail if your free response answers have (unresolved) LaTeX characters like `\n`, `$`, or `$$`. There are several ways to resolve this:
 
-1. **Export the notebook as a PDF**: In the upper left hand menu, go to `File` -> `Save and Export Notebook As` -> `PDF`. Upload this file to Gradescope under the "Submit PDF" option.
+1. **Export the notebook as a PDF**: In the upper left hand menu, go to `File` -> `Save and Export Notebook As` -> `PDF`. Upload this file to Pensive under the "Submit PDF" option.
 2. **Print the notebook from HTML**: In the upper left hand menu, go to `File` -> `Save and Export Notebook As` -> `HTML`. In the new tab that will open up, print the website by typing `ctrl` + `p` (Windows) or `cmd` + `p` (Mac).
-3. **Take screenshots**: If you're short on time, your best bet is to take screenshots of your free response answers. When submitting to Gradescope, choose the "Submit Images" options instead of the "Submit PDF" option.
+3. **Take screenshots**: If you're short on time, your best bet is to take screenshots of your free response answers. When submitting to Pensive, choose the "Submit Images" options instead of the "Submit PDF" option.
 4. **Removing special LaTeX characters**: If you have more time and would like the Datahub-generated PDF, please remove any special LaTeX characters from your free response answers.
 
 If you use an alternate form of submission listed above, you don't need to worry if you can't select pages or if the selection doesn't align. We'll manually look through your submission when grading, and will account for that.
